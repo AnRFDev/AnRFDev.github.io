@@ -1,0 +1,121 @@
+<!--
+    THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/zh/editor.html?c=tree-basic
+-->
+<!DOCTYPE html>
+<html style="height: 100%; width: 100%; overflow-y: scroll;">
+
+<head>
+    <meta charset="utf-8">
+    <title>RustFisher - 文章目录 | 安卓开发 | 软件开发</title>
+    <meta name="description" content="为方便朋友入门安卓应用开发，整理的Android新手教程。突出一个简单明了，上手快。汇总了Android开发需要的知识，也讲解一些Java知识。降低上手难度，给新手一个更好的启动条件。无论是在校学生，编程爱好者，软件开发者，都能迅速的开启Android应用编程之旅。从实用性出发，快速掌握Android开发基本技能。需要读者有一定的Java基础和Kotlin基础。文章仍在整理中。如果有意见和建议，欢迎联系我。">
+    <meta name="keywords" content="文章总览,安卓教程,Android开发,Android教程">
+</head>
+
+<body style="height: 100%; margin: 0; width: 100%;">
+    <div id="container" style="height: 100%; width: 100%;">
+        <div id="chartContainer" style="width: 100%; min-height: 1600px"></div>
+    </div>
+
+    <script type="text/javascript" src="https://cdn.staticfile.org/echarts/5.2.2/echarts.min.js"></script>
+    <!-- <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script> -->
+    <script src="https://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.2.min.js"></script>
+
+
+    <script type="text/javascript">
+        var dom = document.getElementById("chartContainer");
+        var myChart = echarts.init(dom);
+        var app = {};
+
+        var option;
+
+        myChart.showLoading();
+        $.getJSON('./android-url-map.json', function (data) {
+            myChart.hideLoading();
+
+            data.children.forEach(function (datum, index) {
+                // index % 2 === 0 && (datum.collapsed = true);
+                datum.collapsed = false;
+            });
+
+            myChart.setOption(option = {
+                tooltip: {
+                    trigger: 'item',
+                    triggerOn: 'mousemove'
+                },
+                series: [
+                    {
+                        type: 'tree',
+
+                        data: [data],
+
+                        top: '1%',
+                        left: '7%',
+                        bottom: '1%',
+                        right: '20%',
+                        layout: 'radial',
+
+                        symbol: 'emptyCircle',
+
+                        symbolSize: 7,
+
+                        initialTreeDepth: 3,
+
+                        animationDurationUpdate: 750,
+
+                        emphasis: {
+                            focus: 'descendant'
+                        },
+
+                        label: {
+                            position: 'left',
+                            verticalAlign: 'middle',
+                            align: 'right',
+                            fontSize: 9
+                        },
+
+                        leaves: {
+                            label: {
+                                position: 'right',
+                                verticalAlign: 'middle',
+                                align: 'left'
+                            }
+                        },
+
+                        emphasis: {
+                            focus: 'descendant'
+                        },
+
+                        expandAndCollapse: true,
+                        animationDuration: 550,
+                        animationDurationUpdate: 750
+                    }
+                ]
+            });
+        });
+
+        if (option && typeof option === 'object') {
+            myChart.setOption(option);
+        }
+        myChart.on('click', function (params) {
+            if (params.data && params.data.url) {
+                window.open(params.data.url);
+            }
+        });
+        $(window).on('resize', function () {
+            if (myChart != null && myChart != undefined) {
+                myChart.resize();
+            }
+        });
+
+
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?9a99e4ef18a8c3f13a014114d842cd1e";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</body>
+
+</html>

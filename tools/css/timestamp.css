@@ -1,0 +1,61 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+
+.clearfix:after{content: ''; display: table; clear: both;}.clearfix{zoom: 1;}
+
+.titleIcon{
+	margin-right: 5px;
+	font-size: 24px;
+}
+
+/* 实际上是文字 */
+.convertIcon{
+	display:inline-block;
+	border-radius: 15px;
+	color: #ffffff;
+	height: 30px;
+	line-height:30px;
+	font-size: 13px;
+	background: rgb(65,87,153);
+	position: absolute;
+	padding-left: 13px;
+	padding-right: 13px;
+	bottom: 10px;
+	right: 10px;
+}
+
+.timeCard{
+	position: relative;
+	min-height: 220px;
+	max-width: 99%;
+	padding: 20px 10px 10px 20px;
+	box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+	margin: 10px;
+}
+.timeCard label{
+	display: block;
+	font-size: 15px;
+	color: black;
+}
+.timeCard input {
+	margin-top: 4px;
+	margin-bottom: 6px;
+}
+
+.codeSampleCard{
+	min-height: 120px;
+	max-width: 99%;
+	padding: 20px 10px 10px 20px;
+	box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+	margin: 10px;
+}
+.codeSampleCard label{
+	display: block;
+}
+
+.adslot_1a, .adslot_1b, .adslot_1c { display: none }
+@media (max-width:499px) { .adslot_1a { display: inline-block; width: 320px; height: 100px; } }
+@media (min-width:500px) and (max-width:799px) { .adslot_1b { display: inline-block; width: 468px; height: 60px; } }
+@media (min-width:800px) { .adslot_1c { display: inline-block; width: 728px; height: 90px; } }

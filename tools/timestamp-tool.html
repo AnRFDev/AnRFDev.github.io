@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+	<meta charset="utf-8" />
+	<meta name="applicable-device" content="pc,mobile">
+	<meta http-equiv="X-UA-Compatible" content="edge" />
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
+		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="iconfont/iconfont.css" />
+	<link rel="stylesheet" type="text/css" href="css/timestamp.css" />
+	<link rel="stylesheet" type="text/css" href="css/common.css" />
+	<title>时间戳转换工具</title>
+
+	<script src="../baidu.js"></script>
+
+</head>
+
+<body>
+
+	<div style="height: 50px; background: #171f36;">
+		<div class="container navBar">
+			<ul>
+				<li><a href="https://an.rustfisher.com/tools/timestamp-tool.html">时间戳</a></li>
+				<li><a href="https://an.rustfisher.com/tools/clock-k2.html">Kindle Clock</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="form-inline" style="padding: 20px 0px 30px 10px; background:rgb(65,87,153);">
+		<div class="container">
+			<h3 style="color: #ffffff;"><span class="iconfont icon-shizhong titleIcon"></span>时间戳转换工具</h3>
+			<h4 style='color: #ffffff; margin-top: 6px;'>北京时间|系统时间|时间戳|转换</h4>
+		</div>
+	</div>
+
+	<!-- bootstrap的 -->
+	<div class="container">
+		<div class="timeBoxWrap clearfix">
+			<div class="col-xs-12 col-sm-12 col-md-4 col-ld-4 form-inline">
+				<div class="timeCard">
+					<label>当前日期<label>
+							<input type="text" value="" id="nowDateTime" class="form-control" />
+							<label>当前时间戳</label>
+							<input type="text" value="" id="nowTimestamp" class="form-control" />
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-4 col-ld-4 form-inline">
+				<div class="timeCard">
+					<label>输入时间戳</label>
+					<input type="text" value="" id="inputTimestamp" class="form-control" />
+					<label>已转换时间</label>
+					<input type="text" value="" id="outputDateTime" class=" form-control" />
+					<span class="convertIcon" onclick="toDateTime()">转换为时间</span>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-4 col-ld-4 form-inline">
+				<div class="timeCard">
+					<label>输入时间</label>
+					<input type="text" value="" id="inputDate" class="form-control" />
+					<label>已转换时间戳</label>
+					<input type="text" value="" id="outputTimemap" class=" form-control" />
+					<span class="convertIcon" onclick="toTimemap()">转换为时间戳</span>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="form-inline" style="padding: 10px 0px 10px 10px; background:rgb(65,87,153); margin-top: 10px;">
+		<div class="container">
+			<h4 style='color: #ffffff; margin-top: 6px;'><span class="iconfont icon-codelibrary titleIcon"> 时间戳相关的代码
+			</h4>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-ld-12">
+			<div class="codeSampleCard">
+				<label>MySQL</label>
+				<span style="word-wrap: break-word;">select * from `date` where DATE
+					DIFF(FROM_UNIXTIME(unix_timestamp),NOW())=0</span>
+				<br />
+				<span># 查询当前时间数据 unix_timestamp是时间戳 0是当天 -1是前一天</span>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-4 col-md-4 col-ld-4">
+			<div class="codeSampleCard">
+				<label>PHP</label>
+				<span>echo time();</span>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-4 col-md-4 col-ld-4">
+			<div class="codeSampleCard">
+				<label>Java</label>
+				<span>(int) (System.currentTimeMillis() / 1000)</span>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-4 col-md-4 col-ld-4">
+			<div class="codeSampleCard">
+				<label>JavaScript</label>
+				<span>Math.round(new Date() / 1000)</span>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-4 col-md-4 col-ld-4">
+			<div class="codeSampleCard">
+				<label>Shell</label>
+				<span>date +%s</span>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-4 col-md-4 col-ld-4">
+			<div class="codeSampleCard">
+				<label>SQLite</label>
+				<span>SELECT strftime('%s', 'now')</span>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-4 col-md-4 col-ld-4">
+			<div class="codeSampleCard">
+				<label>Python</label>
+				<span>import time</span>
+				<br />
+				<span>time.time()</span>
+			</div>
+		</div>
+
+	</div>
+
+	<div style="display: block; margin-left: auto; margin-right: auto">
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- ad-banner-1 -->
+		<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7286632197002340"
+			data-ad-slot="9998765093" data-ad-format="auto" data-full-width-responsive="true"></ins>
+		<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+	</div>
+	<footer class="row footer-div">
+
+	</footer>
+
+</body>
+
+<script>
+	console.log('script start');
+	nowTimestamp();
+	window.setInterval(nowTimestamp, 1000);
+	var timestamp = Date.parse(new Date());
+	document.getElementById('inputDate').value = getNowFormatDate();
+	timestamp = timestamp / 1000;
+	document.getElementById('inputTimestamp').value = timestamp;
+
+	function nowTimestamp() {
+		var timestamp = Date.parse(new Date());
+		var nowDateTime = document.getElementById('nowDateTime');
+		nowDateTime.value = getNowFormatDate();
+		timestamp = timestamp / 1000;
+		document.getElementById('nowTimestamp').value = timestamp;
+	}
+
+	function toTimemap() {
+		var dateResult = document.getElementById('inputDate').value;
+		var date = new Date(dateResult);
+		var time = Date.parse(date);
+		time = time / 1000;
+		document.getElementById('outputTimemap').value = time;
+	}
+
+	function getNowFormatDate() {
+		var date = new Date();
+		var seperator1 = "-";
+		var seperator2 = ":";
+		var month = date.getMonth() + 1;
+		var strDate = date.getDate();
+		if (month >= 1 && month <= 9) {
+			month = "0" + month;
+		}
+		if (strDate >= 0 && strDate <= 9) {
+			strDate = "0" + strDate;
+		}
+		var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate
+			+ " " + date.getHours() + seperator2 + date.getMinutes()
+			+ seperator2 + date.getSeconds();
+		return currentdate;
+	}
+
+	function toDateTime() {
+		var input = document.getElementById('inputTimestamp');
+		console.log('input ' + input.value + input.id + input.class)
+		var output = document.getElementById('outputDateTime');
+		var res = getDate(input.value);
+		console.log('timestamp: ' + res)
+		output.value = res;
+	}
+
+	function getDate(timestamp) {
+		var d = new Date(timestamp * 1000);    //根据时间戳生成的时间对象
+		var date = (d.getFullYear()) + "-" +
+			(d.getMonth() + 1) + "-" +
+			(d.getDate()) + " " +
+			(d.getHours()) + ":" +
+			(d.getMinutes()) + ":" +
+			(d.getSeconds());
+		return date;
+	}
+</script>
+<script src="../baidu.js"></script>
+
+</html>

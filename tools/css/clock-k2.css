@@ -1,0 +1,27 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+
+.rotateField{
+	display: flex;
+	position: absolute;
+	bottom: 40px;
+	right: 40px;
+	height: 50px;
+	text-align: center;
+	align-content: center;
+}
+
+.parentMain{
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+
+.controlBtn{
+	font-size: 0.45rem;
+	margin-right: 0.1rem;
+}

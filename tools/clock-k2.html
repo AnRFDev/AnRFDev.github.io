@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+	<!-- html for kindle only -->
+<head>
+	<!-- <meta content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" name="viewport" /> -->
+    <meta charset="utf-8" />
+    <meta name="applicable-device" content="pc,mobile">
+    <meta http-equiv="X-UA-Compatible" content="edge" />
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="iconfont/iconfont.css"/>
+	<link rel="stylesheet" type="text/css" href="css/clock-k2.css"/>
+    <title>Kindle Clock</title>
+
+<!-- rem setting, read http://caibaojian.com/simple-flexible.html  -->
+<script>
+	;(function(designWidth, maxWidth) {
+		var doc = document,
+		win = window,
+		docEl = doc.documentElement,
+		remStyle = document.createElement("style"),
+		tid;
+	
+		function refreshRem() {
+			var width = docEl.getBoundingClientRect().width;
+			maxWidth = maxWidth || 540;
+			width>maxWidth && (width=maxWidth);
+			var rem = width * 100 / designWidth;
+			remStyle.innerHTML = 'html{font-size:' + rem + 'px;}';
+		}
+	
+		if (docEl.firstElementChild) {
+			docEl.firstElementChild.appendChild(remStyle);
+		} else {
+			var wrap = doc.createElement("div");
+			wrap.appendChild(remStyle);
+			doc.write(wrap.innerHTML);
+			wrap = null;
+		}
+		//要等 wiewport 设置好后才能执行 refreshRem，不然 refreshRem 会执行2次；
+		refreshRem();
+	
+		win.addEventListener("resize", function() {
+			clearTimeout(tid); //防止执行两次
+			tid = setTimeout(refreshRem, 300);
+		}, false);
+	
+		win.addEventListener("pageshow", function(e) {
+			if (e.persisted) { // 浏览器后退的时候重新计算
+				clearTimeout(tid);
+				tid = setTimeout(refreshRem, 300);
+			}
+		}, false);
+	
+		if (doc.readyState === "complete") {
+			doc.body.style.fontSize = "16px";
+		} else {
+			doc.addEventListener("DOMContentLoaded", function(e) {
+				doc.body.style.fontSize = "16px";
+			}, false);
+		}
+	})(750, 750);
+	
+	
+</script>
+
+</head>
+
+<body style="overflow:hidden; margin:0">
+	<div id="main" style="position: relative; min-height: 400px;" >
+		<div class="rotateField">
+			<span class="iconfont icon-reload controlBtn" onclick="rotateTimeFieldRight()"></span>
+			<span class="iconfont icon-reloadtime controlBtn"  onclick="changeSecVis()"></span>
+		</div>
+		<div class="parentMain">
+			<div style="height: 80%;">
+				<div id="timeContentField" style="background-color: white; display:block; margin-top: 40%; align-content: center;">
+					<span id="timeField" style="font-size: 1.4rem;display:inline-block; width: 100%; text-align: center;" ></span>
+					<br />
+					<span id="dateField" style="font-size: 0.6rem;display:inline-block;width: 100%;text-align: center;"></span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+<script>
+	timeFieldRotateDeg = 0;
+	showSec = false;
+    nowTimestamp();
+    window.setInterval(nowTimestamp, 1000);
+
+    function nowTimestamp() {
+		var time = document.getElementById('timeField');
+		var dateField = document.getElementById('dateField');
+		time.innerHTML = getNowTime();
+		dateField.innerHTML = getDateHtml();
+    }
+
+	function getNowTime() {
+		var date = new Date();
+		var gmtHours = date.getTimezoneOffset() / 60;
+		console.log('gmtHours: ' + gmtHours + ', type:' + typeof(gmtHours) ) ;
+		var seperator2 = ":";
+		min = date.getMinutes();
+		if(min >= 0 && min <= 9) {
+			min = "0" + min;
+		}
+		sec = date.getSeconds();
+		if(sec >= 0 && sec <= 9) {
+			sec = "0" + sec;
+		}
+		var hour = date.getHours();
+		if(gmtHours != -8) {
+			hour = hour + 8;
+		}
+		if(hour >= 24) {
+			hour -= 24;
+		}
+		var currentdate = hour + seperator2 + min;
+		if(showSec) {
+			currentdate += seperator2 + sec;
+		}
+		return currentdate;
+	}
+
+	function getDateHtml() {
+	    var date = new Date();
+		var hour = date.getHours();
+		var gmtHours = date.getTimezoneOffset() / 60;
+	    var seperator1 = "-";
+	    var month = date.getMonth() + 1;
+	    var strDate = date.getDate();
+		var d = date.getDay();
+		if(gmtHours != -8) {
+			hour = hour + (8 + gmtHours);
+			if(hour >= 24) {
+				date = new Date(new Date().getTime() + (1 * 24 * 60 * 60 * 1000));
+				month = date.getMonth() + 1;
+				d = date.getDay();
+				strDate = date.getDate();
+			}
+		}
+	    if (month >= 1 && month <= 9) {
+	        month = "0" + month;
+	    }
+	    if (strDate >= 0 && strDate <= 9) {
+	        strDate = "0" + strDate;
+	    }
+		weekday = "";
+		if(d == 1) {
+			weekday = "一";
+		} else if (d == 2) {
+			weekday = "二";
+		} else if (d == 3) {
+			weekday = "三";
+		} else if (d == 4) {
+			weekday = "四";
+		} else if (d == 5) {
+			weekday = "五";
+		} else if (d == 6) {
+			weekday = "六";
+		} else if (d == 0) {
+			weekday = "日";
+		}
+	    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate
+			+ '  星期' + weekday;
+	    return currentdate;
+	}
+
+	function rotateTimeFieldRight() {
+		timeFieldRotateDeg += 90;
+		if(timeFieldRotateDeg == 360) {
+			timeFieldRotateDeg = 0;
+		}
+		timeContentField = document.getElementById('timeContentField');
+		console.log('rotate time content field');
+		timeContentField.style.webkitTransform = 'rotate('+timeFieldRotateDeg+'deg)'; 
+		timeContentField.style.mozTransform    = 'rotate('+timeFieldRotateDeg+'deg)'; 
+		timeContentField.style.msTransform     = 'rotate('+timeFieldRotateDeg+'deg)'; 
+		timeContentField.style.oTransform      = 'rotate('+timeFieldRotateDeg+'deg)'; 
+		timeContentField.style.transform       = 'rotate('+timeFieldRotateDeg+'deg)'; 
+	}
+
+	function changeSecVis(){
+		showSec = !showSec;
+		nowTimestamp();
+	}
+
+</script>
+
+<script src="../baidu.js"></script>
+
+</html>
