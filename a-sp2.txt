@@ -294,6 +294,7 @@ https://www.an.rustfisher.com/cocos/creator/ccc-postion-and-cvt/index.html
 https://www.an.rustfisher.com/cocos/creator/ccc-drag-anywhere/index.html
 https://www.an.rustfisher.com/cocos/creator/ccc-drag-to-target/index.html
 https://www.an.rustfisher.com/cocos/creator/g/dev-2d-game/index.html
+https://www.an.rustfisher.com/linux/usr/ls-use/index.html
 https://www.an.rustfisher.com/linux/usr/awk-use/index.html
 https://www.an.rustfisher.com/linux/usr/grep-use/index.html
 https://www.an.rustfisher.com/linux/usr/find-use/index.html
