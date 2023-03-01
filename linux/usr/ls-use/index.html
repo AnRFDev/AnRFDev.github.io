@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="linux ls 显示文件，只看目录">
+        <meta name="description" content="linux ls Linux中最基础的操作之一。查看目录下的文件。显示文件，只看目录。">
       
       
       
@@ -109,8 +109,8 @@
 
     
       
-      <meta name="bytedance:updated_time" content="2023-02-27 16:28:57+08:00"/>
-      <meta name="bytedance:lrDate_time" content="2023-02-27 16:28:57+08:00"/>
+      <meta name="bytedance:updated_time" content="2023-03-01 16:28:57+08:00"/>
+      <meta name="bytedance:lrDate_time" content="2023-03-01 16:28:57+08:00"/>
     
 
     
@@ -119,7 +119,7 @@
   
 
   <meta property="og:image" content="https://www.an.rustfisher.com/about/_media/cover/linux-blue-circle.jpeg" />
-  <meta property="og:description" content="linux ls 显示文件，只看目录">
+  <meta property="og:description" content="linux ls Linux中最基础的操作之一。查看目录下的文件。显示文件，只看目录。">
 
   <script type="application/ld+json">
     {
@@ -135,8 +135,8 @@
           "name": "RustFisher"
         },
         "datePublished": "2023-02-27 06:22:22+08:00",
-        "dateModified": "2023-02-27 16:28:57+08:00",
-        "description": "linux ls 显示文件，只看目录",
+        "dateModified": "2023-03-01 16:28:57+08:00",
+        "description": "linux ls Linux中最基础的操作之一。查看目录下的文件。显示文件，只看目录。",
         "publisher": {
           "@type": "Person",
           "name": "RustFisher",
@@ -7847,7 +7847,54 @@
         
           <li class="md-nav__item">
   <a href="#ls" class="md-nav__link">
+    ls 查看当前目录下的文件
+  </a>
+  
+    <nav class="md-nav" aria-label="ls 查看当前目录下的文件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ls-l" class="md-nav__link">
+    ls -l 竖着显示更多信息
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ls_1" class="md-nav__link">
     ls 只看目录
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    查看指定文件
+  </a>
+  
+    <nav class="md-nav" aria-label="查看指定文件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    通配符
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    查看指定目录
   </a>
   
 </li>
@@ -9948,7 +9995,54 @@
         
           <li class="md-nav__item">
   <a href="#ls" class="md-nav__link">
+    ls 查看当前目录下的文件
+  </a>
+  
+    <nav class="md-nav" aria-label="ls 查看当前目录下的文件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ls-l" class="md-nav__link">
+    ls -l 竖着显示更多信息
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ls_1" class="md-nav__link">
     ls 只看目录
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    查看指定文件
+  </a>
+  
+    <nav class="md-nav" aria-label="查看指定文件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    通配符
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    查看指定目录
   </a>
   
 </li>
@@ -9995,17 +10089,145 @@
 
 
 
-<h1 id="linux-ls">Linux ls<a class="headerlink" href="#linux-ls" title="Permanent link">&para;</a></h1>
-<details class="note"><summary>更新日期 2023-2-27</summary><ul>
+<h1 id="linux-ls">Linux ls 查看文件<a class="headerlink" href="#linux-ls" title="Permanent link">&para;</a></h1>
+<details class="note"><summary>更新日期 2023-3-1</summary><ul>
+<li>2023-3-1 更新例子</li>
 <li>2023-2-27 创建文档</li>
 </ul>
 </details>
-<h3 id="ls">ls 只看目录<a class="headerlink" href="#ls" title="Permanent link">&para;</a></h3>
+<p>Linux中最基础的操作之一。查看目录下的文件。</p>
+<h2 id="ls">ls 查看当前目录下的文件<a class="headerlink" href="#ls" title="Permanent link">&para;</a></h2>
+<p>直接输入ls</p>
+<details class="note" open="open"><summary>直接输入ls</summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span>
+<span class="normal"><a href="#__codelineno-0-5">5</a></span>
+<span class="normal"><a href="#__codelineno-0-6">6</a></span>
+<span class="normal"><a href="#__codelineno-0-7">7</a></span>
+<span class="normal"><a href="#__codelineno-0-8">8</a></span>
+<span class="normal"><a href="#__codelineno-0-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>$ ls
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>about           fun         media           ruankao
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>about.md        git         n           server
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>android         index.md        nestjs          sip
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>apollo          ios         nginx           stylesheets
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>cocos           java            pyqt            tags.md
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>db          kotlin          python          tech-note-index.md
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>designPattern       linux           recent-post.md      webrtc
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>embedded        lua         redis                web
+</code></pre></div></td></tr></table></div>
+
+</details>
+<h3 id="ls-l">ls -l 竖着显示更多信息<a class="headerlink" href="#ls-l" title="Permanent link">&para;</a></h3>
+<details class="note" open="open"><summary>ls -l</summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span>
+<span class="normal"><a href="#__codelineno-1-14">14</a></span>
+<span class="normal"><a href="#__codelineno-1-15">15</a></span>
+<span class="normal"><a href="#__codelineno-1-16">16</a></span>
+<span class="normal"><a href="#__codelineno-1-17">17</a></span>
+<span class="normal"><a href="#__codelineno-1-18">18</a></span>
+<span class="normal"><a href="#__codelineno-1-19">19</a></span>
+<span class="normal"><a href="#__codelineno-1-20">20</a></span>
+<span class="normal"><a href="#__codelineno-1-21">21</a></span>
+<span class="normal"><a href="#__codelineno-1-22">22</a></span>
+<span class="normal"><a href="#__codelineno-1-23">23</a></span>
+<span class="normal"><a href="#__codelineno-1-24">24</a></span>
+<span class="normal"><a href="#__codelineno-1-25">25</a></span>
+<span class="normal"><a href="#__codelineno-1-26">26</a></span>
+<span class="normal"><a href="#__codelineno-1-27">27</a></span>
+<span class="normal"><a href="#__codelineno-1-28">28</a></span>
+<span class="normal"><a href="#__codelineno-1-29">29</a></span>
+<span class="normal"><a href="#__codelineno-1-30">30</a></span>
+<span class="normal"><a href="#__codelineno-1-31">31</a></span>
+<span class="normal"><a href="#__codelineno-1-32">32</a></span>
+<span class="normal"><a href="#__codelineno-1-33">33</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>$ ls -l
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>total 64
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>drwxr-xr-x@ 15 rustfisher  staff    480  1 17 12:38 about
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>-rw-r--r--   1 rustfisher  staff   2403  1 17 17:46 about.md
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>drwxr-xr-x@ 42 rustfisher  staff   1344  8 16  2022 android
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>drwxr-xr-x   3 rustfisher  staff     96  7 21  2022 apollo
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a>drwxr-xr-x   4 rustfisher  staff    128  1 23  2022 cocos
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a>drwxr-xr-x   3 rustfisher  staff     96  8 17  2022 db
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a>drwxr-xr-x@ 21 rustfisher  staff    672  8 16  2022 designPattern
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a>drwxr-xr-x   6 rustfisher  staff    192 10  2 08:08 embedded
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a>drwxr-xr-x  11 rustfisher  staff    352  9 27 12:52 fun
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a>drwxr-xr-x   4 rustfisher  staff    128  1 22 14:21 git
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a>-rw-r--r--   1 rustfisher  staff    772  1 18 09:39 index.md
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a>drwxr-xr-x  11 rustfisher  staff    352 12 21 09:10 ios
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a>drwxr-xr-x@ 17 rustfisher  staff    544  2  3  2022 java
+<a id="__codelineno-1-16" name="__codelineno-1-16"></a>drwxr-xr-x@  5 rustfisher  staff    160 12  1  2021 kotlin
+<a id="__codelineno-1-17" name="__codelineno-1-17"></a>drwxr-xr-x   4 rustfisher  staff    128  3 14  2022 linux
+<a id="__codelineno-1-18" name="__codelineno-1-18"></a>drwxr-xr-x   3 rustfisher  staff     96 11 22 10:03 lua
+<a id="__codelineno-1-19" name="__codelineno-1-19"></a>drwxr-xr-x   6 rustfisher  staff    192  4 24  2022 media
+<a id="__codelineno-1-20" name="__codelineno-1-20"></a>drwxr-xr-x   3 rustfisher  staff     96 12 19 15:02 n
+<a id="__codelineno-1-21" name="__codelineno-1-21"></a>drwxr-xr-x  11 rustfisher  staff    352  5  7  2022 nestjs
+<a id="__codelineno-1-22" name="__codelineno-1-22"></a>drwxr-xr-x   3 rustfisher  staff     96  7 29  2022 nginx
+<a id="__codelineno-1-23" name="__codelineno-1-23"></a>drwxr-xr-x  13 rustfisher  staff    416  8 22  2022 pyqt
+<a id="__codelineno-1-24" name="__codelineno-1-24"></a>drwxr-xr-x  11 rustfisher  staff    352  5  5  2022 python
+<a id="__codelineno-1-25" name="__codelineno-1-25"></a>-rw-r--r--   1 rustfisher  staff   7238  2 27 08:44 recent-post.md
+<a id="__codelineno-1-26" name="__codelineno-1-26"></a>drwxr-xr-x   3 rustfisher  staff     96  6 29  2022 redis
+<a id="__codelineno-1-27" name="__codelineno-1-27"></a>drwxr-xr-x   3 rustfisher  staff     96  4 14  2022 ruankao
+<a id="__codelineno-1-28" name="__codelineno-1-28"></a>drwxr-xr-x   3 rustfisher  staff     96  8 17  2022 server
+<a id="__codelineno-1-29" name="__codelineno-1-29"></a>drwxr-xr-x   3 rustfisher  staff     96 10 12 15:26 sip
+<a id="__codelineno-1-30" name="__codelineno-1-30"></a>drwxr-xr-x@  6 rustfisher  staff    192  7  8  2022 stylesheets
+<a id="__codelineno-1-31" name="__codelineno-1-31"></a>-rw-r--r--   1 rustfisher  staff     53 10 12 09:16 tags.md
+<a id="__codelineno-1-32" name="__codelineno-1-32"></a>-rw-r--r--   1 rustfisher  staff  11399  1 17 17:54 tech-note-index.md
+<a id="__codelineno-1-33" name="__codelineno-1-33"></a>drwxr-xr-x  12 rustfisher  staff    384  9  1 14:41 webrtc
+</code></pre></div></td></tr></table></div>
+
+</details>
+<h2 id="ls_1">ls 只看目录<a class="headerlink" href="#ls_1" title="Permanent link">&para;</a></h2>
 <p>使用 <code>-d</code> 参数，并且加上 <code>*/</code></p>
 <p>例如：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$ ls -d */
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>2023-02-09/  2023-02-11/  2023-02-13/  2023-02-15/  2023-02-17/  2023-02-19/  2023-02-21/  2023-02-23/  2023-02-26/
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>$ ls -d */
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>2023-02-09/  2023-02-11/  2023-02-13/  2023-02-15/
+</code></pre></div></td></tr></table></div>
+
+<h2 id="_1">查看指定文件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>ls加指定的文件</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>$ ls tags.md
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>tags.md
+</code></pre></div></td></tr></table></div>
+
+<h3 id="_2">通配符<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span>
+<span class="normal"><a href="#__codelineno-4-4">4</a></span>
+<span class="normal"><a href="#__codelineno-4-5">5</a></span>
+<span class="normal"><a href="#__codelineno-4-6">6</a></span>
+<span class="normal"><a href="#__codelineno-4-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>$ ls  *.md
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>act_lifecycle.md            simple_launcher.md
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>activity-tran-animation.md      start-activity-and-send-params.md
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>floating-scale-act.md           start-activity-for-result.md
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>launch-mode-task-stack.md       uninstall-app.md
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a>launch-send-parcelable.md       view-global-layout-listen.md
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a>overview.md
+</code></pre></div></td></tr></table></div>
+
+<h2 id="_3">查看指定目录<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>ls加指定的目录，可以查看里面的文件</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span>
+<span class="normal"><a href="#__codelineno-5-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>$ ls webrtc/
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>android         media           src
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>capture         peerconnection      turn
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>intro           some-reference.md   web-samples
+</code></pre></div></td></tr></table></div>
 
               
 
