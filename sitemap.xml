@@ -656,6 +656,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.an.rustfisher.com/android/network/URLConnection/post-file/</loc>
+         <lastmod>2023-03-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.an.rustfisher.com/android/network/okhttp/OkHttp-use1/</loc>
          <lastmod>2023-03-09</lastmod>
          <changefreq>daily</changefreq>

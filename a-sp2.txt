@@ -81,6 +81,7 @@ https://www.an.rustfisher.com/android/io/mmap/mmap_intro_and_use/index.html
 https://www.an.rustfisher.com/android/io/mmap/mappedByteBuffer-use-demo1/index.html
 https://www.an.rustfisher.com/android/content/sharedpreferences/intro1/index.html
 https://www.an.rustfisher.com/android/network/URLConnection/HttpURLConnection_get_post/index.html
+https://www.an.rustfisher.com/android/network/URLConnection/post-file/index.html
 https://www.an.rustfisher.com/android/network/Media_download_stream_file/index.html
 https://www.an.rustfisher.com/android/network/google_force_https/index.html
 https://www.an.rustfisher.com/android/network/okhttp/OkHttp-use1/index.html
