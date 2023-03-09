@@ -107,8 +107,8 @@
 
     
       
-      <meta name="bytedance:updated_time" content="2022-08-03 00:43:57+08:00"/>
-      <meta name="bytedance:lrDate_time" content="2022-08-03 00:43:57+08:00"/>
+      <meta name="bytedance:updated_time" content="2023-03-09 00:43:57+08:00"/>
+      <meta name="bytedance:lrDate_time" content="2023-03-09 00:43:57+08:00"/>
     
 
     
@@ -133,7 +133,7 @@
           "name": "RustFisher"
         },
         "datePublished": "2022-01-16 00:22:22+08:00",
-        "dateModified": "2022-08-03 00:43:57+08:00",
+        "dateModified": "2023-03-09 00:43:57+08:00",
         "description": "安卓开发，安卓教程，Android入门，安卓新手教程，软件开发基础。突出一个简单明了，上手快。从实用性出发，快速掌握Android开发基本技能。插件式学习，学以致用。",
         "publisher": {
           "@type": "Person",
@@ -4624,9 +4624,61 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Gradle 更换下载源
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Gradle 更换下载源
       </a>
+      
+        
+  
+  <nav class="md-nav md-nav--secondary" aria-label="目录">
+    
+    
+    
+      
+    
+    
+      <label class="md-nav__title" for="__toc">
+        <span class="md-nav__icon md-icon"></span>
+        目录
+      </label>
+      <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+        
+          <li class="md-nav__item">
+  <a href="#gradle" class="md-nav__link">
+    gradle换源
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#macgradle" class="md-nav__link">
+    Mac手动下载gradle安装
+  </a>
+  
+</li>
+        
+      </ul>
+      <p style="height: 6px;"></p>
+      <div style="display:block;">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7286632197002340"
+        crossorigin="anonymous"></script>
+        <!-- cube1 -->
+        <ins class="adsbygoogle"
+              style="display:inline-block;width:230px;height:230px"
+              data-ad-client="ca-pub-7286632197002340"
+              data-ad-slot="3425975276"></ins>
+        <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+    
+  </nav>
+  
       
     </li>
   
@@ -9893,6 +9945,41 @@
       
     
     
+      <label class="md-nav__title" for="__toc">
+        <span class="md-nav__icon md-icon"></span>
+        目录
+      </label>
+      <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+        
+          <li class="md-nav__item">
+  <a href="#gradle" class="md-nav__link">
+    gradle换源
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#macgradle" class="md-nav__link">
+    Mac手动下载gradle安装
+  </a>
+  
+</li>
+        
+      </ul>
+      <p style="height: 6px;"></p>
+      <div style="display:block;">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7286632197002340"
+        crossorigin="anonymous"></script>
+        <!-- cube1 -->
+        <ins class="adsbygoogle"
+              style="display:inline-block;width:230px;height:230px"
+              data-ad-client="ca-pub-7286632197002340"
+              data-ad-slot="3425975276"></ins>
+        <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+    
   </nav>
   
                   </div>
@@ -9911,15 +9998,14 @@
 
 
 <h1 id="android-studio-gradle">Android Studio Gradle 下载速度慢解决方法<a class="headerlink" href="#android-studio-gradle" title="Permanent link">&para;</a></h1>
-<details class="note"><summary>更新日期: 2021-10-22</summary><ul>
+<details class="note"><summary>更新日期: 2023-3-9</summary><ul>
+<li>2023-3-9 Mac手动下载gradle安装</li>
 <li>2021-10-22 更新说明</li>
 <li>2021-3-26 创建文档</li>
 </ul>
 </details>
-<div class="admonition tip">
-<p>2021-10 现在gradle下载比以前快很多了，也可以不换源了</p>
-</div>
-<p>gradle下载的时候很慢，要等很久。</p>
+<p>有时候gradle下载的时候很慢，要等很久。或者提示下载失败。</p>
+<h2 id="gradle">gradle换源<a class="headerlink" href="#gradle" title="Permanent link">&para;</a></h2>
 <p>我们可以使用阿里云的源。不使用jcenter。</p>
 <p>修改buildscript的repositories和allprojects中的repositories即可。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>// Top-level build file where you can add configuration options common to all sub-projects/modules.
@@ -9955,6 +10041,17 @@
 </code></pre></div>
 
 <p>更换后，下载速度快很多。</p>
+<h2 id="macgradle">Mac手动下载gradle安装<a class="headerlink" href="#macgradle" title="Permanent link">&para;</a></h2>
+<p>有时候因为网络原因，as下载gradle总是失败。但是点开链接，又能从浏览器下载得到zip包。此时我们考虑手动把gradle装进去。</p>
+<p>例如as提示说无法下载 https://downloads.gradle-dn.com/distributions/gradle-5.6.4-all.zip</p>
+<p>用浏览器下载得到<strong>gradle-5.6.4-all.zip</strong></p>
+<p>打开终端，进入<code>.gradle</code>目录，再用finder打开
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>~ $ cd .gradle/
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>~/.gradle $ open .
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>~/.gradle $ 
+</code></pre></div></p>
+<p>在 <code>~/.gradle/wrapper/dists/gradle-5.6.4-all</code> 里有一个as创建的目录，比如 <code>ankdp27end7byghfw1q2sw75f</code></p>
+<p>把<strong>gradle-5.6.4-all.zip</strong>放进去，重启as即可</p>
 
               
 
