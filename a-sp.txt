@@ -329,6 +329,7 @@ https://www.an.rustfisher.com/lua/start/lua-simple-start-mac/
 https://www.an.rustfisher.com/lua/start/lua-base/
 https://www.an.rustfisher.com/ruankao/pm3/1-information-and-sys/
 https://www.an.rustfisher.com/ruankao/pm3/2-info-sys-manage-basic/
+https://www.an.rustfisher.com/db/note-mongodb-mysql/
 https://www.an.rustfisher.com/sip/sip-err-code/
 https://www.an.rustfisher.com/fun/joke-1/
 https://www.an.rustfisher.com/fun/joke-2/
