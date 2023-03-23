@@ -6,25 +6,25 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="WebRTC本地插入多个转发节点。建立通话后，再往后面增加本地转发节点。模拟多节点转发的情况。能有延迟的效果。 | an.rustfisher.com">
+        <meta name="description" content="SIP（Session Initiation Protocol）是一种用于建立、修改和终止多媒体会话的协议，而SDP（Session Description Protocol）则是一种用于描述多媒体会话的协议。在SIP中，SDP通常被用来传递关于媒体流的信息，包括编解码器类型、传输协议、端口号等等。当一个SIP请求或响应需要携带SDP信息时，它们通常会将SDP数据作为负载放在消息体中，以便让对方了解关于该会话的各种媒体相关细节。因此，可以说SIP和SDP是密切相关的两个协议，它们共同组成了一套完整的多媒体会话建立和传输机制。">
       
       
       
-        <link rel="canonical" href="https://www.an.rustfisher.com/webrtc/peerconnection/multi-relay/">
+        <link rel="canonical" href="https://www.an.rustfisher.com/sip/sip-and-sdp/">
       
-      <link rel="icon" href="../../../about/about/favicon.ico">
+      <link rel="icon" href="../../about/about/favicon.ico">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.4">
     
     
       
-        <title>WebRTC本地插入多个转发节点，模拟多节点转发，造成延迟 - RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt</title>
+        <title>SIP与SDP - RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.4a0965b7.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4a0965b7.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
         
       
       
@@ -40,13 +40,13 @@
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extras.css">
+      <link rel="stylesheet" href="../../stylesheets/extras.css">
     
-      <link rel="stylesheet" href="../../../stylesheets/recent.css">
+      <link rel="stylesheet" href="../../stylesheets/recent.css">
     
-      <link rel="stylesheet" href="../../../stylesheets/main.8464ae1a.min.css">
+      <link rel="stylesheet" href="../../stylesheets/main.8464ae1a.min.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -78,7 +78,7 @@
   <meta property="og:type" content="website">
 
   
-    <meta property="og:url" content="https://www.an.rustfisher.com/webrtc/peerconnection/multi-relay/"/>
+    <meta property="og:url" content="https://www.an.rustfisher.com/sip/sip-and-sdp/"/>
   
 
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
@@ -88,11 +88,9 @@
 
   
     
-      <meta name="title" content="WebRTC本地插入多个转发节点，模拟多节点转发，造成延迟"/>
-      <meta property="og:title" content="WebRTC本地插入多个转发节点，模拟多节点转发，造成延迟"/>
+      <meta name="title" content="SIP与SDP"/>
+      <meta property="og:title" content="SIP与SDP"/>
     
-    
-      <meta name="keywords" content="webrtc,多节点,转发"/>
     
     
       
@@ -101,32 +99,32 @@
     
       
       <!-- 设置字节跳动搜索 -->
-      <meta name="bytedance:published_time" content="2022-01-16 00:22:22+08:00"/>
+      <meta name="bytedance:published_time" content="2023-03-23 00:22:22+08:00"/>
 
       <!-- 360 -->
-      <meta property="og:release_date" content="2022-01-16 00:22:22+08:00"/>
+      <meta property="og:release_date" content="2023-03-23 00:22:22+08:00"/>
     
 
     
     <!-- 暂时让时间一致 -->
       
       
-      <meta name="bytedance:updated_time" content="2022-08-03 00:43:57+08:00"/>
-      <meta name="bytedance:lrDate_time" content="2022-08-03 00:43:57+08:00"/>
+      <meta name="bytedance:updated_time" content="2023-03-23 00:43:57+08:00"/>
+      <meta name="bytedance:lrDate_time" content="2023-03-23 00:43:57+08:00"/>
     
 
     
   
 
   <meta property="og:image" content="https://www.an.rustfisher.com/about/res/fish_dev.png" />
-  <meta property="og:description" content="WebRTC本地插入多个转发节点。建立通话后，再往后面增加本地转发节点。模拟多节点转发的情况。能有延迟的效果。 | an.rustfisher.com">
+  <meta property="og:description" content="SIP（Session Initiation Protocol）是一种用于建立、修改和终止多媒体会话的协议，而SDP（Session Description Protocol）则是一种用于描述多媒体会话的协议。在SIP中，SDP通常被用来传递关于媒体流的信息，包括编解码器类型、传输协议、端口号等等。当一个SIP请求或响应需要携带SDP信息时，它们通常会将SDP数据作为负载放在消息体中，以便让对方了解关于该会话的各种媒体相关细节。因此，可以说SIP和SDP是密切相关的两个协议，它们共同组成了一套完整的多媒体会话建立和传输机制。">
 
   <script type="application/ld+json">
     {
         "@context": "https://schema.org/",
         "@type": "Article",
         "name": "安卓开发 | 软件开发 | 编程 | RustFisher",
-        "headline": "RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt - WebRTC本地多个转发节点",
+        "headline": "RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt - SIP与SDP",
         "image": [
           "https://an.rustfisher.com/about/res/fish_dev.png"
         ],  
@@ -134,9 +132,9 @@
           "@type": "Person",
           "name": "RustFisher"
         },
-        "datePublished": "2022-08-03 00:43:57+08:00",
-        "dateModified": "2022-08-03 00:43:57+08:00",
-        "description": "WebRTC本地插入多个转发节点。建立通话后，再往后面增加本地转发节点。模拟多节点转发的情况。能有延迟的效果。 | an.rustfisher.com",
+        "datePublished": "2023-03-23 00:43:57+08:00",
+        "dateModified": "2023-03-23 00:43:57+08:00",
+        "description": "SIP（Session Initiation Protocol）是一种用于建立、修改和终止多媒体会话的协议，而SDP（Session Description Protocol）则是一种用于描述多媒体会话的协议。在SIP中，SDP通常被用来传递关于媒体流的信息，包括编解码器类型、传输协议、端口号等等。当一个SIP请求或响应需要携带SDP信息时，它们通常会将SDP数据作为负载放在消息体中，以便让对方了解关于该会话的各种媒体相关细节。因此，可以说SIP和SDP是密切相关的两个协议，它们共同组成了一套完整的多媒体会话建立和传输机制。",
         "publisher": {
           "@type": "Person",
           "name": "RustFisher",
@@ -182,7 +180,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#webrtc" class="md-skip">
+        <a href="#sipsdp" class="md-skip">
           跳转至
         </a>
       
@@ -196,9 +194,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../.." title="RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt" class="md-header__button md-logo" aria-label="RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt" data-md-component="logo">
+    <a href="../.." title="RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt" class="md-header__button md-logo" aria-label="RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt" data-md-component="logo">
       
-  <img src="../../../about/about/favicon.ico" alt="logo">
+  <img src="../../about/about/favicon.ico" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -214,7 +212,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              WebRTC本地插入多个转发节点，模拟多节点转发，造成延迟
+              SIP与SDP
             
           </span>
         </div>
@@ -266,7 +264,7 @@
 
 
   <li class="md-tabs__item">
-    <a href="../../.." class="md-tabs__link">
+    <a href="../.." class="md-tabs__link">
       Home
     </a>
   </li>
@@ -286,7 +284,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../android/android-part-index/" class="md-tabs__link">
+      <a href="../../android/android-part-index/" class="md-tabs__link">
         Android
       </a>
     </li>
@@ -304,7 +302,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../android/jetpack/entry/" class="md-tabs__link">
+      <a href="../../android/jetpack/entry/" class="md-tabs__link">
         AndroidX
       </a>
     </li>
@@ -320,7 +318,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../java/intro/" class="md-tabs__link">
+      <a href="../../java/intro/" class="md-tabs__link">
         Java
       </a>
     </li>
@@ -336,7 +334,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../kotlin/breif/kt-first/" class="md-tabs__link">
+      <a href="../../kotlin/breif/kt-first/" class="md-tabs__link">
         Kotlin
       </a>
     </li>
@@ -352,40 +350,8 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../designPattern/Adapter-Pattern/" class="md-tabs__link">
+      <a href="../../designPattern/Adapter-Pattern/" class="md-tabs__link">
         设计模式
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../../tech-note-index/" class="md-tabs__link">
-        技术记录
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../../python/basic/get-path/" class="md-tabs__link">
-        Python
       </a>
     </li>
   
@@ -402,7 +368,39 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../intro/concept-intro/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../tech-note-index/" class="md-tabs__link md-tabs__link--active">
+        技术记录
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../python/basic/get-path/" class="md-tabs__link">
+        Python
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../webrtc/intro/concept-intro/" class="md-tabs__link">
         WebRTC
       </a>
     </li>
@@ -430,9 +428,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt" class="md-nav__button md-logo" aria-label="RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt" data-md-component="logo">
+    <a href="../.." title="RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt" class="md-nav__button md-logo" aria-label="RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt" data-md-component="logo">
       
-  <img src="../../../about/about/favicon.ico" alt="logo">
+  <img src="../../about/about/favicon.ico" alt="logo">
 
     </a>
     RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt
@@ -448,7 +446,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         Home
       </a>
     </li>
@@ -517,7 +515,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/android-part-index/" class="md-nav__link">
+      <a href="../../android/android-part-index/" class="md-nav__link">
         总览
       </a>
     </li>
@@ -531,7 +529,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/startProject/start_new_project/" class="md-nav__link">
+      <a href="../../android/startProject/start_new_project/" class="md-nav__link">
         新建工程
       </a>
     </li>
@@ -545,7 +543,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/startProject/as-use-kotlin/" class="md-nav__link">
+      <a href="../../android/startProject/as-use-kotlin/" class="md-nav__link">
         使用Kotlin
       </a>
     </li>
@@ -594,7 +592,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/activity/overview/" class="md-nav__link">
+      <a href="../../android/activity/overview/" class="md-nav__link">
         Activity综述
       </a>
     </li>
@@ -608,7 +606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/activity/act_lifecycle/" class="md-nav__link">
+      <a href="../../android/activity/act_lifecycle/" class="md-nav__link">
         生命周期
       </a>
     </li>
@@ -622,7 +620,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/activity/start-activity-and-send-params/" class="md-nav__link">
+      <a href="../../android/activity/start-activity-and-send-params/" class="md-nav__link">
         启动，携带参数启动
       </a>
     </li>
@@ -636,7 +634,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/activity/launch-send-parcelable/" class="md-nav__link">
+      <a href="../../android/activity/launch-send-parcelable/" class="md-nav__link">
         传递Parcelable对象
       </a>
     </li>
@@ -650,7 +648,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/activity/start-activity-for-result/" class="md-nav__link">
+      <a href="../../android/activity/start-activity-for-result/" class="md-nav__link">
         返回时携带参数
       </a>
     </li>
@@ -664,7 +662,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/activity/launch-mode-task-stack/" class="md-nav__link">
+      <a href="../../android/activity/launch-mode-task-stack/" class="md-nav__link">
         启动模式，任务和返回栈
       </a>
     </li>
@@ -678,7 +676,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/activity/activity-tran-animation/" class="md-nav__link">
+      <a href="../../android/activity/activity-tran-animation/" class="md-nav__link">
         过场动画效果
       </a>
     </li>
@@ -692,7 +690,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/view_get_size/" class="md-nav__link">
+      <a href="../../android/ui/view/view_get_size/" class="md-nav__link">
         获取View的宽高
       </a>
     </li>
@@ -706,7 +704,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/activity/view-global-layout-listen/" class="md-nav__link">
+      <a href="../../android/activity/view-global-layout-listen/" class="md-nav__link">
         监听根layout变化
       </a>
     </li>
@@ -720,7 +718,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/activity/floating-scale-act/" class="md-nav__link">
+      <a href="../../android/activity/floating-scale-act/" class="md-nav__link">
         应用内悬浮窗
       </a>
     </li>
@@ -734,7 +732,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/activity/uninstall-app/" class="md-nav__link">
+      <a href="../../android/activity/uninstall-app/" class="md-nav__link">
         卸载app
       </a>
     </li>
@@ -783,7 +781,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/textView/intro/" class="md-nav__link">
+      <a href="../../android/ui/view/textView/intro/" class="md-nav__link">
         TextView简介
       </a>
     </li>
@@ -797,7 +795,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/textView/text_style/" class="md-nav__link">
+      <a href="../../android/ui/view/textView/text_style/" class="md-nav__link">
         斜体，加粗
       </a>
     </li>
@@ -811,7 +809,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/textView/typeface/" class="md-nav__link">
+      <a href="../../android/ui/view/textView/typeface/" class="md-nav__link">
         使用字体
       </a>
     </li>
@@ -825,7 +823,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/textView/show_html/" class="md-nav__link">
+      <a href="../../android/ui/view/textView/show_html/" class="md-nav__link">
         显示Html
       </a>
     </li>
@@ -839,7 +837,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/textView/special_char/" class="md-nav__link">
+      <a href="../../android/ui/view/textView/special_char/" class="md-nav__link">
         特殊字符
       </a>
     </li>
@@ -879,7 +877,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/textView/SpannableString_intro/" class="md-nav__link">
+      <a href="../../android/ui/view/textView/SpannableString_intro/" class="md-nav__link">
         简介
       </a>
     </li>
@@ -893,7 +891,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/textView/foregroundColorSpan_not_work/" class="md-nav__link">
+      <a href="../../android/ui/view/textView/foregroundColorSpan_not_work/" class="md-nav__link">
         ForegroundColorSpan失效
       </a>
     </li>
@@ -907,7 +905,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/textView/textView_clickableSpan_crash_in_recyclerview/" class="md-nav__link">
+      <a href="../../android/ui/view/textView/textView_clickableSpan_crash_in_recyclerview/" class="md-nav__link">
         ClickableSpan崩溃问题
       </a>
     </li>
@@ -921,7 +919,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/text/style/use-replacementspan/" class="md-nav__link">
+      <a href="../../android/text/style/use-replacementspan/" class="md-nav__link">
         ReplacementSpan下划线
       </a>
     </li>
@@ -977,7 +975,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/service/service-intro/" class="md-nav__link">
+      <a href="../../android/service/service-intro/" class="md-nav__link">
         综述
       </a>
     </li>
@@ -991,7 +989,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/service/start/background-service/" class="md-nav__link">
+      <a href="../../android/service/start/background-service/" class="md-nav__link">
         后台服务的用法
       </a>
     </li>
@@ -1005,7 +1003,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/service/start/foreground-service/" class="md-nav__link">
+      <a href="../../android/service/start/foreground-service/" class="md-nav__link">
         前台服务的用法
       </a>
     </li>
@@ -1019,7 +1017,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/service/IntentService-intro1/" class="md-nav__link">
+      <a href="../../android/service/IntentService-intro1/" class="md-nav__link">
         IntentService 分析和用法
       </a>
     </li>
@@ -1033,7 +1031,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/service/system-alert-window-service/" class="md-nav__link">
+      <a href="../../android/service/system-alert-window-service/" class="md-nav__link">
         悬浮窗SystemAlertWindow
       </a>
     </li>
@@ -1082,7 +1080,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/broadcast/intro_use/" class="md-nav__link">
+      <a href="../../android/broadcast/intro_use/" class="md-nav__link">
         介绍和使用
       </a>
     </li>
@@ -1096,7 +1094,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/broadcast/screen-on-broadcast/" class="md-nav__link">
+      <a href="../../android/broadcast/screen-on-broadcast/" class="md-nav__link">
         监听屏幕亮灭
       </a>
     </li>
@@ -1145,7 +1143,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/fragment/fragment-intro/" class="md-nav__link">
+      <a href="../../android/fragment/fragment-intro/" class="md-nav__link">
         简介
       </a>
     </li>
@@ -1159,7 +1157,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/fragment/load-fragment/" class="md-nav__link">
+      <a href="../../android/fragment/load-fragment/" class="md-nav__link">
         加载Fragment
       </a>
     </li>
@@ -1173,7 +1171,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/fragment/fragments-contact/" class="md-nav__link">
+      <a href="../../android/fragment/fragments-contact/" class="md-nav__link">
         Fragment间通信
       </a>
     </li>
@@ -1213,7 +1211,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/fragment/dialogFragment/dialog-fragment-demo1/" class="md-nav__link">
+      <a href="../../android/fragment/dialogFragment/dialog-fragment-demo1/" class="md-nav__link">
         简单使用
       </a>
     </li>
@@ -1227,7 +1225,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/fragment/dialogFragment/dialogFragment-layout-params/" class="md-nav__link">
+      <a href="../../android/fragment/dialogFragment/dialogFragment-layout-params/" class="md-nav__link">
         修改显示属性
       </a>
     </li>
@@ -1241,7 +1239,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/fragment/dialogFragment/custom_width_height/" class="md-nav__link">
+      <a href="../../android/fragment/dialogFragment/custom_width_height/" class="md-nav__link">
         自定义宽高和Builder
       </a>
     </li>
@@ -1255,7 +1253,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/fragment/dialogFragment/df-dialog-height-changed/" class="md-nav__link">
+      <a href="../../android/fragment/dialogFragment/df-dialog-height-changed/" class="md-nav__link">
         高度自适应效果
       </a>
     </li>
@@ -1311,7 +1309,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/resource/resources_overview/" class="md-nav__link">
+      <a href="../../android/resource/resources_overview/" class="md-nav__link">
         res简介
       </a>
     </li>
@@ -1325,7 +1323,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/drawable/shape/" class="md-nav__link">
+      <a href="../../android/drawable/shape/" class="md-nav__link">
         shape的绘制和使用
       </a>
     </li>
@@ -1339,7 +1337,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/drawable/selector/" class="md-nav__link">
+      <a href="../../android/drawable/selector/" class="md-nav__link">
         Button,TextView背景增添动感
       </a>
     </li>
@@ -1353,7 +1351,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/resource/font/app-use-other-font/" class="md-nav__link">
+      <a href="../../android/resource/font/app-use-other-font/" class="md-nav__link">
         TextView使用其他的字体
       </a>
     </li>
@@ -1367,7 +1365,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/resource/drawable/shape-dotted-line/" class="md-nav__link">
+      <a href="../../android/resource/drawable/shape-dotted-line/" class="md-nav__link">
         shape绘制虚线
       </a>
     </li>
@@ -1407,7 +1405,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/resource/adjust/app-res-adapt-multi-language/" class="md-nav__link">
+      <a href="../../android/resource/adjust/app-res-adapt-multi-language/" class="md-nav__link">
         多语言
       </a>
     </li>
@@ -1421,7 +1419,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/app/app-lang-setting/" class="md-nav__link">
+      <a href="../../android/app/app-lang-setting/" class="md-nav__link">
         app设置语言
       </a>
     </li>
@@ -1435,7 +1433,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/resource/adjust/app-res-adapt-screen-size/" class="md-nav__link">
+      <a href="../../android/resource/adjust/app-res-adapt-screen-size/" class="md-nav__link">
         屏幕
       </a>
     </li>
@@ -1491,7 +1489,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/editText/listen-editor-action/" class="md-nav__link">
+      <a href="../../android/ui/view/editText/listen-editor-action/" class="md-nav__link">
         EditText监听回车
       </a>
     </li>
@@ -1505,7 +1503,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/editText/edit-text-set-selection-use/" class="md-nav__link">
+      <a href="../../android/ui/view/editText/edit-text-set-selection-use/" class="md-nav__link">
         光标位置选择
       </a>
     </li>
@@ -1519,7 +1517,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/editText/text-watcher-use/" class="md-nav__link">
+      <a href="../../android/ui/view/editText/text-watcher-use/" class="md-nav__link">
         监听输入内容
       </a>
     </li>
@@ -1533,7 +1531,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/widget/popupwindow/edit-text-cannot-eidt/" class="md-nav__link">
+      <a href="../../android/ui/widget/popupwindow/edit-text-cannot-eidt/" class="md-nav__link">
         popupWindow无法编辑
       </a>
     </li>
@@ -1547,7 +1545,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/editText/soft-keyboard-cover-et/" class="md-nav__link">
+      <a href="../../android/ui/view/editText/soft-keyboard-cover-et/" class="md-nav__link">
         软键盘挡住EditText
       </a>
     </li>
@@ -1568,7 +1566,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/button/overview/" class="md-nav__link">
+      <a href="../../android/ui/view/button/overview/" class="md-nav__link">
         🤳 Button 按钮
       </a>
     </li>
@@ -1582,7 +1580,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/imageView/overview/" class="md-nav__link">
+      <a href="../../android/ui/view/imageView/overview/" class="md-nav__link">
         🗺 ImageView 显示图片
       </a>
     </li>
@@ -1624,7 +1622,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/layout/linearLayout/intro/" class="md-nav__link">
+      <a href="../../android/ui/layout/linearLayout/intro/" class="md-nav__link">
         LinearLayout 线性布局
       </a>
     </li>
@@ -1638,7 +1636,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/layout/relativeLayout/intro/" class="md-nav__link">
+      <a href="../../android/ui/layout/relativeLayout/intro/" class="md-nav__link">
         RelativeLayout 相对布局
       </a>
     </li>
@@ -1652,7 +1650,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/layout/constraintlayout/ConstraintLayout-intro-and-use1/" class="md-nav__link">
+      <a href="../../android/ui/layout/constraintlayout/ConstraintLayout-intro-and-use1/" class="md-nav__link">
         ConstraintLayout 自适应界面
       </a>
     </li>
@@ -1666,7 +1664,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/layout/constraintlayout/chain_use/" class="md-nav__link">
+      <a href="../../android/ui/layout/constraintlayout/chain_use/" class="md-nav__link">
         ConstraintLayout 链式
       </a>
     </li>
@@ -1715,7 +1713,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/layout/drawerlayout/drawer-layout-use1/" class="md-nav__link">
+      <a href="../../android/ui/layout/drawerlayout/drawer-layout-use1/" class="md-nav__link">
         DrawerLayout使用示例
       </a>
     </li>
@@ -1764,7 +1762,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/recyclerView/intro/" class="md-nav__link">
+      <a href="../../android/ui/view/recyclerView/intro/" class="md-nav__link">
         RecyclerView入门
       </a>
     </li>
@@ -1778,7 +1776,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/recyclerView/demo1/" class="md-nav__link">
+      <a href="../../android/ui/view/recyclerView/demo1/" class="md-nav__link">
         使用示例
       </a>
     </li>
@@ -1792,7 +1790,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/recyclerView/item_click/" class="md-nav__link">
+      <a href="../../android/ui/view/recyclerView/item_click/" class="md-nav__link">
         设置子项点击
       </a>
     </li>
@@ -1806,7 +1804,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/recyclerView/show_multi_item/" class="md-nav__link">
+      <a href="../../android/ui/view/recyclerView/show_multi_item/" class="md-nav__link">
         显示多种子项
       </a>
     </li>
@@ -1820,7 +1818,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/recyclerView/scroll_distance/" class="md-nav__link">
+      <a href="../../android/ui/view/recyclerView/scroll_distance/" class="md-nav__link">
         获取滚动的距离
       </a>
     </li>
@@ -1834,7 +1832,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/recyclerView/clipToPadding_use/" class="md-nav__link">
+      <a href="../../android/ui/view/recyclerView/clipToPadding_use/" class="md-nav__link">
         clipToPadding示例
       </a>
     </li>
@@ -1848,7 +1846,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/recyclerView/demo_color_picker/" class="md-nav__link">
+      <a href="../../android/ui/view/recyclerView/demo_color_picker/" class="md-nav__link">
         示例 - 颜色选择器
       </a>
     </li>
@@ -1862,7 +1860,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/recyclerView/slide-delete-drag-swap-item/" class="md-nav__link">
+      <a href="../../android/ui/view/recyclerView/slide-delete-drag-swap-item/" class="md-nav__link">
         侧滑删除，拖动排序
       </a>
     </li>
@@ -1876,7 +1874,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/recyclerView/staggered-grid-use/" class="md-nav__link">
+      <a href="../../android/ui/view/recyclerView/staggered-grid-use/" class="md-nav__link">
         瀑布流效果
       </a>
     </li>
@@ -1890,7 +1888,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/recyclerView/item-animator/" class="md-nav__link">
+      <a href="../../android/ui/view/recyclerView/item-animator/" class="md-nav__link">
         禁止item更新动画
       </a>
     </li>
@@ -1939,7 +1937,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/permissions/custom-user-permission/" class="md-nav__link">
+      <a href="../../android/permissions/custom-user-permission/" class="md-nav__link">
         自定义权限
       </a>
     </li>
@@ -1988,7 +1986,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/thread/android-thread-survey/" class="md-nav__link">
+      <a href="../../android/thread/android-thread-survey/" class="md-nav__link">
         Android多线程综述
       </a>
     </li>
@@ -2028,7 +2026,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/concurrent/thread-pool-use-intro/" class="md-nav__link">
+      <a href="../../android/concurrent/thread-pool-use-intro/" class="md-nav__link">
         使用介绍
       </a>
     </li>
@@ -2075,7 +2073,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/handler/Handler_src_note/" class="md-nav__link">
+      <a href="../../android/handler/Handler_src_note/" class="md-nav__link">
         Handler使用分析
       </a>
     </li>
@@ -2089,7 +2087,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/handler/Handler_HandlerThread/" class="md-nav__link">
+      <a href="../../android/handler/Handler_HandlerThread/" class="md-nav__link">
         HandlerThread使用
       </a>
     </li>
@@ -2103,7 +2101,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/handler/handler-may-leak-memory/" class="md-nav__link">
+      <a href="../../android/handler/handler-may-leak-memory/" class="md-nav__link">
         Handler可能造成内存泄漏
       </a>
     </li>
@@ -2150,7 +2148,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/coroutines/intro1/" class="md-nav__link">
+      <a href="../../android/coroutines/intro1/" class="md-nav__link">
         使用入门
       </a>
     </li>
@@ -2171,7 +2169,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/thread/async-task-use-intro/" class="md-nav__link">
+      <a href="../../android/thread/async-task-use-intro/" class="md-nav__link">
         AsyncTask使用介绍
       </a>
     </li>
@@ -2246,7 +2244,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/io/file/Read_write_CSV_file/" class="md-nav__link">
+      <a href="../../android/io/file/Read_write_CSV_file/" class="md-nav__link">
         读写csv
       </a>
     </li>
@@ -2260,7 +2258,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/io/file/Read_write_Hex_file/" class="md-nav__link">
+      <a href="../../android/io/file/Read_write_Hex_file/" class="md-nav__link">
         读写hex
       </a>
     </li>
@@ -2274,7 +2272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/io/file/read-write-json-file/" class="md-nav__link">
+      <a href="../../android/io/file/read-write-json-file/" class="md-nav__link">
         读写json
       </a>
     </li>
@@ -2295,7 +2293,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/io/mmap/mmap_intro_and_use/" class="md-nav__link">
+      <a href="../../android/io/mmap/mmap_intro_and_use/" class="md-nav__link">
         mmap 文件映射到内存介绍
       </a>
     </li>
@@ -2309,7 +2307,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/io/mmap/mappedByteBuffer-use-demo1/" class="md-nav__link">
+      <a href="../../android/io/mmap/mappedByteBuffer-use-demo1/" class="md-nav__link">
         MappedByteBuffer文件映射内存使用
       </a>
     </li>
@@ -2358,7 +2356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/content/sharedpreferences/intro1/" class="md-nav__link">
+      <a href="../../android/content/sharedpreferences/intro1/" class="md-nav__link">
         SharedPerences 存取配置
       </a>
     </li>
@@ -2433,7 +2431,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/network/URLConnection/HttpURLConnection_get_post/" class="md-nav__link">
+      <a href="../../android/network/URLConnection/HttpURLConnection_get_post/" class="md-nav__link">
         HttpURLConnection GET POST获取文本数据
       </a>
     </li>
@@ -2447,7 +2445,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/network/URLConnection/post-file/" class="md-nav__link">
+      <a href="../../android/network/URLConnection/post-file/" class="md-nav__link">
         HttpURLConnection POST上传文件
       </a>
     </li>
@@ -2461,7 +2459,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/network/Media_download_stream_file/" class="md-nav__link">
+      <a href="../../android/network/Media_download_stream_file/" class="md-nav__link">
         使用URLConnection下载音频文件
       </a>
     </li>
@@ -2482,7 +2480,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/network/google_force_https/" class="md-nav__link">
+      <a href="../../android/network/google_force_https/" class="md-nav__link">
         强制要求https
       </a>
     </li>
@@ -2522,7 +2520,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/network/okhttp/OkHttp-use1/" class="md-nav__link">
+      <a href="../../android/network/okhttp/OkHttp-use1/" class="md-nav__link">
         入门
       </a>
     </li>
@@ -2536,7 +2534,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/network/okhttp/OkHttp_Retrofit_use_intro/" class="md-nav__link">
+      <a href="../../android/network/okhttp/OkHttp_Retrofit_use_intro/" class="md-nav__link">
         OkHttp + Retrofit 使用示例
       </a>
     </li>
@@ -2550,7 +2548,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/network/okhttp/resp-normal-string/" class="md-nav__link">
+      <a href="../../android/network/okhttp/resp-normal-string/" class="md-nav__link">
         请求普通文本
       </a>
     </li>
@@ -2564,7 +2562,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/network/okhttp/OkHttp_Retrofit_download_file/" class="md-nav__link">
+      <a href="../../android/network/okhttp/OkHttp_Retrofit_download_file/" class="md-nav__link">
         下载文件与进度监听
       </a>
     </li>
@@ -2578,7 +2576,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/network/okhttp/OkHttp_Retrofit_cancel_request/" class="md-nav__link">
+      <a href="../../android/network/okhttp/OkHttp_Retrofit_cancel_request/" class="md-nav__link">
         取消请求的方法
       </a>
     </li>
@@ -2592,7 +2590,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/network/okhttp/OkHttp_Retrofit_download_file_partial/" class="md-nav__link">
+      <a href="../../android/network/okhttp/OkHttp_Retrofit_download_file_partial/" class="md-nav__link">
         下载文件，范围请求
       </a>
     </li>
@@ -2606,7 +2604,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/network/okhttp/upload_file/" class="md-nav__link">
+      <a href="../../android/network/okhttp/upload_file/" class="md-nav__link">
         上传文件
       </a>
     </li>
@@ -2662,7 +2660,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/progressbar/custom_colorful/" class="md-nav__link">
+      <a href="../../android/ui/view/progressbar/custom_colorful/" class="md-nav__link">
         进度条
       </a>
     </li>
@@ -2711,7 +2709,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/widget/seekbar/seekbar-custom-thumb-animation/" class="md-nav__link">
+      <a href="../../android/ui/widget/seekbar/seekbar-custom-thumb-animation/" class="md-nav__link">
         自定义thumb
       </a>
     </li>
@@ -2760,7 +2758,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/view-summary/" class="md-nav__link">
+      <a href="../../android/ui/view/view-summary/" class="md-nav__link">
         综述
       </a>
     </li>
@@ -2774,7 +2772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/measureSpec_intro/" class="md-nav__link">
+      <a href="../../android/ui/view/measureSpec_intro/" class="md-nav__link">
         View.MeasureSpec简述
       </a>
     </li>
@@ -2788,7 +2786,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/rtfsc/post/" class="md-nav__link">
+      <a href="../../android/ui/view/rtfsc/post/" class="md-nav__link">
         View.post分析
       </a>
     </li>
@@ -2802,7 +2800,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/import/view-in-activity-thinking/" class="md-nav__link">
+      <a href="../../android/ui/view/import/view-in-activity-thinking/" class="md-nav__link">
         Activity与View的互动思考
       </a>
     </li>
@@ -2851,7 +2849,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/customView/draw-text/" class="md-nav__link">
+      <a href="../../android/ui/view/customView/draw-text/" class="md-nav__link">
         绘制文字
       </a>
     </li>
@@ -2865,7 +2863,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/customView/canvas-clip-path/" class="md-nav__link">
+      <a href="../../android/ui/view/customView/canvas-clip-path/" class="md-nav__link">
         裁剪canvas，实现圆角图片
       </a>
     </li>
@@ -2879,7 +2877,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/customView/surfaceView/custom-surface-view/" class="md-nav__link">
+      <a href="../../android/ui/view/customView/surfaceView/custom-surface-view/" class="md-nav__link">
         自定义SurfaceView
       </a>
     </li>
@@ -2893,7 +2891,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/customView/auto-zoom-line-chart/" class="md-nav__link">
+      <a href="../../android/ui/view/customView/auto-zoom-line-chart/" class="md-nav__link">
         自动缩放上下限的折线图
       </a>
     </li>
@@ -2907,7 +2905,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/customView/wave-view/" class="md-nav__link">
+      <a href="../../android/ui/view/customView/wave-view/" class="md-nav__link">
         柱状波形图
       </a>
     </li>
@@ -2921,7 +2919,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/customView/zt-star-moving/" class="md-nav__link">
+      <a href="../../android/ui/view/customView/zt-star-moving/" class="md-nav__link">
         星球运动
       </a>
     </li>
@@ -2935,7 +2933,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/widget/toast/custom-toast/" class="md-nav__link">
+      <a href="../../android/ui/widget/toast/custom-toast/" class="md-nav__link">
         自定义Toast
       </a>
     </li>
@@ -2984,7 +2982,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/animation/view-animation-intro/" class="md-nav__link">
+      <a href="../../android/ui/view/animation/view-animation-intro/" class="md-nav__link">
         简介
       </a>
     </li>
@@ -2998,7 +2996,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/animation/animation-drawable-use/" class="md-nav__link">
+      <a href="../../android/ui/view/animation/animation-drawable-use/" class="md-nav__link">
         使用AnimationDrawable
       </a>
     </li>
@@ -3012,7 +3010,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/animation/tween-use1/" class="md-nav__link">
+      <a href="../../android/ui/view/animation/tween-use1/" class="md-nav__link">
         补间动画
       </a>
     </li>
@@ -3026,7 +3024,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/animation/object-animator-intro/" class="md-nav__link">
+      <a href="../../android/ui/view/animation/object-animator-intro/" class="md-nav__link">
         ObjectAnimator 更改视图位置
       </a>
     </li>
@@ -3075,7 +3073,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/webView/wv-use/" class="md-nav__link">
+      <a href="../../android/ui/view/webView/wv-use/" class="md-nav__link">
         使用小技巧
       </a>
     </li>
@@ -3089,7 +3087,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/webView/loadData/" class="md-nav__link">
+      <a href="../../android/ui/view/webView/loadData/" class="md-nav__link">
         loadData 显示html数据
       </a>
     </li>
@@ -3103,7 +3101,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/webView/load-assets-files/" class="md-nav__link">
+      <a href="../../android/ui/view/webView/load-assets-files/" class="md-nav__link">
         加载assets中的网页
       </a>
     </li>
@@ -3117,7 +3115,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/webView/load-local-html/" class="md-nav__link">
+      <a href="../../android/ui/view/webView/load-local-html/" class="md-nav__link">
         加载本地网页
       </a>
     </li>
@@ -3131,7 +3129,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/webView/webView-in-NestedScrollView-empty-bottom/" class="md-nav__link">
+      <a href="../../android/ui/view/webView/webView-in-NestedScrollView-empty-bottom/" class="md-nav__link">
         NestedScrollView中高度不稳
       </a>
     </li>
@@ -3145,7 +3143,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/webView/long-click-pop-menu/" class="md-nav__link">
+      <a href="../../android/ui/view/webView/long-click-pop-menu/" class="md-nav__link">
         自定义长按文字弹出菜单
       </a>
     </li>
@@ -3159,7 +3157,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/webView/long-click-pop-menu-x5/" class="md-nav__link">
+      <a href="../../android/ui/view/webView/long-click-pop-menu-x5/" class="md-nav__link">
         x5自定义长按文字弹出菜单
       </a>
     </li>
@@ -3173,7 +3171,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/webView/call-java-function/" class="md-nav__link">
+      <a href="../../android/ui/view/webView/call-java-function/" class="md-nav__link">
         调用Java方法
       </a>
     </li>
@@ -3222,7 +3220,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/statusbar/get-status-bar-height/" class="md-nav__link">
+      <a href="../../android/ui/statusbar/get-status-bar-height/" class="md-nav__link">
         获取高度
       </a>
     </li>
@@ -3236,7 +3234,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/statusbar/android-7-adjust-status-bar-color/" class="md-nav__link">
+      <a href="../../android/ui/statusbar/android-7-adjust-status-bar-color/" class="md-nav__link">
         修改StatusBar颜色
       </a>
     </li>
@@ -3285,7 +3283,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/media/Camera_record_video_and_output/" class="md-nav__link">
+      <a href="../../android/media/Camera_record_video_and_output/" class="md-nav__link">
         采集、编码、封包成mp4
       </a>
     </li>
@@ -3299,7 +3297,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/media/Camera_SurfaceView_TextureView_get_nv21/" class="md-nav__link">
+      <a href="../../android/media/Camera_SurfaceView_TextureView_get_nv21/" class="md-nav__link">
         预览, 获取NV21数据
       </a>
     </li>
@@ -3313,7 +3311,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/media/camera2-get-size-fps/" class="md-nav__link">
+      <a href="../../android/media/camera2-get-size-fps/" class="md-nav__link">
         Camera2获取尺寸,fps
       </a>
     </li>
@@ -3327,7 +3325,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/media/camera2-get-size-fps-en/" class="md-nav__link">
+      <a href="../../android/media/camera2-get-size-fps-en/" class="md-nav__link">
         en Camera2 size & fps
       </a>
     </li>
@@ -3402,7 +3400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/media/MediaPlayer_intro/" class="md-nav__link">
+      <a href="../../android/media/MediaPlayer_intro/" class="md-nav__link">
         MediaPlayer 基础简介
       </a>
     </li>
@@ -3416,7 +3414,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/media/MediaPlayer_use_play_audio/" class="md-nav__link">
+      <a href="../../android/media/MediaPlayer_use_play_audio/" class="md-nav__link">
         播放音频
       </a>
     </li>
@@ -3430,7 +3428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/media/MediaPlayer_use_play_speed/" class="md-nav__link">
+      <a href="../../android/media/MediaPlayer_use_play_speed/" class="md-nav__link">
         调整音频播放速度
       </a>
     </li>
@@ -3477,7 +3475,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/media/AudioRecord_AudioTrack_pcm_wav/" class="md-nav__link">
+      <a href="../../android/media/AudioRecord_AudioTrack_pcm_wav/" class="md-nav__link">
         采集和播放PCM, 读写wav
       </a>
     </li>
@@ -3491,7 +3489,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/media/MediaMuxer_MediaExtractor_mp4/" class="md-nav__link">
+      <a href="../../android/media/MediaMuxer_MediaExtractor_mp4/" class="md-nav__link">
         使用MediaMuxer和MediaExtractor
       </a>
     </li>
@@ -3538,7 +3536,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/media/MediaCodec_use_demo/" class="md-nav__link">
+      <a href="../../android/media/MediaCodec_use_demo/" class="md-nav__link">
         MediaCodec 编解码使用方式
       </a>
     </li>
@@ -3585,7 +3583,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/media/intro/yuv-intro/" class="md-nav__link">
+      <a href="../../android/media/intro/yuv-intro/" class="md-nav__link">
         YUV简介
       </a>
     </li>
@@ -3599,7 +3597,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/media/intro/h264-intro/" class="md-nav__link">
+      <a href="../../android/media/intro/h264-intro/" class="md-nav__link">
         H.264简介
       </a>
     </li>
@@ -3655,7 +3653,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/connectivity/bluetooth/Bluetooth2_use_sample/" class="md-nav__link">
+      <a href="../../android/connectivity/bluetooth/Bluetooth2_use_sample/" class="md-nav__link">
         蓝牙2.0使用方式
       </a>
     </li>
@@ -3669,7 +3667,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/connectivity/bluetooth/bluetooth-spp-connection-note/" class="md-nav__link">
+      <a href="../../android/connectivity/bluetooth/bluetooth-spp-connection-note/" class="md-nav__link">
         连接注意事项
       </a>
     </li>
@@ -3690,7 +3688,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/connectivity/wifi/WiFi_scan_and_connect/" class="md-nav__link">
+      <a href="../../android/connectivity/wifi/WiFi_scan_and_connect/" class="md-nav__link">
         wifi连接
       </a>
     </li>
@@ -3704,7 +3702,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/hardware/get-angle-by-sensor/" class="md-nav__link">
+      <a href="../../android/hardware/get-angle-by-sensor/" class="md-nav__link">
         获取手机当前角度
       </a>
     </li>
@@ -3746,7 +3744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/activity/simple_launcher/" class="md-nav__link">
+      <a href="../../android/activity/simple_launcher/" class="md-nav__link">
         简易launcher
       </a>
     </li>
@@ -3795,7 +3793,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/aidl/intro_use/" class="md-nav__link">
+      <a href="../../android/aidl/intro_use/" class="md-nav__link">
         AIDL 了解与使用
       </a>
     </li>
@@ -3844,7 +3842,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/zip/zip-string/" class="md-nav__link">
+      <a href="../../android/zip/zip-string/" class="md-nav__link">
         压缩字符串
       </a>
     </li>
@@ -3858,7 +3856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/zip/unzip-file-use-ZipFile/" class="md-nav__link">
+      <a href="../../android/zip/unzip-file-use-ZipFile/" class="md-nav__link">
         ZipFile解压
       </a>
     </li>
@@ -3907,7 +3905,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/util/base64/use-base64/" class="md-nav__link">
+      <a href="../../android/util/base64/use-base64/" class="md-nav__link">
         使用base64
       </a>
     </li>
@@ -3956,7 +3954,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/binder/Binder_mechanism_intro/" class="md-nav__link">
+      <a href="../../android/binder/Binder_mechanism_intro/" class="md-nav__link">
         Android Binder 机制介绍
       </a>
     </li>
@@ -3970,7 +3968,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/binder/Intent_extra_size_limit/" class="md-nav__link">
+      <a href="../../android/binder/Intent_extra_size_limit/" class="md-nav__link">
         Intent 传递数据大小限制
       </a>
     </li>
@@ -4019,7 +4017,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/notification/demo1/" class="md-nav__link">
+      <a href="../../android/notification/demo1/" class="md-nav__link">
         使用示例1
       </a>
     </li>
@@ -4068,7 +4066,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/pm/basic-use/" class="md-nav__link">
+      <a href="../../android/pm/basic-use/" class="md-nav__link">
         常见用法
       </a>
     </li>
@@ -4082,7 +4080,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/pm/restart-App/" class="md-nav__link">
+      <a href="../../android/pm/restart-App/" class="md-nav__link">
         代码重启app
       </a>
     </li>
@@ -4131,7 +4129,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/rtfsc/Android-Context/" class="md-nav__link">
+      <a href="../../android/rtfsc/Android-Context/" class="md-nav__link">
         认识Context
       </a>
     </li>
@@ -4145,7 +4143,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/rtfsc/Android_SparseArray_src_code_note/" class="md-nav__link">
+      <a href="../../android/rtfsc/Android_SparseArray_src_code_note/" class="md-nav__link">
         Android SparseArray 原理解析
       </a>
     </li>
@@ -4194,7 +4192,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../designPattern/Adapter-Pattern/" class="md-nav__link">
+      <a href="../../designPattern/Adapter-Pattern/" class="md-nav__link">
         适配器模式
       </a>
     </li>
@@ -4208,7 +4206,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../designPattern/Listener_pattern_practice_in_Java_Android/" class="md-nav__link">
+      <a href="../../designPattern/Listener_pattern_practice_in_Java_Android/" class="md-nav__link">
         监听者模式 - 在Java与Android中的使用
       </a>
     </li>
@@ -4283,7 +4281,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/lib/rx/rx-android-intro/" class="md-nav__link">
+      <a href="../../android/lib/rx/rx-android-intro/" class="md-nav__link">
         RxAndroid 使用方法初探
       </a>
     </li>
@@ -4330,7 +4328,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/lib/pinyin/lib-tinypinyin-intro/" class="md-nav__link">
+      <a href="../../android/lib/pinyin/lib-tinypinyin-intro/" class="md-nav__link">
         简介
       </a>
     </li>
@@ -4377,7 +4375,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/lib/eventbus/event-bus-note/" class="md-nav__link">
+      <a href="../../android/lib/eventbus/event-bus-note/" class="md-nav__link">
         注意事项
       </a>
     </li>
@@ -4424,7 +4422,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/lib/android-gpuimage/android-gpuimage-intro/" class="md-nav__link">
+      <a href="../../android/lib/android-gpuimage/android-gpuimage-intro/" class="md-nav__link">
         初探
       </a>
     </li>
@@ -4480,7 +4478,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/as/use-as/" class="md-nav__link">
+      <a href="../../android/as/use-as/" class="md-nav__link">
         使用Android Studio
       </a>
     </li>
@@ -4494,7 +4492,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/as/suppress-warnings-use/" class="md-nav__link">
+      <a href="../../android/as/suppress-warnings-use/" class="md-nav__link">
         SuppressWarnings
       </a>
     </li>
@@ -4508,7 +4506,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/as/update-plugin-from-disk/" class="md-nav__link">
+      <a href="../../android/as/update-plugin-from-disk/" class="md-nav__link">
         从硬盘安装插件
       </a>
     </li>
@@ -4529,7 +4527,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/architect/android-proj-module-use/" class="md-nav__link">
+      <a href="../../android/architect/android-proj-module-use/" class="md-nav__link">
         模块化
       </a>
     </li>
@@ -4571,7 +4569,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/gradle/overview/" class="md-nav__link">
+      <a href="../../android/gradle/overview/" class="md-nav__link">
         构建工程 gradle
       </a>
     </li>
@@ -4585,7 +4583,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/gradle/Gradle_for_android_Start/" class="md-nav__link">
+      <a href="../../android/gradle/Gradle_for_android_Start/" class="md-nav__link">
         Gradle 简介
       </a>
     </li>
@@ -4599,7 +4597,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/gradle/Gradle_for_android_Basic_Build_Customization/" class="md-nav__link">
+      <a href="../../android/gradle/Gradle_for_android_Basic_Build_Customization/" class="md-nav__link">
         Gradle 基础自定义构建
       </a>
     </li>
@@ -4613,7 +4611,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/gradle/Gradle_for_android_Creating_Build_Variants/" class="md-nav__link">
+      <a href="../../android/gradle/Gradle_for_android_Creating_Build_Variants/" class="md-nav__link">
         Gradle 构建多种版本
       </a>
     </li>
@@ -4627,7 +4625,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/gradle/gradle-read-local-prop/" class="md-nav__link">
+      <a href="../../android/gradle/gradle-read-local-prop/" class="md-nav__link">
         Gradle 读取本地配置
       </a>
     </li>
@@ -4641,7 +4639,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/gradle/download_too_slow/" class="md-nav__link">
+      <a href="../../android/gradle/download_too_slow/" class="md-nav__link">
         Gradle 更换下载源
       </a>
     </li>
@@ -4716,7 +4714,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ndk/start/env/" class="md-nav__link">
+      <a href="../../android/ndk/start/env/" class="md-nav__link">
         环境配置
       </a>
     </li>
@@ -4730,7 +4728,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ndk/start/new-proj-with-ndk/" class="md-nav__link">
+      <a href="../../android/ndk/start/new-proj-with-ndk/" class="md-nav__link">
         新建支持C/C++的工程
       </a>
     </li>
@@ -4744,7 +4742,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ndk/start/add-ndk-to-proj/" class="md-nav__link">
+      <a href="../../android/ndk/start/add-ndk-to-proj/" class="md-nav__link">
         现有工程添加C/C++支持
       </a>
     </li>
@@ -4758,7 +4756,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ndk/start/add-ndk-to-mod/" class="md-nav__link">
+      <a href="../../android/ndk/start/add-ndk-to-mod/" class="md-nav__link">
         模块添加C/C++支持
       </a>
     </li>
@@ -4805,7 +4803,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ndk/return/return-base-type/" class="md-nav__link">
+      <a href="../../android/ndk/return/return-base-type/" class="md-nav__link">
         基本类型
       </a>
     </li>
@@ -4819,7 +4817,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ndk/return/return-array/" class="md-nav__link">
+      <a href="../../android/ndk/return/return-array/" class="md-nav__link">
         数组
       </a>
     </li>
@@ -4833,7 +4831,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ndk/return/return-pojo/" class="md-nav__link">
+      <a href="../../android/ndk/return/return-pojo/" class="md-nav__link">
         Java对象
       </a>
     </li>
@@ -4854,7 +4852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ndk/string-use/" class="md-nav__link">
+      <a href="../../android/ndk/string-use/" class="md-nav__link">
         字符串的使用
       </a>
     </li>
@@ -4868,7 +4866,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ndk/logcat-use/" class="md-nav__link">
+      <a href="../../android/ndk/logcat-use/" class="md-nav__link">
         打log
       </a>
     </li>
@@ -4908,7 +4906,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ndk/field-use/obj-field-use/" class="md-nav__link">
+      <a href="../../android/ndk/field-use/obj-field-use/" class="md-nav__link">
         访问实例域
       </a>
     </li>
@@ -4922,7 +4920,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ndk/field-use/static-field-use/" class="md-nav__link">
+      <a href="../../android/ndk/field-use/static-field-use/" class="md-nav__link">
         访问静态域
       </a>
     </li>
@@ -4943,7 +4941,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ndk/makefile_example/" class="md-nav__link">
+      <a href="../../android/ndk/makefile_example/" class="md-nav__link">
         Makefile相关示例
       </a>
     </li>
@@ -4957,7 +4955,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ndk/compile_import_a_file/" class="md-nav__link">
+      <a href="../../android/ndk/compile_import_a_file/" class="md-nav__link">
         NDK 使用.a文件
       </a>
     </li>
@@ -4997,7 +4995,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ndk/io/read_write_txt_file/" class="md-nav__link">
+      <a href="../../android/ndk/io/read_write_txt_file/" class="md-nav__link">
         读写文本文件
       </a>
     </li>
@@ -5011,7 +5009,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ndk/read_write_file/" class="md-nav__link">
+      <a href="../../android/ndk/read_write_file/" class="md-nav__link">
         读写文件(old)
       </a>
     </li>
@@ -5032,7 +5030,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ndk/dynamic_reg_function/" class="md-nav__link">
+      <a href="../../android/ndk/dynamic_reg_function/" class="md-nav__link">
         动态注册JNI方法
       </a>
     </li>
@@ -5046,7 +5044,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ndk/sprintf-itoa/" class="md-nav__link">
+      <a href="../../android/ndk/sprintf-itoa/" class="md-nav__link">
         用sprintf代替itoa
       </a>
     </li>
@@ -5121,7 +5119,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/adb/intro/" class="md-nav__link">
+      <a href="../../android/adb/intro/" class="md-nav__link">
         adb介绍
       </a>
     </li>
@@ -5135,7 +5133,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/adb/adb-wm-use/" class="md-nav__link">
+      <a href="../../android/adb/adb-wm-use/" class="md-nav__link">
         wm
       </a>
     </li>
@@ -5149,7 +5147,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/adb/adb-pm-use/" class="md-nav__link">
+      <a href="../../android/adb/adb-pm-use/" class="md-nav__link">
         pm
       </a>
     </li>
@@ -5163,7 +5161,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/adb/adb-screenrecord-use/" class="md-nav__link">
+      <a href="../../android/adb/adb-screenrecord-use/" class="md-nav__link">
         录屏
       </a>
     </li>
@@ -5177,7 +5175,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/sys/adb_mock_touch_and_monkeyrunner/" class="md-nav__link">
+      <a href="../../android/sys/adb_mock_touch_and_monkeyrunner/" class="md-nav__link">
         模拟用户点击
       </a>
     </li>
@@ -5191,7 +5189,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/adb/monkey-test-use/" class="md-nav__link">
+      <a href="../../android/adb/monkey-test-use/" class="md-nav__link">
         Monkey Test
       </a>
     </li>
@@ -5238,7 +5236,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/phone/phone_settings/" class="md-nav__link">
+      <a href="../../android/phone/phone_settings/" class="md-nav__link">
         设置
       </a>
     </li>
@@ -5252,7 +5250,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/sys/device-node/" class="md-nav__link">
+      <a href="../../android/sys/device-node/" class="md-nav__link">
         读写设备节点
       </a>
     </li>
@@ -5266,7 +5264,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/sys/device-build-version/" class="md-nav__link">
+      <a href="../../android/sys/device-build-version/" class="md-nav__link">
         系统版本相关
       </a>
     </li>
@@ -5287,7 +5285,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/sys/anr-intro/" class="md-nav__link">
+      <a href="../../android/sys/anr-intro/" class="md-nav__link">
         ANR介绍
       </a>
     </li>
@@ -5342,7 +5340,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/entry/" class="md-nav__link">
+      <a href="../../android/jetpack/entry/" class="md-nav__link">
         介绍
       </a>
     </li>
@@ -5384,7 +5382,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/dataBinding/start/" class="md-nav__link">
+      <a href="../../android/jetpack/dataBinding/start/" class="md-nav__link">
         开始使用
       </a>
     </li>
@@ -5398,7 +5396,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/dataBinding/use_observable/" class="md-nav__link">
+      <a href="../../android/jetpack/dataBinding/use_observable/" class="md-nav__link">
         Observable 可观察对象
       </a>
     </li>
@@ -5412,7 +5410,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/dataBinding/use_observableField/" class="md-nav__link">
+      <a href="../../android/jetpack/dataBinding/use_observableField/" class="md-nav__link">
         ObservableField 可观察数据对象
       </a>
     </li>
@@ -5426,7 +5424,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/dataBinding/set_on_click/" class="md-nav__link">
+      <a href="../../android/jetpack/dataBinding/set_on_click/" class="md-nav__link">
         点击事件设置
       </a>
     </li>
@@ -5440,7 +5438,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/dataBinding/layout_op/" class="md-nav__link">
+      <a href="../../android/jetpack/dataBinding/layout_op/" class="md-nav__link">
         layout 表达式语言
       </a>
     </li>
@@ -5454,7 +5452,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/dataBinding/layout_data_intro/" class="md-nav__link">
+      <a href="../../android/jetpack/dataBinding/layout_data_intro/" class="md-nav__link">
         layout data
       </a>
     </li>
@@ -5468,7 +5466,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/dataBinding/layout-include/" class="md-nav__link">
+      <a href="../../android/jetpack/dataBinding/layout-include/" class="md-nav__link">
         layout include
       </a>
     </li>
@@ -5482,7 +5480,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/dataBinding/two_way/" class="md-nav__link">
+      <a href="../../android/jetpack/dataBinding/two_way/" class="md-nav__link">
         双向数据绑定
       </a>
     </li>
@@ -5522,7 +5520,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/dataBinding/binding_adapters_custom_adapter/" class="md-nav__link">
+      <a href="../../android/jetpack/dataBinding/binding_adapters_custom_adapter/" class="md-nav__link">
         自定义逻辑
       </a>
     </li>
@@ -5536,7 +5534,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/dataBinding/binding_adapters_cvt_obj/" class="md-nav__link">
+      <a href="../../android/jetpack/dataBinding/binding_adapters_cvt_obj/" class="md-nav__link">
         对象转换
       </a>
     </li>
@@ -5592,7 +5590,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/liveData/use_mutableLiveData/" class="md-nav__link">
+      <a href="../../android/jetpack/liveData/use_mutableLiveData/" class="md-nav__link">
         mutableLiveData事件通知
       </a>
     </li>
@@ -5641,7 +5639,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/lifeCycle/lifecycle_intro/" class="md-nav__link">
+      <a href="../../android/jetpack/lifeCycle/lifecycle_intro/" class="md-nav__link">
         Lifecycle简介
       </a>
     </li>
@@ -5690,7 +5688,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/workManager/use1/" class="md-nav__link">
+      <a href="../../android/jetpack/workManager/use1/" class="md-nav__link">
         入门示例
       </a>
     </li>
@@ -5704,7 +5702,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/workManager/use2/" class="md-nav__link">
+      <a href="../../android/jetpack/workManager/use2/" class="md-nav__link">
         工作约束，延迟与查询工作
       </a>
     </li>
@@ -5718,7 +5716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/workManager/periodic1/" class="md-nav__link">
+      <a href="../../android/jetpack/workManager/periodic1/" class="md-nav__link">
         定时任务
       </a>
     </li>
@@ -5767,7 +5765,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/viewModel/viewModel_intro/" class="md-nav__link">
+      <a href="../../android/jetpack/viewModel/viewModel_intro/" class="md-nav__link">
         简介
       </a>
     </li>
@@ -5781,7 +5779,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/viewModel/act-use-vm/" class="md-nav__link">
+      <a href="../../android/jetpack/viewModel/act-use-vm/" class="md-nav__link">
         Activity使用
       </a>
     </li>
@@ -5795,7 +5793,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/viewModel/act-frag-use-one-vm/" class="md-nav__link">
+      <a href="../../android/jetpack/viewModel/act-frag-use-one-vm/" class="md-nav__link">
         Activity Fragment 共用vm
       </a>
     </li>
@@ -5844,7 +5842,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/room/db-room-start/" class="md-nav__link">
+      <a href="../../android/jetpack/room/db-room-start/" class="md-nav__link">
         开始使用Room
       </a>
     </li>
@@ -5858,7 +5856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/room/room-entity-intro/" class="md-nav__link">
+      <a href="../../android/jetpack/room/room-entity-intro/" class="md-nav__link">
         实体类介绍
       </a>
     </li>
@@ -5872,7 +5870,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/room/room-add/" class="md-nav__link">
+      <a href="../../android/jetpack/room/room-add/" class="md-nav__link">
         新增数据
       </a>
     </li>
@@ -5886,7 +5884,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/room/room-update/" class="md-nav__link">
+      <a href="../../android/jetpack/room/room-update/" class="md-nav__link">
         更新数据
       </a>
     </li>
@@ -5935,7 +5933,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/compose/compose-sample-proj1/" class="md-nav__link">
+      <a href="../../android/jetpack/compose/compose-sample-proj1/" class="md-nav__link">
         引入示例
       </a>
     </li>
@@ -5949,7 +5947,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/compose/use-compose-in-proj/" class="md-nav__link">
+      <a href="../../android/jetpack/compose/use-compose-in-proj/" class="md-nav__link">
         现有工程使用Compose
       </a>
     </li>
@@ -5998,7 +5996,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/camerax/simple-preview/" class="md-nav__link">
+      <a href="../../android/jetpack/camerax/simple-preview/" class="md-nav__link">
         打开摄像头预览
       </a>
     </li>
@@ -6012,7 +6010,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/camerax/image-analysis-use/" class="md-nav__link">
+      <a href="../../android/jetpack/camerax/image-analysis-use/" class="md-nav__link">
         分析器获取帧数据
       </a>
     </li>
@@ -6026,7 +6024,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/camerax/preview-floating-window/" class="md-nav__link">
+      <a href="../../android/jetpack/camerax/preview-floating-window/" class="md-nav__link">
         应用内预览悬浮窗
       </a>
     </li>
@@ -6040,7 +6038,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/camerax/preview-floating-system-alert-window/" class="md-nav__link">
+      <a href="../../android/jetpack/camerax/preview-floating-system-alert-window/" class="md-nav__link">
         预览悬浮窗,可后台
       </a>
     </li>
@@ -6095,7 +6093,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/intro/" class="md-nav__link">
+      <a href="../../java/intro/" class="md-nav__link">
         简介
       </a>
     </li>
@@ -6109,7 +6107,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/basic/java-env-dev/" class="md-nav__link">
+      <a href="../../java/basic/java-env-dev/" class="md-nav__link">
         开发环境
       </a>
     </li>
@@ -6151,7 +6149,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/basic/java-basic-note/" class="md-nav__link">
+      <a href="../../java/basic/java-basic-note/" class="md-nav__link">
         基础笔记
       </a>
     </li>
@@ -6165,7 +6163,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/interface/java-interface-and-abstract-class/" class="md-nav__link">
+      <a href="../../java/interface/java-interface-and-abstract-class/" class="md-nav__link">
         接口与抽象类
       </a>
     </li>
@@ -6214,7 +6212,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/class/class-basic/" class="md-nav__link">
+      <a href="../../java/class/class-basic/" class="md-nav__link">
         基础
       </a>
     </li>
@@ -6228,7 +6226,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/class/class-init-step/" class="md-nav__link">
+      <a href="../../java/class/class-init-step/" class="md-nav__link">
         类的初始化步骤
       </a>
     </li>
@@ -6242,7 +6240,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/class/abs-class-vs-interface/" class="md-nav__link">
+      <a href="../../java/class/abs-class-vs-interface/" class="md-nav__link">
         接口与抽象类
       </a>
     </li>
@@ -6256,7 +6254,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/class/equals-and-equal/" class="md-nav__link">
+      <a href="../../java/class/equals-and-equal/" class="md-nav__link">
         equals方法与 == 的区别
       </a>
     </li>
@@ -6277,7 +6275,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/concept/oo/" class="md-nav__link">
+      <a href="../../java/concept/oo/" class="md-nav__link">
         面向对象
       </a>
     </li>
@@ -6319,7 +6317,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/container/Java-Container/" class="md-nav__link">
+      <a href="../../java/container/Java-Container/" class="md-nav__link">
         简介
       </a>
     </li>
@@ -6359,7 +6357,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/container/list/Java-ArrayList-intro/" class="md-nav__link">
+      <a href="../../java/container/list/Java-ArrayList-intro/" class="md-nav__link">
         ArrayList介绍
       </a>
     </li>
@@ -6406,7 +6404,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/container/map/Java-HashMap-source-code/" class="md-nav__link">
+      <a href="../../java/container/map/Java-HashMap-source-code/" class="md-nav__link">
         HashMap解析
       </a>
     </li>
@@ -6420,7 +6418,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/container/map/Java-LinkedHashMap-code/" class="md-nav__link">
+      <a href="../../java/container/map/Java-LinkedHashMap-code/" class="md-nav__link">
         LinkedHashMap 实现原理
       </a>
     </li>
@@ -6434,7 +6432,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/container/map/Java-read-write-properties/" class="md-nav__link">
+      <a href="../../java/container/map/Java-read-write-properties/" class="md-nav__link">
         Properties使用
       </a>
     </li>
@@ -6490,7 +6488,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/thread/thread-class-intro/" class="md-nav__link">
+      <a href="../../java/thread/thread-class-intro/" class="md-nav__link">
         线程简介
       </a>
     </li>
@@ -6504,7 +6502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/concurrent/Java-read-write-lock-use/" class="md-nav__link">
+      <a href="../../java/concurrent/Java-read-write-lock-use/" class="md-nav__link">
         读写锁的使用
       </a>
     </li>
@@ -6553,7 +6551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/io/Java-read-write-file/" class="md-nav__link">
+      <a href="../../java/io/Java-read-write-file/" class="md-nav__link">
         读写文件
       </a>
     </li>
@@ -6567,7 +6565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/io/Java-read-write-xls/" class="md-nav__link">
+      <a href="../../java/io/Java-read-write-xls/" class="md-nav__link">
         读写xls
       </a>
     </li>
@@ -6616,7 +6614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/reg/reg_use/" class="md-nav__link">
+      <a href="../../java/reg/reg_use/" class="md-nav__link">
         使用正则表达式
       </a>
     </li>
@@ -6630,7 +6628,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/reg/find-samples/" class="md-nav__link">
+      <a href="../../java/reg/find-samples/" class="md-nav__link">
         查找示例
       </a>
     </li>
@@ -6644,7 +6642,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/reg/extract-between/" class="md-nav__link">
+      <a href="../../java/reg/extract-between/" class="md-nav__link">
         提取特定字符
       </a>
     </li>
@@ -6658,7 +6656,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/reg/split-samples/" class="md-nav__link">
+      <a href="../../java/reg/split-samples/" class="md-nav__link">
         分隔插入字符
       </a>
     </li>
@@ -6672,7 +6670,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/reg/code/extract-en-between-not-en/" class="md-nav__link">
+      <a href="../../java/reg/code/extract-en-between-not-en/" class="md-nav__link">
         例子1
       </a>
     </li>
@@ -6686,7 +6684,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/reg/code/find-en-word-between-not-word/" class="md-nav__link">
+      <a href="../../java/reg/code/find-en-word-between-not-word/" class="md-nav__link">
         例子2
       </a>
     </li>
@@ -6707,7 +6705,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/calendar/Java-Calendar-use/" class="md-nav__link">
+      <a href="../../java/calendar/Java-Calendar-use/" class="md-nav__link">
         日历
       </a>
     </li>
@@ -6721,7 +6719,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/anotation/Java-annotation-intro/" class="md-nav__link">
+      <a href="../../java/anotation/Java-annotation-intro/" class="md-nav__link">
         注解使用与简单说明
       </a>
     </li>
@@ -6735,7 +6733,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/security/Java-encrypt-note/" class="md-nav__link">
+      <a href="../../java/security/Java-encrypt-note/" class="md-nav__link">
         使用加密算法
       </a>
     </li>
@@ -6777,7 +6775,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../java/swing/Java-Swing-use1/" class="md-nav__link">
+      <a href="../../java/swing/Java-Swing-use1/" class="md-nav__link">
         使用示例
       </a>
     </li>
@@ -6832,7 +6830,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../kotlin/breif/kt-first/" class="md-nav__link">
+      <a href="../../kotlin/breif/kt-first/" class="md-nav__link">
         Kotlin系列简介
       </a>
     </li>
@@ -6846,7 +6844,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../kotlin/basic/intro/hello-world/" class="md-nav__link">
+      <a href="../../kotlin/basic/intro/hello-world/" class="md-nav__link">
         Hello World
       </a>
     </li>
@@ -6860,7 +6858,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../kotlin/basic/kotlin-common-patterns-in-android/" class="md-nav__link">
+      <a href="../../kotlin/basic/kotlin-common-patterns-in-android/" class="md-nav__link">
         Android开发中使用常见的Kotlin模式
       </a>
     </li>
@@ -6902,7 +6900,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../kotlin/basic/basic-syntax/" class="md-nav__link">
+      <a href="../../kotlin/basic/basic-syntax/" class="md-nav__link">
         基础概念
       </a>
     </li>
@@ -6916,7 +6914,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../kotlin/basic/functions/" class="md-nav__link">
+      <a href="../../kotlin/basic/functions/" class="md-nav__link">
         方法fun
       </a>
     </li>
@@ -6937,7 +6935,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../kotlin/basic/idioms/" class="md-nav__link">
+      <a href="../../kotlin/basic/idioms/" class="md-nav__link">
         常用写法
       </a>
     </li>
@@ -6979,7 +6977,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../kotlin/coroutines/basic/first/" class="md-nav__link">
+      <a href="../../kotlin/coroutines/basic/first/" class="md-nav__link">
         入门
       </a>
     </li>
@@ -6993,7 +6991,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../kotlin/coroutines/basic/b2/" class="md-nav__link">
+      <a href="../../kotlin/coroutines/basic/b2/" class="md-nav__link">
         基础
       </a>
     </li>
@@ -7007,7 +7005,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../kotlin/coroutines/cancel-timeout/" class="md-nav__link">
+      <a href="../../kotlin/coroutines/cancel-timeout/" class="md-nav__link">
         取消与超时
       </a>
     </li>
@@ -7062,7 +7060,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../designPattern/Adapter-Pattern/" class="md-nav__link">
+      <a href="../../designPattern/Adapter-Pattern/" class="md-nav__link">
         适配器模式
       </a>
     </li>
@@ -7076,7 +7074,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../designPattern/Listener_pattern_practice_in_Java_Android/" class="md-nav__link">
+      <a href="../../designPattern/Listener_pattern_practice_in_Java_Android/" class="md-nav__link">
         监听者模式 Java&Android
       </a>
     </li>
@@ -7090,7 +7088,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../designPattern/Bridge-Pattern/" class="md-nav__link">
+      <a href="../../designPattern/Bridge-Pattern/" class="md-nav__link">
         桥接模式
       </a>
     </li>
@@ -7104,7 +7102,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../designPattern/Builder-Pattern/" class="md-nav__link">
+      <a href="../../designPattern/Builder-Pattern/" class="md-nav__link">
         构造器模式
       </a>
     </li>
@@ -7118,7 +7116,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../designPattern/Command-pattern/" class="md-nav__link">
+      <a href="../../designPattern/Command-pattern/" class="md-nav__link">
         命令模式
       </a>
     </li>
@@ -7132,7 +7130,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../designPattern/Decoration_Java/" class="md-nav__link">
+      <a href="../../designPattern/Decoration_Java/" class="md-nav__link">
         装饰者模式
       </a>
     </li>
@@ -7146,7 +7144,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../designPattern/Strategy-Pattern/" class="md-nav__link">
+      <a href="../../designPattern/Strategy-Pattern/" class="md-nav__link">
         策略模式
       </a>
     </li>
@@ -7160,7 +7158,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../designPattern/Factory_method_Java/" class="md-nav__link">
+      <a href="../../designPattern/Factory_method_Java/" class="md-nav__link">
         工厂方法
       </a>
     </li>
@@ -7174,7 +7172,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../designPattern/Iterator_Java/" class="md-nav__link">
+      <a href="../../designPattern/Iterator_Java/" class="md-nav__link">
         迭代器
       </a>
     </li>
@@ -7188,7 +7186,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../designPattern/Mediator-Pattern/" class="md-nav__link">
+      <a href="../../designPattern/Mediator-Pattern/" class="md-nav__link">
         中介者
       </a>
     </li>
@@ -7202,7 +7200,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../designPattern/Memento-Pattern/" class="md-nav__link">
+      <a href="../../designPattern/Memento-Pattern/" class="md-nav__link">
         备忘录模式
       </a>
     </li>
@@ -7216,7 +7214,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../designPattern/Prototype-Pattern/" class="md-nav__link">
+      <a href="../../designPattern/Prototype-Pattern/" class="md-nav__link">
         原型模式
       </a>
     </li>
@@ -7230,7 +7228,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../designPattern/Proxy-Pattern/" class="md-nav__link">
+      <a href="../../designPattern/Proxy-Pattern/" class="md-nav__link">
         代理模式
       </a>
     </li>
@@ -7244,7 +7242,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../designPattern/Responsibility-Chain-Pattern/" class="md-nav__link">
+      <a href="../../designPattern/Responsibility-Chain-Pattern/" class="md-nav__link">
         责任链模式
       </a>
     </li>
@@ -7258,7 +7256,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../designPattern/State-Pattern/" class="md-nav__link">
+      <a href="../../designPattern/State-Pattern/" class="md-nav__link">
         状态模式
       </a>
     </li>
@@ -7272,7 +7270,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../designPattern/Template-Method-Pattern_Java/" class="md-nav__link">
+      <a href="../../designPattern/Template-Method-Pattern_Java/" class="md-nav__link">
         模板方法模式
       </a>
     </li>
@@ -7286,7 +7284,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../designPattern/Visitor-Pattern/" class="md-nav__link">
+      <a href="../../designPattern/Visitor-Pattern/" class="md-nav__link">
         访问者模式
       </a>
     </li>
@@ -7300,7 +7298,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../designPattern/Flyweight-Pattern/" class="md-nav__link">
+      <a href="../../designPattern/Flyweight-Pattern/" class="md-nav__link">
         享元模式
       </a>
     </li>
@@ -7314,7 +7312,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../designPattern/Facade-Pattern/" class="md-nav__link">
+      <a href="../../designPattern/Facade-Pattern/" class="md-nav__link">
         门面模式
       </a>
     </li>
@@ -7334,12 +7332,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" checked>
       
       
       
@@ -7362,7 +7362,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tech-note-index/" class="md-nav__link">
+      <a href="../../tech-note-index/" class="md-nav__link">
         📚 引言
       </a>
     </li>
@@ -7376,7 +7376,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../recent-post/" class="md-nav__link">
+      <a href="../../recent-post/" class="md-nav__link">
         🔥 最近更新
       </a>
     </li>
@@ -7390,7 +7390,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tags/" class="md-nav__link">
+      <a href="../../tags/" class="md-nav__link">
         🏷 本站标签
       </a>
     </li>
@@ -7404,7 +7404,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../git/git-tips/" class="md-nav__link">
+      <a href="../../git/git-tips/" class="md-nav__link">
         Git 使用技巧
       </a>
     </li>
@@ -7446,7 +7446,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../nestjs/nestjs-websocket-start/" class="md-nav__link">
+      <a href="../../nestjs/nestjs-websocket-start/" class="md-nav__link">
         NestJS WebSocket
       </a>
     </li>
@@ -7460,7 +7460,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../nestjs/wss-nginx-cfg/" class="md-nav__link">
+      <a href="../../nestjs/wss-nginx-cfg/" class="md-nav__link">
         WSS Nginx配置
       </a>
     </li>
@@ -7474,7 +7474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../nestjs/nestjs-static-file/" class="md-nav__link">
+      <a href="../../nestjs/nestjs-static-file/" class="md-nav__link">
         NestJS静态资源文件
       </a>
     </li>
@@ -7488,7 +7488,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../nestjs/nest-devops/" class="md-nav__link">
+      <a href="../../nestjs/nest-devops/" class="md-nav__link">
         NestJS部署
       </a>
     </li>
@@ -7502,7 +7502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../nestjs/mp-wx-http-status-code/" class="md-nav__link">
+      <a href="../../nestjs/mp-wx-http-status-code/" class="md-nav__link">
         NestJS微信公众号201
       </a>
     </li>
@@ -7542,7 +7542,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../nestjs/simple-chat/create-nest-project/" class="md-nav__link">
+      <a href="../../nestjs/simple-chat/create-nest-project/" class="md-nav__link">
         1.新建工程使用websocket
       </a>
     </li>
@@ -7556,7 +7556,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../nestjs/simple-chat/web-connect-local/" class="md-nav__link">
+      <a href="../../nestjs/simple-chat/web-connect-local/" class="md-nav__link">
         2.新建页面index.html
       </a>
     </li>
@@ -7570,7 +7570,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../nestjs/simple-chat/transfer-msg-local/" class="md-nav__link">
+      <a href="../../nestjs/simple-chat/transfer-msg-local/" class="md-nav__link">
         3.本地服务群发消息
       </a>
     </li>
@@ -7584,7 +7584,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../nestjs/simple-chat/deploy-on-server/" class="md-nav__link">
+      <a href="../../nestjs/simple-chat/deploy-on-server/" class="md-nav__link">
         4.部署服务
       </a>
     </li>
@@ -7598,7 +7598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../nestjs/simple-chat/room-chat/" class="md-nav__link">
+      <a href="../../nestjs/simple-chat/room-chat/" class="md-nav__link">
         5.分房聊天
       </a>
     </li>
@@ -7654,7 +7654,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../media/color/yuv-intro/" class="md-nav__link">
+      <a href="../../media/color/yuv-intro/" class="md-nav__link">
         YUV简介
       </a>
     </li>
@@ -7668,7 +7668,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../media/video/yuv-save-format/" class="md-nav__link">
+      <a href="../../media/video/yuv-save-format/" class="md-nav__link">
         YUV存储方式
       </a>
     </li>
@@ -7682,7 +7682,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../media/audio/some-audio-video-media-format/" class="md-nav__link">
+      <a href="../../media/audio/some-audio-video-media-format/" class="md-nav__link">
         常见音视频格式
       </a>
     </li>
@@ -7731,7 +7731,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cocos/creator/ccc-touch-event/" class="md-nav__link">
+      <a href="../../cocos/creator/ccc-touch-event/" class="md-nav__link">
         触摸事件穿透
       </a>
     </li>
@@ -7745,7 +7745,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cocos/creator/ccc-postion-and-cvt/" class="md-nav__link">
+      <a href="../../cocos/creator/ccc-postion-and-cvt/" class="md-nav__link">
         坐标变换
       </a>
     </li>
@@ -7759,7 +7759,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cocos/creator/ccc-drag-anywhere/" class="md-nav__link">
+      <a href="../../cocos/creator/ccc-drag-anywhere/" class="md-nav__link">
         任意拖动
       </a>
     </li>
@@ -7773,7 +7773,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cocos/creator/ccc-drag-to-target/" class="md-nav__link">
+      <a href="../../cocos/creator/ccc-drag-to-target/" class="md-nav__link">
         拖动到目的地
       </a>
     </li>
@@ -7787,7 +7787,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cocos/creator/g/dev-2d-game/" class="md-nav__link">
+      <a href="../../cocos/creator/g/dev-2d-game/" class="md-nav__link">
         2D开发记录
       </a>
     </li>
@@ -7836,7 +7836,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../linux/usr/ls-use/" class="md-nav__link">
+      <a href="../../linux/usr/ls-use/" class="md-nav__link">
         ls
       </a>
     </li>
@@ -7850,7 +7850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../linux/usr/awk-use/" class="md-nav__link">
+      <a href="../../linux/usr/awk-use/" class="md-nav__link">
         awk
       </a>
     </li>
@@ -7864,7 +7864,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../linux/usr/grep-use/" class="md-nav__link">
+      <a href="../../linux/usr/grep-use/" class="md-nav__link">
         grep
       </a>
     </li>
@@ -7878,7 +7878,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../linux/usr/find-use/" class="md-nav__link">
+      <a href="../../linux/usr/find-use/" class="md-nav__link">
         find
       </a>
     </li>
@@ -7892,7 +7892,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../linux/usr/curl-use/" class="md-nav__link">
+      <a href="../../linux/usr/curl-use/" class="md-nav__link">
         curl
       </a>
     </li>
@@ -7906,7 +7906,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../linux/shell/for-use/" class="md-nav__link">
+      <a href="../../linux/shell/for-use/" class="md-nav__link">
         for循环
       </a>
     </li>
@@ -7920,7 +7920,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../linux/usr/netstat-use/" class="md-nav__link">
+      <a href="../../linux/usr/netstat-use/" class="md-nav__link">
         netstat查看网络状态
       </a>
     </li>
@@ -7934,7 +7934,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../redis/redis-docker-master-slave-sentinel-123/" class="md-nav__link">
+      <a href="../../redis/redis-docker-master-slave-sentinel-123/" class="md-nav__link">
         Redis docker 主从模式与哨兵
       </a>
     </li>
@@ -7948,7 +7948,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../apollo/apollo-docker-run-dev-fat/" class="md-nav__link">
+      <a href="../../apollo/apollo-docker-run-dev-fat/" class="md-nav__link">
         Apollo docker 部署
       </a>
     </li>
@@ -7962,7 +7962,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../nginx/nginx-conf-note/" class="md-nav__link">
+      <a href="../../nginx/nginx-conf-note/" class="md-nav__link">
         nginx常见配置
       </a>
     </li>
@@ -7976,7 +7976,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/mysql/docker-mysql-modify-pwd/" class="md-nav__link">
+      <a href="../../db/mysql/docker-mysql-modify-pwd/" class="md-nav__link">
         docker mysql 修改密码
       </a>
     </li>
@@ -7990,7 +7990,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../server/component/xxl-job/docker-run-xxl-job/" class="md-nav__link">
+      <a href="../../server/component/xxl-job/docker-run-xxl-job/" class="md-nav__link">
         xxl-job docker 部署
       </a>
     </li>
@@ -8039,7 +8039,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../embedded/base/what-is-float-NaN-Inf/" class="md-nav__link">
+      <a href="../../embedded/base/what-is-float-NaN-Inf/" class="md-nav__link">
         float类型中NaN和Inf是什么
       </a>
     </li>
@@ -8079,7 +8079,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../embedded/wifi/ESP8266-struc-start/" class="md-nav__link">
+      <a href="../../embedded/wifi/ESP8266-struc-start/" class="md-nav__link">
         架构探索-运行的起始
       </a>
     </li>
@@ -8093,7 +8093,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../embedded/wifi/ESP8266-Bootloader-rtfsc-rboot-1/" class="md-nav__link">
+      <a href="../../embedded/wifi/ESP8266-Bootloader-rtfsc-rboot-1/" class="md-nav__link">
         Bootloader开源代码解析之rboot（一）
       </a>
     </li>
@@ -8107,7 +8107,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../embedded/wifi/ESP8266-Bootloader-rtfsc-rboot-2/" class="md-nav__link">
+      <a href="../../embedded/wifi/ESP8266-Bootloader-rtfsc-rboot-2/" class="md-nav__link">
         Bootloader开源代码解析之rboot（二）
       </a>
     </li>
@@ -8154,7 +8154,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../embedded/dev/utils-enum-tostring/" class="md-nav__link">
+      <a href="../../embedded/dev/utils-enum-tostring/" class="md-nav__link">
         ENUM转字符串
       </a>
     </li>
@@ -8168,7 +8168,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../embedded/dev/utils-binary-cvt/" class="md-nav__link">
+      <a href="../../embedded/dev/utils-binary-cvt/" class="md-nav__link">
         二进制转换
       </a>
     </li>
@@ -8182,7 +8182,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../embedded/dev/utils-for-chips-base-time-space-cal/" class="md-nav__link">
+      <a href="../../embedded/dev/utils-for-chips-base-time-space-cal/" class="md-nav__link">
         不同芯片的基础时空开销计算
       </a>
     </li>
@@ -8238,7 +8238,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ios/uikit/tableview/case/table-view-and-other/" class="md-nav__link">
+      <a href="../../ios/uikit/tableview/case/table-view-and-other/" class="md-nav__link">
         TableView显示列表
       </a>
     </li>
@@ -8252,7 +8252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ios/uikit/tableview/case/table-view-and-other-cell/" class="md-nav__link">
+      <a href="../../ios/uikit/tableview/case/table-view-and-other-cell/" class="md-nav__link">
         TableView自定义Cell
       </a>
     </li>
@@ -8292,7 +8292,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ios/uikit/tableview/table-view-storyboard-sample1/" class="md-nav__link">
+      <a href="../../ios/uikit/tableview/table-view-storyboard-sample1/" class="md-nav__link">
         1.开始使用
       </a>
     </li>
@@ -8306,7 +8306,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ios/uikit/tableview/table-view-storyboard-sample2/" class="md-nav__link">
+      <a href="../../ios/uikit/tableview/table-view-storyboard-sample2/" class="md-nav__link">
         2.显示数据详情
       </a>
     </li>
@@ -8320,7 +8320,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ios/uikit/tableview/table-view-storyboard-sample3/" class="md-nav__link">
+      <a href="../../ios/uikit/tableview/table-view-storyboard-sample3/" class="md-nav__link">
         3.列表使用DataSource
       </a>
     </li>
@@ -8334,7 +8334,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ios/uikit/tableview/table-view-storyboard-sample4-ds/" class="md-nav__link">
+      <a href="../../ios/uikit/tableview/table-view-storyboard-sample4-ds/" class="md-nav__link">
         4.详情使用DataSource
       </a>
     </li>
@@ -8348,7 +8348,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ios/uikit/tableview/table-view-storyboard-sample5-edit/" class="md-nav__link">
+      <a href="../../ios/uikit/tableview/table-view-storyboard-sample5-edit/" class="md-nav__link">
         5.编辑详情标题
       </a>
     </li>
@@ -8369,7 +8369,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ios/lib/a-lib-missing-arch/" class="md-nav__link">
+      <a href="../../ios/lib/a-lib-missing-arch/" class="md-nav__link">
         .a不支持的架构问题
       </a>
     </li>
@@ -8409,7 +8409,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ios/xcode/basic-use/" class="md-nav__link">
+      <a href="../../ios/xcode/basic-use/" class="md-nav__link">
         基本使用
       </a>
     </li>
@@ -8430,7 +8430,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ios/duns-apple-2022/" class="md-nav__link">
+      <a href="../../ios/duns-apple-2022/" class="md-nav__link">
         DUNS
       </a>
     </li>
@@ -8479,7 +8479,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../lua/start/lua-simple-start-mac/" class="md-nav__link">
+      <a href="../../lua/start/lua-simple-start-mac/" class="md-nav__link">
         Lua Mac编译和安装
       </a>
     </li>
@@ -8493,7 +8493,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../lua/start/lua-base/" class="md-nav__link">
+      <a href="../../lua/start/lua-base/" class="md-nav__link">
         Lua基本操作
       </a>
     </li>
@@ -8542,7 +8542,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ruankao/pm3/1-information-and-sys/" class="md-nav__link">
+      <a href="../../ruankao/pm3/1-information-and-sys/" class="md-nav__link">
         1.信息和信息化系统
       </a>
     </li>
@@ -8556,7 +8556,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ruankao/pm3/2-info-sys-manage-basic/" class="md-nav__link">
+      <a href="../../ruankao/pm3/2-info-sys-manage-basic/" class="md-nav__link">
         2.信息系统项目管理基础
       </a>
     </li>
@@ -8605,7 +8605,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/note-mongodb-mysql/" class="md-nav__link">
+      <a href="../../db/note-mongodb-mysql/" class="md-nav__link">
         MongoDB和MySQL的对比
       </a>
     </li>
@@ -8626,7 +8626,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../sip/sip-err-code/" class="md-nav__link">
+      <a href="../sip-err-code/" class="md-nav__link">
         📞 SIP错误码
       </a>
     </li>
@@ -8638,11 +8638,66 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../../sip/sip-and-sdp/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          SIP与SDP
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         SIP与SDP
       </a>
+      
+        
+  
+  <nav class="md-nav md-nav--secondary" aria-label="目录">
+    
+    
+    
+      
+    
+    
+      <label class="md-nav__title" for="__toc">
+        <span class="md-nav__icon md-icon"></span>
+        目录
+      </label>
+      <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+        
+          <li class="md-nav__item">
+  <a href="#sdp" class="md-nav__link">
+    SDP的例子
+  </a>
+  
+</li>
+        
+      </ul>
+      <p style="height: 6px;"></p>
+      <div style="display:block;">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7286632197002340"
+        crossorigin="anonymous"></script>
+        <!-- cube1 -->
+        <ins class="adsbygoogle"
+              style="display:inline-block;width:230px;height:230px"
+              data-ad-client="ca-pub-7286632197002340"
+              data-ad-slot="3425975276"></ins>
+        <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+    
+  </nav>
+  
+      
     </li>
   
 
@@ -8708,7 +8763,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../fun/joke-1/" class="md-nav__link">
+      <a href="../../fun/joke-1/" class="md-nav__link">
         程序笑话集1
       </a>
     </li>
@@ -8722,7 +8777,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../fun/joke-2/" class="md-nav__link">
+      <a href="../../fun/joke-2/" class="md-nav__link">
         程序笑话集2
       </a>
     </li>
@@ -8736,7 +8791,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../fun/joke-3/" class="md-nav__link">
+      <a href="../../fun/joke-3/" class="md-nav__link">
         程序笑话集3
       </a>
     </li>
@@ -8750,7 +8805,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../fun/joke-4/" class="md-nav__link">
+      <a href="../../fun/joke-4/" class="md-nav__link">
         程序笑话集4
       </a>
     </li>
@@ -8764,7 +8819,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../fun/joke-5/" class="md-nav__link">
+      <a href="../../fun/joke-5/" class="md-nav__link">
         程序笑话沙雕图5
       </a>
     </li>
@@ -8785,7 +8840,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../fun/http-code/" class="md-nav__link">
+      <a href="../../fun/http-code/" class="md-nav__link">
         网络状态码
       </a>
     </li>
@@ -8883,7 +8938,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../about/" class="md-nav__link">
+      <a href="../../about/" class="md-nav__link">
         🙋‍♂️ 关于
       </a>
     </li>
@@ -8897,7 +8952,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../about/fr/" class="md-nav__link">
+      <a href="../../about/fr/" class="md-nav__link">
         🛳 友链
       </a>
     </li>
@@ -8911,7 +8966,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../about/sponsor-author/" class="md-nav__link">
+      <a href="../../about/sponsor-author/" class="md-nav__link">
         🎉 支持作者
       </a>
     </li>
@@ -8925,7 +8980,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../about/site-dev-note/" class="md-nav__link">
+      <a href="../../about/site-dev-note/" class="md-nav__link">
         ⏱ 本站开发记录
       </a>
     </li>
@@ -8973,7 +9028,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../python/basic/get-path/" class="md-nav__link">
+      <a href="../../python/basic/get-path/" class="md-nav__link">
         获取路径
       </a>
     </li>
@@ -9015,7 +9070,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../python/basic/dictionary-JSON-file/" class="md-nav__link">
+      <a href="../../python/basic/dictionary-JSON-file/" class="md-nav__link">
         dict和JSON
       </a>
     </li>
@@ -9029,7 +9084,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../python/io/scan-file-like-tree/" class="md-nav__link">
+      <a href="../../python/io/scan-file-like-tree/" class="md-nav__link">
         查看目录中的文件
       </a>
     </li>
@@ -9043,7 +9098,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../python/io/read-write-csv/" class="md-nav__link">
+      <a href="../../python/io/read-write-csv/" class="md-nav__link">
         读写csv
       </a>
     </li>
@@ -9092,7 +9147,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../python/openpyxl/openpyxl-tutorial/" class="md-nav__link">
+      <a href="../../python/openpyxl/openpyxl-tutorial/" class="md-nav__link">
         openpyxl使用指南
       </a>
     </li>
@@ -9106,7 +9161,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../python/openpyxl/openpyxl-charts-bar-column/" class="md-nav__link">
+      <a href="../../python/openpyxl/openpyxl-charts-bar-column/" class="md-nav__link">
         Excel绘制柱形图
       </a>
     </li>
@@ -9120,7 +9175,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../python/openpyxl/op-excel-openpyxl-use/" class="md-nav__link">
+      <a href="../../python/openpyxl/op-excel-openpyxl-use/" class="md-nav__link">
         【运营】处理Excel数据示例
       </a>
     </li>
@@ -9134,7 +9189,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../python/openpyxl/op-excel-openpyxl-bar-column-chart/" class="md-nav__link">
+      <a href="../../python/openpyxl/op-excel-openpyxl-bar-column-chart/" class="md-nav__link">
         【运营】Excel绘制柱形图
       </a>
     </li>
@@ -9148,7 +9203,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../python/openpyxl/op-draw-funnel-1/" class="md-nav__link">
+      <a href="../../python/openpyxl/op-draw-funnel-1/" class="md-nav__link">
         【运营】绘制漏斗图
       </a>
     </li>
@@ -9197,7 +9252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../python/matplotlib/matplotlib-intro1/" class="md-nav__link">
+      <a href="../../python/matplotlib/matplotlib-intro1/" class="md-nav__link">
         Matplotlib快速入门
       </a>
     </li>
@@ -9211,7 +9266,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../python/matplotlib/matplotlib-intro-parts/" class="md-nav__link">
+      <a href="../../python/matplotlib/matplotlib-intro-parts/" class="md-nav__link">
         Matplotlib组成部分
       </a>
     </li>
@@ -9260,7 +9315,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../python/scrapy/scrapy-hw-blog-record/" class="md-nav__link">
+      <a href="../../python/scrapy/scrapy-hw-blog-record/" class="md-nav__link">
         获取博客标题和URL
       </a>
     </li>
@@ -9309,7 +9364,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../python/mysql/use1/" class="md-nav__link">
+      <a href="../../python/mysql/use1/" class="md-nav__link">
         操作MySQL
       </a>
     </li>
@@ -9330,7 +9385,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../python/basic/pip-solution/" class="md-nav__link">
+      <a href="../../python/basic/pip-solution/" class="md-nav__link">
         pip源
       </a>
     </li>
@@ -9372,7 +9427,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../python/record/ffmpeg-extraction-mp4-use/" class="md-nav__link">
+      <a href="../../python/record/ffmpeg-extraction-mp4-use/" class="md-nav__link">
         Python调用ffmpeg
       </a>
     </li>
@@ -9386,7 +9441,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../python/record/python3-send-email/" class="md-nav__link">
+      <a href="../../python/record/python3-send-email/" class="md-nav__link">
         发送邮件
       </a>
     </li>
@@ -9400,7 +9455,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../python/record/adb-use/" class="md-nav__link">
+      <a href="../../python/record/adb-use/" class="md-nav__link">
         调用adb
       </a>
     </li>
@@ -9449,7 +9504,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pyqt/pycharm-install-and-config/" class="md-nav__link">
+      <a href="../../pyqt/pycharm-install-and-config/" class="md-nav__link">
         安装PyCharm
       </a>
     </li>
@@ -9463,7 +9518,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pyqt/install-pyqt5/" class="md-nav__link">
+      <a href="../../pyqt/install-pyqt5/" class="md-nav__link">
         安装PyQt5
       </a>
     </li>
@@ -9477,7 +9532,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pyqt/pyqt-QMainWindow-use1/" class="md-nav__link">
+      <a href="../../pyqt/pyqt-QMainWindow-use1/" class="md-nav__link">
         QMainWindow 简单使用
       </a>
     </li>
@@ -9491,7 +9546,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pyqt/pyqt-adjust-screen-resolution/" class="md-nav__link">
+      <a href="../../pyqt/pyqt-adjust-screen-resolution/" class="md-nav__link">
         PyQt适配不同屏幕分辨率
       </a>
     </li>
@@ -9505,7 +9560,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pyqt/pyqt-drag-and-drop/" class="md-nav__link">
+      <a href="../../pyqt/pyqt-drag-and-drop/" class="md-nav__link">
         PyQt拖入
       </a>
     </li>
@@ -9519,7 +9574,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pyqt/pyqt-QFileDialog-use/" class="md-nav__link">
+      <a href="../../pyqt/pyqt-QFileDialog-use/" class="md-nav__link">
         QFileDialog文件选择弹窗
       </a>
     </li>
@@ -9533,7 +9588,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pyqt/pyqt-locale/" class="md-nav__link">
+      <a href="../../pyqt/pyqt-locale/" class="md-nav__link">
         PyQt多语言
       </a>
     </li>
@@ -9547,7 +9602,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pyqt/pyqt5-custom-QWidget-use/" class="md-nav__link">
+      <a href="../../pyqt/pyqt5-custom-QWidget-use/" class="md-nav__link">
         PyQt创建自定义QWidget
       </a>
     </li>
@@ -9561,7 +9616,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pyqt/pyqt-QThread/" class="md-nav__link">
+      <a href="../../pyqt/pyqt-QThread/" class="md-nav__link">
         PyQt线程类QThread
       </a>
     </li>
@@ -9575,7 +9630,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pyqt/pyqt-pack-exe/" class="md-nav__link">
+      <a href="../../pyqt/pyqt-pack-exe/" class="md-nav__link">
         PyQt打包成exe文件
       </a>
     </li>
@@ -9589,7 +9644,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pyqt/pyqt5-install-license/" class="md-nav__link">
+      <a href="../../pyqt/pyqt5-install-license/" class="md-nav__link">
         PyQt5安装商业版
       </a>
     </li>
@@ -9616,14 +9671,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
       
       
       
@@ -9646,7 +9699,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../intro/concept-intro/" class="md-nav__link">
+      <a href="../../webrtc/intro/concept-intro/" class="md-nav__link">
         WebRTC简介
       </a>
     </li>
@@ -9660,7 +9713,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../media/media-consultation-sdp-intro/" class="md-nav__link">
+      <a href="../../webrtc/media/media-consultation-sdp-intro/" class="md-nav__link">
         媒体协商与SDP简介
       </a>
     </li>
@@ -9672,16 +9725,14 @@
               
   
   
-    
-  
   
     
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_3" type="checkbox" id="__nav_9_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_3" type="checkbox" id="__nav_9_3" >
       
       
       
@@ -9704,7 +9755,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../web-samples/getUserMedia-open-camera/" class="md-nav__link">
+      <a href="../../webrtc/web-samples/getUserMedia-open-camera/" class="md-nav__link">
         WebRTC打开摄像头
       </a>
     </li>
@@ -9718,7 +9769,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../web-samples/resolution/" class="md-nav__link">
+      <a href="../../webrtc/web-samples/resolution/" class="md-nav__link">
         WebRTC视频分辨率
       </a>
     </li>
@@ -9732,7 +9783,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../web-samples/canvas1/" class="md-nav__link">
+      <a href="../../webrtc/web-samples/canvas1/" class="md-nav__link">
         WebRTC截取本地视频帧
       </a>
     </li>
@@ -9746,7 +9797,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../web-samples/css-filters/" class="md-nav__link">
+      <a href="../../webrtc/web-samples/css-filters/" class="md-nav__link">
         WebRTC与css滤镜
       </a>
     </li>
@@ -9760,7 +9811,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../web-samples/getusermedia-record/" class="md-nav__link">
+      <a href="../../webrtc/web-samples/getusermedia-record/" class="md-nav__link">
         WebRTC与录制视频
       </a>
     </li>
@@ -9774,7 +9825,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../web-samples/getdisplaymedia/" class="md-nav__link">
+      <a href="../../webrtc/web-samples/getdisplaymedia/" class="md-nav__link">
         WebRTC分享屏幕与录屏
       </a>
     </li>
@@ -9788,7 +9839,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../web-samples/audio-collection/" class="md-nav__link">
+      <a href="../../webrtc/web-samples/audio-collection/" class="md-nav__link">
         WebRTC与音频音量
       </a>
     </li>
@@ -9802,7 +9853,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../capture/video-local-peer/" class="md-nav__link">
+      <a href="../../webrtc/capture/video-local-peer/" class="md-nav__link">
         WebRTC模拟传输视频
       </a>
     </li>
@@ -9816,7 +9867,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../upgrade-to-video/" class="md-nav__link">
+      <a href="../../webrtc/peerconnection/upgrade-to-video/" class="md-nav__link">
         WebRTC音频升级到视频通话
       </a>
     </li>
@@ -9828,107 +9879,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          WebRTC本地多个转发节点
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../webrtc/peerconnection/multi-relay/" class="md-nav__link">
         WebRTC本地多个转发节点
       </a>
-      
-        
-  
-  <nav class="md-nav md-nav--secondary" aria-label="目录">
-    
-    
-    
-      
-    
-    
-      <label class="md-nav__title" for="__toc">
-        <span class="md-nav__icon md-icon"></span>
-        目录
-      </label>
-      <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    准备
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    控制
-  </a>
-  
-    <nav class="md-nav" aria-label="控制">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#connection2js" class="md-nav__link">
-    connection2.js
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mainjs" class="md-nav__link">
-    main.js
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    效果预览
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    小结
-  </a>
-  
-</li>
-        
-      </ul>
-      <p style="height: 6px;"></p>
-      <div style="display:block;">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7286632197002340"
-        crossorigin="anonymous"></script>
-        <!-- cube1 -->
-        <ins class="adsbygoogle"
-              style="display:inline-block;width:230px;height:230px"
-              data-ad-client="ca-pub-7286632197002340"
-              data-ad-slot="3425975276"></ins>
-        <script>
-              (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
-    
-  </nav>
-  
-      
     </li>
   
 
@@ -9940,7 +9895,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../change-codec/" class="md-nav__link">
+      <a href="../../webrtc/peerconnection/change-codec/" class="md-nav__link">
         选择codec
       </a>
     </li>
@@ -9961,7 +9916,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../turn/ubuntu-run-coturn/" class="md-nav__link">
+      <a href="../../webrtc/turn/ubuntu-run-coturn/" class="md-nav__link">
         Ubuntu运行coturn
       </a>
     </li>
@@ -10003,7 +9958,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../intro/sync-build/" class="md-nav__link">
+      <a href="../../webrtc/intro/sync-build/" class="md-nav__link">
         WebRTC下载和编译（Mac）
       </a>
     </li>
@@ -10017,7 +9972,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../android/agc-ns-compile/" class="md-nav__link">
+      <a href="../../webrtc/android/agc-ns-compile/" class="md-nav__link">
         WebRTC抽取AGC增益与ANS噪声抑制模块给Android
       </a>
     </li>
@@ -10038,7 +9993,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../some-reference/" class="md-nav__link">
+      <a href="../../webrtc/some-reference/" class="md-nav__link">
         WebRTC的一些参考
       </a>
     </li>
@@ -10079,49 +10034,8 @@
       <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    准备
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    控制
-  </a>
-  
-    <nav class="md-nav" aria-label="控制">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#connection2js" class="md-nav__link">
-    connection2.js
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mainjs" class="md-nav__link">
-    main.js
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    效果预览
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    小结
+  <a href="#sdp" class="md-nav__link">
+    SDP的例子
   </a>
   
 </li>
@@ -10159,8 +10073,8 @@
   <nav class="md-tags" >
     
       
-        <a href="../../../tags/#webrtc" class="md-tag">
-          WebRTC
+        <a href="../../tags/#sip" class="md-tag">
+          sip
         </a>
       
     
@@ -10168,313 +10082,59 @@
 
 
 
-<h1 id="webrtc">WebRTC本地插入多个转发节点，模拟多节点转发，造成延迟<a class="headerlink" href="#webrtc" title="Permanent link">&para;</a></h1>
-<details class="note"><summary>更新日期: 2021-12-21</summary><ul>
-<li>2021-12-21 创建文档</li>
+<h1 id="sipsdp">SIP与SDP<a class="headerlink" href="#sipsdp" title="Permanent link">&para;</a></h1>
+<details class="note"><summary>2023-03-23 创建文档</summary><ul>
+<li>2023-03-23 创建文档</li>
 </ul>
 </details>
-<p>网络延迟是一种比较常见的情况。在本地网页上，我们可以建立多个<strong>RTCPeerConnection</strong>，增加转发次数，来模拟出网络延迟的效果。
-建立通话后，再往后面增加本地转发节点。</p>
-<h2 id="_1">准备<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>页面准备，方便我们后面调试
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;container&quot;</span><span class="p">&gt;</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://an.rustfisher.com/webrtc/peerconnection/upgrade-to-video&quot;</span> <span class="na">title</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>WebRTC插入多个转发节点<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;videos&quot;</span><span class="p">&gt;</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        <span class="p">&lt;</span><span class="nt">video</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;video1&quot;</span> <span class="na">playsinline</span> <span class="na">autoplay</span> <span class="na">muted</span><span class="p">&gt;&lt;/</span><span class="nt">video</span><span class="p">&gt;</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>        <span class="p">&lt;</span><span class="nt">video</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;video2&quot;</span> <span class="na">playsinline</span> <span class="na">autoplay</span><span class="p">&gt;&lt;/</span><span class="nt">video</span><span class="p">&gt;</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="p">&lt;</span><span class="nt">section</span><span class="p">&gt;&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;audio&quot;</span><span class="p">&gt;&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;audio&quot;</span><span class="p">&gt;</span>包含音频（&gt;= Chrome 49）<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;buttons&quot;</span><span class="p">&gt;</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>        <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;start&quot;</span><span class="p">&gt;</span>开始<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>        <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;call&quot;</span> <span class="na">disabled</span><span class="p">&gt;</span>呼叫<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>        <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;insertRelay&quot;</span> <span class="na">disabled</span><span class="p">&gt;</span>插入转发<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>        <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;hangup&quot;</span> <span class="na">disabled</span><span class="p">&gt;</span>挂断<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;status&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>
-<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../../src/js/adapter-2021.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;js/connection2.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;js/main.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</code></pre></div>
-放上2个video和几个button。引入WebRTC adapter和控制脚本。</p>
-<p>如果要使用官方的适配器adapter，按下边的地址来引入
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">&lt;!-- &lt;script src=&quot;../../src/js/adapter-2021.js&quot;&gt;&lt;/script&gt; --&gt;</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://webrtc.github.io/adapter/adapter-latest.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</code></pre></div></p>
-<h2 id="_2">控制<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>分为<code>connection2.js</code>和<code>main.js</code>。</p>
-<p><code>connection2.js</code>包含新建节点的逻辑。<code>main.js</code>控制主流程。</p>
-<h3 id="connection2js">connection2.js<a class="headerlink" href="#connection2js" title="Permanent link">&para;</a></h3>
-<p>这里能新建2个<strong>RTCPeerConnection</strong>，建立新的连接。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">function</span><span class="w"> </span><span class="nx">doNothing</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kd">function</span><span class="w"> </span><span class="nx">errFunc</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">        </span><span class="nx">trace</span><span class="p">(</span><span class="s1">&#39;报错 &#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">context</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;: &#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">error</span><span class="p">.</span><span class="nx">toString</span><span class="p">);</span><span class="w"></span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="p">};</span><span class="w"></span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">}</span><span class="w"></span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="c1">// 新建2个节点并建立连接</span><span class="w"></span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="kd">function</span><span class="w"> </span><span class="nx">Connection2</span><span class="p">(</span><span class="nx">stream</span><span class="p">,</span><span class="w"> </span><span class="nx">handler</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">servers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">pc1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">RTCPeerConnection</span><span class="p">(</span><span class="nx">servers</span><span class="p">);</span><span class="w"></span>
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">pc2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">RTCPeerConnection</span><span class="p">(</span><span class="nx">servers</span><span class="p">);</span><span class="w"></span>
-<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
-<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">    </span><span class="nx">pc1</span><span class="p">.</span><span class="nx">addStream</span><span class="p">(</span><span class="nx">stream</span><span class="p">);</span><span class="w"></span>
-<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="nx">pc1</span><span class="p">.</span><span class="nx">onicecandidate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">candidate</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">            </span><span class="nx">pc2</span><span class="p">.</span><span class="nx">addIceCandidate</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="nx">RTCIceCandidate</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">candidate</span><span class="p">),</span><span class="w"></span>
-<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">                </span><span class="nx">doNothing</span><span class="p">,</span><span class="w"> </span><span class="nx">errFunc</span><span class="p">(</span><span class="s1">&#39;AddIceCandidate&#39;</span><span class="p">));</span><span class="w"></span>
-<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">        </span><span class="p">}</span><span class="w"></span>
-<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">    </span><span class="p">};</span><span class="w"></span>
-<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">    </span><span class="nx">pc2</span><span class="p">.</span><span class="nx">onicecandidate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">candidate</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">            </span><span class="nx">pc1</span><span class="p">.</span><span class="nx">addIceCandidate</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="nx">RTCIceCandidate</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">candidate</span><span class="p">),</span><span class="w"></span>
-<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">                </span><span class="nx">doNothing</span><span class="p">,</span><span class="w"> </span><span class="nx">errFunc</span><span class="p">(</span><span class="s1">&#39;AddIceCandidate&#39;</span><span class="p">));</span><span class="w"></span>
-<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="w">        </span><span class="p">}</span><span class="w"></span>
-<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="w">    </span><span class="p">};</span><span class="w"></span>
-<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="w">    </span><span class="nx">pc2</span><span class="p">.</span><span class="nx">onaddstream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="w">        </span><span class="nx">handler</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">stream</span><span class="p">);</span><span class="w"></span>
-<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a><span class="w">    </span><span class="p">};</span><span class="w"></span>
-<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a><span class="w">    </span><span class="nx">pc1</span><span class="p">.</span><span class="nx">createOffer</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">desc</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a><span class="w">        </span><span class="nx">pc1</span><span class="p">.</span><span class="nx">setLocalDescription</span><span class="p">(</span><span class="nx">desc</span><span class="p">);</span><span class="w"></span>
-<a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a><span class="w">        </span><span class="nx">pc2</span><span class="p">.</span><span class="nx">setRemoteDescription</span><span class="p">(</span><span class="nx">desc</span><span class="p">);</span><span class="w"></span>
-<a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a><span class="w">        </span><span class="nx">pc2</span><span class="p">.</span><span class="nx">createAnswer</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">desc2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a><span class="w">            </span><span class="nx">pc2</span><span class="p">.</span><span class="nx">setLocalDescription</span><span class="p">(</span><span class="nx">desc2</span><span class="p">);</span><span class="w"></span>
-<a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a><span class="w">            </span><span class="nx">pc1</span><span class="p">.</span><span class="nx">setRemoteDescription</span><span class="p">(</span><span class="nx">desc2</span><span class="p">);</span><span class="w"></span>
-<a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a><span class="w">        </span><span class="p">},</span><span class="w"> </span><span class="nx">errFunc</span><span class="p">(</span><span class="s1">&#39;pc2.createAnswer&#39;</span><span class="p">));</span><span class="w"></span>
-<a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a><span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="nx">errFunc</span><span class="p">(</span><span class="s1">&#39;pc1.createOffer&#39;</span><span class="p">));</span><span class="w"></span>
-<a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">pc1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">pc1</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">pc2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">pc2</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a><span class="p">}</span><span class="w"></span>
-<a id="__codelineno-2-42" name="__codelineno-2-42" href="#__codelineno-2-42"></a>
-<a id="__codelineno-2-43" name="__codelineno-2-43" href="#__codelineno-2-43"></a><span class="nx">Connection2</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">close</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-2-44" name="__codelineno-2-44" href="#__codelineno-2-44"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">pc1</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
-<a id="__codelineno-2-45" name="__codelineno-2-45" href="#__codelineno-2-45"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">pc2</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
-<a id="__codelineno-2-46" name="__codelineno-2-46" href="#__codelineno-2-46"></a><span class="p">};</span><span class="w"></span>
-</code></pre></div></p>
-<p><code>Connection2(stream, handler)</code>新建pc1和pc2，将传入的<code>stream</code>作为数据源交给pc1。
-随后在pc1和pc2之间建立连接。pc2接到数据流后再交回给<code>handler</code>。</p>
-<h3 id="mainjs">main.js<a class="headerlink" href="#mainjs" title="Permanent link">&para;</a></h3>
-<p>先拿到ui
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="s1">&#39;use strict&#39;</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1">// 获取ui</span><span class="w"></span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="kd">const</span><span class="w"> </span><span class="nx">video1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;video#video1&#39;</span><span class="p">);</span><span class="w"></span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="kd">const</span><span class="w"> </span><span class="nx">video2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;video#video2&#39;</span><span class="p">);</span><span class="w"></span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="kd">const</span><span class="w"> </span><span class="nx">statusDiv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;div#status&#39;</span><span class="p">);</span><span class="w"></span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="kd">const</span><span class="w"> </span><span class="nx">audioCheckbox</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;input#audio&#39;</span><span class="p">);</span><span class="w"></span>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="kd">const</span><span class="w"> </span><span class="nx">startBtn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;button#start&#39;</span><span class="p">);</span><span class="w"></span>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="kd">const</span><span class="w"> </span><span class="nx">callBtn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;button#call&#39;</span><span class="p">);</span><span class="w"></span>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="kd">const</span><span class="w"> </span><span class="nx">insertRelayBtn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;button#insertRelay&#39;</span><span class="p">);</span><span class="w"></span>
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="kd">const</span><span class="w"> </span><span class="nx">hangupBtn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;button#hangup&#39;</span><span class="p">);</span><span class="w"></span>
-</code></pre></div></p>
-<p>记录一些变量
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">connectionList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span><span class="w"> </span><span class="c1">// 连接点</span><span class="w"></span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kd">let</span><span class="w"> </span><span class="nx">localStream</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kd">let</span><span class="w"> </span><span class="nx">remoteStream</span><span class="p">;</span><span class="w"></span>
-</code></pre></div></p>
-<p>启动，获取数据流。可以选择是否带音频流。拿到数据流后，交给<code>video1</code>显示，并且记录为<code>localStream</code>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">function</span><span class="w"> </span><span class="nx">gotStream</span><span class="p">(</span><span class="nx">stream</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="nx">video1</span><span class="p">.</span><span class="nx">srcObject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">stream</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="nx">localStream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">stream</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="nx">callBtn</span><span class="p">.</span><span class="nx">disabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="p">}</span><span class="w"></span>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="kd">function</span><span class="w"> </span><span class="nx">start</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="nx">startBtn</span><span class="p">.</span><span class="nx">disabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">audioCheckbox</span><span class="p">.</span><span class="nx">checked</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">audio</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nx">video</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">audio</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nx">video</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="nx">navigator</span><span class="p">.</span><span class="nx">mediaDevices</span><span class="p">.</span><span class="nx">getUserMedia</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span><span class="w"></span>
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">        </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">gotStream</span><span class="p">)</span><span class="w"></span>
-<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">        </span><span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">            </span><span class="nx">alert</span><span class="p">(</span><span class="sb">`获取媒体失败 </span><span class="si">${</span><span class="nx">e</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span><span class="w"></span>
-<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">        </span><span class="p">});</span><span class="w"></span>
-<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="p">}</span><span class="w"></span>
-</code></pre></div></p>
-<p>发起呼叫
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kd">function</span><span class="w"> </span><span class="nx">gotremoteStream</span><span class="p">(</span><span class="nx">stream</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="nx">remoteStream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">stream</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="nx">video2</span><span class="p">.</span><span class="nx">srcObject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">stream</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;接收到了传输后的数据流&#39;</span><span class="p">);</span><span class="w"></span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="nx">statusDiv</span><span class="p">.</span><span class="nx">textContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`当前节点数: </span><span class="si">${</span><span class="nx">connectionList</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">2</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="nx">insertRelayBtn</span><span class="p">.</span><span class="nx">disabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="p">}</span><span class="w"></span>
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
-<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="kd">function</span><span class="w"> </span><span class="nx">call</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="nx">callBtn</span><span class="p">.</span><span class="nx">disabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">    </span><span class="nx">insertRelayBtn</span><span class="p">.</span><span class="nx">disabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">    </span><span class="nx">hangupBtn</span><span class="p">.</span><span class="nx">disabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;呼叫!&#39;</span><span class="p">);</span><span class="w"></span>
-<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">    </span><span class="nx">connectionList</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="nx">Connection2</span><span class="p">(</span><span class="nx">localStream</span><span class="p">,</span><span class="w"> </span><span class="nx">gotremoteStream</span><span class="p">));</span><span class="w"></span>
-<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="p">}</span><span class="w"></span>
-</code></pre></div>
-呼叫的方法是<code>call()</code>，使用<strong>Connection2</strong>来建立第一级连接。
-连接的记录存放在<code>connectionList</code>。</p>
-<p>插入转发和call有点类似，都使用了<strong>Connection2</strong>。但是输入的是<code>remoteStream</code>。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kd">function</span><span class="w"> </span><span class="nx">insertRelay</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="nx">connectionList</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="nx">Connection2</span><span class="p">(</span><span class="nx">remoteStream</span><span class="p">,</span><span class="w"> </span><span class="nx">gotremoteStream</span><span class="p">));</span><span class="w"></span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="nx">insertRelayBtn</span><span class="p">.</span><span class="nx">disabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="p">}</span><span class="w"></span>
-</code></pre></div></p>
-<p>多次调用<code>insertRelay()</code>，可以模拟出多层转发的情况。转发次数多了，视频延迟得也就越明显。</p>
-<p><img alt="" src="/webrtc/peerconnection/multi-relay-res/multi-relay.png" /></p>
-<p>挂断/结束方法<code>hangup()</code>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kd">function</span><span class="w"> </span><span class="nx">hangup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;挂断&#39;</span><span class="p">);</span><span class="w"></span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nx">connectionList</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">pipe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">connectionList</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span><span class="w"></span>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">        </span><span class="nx">pipe</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">    </span><span class="nx">insertRelayBtn</span><span class="p">.</span><span class="nx">disabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">    </span><span class="nx">hangupBtn</span><span class="p">.</span><span class="nx">disabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">    </span><span class="nx">callBtn</span><span class="p">.</span><span class="nx">disabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="p">}</span><span class="w"></span>
-</code></pre></div>
-将<code>connectionList</code>里面的连接全部拿出来结束掉。
-如果数量比较多，结束耗时也会比较长。</p>
-<h2 id="_3">效果预览<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>效果预览请参考<a href="https://an.rustfisher.com/webrtc/peerconnection/multi-relay-res/relay.html">WebRTC插入多个转发节点</a></p>
-<p>可以尝试多点击几次插入转发按钮。观察视频的延迟情况。</p>
-<h2 id="_4">小结<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>本地网页可以通过增加节点的办法，模拟出视频传输延迟的效果。
-<code>Connection2(stream, handler)</code>里的代码写的非常简洁，也利于了解<a href="https://an.rustfisher.com/webrtc/capture/video-local-peer/">WebRTC传输建立的过程</a>。
-从这个例子我们也可以看出，实际工程中要尽量减少中间节点。并且要优先选择质量高的节点。</p>
-<p><br/></p>
-<p><strong>WebRTC系列</strong></p>
-<div id="url-container" style="width: 100%;height:360px;"></div>
-
-<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-
-<script type="text/javascript" src="https://cdn.staticfile.org/echarts/5.2.2/echarts.min.js"></script>
-
-<script type="text/javascript">
-var dom = document.getElementById("url-container");
-var myChart = echarts.init(dom);
-var app = {};
-var option;
-var urlData = {
-    name: "WebRTC",
-    children: [
-        {
-            name: "概念简介",
-            url: "https://an.rustfisher.com/webrtc/intro/concept-intro/"
-        },
-        {
-            name: "web",
-            children: [
-                {
-                    name: "打开本地摄像头",
-                    url: "https://an.rustfisher.com/webrtc/web-samples/getUserMedia-open-camera/"
-                },
-                {
-                    name: "设置视频分辨率",
-                    url: "https://an.rustfisher.com/webrtc/web-samples/resolution/"
-                },
-                {
-                    name: "从摄像头获取图片传入canvas",
-                    url: "https://an.rustfisher.com/webrtc/web-samples/canvas1/"
-                },
-                {
-                    name: "使用css滤镜",
-                    url: "https://an.rustfisher.com/webrtc/web-samples/css-filters/"
-                },
-                {
-                    name: "网页打开摄像头并录制视频",
-                    url: "https://an.rustfisher.com/webrtc/web-samples/getusermedia-record/"
-                },
-                {
-                    name: "本地分享屏幕，录制屏幕",
-                    url: "https://an.rustfisher.com/webrtc/web-samples/getdisplaymedia/"
-                },
-                {
-                    name: "获取音频音量",
-                    url: "https://an.rustfisher.com/webrtc/web-samples/audio-collection/"
-                },
-                {
-                    name:"模拟传输视频流，video/peer",
-                    url: "https://an.rustfisher.com/webrtc/capture/video-local-peer/"
-                },
-                {
-                    name:"音频通话升级为视频通话",
-                    url: "https://an.rustfisher.com/webrtc/peerconnection/upgrade-to-video/"
-                },
-                {
-                    name:"本地插入多个转发节点，模拟多节点转发",
-                    url: "https://an.rustfisher.com/webrtc/peerconnection/multi-relay/"
-                }
-            ]
-        }
-    ]
-};
-// myChart.showLoading();
-// myChart.hideLoading();
-  myChart.setOption(
-    (option = {
-      tooltip: {
-        trigger: 'item',
-        triggerOn: 'mousemove'
-      },
-      series: [
-        {
-          type: 'tree',
-          data: [urlData],
-          top: '1%',
-          left: '15%',
-          bottom: '1%',
-          right: '33%',
-          symbolSize: 8,
-          label: {
-            position: 'left',
-            verticalAlign: 'middle',
-            align: 'right',
-            fontSize: 14
-          },
-          leaves: {
-            label: {
-              position: 'right',
-              verticalAlign: 'middle',
-              align: 'left'
-            }
-          },
-          emphasis: {
-            focus: 'descendant'
-          },
-          expandAndCollapse: true,
-          animationDuration: 500,
-          animationDurationUpdate: 700
-        }
-      ]
-    })
-  );
-
-if (option && typeof option === 'object') {
-    myChart.setOption(option);
-}
-myChart.on('click', function (params) {
-    if (params.data && params.data.url) {
-        window.open(params.data.url);
-    }
-});
-$(window).on('resize', function () {
-    if (myChart != null && myChart != undefined) {
-        myChart.resize();
-    }
-});
-</script>
-
-<details class="note"><summary>本文也发布在</summary><p><a class="md-button" href="https://bbs.huaweicloud.com/blogs/317775">华为云社区</a>
-<a class="md-button" href="https://www.cnblogs.com/rustfisher/p/15721972.html">cnblog</a></p>
-</details>
+<p>SIP（Session Initiation Protocol）是一种用于建立、修改和终止多媒体会话的协议，而SDP（Session Description Protocol）则是一种用于描述多媒体会话的协议。在SIP中，SDP通常被用来传递关于媒体流的信息，包括编解码器类型、传输协议、端口号等等。当一个SIP请求或响应需要携带SDP信息时，它们通常会将SDP数据作为负载放在消息体中，以便让对方了解关于该会话的各种媒体相关细节。因此，可以说SIP和SDP是密切相关的两个协议，它们共同组成了一套完整的多媒体会话建立和传输机制。</p>
+<h2 id="sdp">SDP的例子<a class="headerlink" href="#sdp" title="Permanent link">&para;</a></h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span>
+<span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>v=0：SDP协议版本号。
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>o=- 1 1 IN IP4 172.20.91.230：会话原点（origin）包括会话ID、会话版本号、网络类型、地址类型和IP地址等信息。
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>s=-：会话名称为空。
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>b=AS:136：会话带宽限制为136kbps。
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>t=0 0：会话起始时间和结束时间均为0。
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>m=audio 16032 UDP/TLS/RTP/SAVPF 8 126：描述了媒体流。m=表示媒体类型为音频，16032是媒体流使用的端口号，UDP/TLS/RTP/SAVPF是传输协议和有效荷载格式，8和126分别代表音频编码格式为PCMA和电话事件。
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>c=IN IP4 110.70.80.208：连接信息，即媒体流的IP地址为110.70.80.208。
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>b=AS:128：该媒体流的带宽限制为128kbps。
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>a=ice-ufrag:y7NNkDKB：ICE协议中使用的用户名片段。
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>a=ice-pwd:857ptMf7fbCuJ5XdCqDEBHDZCfAMJ/cF：ICE协议中使用的密码。
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>a=candidate:1 1 UDP 2130706431 110.70.80.208 16032 typ host：描述了用于ICE协商的候选地址。
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>a=rtcp:9：RTCP协议使用的端口号为9。
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a>a=rtcp-mux：启用RTCP复用。
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a>a=fingerprint:sha-256 57:F7:21:AC:50:1D:7D:B0:C2:CE:47:0D:A6:5F:1B:42:E9:E6:45:76:71:40:7D:0A:AA:FB:04:10:BC:19:A9:22：使用SHA-256算法计算的数字指纹用于加密传输。
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a>a=ssrc:448824499 cname:4XEWkjS+ILIS0SOk：同步信源标识符（SSRC）和它的CNAME。
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a>a=rtpmap:8 PCMA/8000：定义了payload type为8的rtp有效荷载格式。
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>a=rtpmap:126 telephone-event/8000：定义了payload type为126的rtp有效荷载格式。
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a>a=sendrecv：表示该媒体流可以发送和接收数据。
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a>a=mid:audio：为媒体流设置唯一的标识符。
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a>a=setup:active：表示媒体流使用主动模式建立连接。
+</code></pre></div></td></tr></table></div>
 
               
 
   <details class="info" open><summary class="">本站说明</summary>
     <!-- <p><b>本站作者</b>: <a href="https://rustfisher.com">rustfisher.com</a> | rf.cs@foxmail.com</p>
-    <p><b>本文链接</b>: <a href="https://www.an.rustfisher.com/webrtc/peerconnection/multi-relay/">https://www.an.rustfisher.com/webrtc/peerconnection/multi-relay/</a></p> -->
+    <p><b>本文链接</b>: <a href="https://www.an.rustfisher.com/sip/sip-and-sdp/">https://www.an.rustfisher.com/sip/sip-and-sdp/</a></p> -->
     <p>一起在知识的海洋里呛水吧。广告内容与本站无关。如果喜欢本站内容，欢迎投喂作者，谢谢支持服务器。欢迎在下方评论~</p>
     <p>
       <a class="md-button" href="https://gitee.com/rustfisher/AndroidTutorial">
@@ -10598,7 +10258,7 @@ setTimeout(() => {
     <nav class="md-footer__inner md-grid" aria-label="页脚">
       
         
-        <a href="../upgrade-to-video/" class="md-footer__link md-footer__link--prev" aria-label="上一页: WebRTC音频升级到视频通话" rel="prev">
+        <a href="../sip-err-code/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 📞 SIP错误码" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -10607,20 +10267,20 @@ setTimeout(() => {
               <span class="md-footer__direction">
                 上一页
               </span>
-              WebRTC音频升级到视频通话
+              📞 SIP错误码
             </div>
           </div>
         </a>
       
       
         
-        <a href="../change-codec/" class="md-footer__link md-footer__link--next" aria-label="下一页: 选择codec" rel="next">
+        <a href="../../fun/joke-1/" class="md-footer__link md-footer__link--next" aria-label="下一页: 程序笑话集1" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 下一页
               </span>
-              选择codec
+              程序笑话集1
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -10680,14 +10340,14 @@ setTimeout(() => {
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["tabs", "navigation.tabs", "navigation.sections", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["tabs", "navigation.tabs", "navigation.sections", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.f758a944.min.js"></script>
+      <script src="../../assets/javascripts/bundle.f758a944.min.js"></script>
       
-        <script src="../../../about/baidu.js"></script>
+        <script src="../../about/baidu.js"></script>
       
-        <script src="../../../about/so_360.js"></script>
+        <script src="../../about/so_360.js"></script>
       
     
   </body>
