@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="SIP错误码参考，中文解释与英文解释。100 Trying，180 Ringing，200 OK，403 Forbidden，408 Request timeout">
+        <meta name="description" content="SIP（Session Initiation Protocol，会话初始协议）的状态码共有6类，分别是1xx、2xx、3xx、4xx、5xx和6xx。每个状态码表示了对SIP请求的处理结果。本文为SIP错误码参考，中文解释与英文解释。100 Trying，180 Ringing，200 OK，403 Forbidden，408 Request timeout">
       
       
       
@@ -101,25 +101,25 @@
     
       
       <!-- 设置字节跳动搜索 -->
-      <meta name="bytedance:published_time" content="2022-10-12 00:22:22+08:00"/>
+      <meta name="bytedance:published_time" content="2023-03-23 00:22:22+08:00"/>
 
       <!-- 360 -->
-      <meta property="og:release_date" content="2022-10-12 00:22:22+08:00"/>
+      <meta property="og:release_date" content="2023-03-23 00:22:22+08:00"/>
     
 
     
     <!-- 暂时让时间一致 -->
       
       
-      <meta name="bytedance:updated_time" content="2022-10-12 00:43:57+08:00"/>
-      <meta name="bytedance:lrDate_time" content="2022-10-12 00:43:57+08:00"/>
+      <meta name="bytedance:updated_time" content="2023-03-23 00:43:57+08:00"/>
+      <meta name="bytedance:lrDate_time" content="2023-03-23 00:43:57+08:00"/>
     
 
     
   
 
   <meta property="og:image" content="https://www.an.rustfisher.com/about/res/fish_dev.png" />
-  <meta property="og:description" content="SIP错误码参考，中文解释与英文解释。100 Trying，180 Ringing，200 OK，403 Forbidden，408 Request timeout">
+  <meta property="og:description" content="SIP（Session Initiation Protocol，会话初始协议）的状态码共有6类，分别是1xx、2xx、3xx、4xx、5xx和6xx。每个状态码表示了对SIP请求的处理结果。本文为SIP错误码参考，中文解释与英文解释。100 Trying，180 Ringing，200 OK，403 Forbidden，408 Request timeout">
 
   <script type="application/ld+json">
     {
@@ -134,9 +134,9 @@
           "@type": "Person",
           "name": "RustFisher"
         },
-        "datePublished": "2022-10-12 00:43:57+08:00",
-        "dateModified": "2022-10-12 00:43:57+08:00",
-        "description": "SIP错误码参考，中文解释与英文解释。100 Trying，180 Ringing，200 OK，403 Forbidden，408 Request timeout",
+        "datePublished": "2023-03-23 00:43:57+08:00",
+        "dateModified": "2023-03-23 00:43:57+08:00",
+        "description": "SIP（Session Initiation Protocol，会话初始协议）的状态码共有6类，分别是1xx、2xx、3xx、4xx、5xx和6xx。每个状态码表示了对SIP请求的处理结果。本文为SIP错误码参考，中文解释与英文解释。100 Trying，180 Ringing，200 OK，403 Forbidden，408 Request timeout",
         "publisher": {
           "@type": "Person",
           "name": "RustFisher",
@@ -10278,10 +10278,24 @@
 
 <h1 id="sip">SIP错误码参考<a class="headerlink" href="#sip" title="Permanent link">&para;</a></h1>
 <details class="note"><summary>更新日期: 2022-10-12</summary><ul>
+<li>2023-3-23 更新说明</li>
 <li>2022-10-12 创建文档</li>
 </ul>
 </details>
+<blockquote>
+<p>SIP（Session Initiation Protocol，会话初始协议）的状态码共有6类，分别是1xx、2xx、3xx、4xx、5xx和6xx。每个状态码表示了对SIP请求的处理结果。</p>
+</blockquote>
 <h2 id="sip_1">SIP错误码（中文解释）<a class="headerlink" href="#sip_1" title="Permanent link">&para;</a></h2>
+<p>下面是这些状态码的简要说明：</p>
+<ul>
+<li>1xx：信息响应，表示请求已被接收并正在处理中。</li>
+<li>2xx：成功响应，表示请求已被成功处理。</li>
+<li>3xx：重定向响应，表示请求需要进一步操作才能完成。</li>
+<li>4xx：客户端错误响应，表示请求包含语法错误或无法完成。</li>
+<li>5xx：服务器错误响应，表示服务器在处理请求时发生错误。</li>
+<li>6xx：全局性错误响应，表示存在某种临时性或永久性错误，使得无法处理请求。</li>
+</ul>
+<p>每个状态码都有一个数字代码和对应的文本描述，例如200 OK表示成功处理请求，404 Not Found表示未找到请求的资源等。</p>
 <h3 id="1xx">1xx<a class="headerlink" href="#1xx" title="Permanent link">&para;</a></h3>
 <p>100 Trying   说明caller正在呼叫，但还没联系上callee。 </p>
 <p>180 Ringing 说明callee已经被联系上,callee的铃正在响.收到这个信息后，等待200 OK  </p>
