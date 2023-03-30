@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<!--
+ *  an.rustfisher.com
+ *
+ *  音频的使用
+-->
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="description" content="WebRTC与音频|an.rustfisher.com">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1">
+    <meta itemprop="description" content="WebRTC与音频|an.rustfisher.com">
+    <meta itemprop="name" content="WebRTC与音频|an.rustfisher.com">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta id="theme-color" name="theme-color" content="#ffffff">
+
+    <base target="_blank">
+
+    <title>WebRTC与音频 | an.rustfisher.com</title>
+
+    <link rel="icon" sizes="192x192" href="../../../about/about/favicon.ico">
+    <link rel="stylesheet" href="../css/main.css">
+
+</head>
+
+<style>
+    .field {
+        margin-bottom: 40px;
+    }
+
+    div#meters>div {
+        margin: 0 0 1em 0;
+    }
+
+    div#meters div.label {
+        display: inline-block;
+        font-weight: 400;
+        margin: 0 0.5em 0 0;
+        width: 3.5em;
+    }
+
+    div#meters div.value {
+        display: inline-block;
+    }
+
+    meter {
+        width: 50%;
+    }
+
+    meter#clip {
+        color: #db4437;
+    }
+
+    meter#slow {
+        color: #f4b400;
+    }
+
+    meter#instant {
+        color: #0f9d58;
+    }
+</style>
+
+<body>
+
+    <div id="container">
+        <h1><a href="https://an.rustfisher.com/webrtc/web-samples/audio-collection/">WebRTC与音频</a></h1>
+
+        <div class="field">
+            <h2>1. 用audio播放示例音频，播放时请注意周围环境</h2>
+            <audio id="sample-audio" src="God_knows_01.mp3" controls autoplay></audio>
+        </div>
+
+        <div class="field">
+            <h2>2. 将捕捉到的声音用audio直接放出来。建议戴上耳机</h2>
+            <audio id="play-audio" controls autoplay></audio>
+
+            <div id="meters">
+                <div id="instant">
+                    <div class="label">实时:</div>
+                    <meter high="0.25" max="1" value="0"></meter>
+                    <div class="value"></div>
+                </div>
+                <div id="slow">
+                    <div class="label">秒级:</div>
+                    <meter high="0.25" max="1" value="0"></meter>
+                    <div class="value"></div>
+                </div>
+                <div id="clip">
+                    <div class="label">Clip:</div>
+                    <meter max="1" value="0"></meter>
+                    <div class="value"></div>
+                </div>
+            </div>
+
+            <div>
+                <button id="startBtn">启动</button>
+                <button id="stopBtn" disabled>停止</button>
+            </div>
+
+            <div id="msg"></div>
+        </div>
+
+    <div class="_m47gxn99axh"></div>
+    <script type="text/javascript">
+        (window.slotbydup = window.slotbydup || []).push({
+            id: "u6827338",
+            container: "_m47gxn99axh",
+            async: true
+        });
+    </script>
+    </div>
+
+    <!-- 使用本地的适配器 -->
+    <script src="../js/adapter-latest.js" async></script>
+    <script src="js/soundmeter.js"></script>
+    <script src="js/main.js"></script>
+    <script src="../../../_ext_js/baidu.js"></script>
+
+
+    <!-- 多条广告如下脚本只需引入一次 -->
+    <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js" async="async" defer="defer">
+    </script>
+</body>
+
+</html>
