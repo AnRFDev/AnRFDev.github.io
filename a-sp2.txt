@@ -155,6 +155,7 @@ https://www.an.rustfisher.com/android/lib/android-gpuimage/android-gpuimage-intr
 https://www.an.rustfisher.com/android/as/use-as/index.html
 https://www.an.rustfisher.com/android/as/suppress-warnings-use/index.html
 https://www.an.rustfisher.com/android/as/update-plugin-from-disk/index.html
+https://www.an.rustfisher.com/android/gradle/show-all-task-as2022/index.html
 https://www.an.rustfisher.com/android/architect/android-proj-module-use/index.html
 https://www.an.rustfisher.com/android/gradle/overview/index.html
 https://www.an.rustfisher.com/android/gradle/Gradle_for_android_Start/index.html
