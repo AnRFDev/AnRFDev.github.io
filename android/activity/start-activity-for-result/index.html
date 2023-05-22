@@ -10145,11 +10145,15 @@
 
 
 <h1 id="android-activity">Android Activity 返回时携带参数<a class="headerlink" href="#android-activity" title="Permanent link">&para;</a></h1>
-<details class="note"><summary>更新日期 2020-4-20</summary><ul>
+<details class="note"><summary>更新日期 2023-5-19</summary><ul>
+<li>2023-5-19 创建文档</li>
 <li>2020-4-20 创建文档</li>
 </ul>
-<p><img alt="Android Activity 返回时携带参数" class="theme-img" src="/about/_media/cover/as-logo-700.png" /></p>
 </details>
+<div class="admonition warning">
+<p class="admonition-title">deprecation</p>
+<p><code>startActivityForResult</code> 已不再推荐使用</p>
+</div>
 <p>我们已经知道<a href="../start-activity-and-send-params/">启动activity的时候可以传递一些参数</a>。那么在关闭activity时，能不能将一些数据传回上一个activity呢？</p>
 <p>本文给出1个例子，实现关闭activity时，将一些数据传回给上一个activity。</p>
 <p>例子中会有2个Activity来做示范，<code>ForResultFirstAct</code>和<code>ForResultSecondAct</code>。</p>
