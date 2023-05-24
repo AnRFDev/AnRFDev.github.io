@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Shell脚本for循环语句写法。介绍几种常见的for循环用法。for in，for((i=1;i<=3;i++))，或者是字符串。">
+        <meta name="description" content="Shell脚本for循环语句写法。介绍几种常见的for循环用法。for in，for((i=1;i<=3;i++))，或者是字符串。按日期创建文档和移动文件的例子。">
       
       
       
@@ -101,8 +101,8 @@
     <!-- 暂时让时间一致 -->
       
       
-      <meta name="bytedance:updated_time" content="2022-03-14 01:43:57+08:00"/>
-      <meta name="bytedance:lrDate_time" content="2022-03-14 01:43:57+08:00"/>
+      <meta name="bytedance:updated_time" content="2022-05-24 09:43:57+08:00"/>
+      <meta name="bytedance:lrDate_time" content="2022-05-24 09:43:57+08:00"/>
     
 
     
@@ -111,7 +111,7 @@
   
 
   <meta property="og:image" content="https://www.an.rustfisher.com/about/_media/cover/linux-blue-circle.jpeg" />
-  <meta property="og:description" content="Shell脚本for循环语句写法。介绍几种常见的for循环用法。for in，for((i=1;i<=3;i++))，或者是字符串。">
+  <meta property="og:description" content="Shell脚本for循环语句写法。介绍几种常见的for循环用法。for in，for((i=1;i<=3;i++))，或者是字符串。按日期创建文档和移动文件的例子。">
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGC5WSNW8Y"></script>
@@ -136,9 +136,9 @@
           "@type": "Person",
           "name": "RustFisher"
         },
-        "datePublished": "2022-03-14 01:43:57+08:00",
-        "dateModified": "2022-03-14 01:43:57+08:00",
-        "description": "Shell脚本for循环语句写法。介绍几种常见的for循环用法。for in，for((i=1;i<=3;i++))，或者是字符串。",
+        "datePublished": "2022-05-24 09:43:57+08:00",
+        "dateModified": "2022-05-24 09:43:57+08:00",
+        "description": "Shell脚本for循环语句写法。介绍几种常见的for循环用法。for in，for((i=1;i<=3;i++))，或者是字符串。按日期创建文档和移动文件的例子。",
         "publisher": {
           "@type": "Person",
           "name": "RustFisher",
@@ -8025,6 +8025,26 @@
     目录
   </a>
   
+    <nav class="md-nav" aria-label="目录">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    批量创建目录
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    批量移动文件到文件夹里
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -10180,6 +10200,26 @@
     目录
   </a>
   
+    <nav class="md-nav" aria-label="目录">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    批量创建目录
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    批量移动文件到文件夹里
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -10224,9 +10264,9 @@
 
 
 
-<h1 id="shell-for">shell for 循环语句<a class="headerlink" href="#shell-for" title="Permanent link">&para;</a></h1>
-<details class="note"><summary>更新日期 2022-3-14</summary><p><img alt="linux" src="/about/res/linux-gray.png" /></p>
-<ul>
+<h1 id="shell-for">shell for 循环语句的使用<a class="headerlink" href="#shell-for" title="Permanent link">&para;</a></h1>
+<details class="note"><summary>更新日期 2023-5-24</summary><ul>
+<li>2023-5-24 增加按日期创建文档和移动文件的例子</li>
 <li>2022-3-14 创建文档</li>
 </ul>
 </details>
@@ -10423,6 +10463,14 @@
 <a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>img/android-cover-2.png
 </code></pre></div></p>
 <p>从上面的例子可以看出，for in结构用的十分频繁。</p>
+<h3 id="_5">批量创建目录<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>比如按日期来创建目录，下面例子给5月每一天都建一个目录
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="k">for</span> i <span class="k">in</span> <span class="o">{</span><span class="m">1</span>..31<span class="o">}</span><span class="p">;</span> <span class="k">do</span> mkdir -p <span class="m">2023</span>-05-<span class="k">$(</span><span class="nb">printf</span> <span class="s2">&quot;%02d&quot;</span> <span class="nv">$i</span><span class="k">)</span><span class="p">;</span> <span class="k">done</span>
+</code></pre></div></p>
+<h3 id="_6">批量移动文件到文件夹里<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>例如文件名中带有日期信息，把5月某天的文件移动到对应日期的目录中
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="k">for</span> i <span class="k">in</span> <span class="o">{</span><span class="m">1</span>..31<span class="o">}</span><span class="p">;</span> <span class="k">do</span> mv *_202305<span class="k">$(</span><span class="nb">printf</span> <span class="s2">&quot;%02d&quot;</span> <span class="nv">$i</span><span class="k">)</span>* <span class="m">2023</span>-05-<span class="k">$(</span><span class="nb">printf</span> <span class="s2">&quot;%02d&quot;</span> <span class="nv">$i</span><span class="k">)</span><span class="p">;</span> <span class="k">done</span>
+</code></pre></div></p>
 
               
 
