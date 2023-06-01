@@ -6,6 +6,7 @@ https://www.an.rustfisher.com/android/activity/overview/index.html
 https://www.an.rustfisher.com/android/activity/act_lifecycle/index.html
 https://www.an.rustfisher.com/android/activity/start-activity-and-send-params/index.html
 https://www.an.rustfisher.com/android/activity/launch-send-parcelable/index.html
+https://www.an.rustfisher.com/android/activity/activity-result-launcher/index.html
 https://www.an.rustfisher.com/android/activity/start-activity-for-result/index.html
 https://www.an.rustfisher.com/android/activity/launch-mode-task-stack/index.html
 https://www.an.rustfisher.com/android/activity/activity-tran-animation/index.html

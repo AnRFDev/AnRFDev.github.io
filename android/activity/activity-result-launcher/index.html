@@ -6,25 +6,25 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="iOS入门基础。iOS添加TableView到页面中。添加tableview到页面中，显示列表。使用简单的样式。">
+        <meta name="description" content="Android Activity 返回时携带参数。使用ActivityResultLauncher实现。">
       
       
       
-        <link rel="canonical" href="https://www.an.rustfisher.com/ios/uikit/tableview/case/table-view-and-other/">
+        <link rel="canonical" href="https://www.an.rustfisher.com/android/activity/activity-result-launcher/">
       
-      <link rel="icon" href="../../../../../about/about/favicon.ico">
+      <link rel="icon" href="../../../about/about/favicon.ico">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.4">
     
     
       
-        <title>iOS 添加TableView到页面中，使用storyboard - RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt</title>
+        <title>Android Activity Result Launcher 返回时携带参数 - RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt</title>
       
     
     
-      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.4a0965b7.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.4a0965b7.min.css">
       
         
-        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.cbb835fc.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
         
       
       
@@ -40,13 +40,13 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../stylesheets/extras.css">
+      <link rel="stylesheet" href="../../../stylesheets/extras.css">
     
-      <link rel="stylesheet" href="../../../../../stylesheets/recent.css">
+      <link rel="stylesheet" href="../../../stylesheets/recent.css">
     
-      <link rel="stylesheet" href="../../../../../stylesheets/main.8464ae1a.min.css">
+      <link rel="stylesheet" href="../../../stylesheets/main.8464ae1a.min.css">
     
-    <script>__md_scope=new URL("../../../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -68,7 +68,7 @@
   <meta property="og:type" content="website">
 
   
-    <meta property="og:url" content="https://www.an.rustfisher.com/ios/uikit/tableview/case/table-view-and-other/"/>
+    <meta property="og:url" content="https://www.an.rustfisher.com/android/activity/activity-result-launcher/"/>
   
 
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
@@ -78,11 +78,11 @@
 
   
     
-      <meta name="title" content="iOS 添加TableView到页面中，使用storyboard"/>
-      <meta property="og:title" content="iOS 添加TableView到页面中，使用storyboard"/>
+      <meta name="title" content="Android Activity Result Launcher 返回时携带参数"/>
+      <meta property="og:title" content="Android Activity Result Launcher 返回时携带参数"/>
     
     
-      <meta name="keywords" content="iOS Xcode Table View StoryBoard"/>
+      <meta name="keywords" content="Activity返回时携带参数,Activity携带参数,数据传回,Android教程"/>
     
     
       
@@ -91,25 +91,27 @@
     
       
       <!-- 设置字节跳动搜索 -->
-      <meta name="bytedance:published_time" content="2022-02-17 00:22:22+08:00"/>
+      <meta name="bytedance:published_time" content="2023-06-01 10:22:22+08:00"/>
 
       <!-- 360 -->
-      <meta property="og:release_date" content="2022-02-17 00:22:22+08:00"/>
+      <meta property="og:release_date" content="2023-06-01 10:22:22+08:00"/>
     
 
     
     <!-- 暂时让时间一致 -->
       
       
-      <meta name="bytedance:updated_time" content="2022-02-17 01:43:57+08:00"/>
-      <meta name="bytedance:lrDate_time" content="2022-02-17 01:43:57+08:00"/>
+      <meta name="bytedance:updated_time" content="2023-06-01 10:43:57+08:00"/>
+      <meta name="bytedance:lrDate_time" content="2023-06-01 10:43:57+08:00"/>
     
 
+    
+      
     
   
 
-  <meta property="og:image" content="https://www.an.rustfisher.com/about/res/fish_dev.png" />
-  <meta property="og:description" content="iOS入门基础。iOS添加TableView到页面中。添加tableview到页面中，显示列表。使用简单的样式。">
+  <meta property="og:image" content="https://www.an.rustfisher.com/about/_media/cover/as-logo-700.png" />
+  <meta property="og:description" content="Android Activity 返回时携带参数。使用ActivityResultLauncher实现。">
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGC5WSNW8Y"></script>
@@ -126,7 +128,7 @@
         "@context": "https://schema.org/",
         "@type": "Article",
         "name": "安卓开发 | 软件开发 | 编程 | RustFisher",
-        "headline": "RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt - TableView显示列表",
+        "headline": "RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt - 返回时携带参数",
         "image": [
           "https://an.rustfisher.com/about/res/fish_dev.png"
         ],  
@@ -134,9 +136,9 @@
           "@type": "Person",
           "name": "RustFisher"
         },
-        "datePublished": "2022-02-17 01:43:57+08:00",
-        "dateModified": "2022-02-17 01:43:57+08:00",
-        "description": "iOS入门基础。iOS添加TableView到页面中。添加tableview到页面中，显示列表。使用简单的样式。",
+        "datePublished": "2023-06-01 10:43:57+08:00",
+        "dateModified": "2023-06-01 10:43:57+08:00",
+        "description": "Android Activity 返回时携带参数。使用ActivityResultLauncher实现。",
         "publisher": {
           "@type": "Person",
           "name": "RustFisher",
@@ -182,7 +184,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ios-tableviewstoryboard" class="md-skip">
+        <a href="#android-activity-result-launcher" class="md-skip">
           跳转至
         </a>
       
@@ -196,9 +198,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../../../.." title="RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt" class="md-header__button md-logo" aria-label="RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt" data-md-component="logo">
+    <a href="../../.." title="RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt" class="md-header__button md-logo" aria-label="RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt" data-md-component="logo">
       
-  <img src="../../../../../about/about/favicon.ico" alt="logo">
+  <img src="../../../about/about/favicon.ico" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -214,7 +216,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              iOS 添加TableView到页面中，使用storyboard
+              Android Activity Result Launcher 返回时携带参数
             
           </span>
         </div>
@@ -266,7 +268,7 @@
 
 
   <li class="md-tabs__item">
-    <a href="../../../../.." class="md-tabs__link">
+    <a href="../../.." class="md-tabs__link">
       Home
     </a>
   </li>
@@ -274,6 +276,8 @@
       
         
   
+  
+    
   
 
 
@@ -286,7 +290,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../../android/android-part-index/" class="md-tabs__link">
+      <a href="../../android-part-index/" class="md-tabs__link md-tabs__link--active">
         Android
       </a>
     </li>
@@ -304,7 +308,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../../android/jetpack/entry/" class="md-tabs__link">
+      <a href="../../jetpack/entry/" class="md-tabs__link">
         AndroidX
       </a>
     </li>
@@ -320,7 +324,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../../java/intro/" class="md-tabs__link">
+      <a href="../../../java/intro/" class="md-tabs__link">
         Java
       </a>
     </li>
@@ -336,7 +340,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../../kotlin/breif/kt-first/" class="md-tabs__link">
+      <a href="../../../kotlin/breif/kt-first/" class="md-tabs__link">
         Kotlin
       </a>
     </li>
@@ -352,7 +356,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../../designPattern/Adapter-Pattern/" class="md-tabs__link">
+      <a href="../../../designPattern/Adapter-Pattern/" class="md-tabs__link">
         设计模式
       </a>
     </li>
@@ -362,15 +366,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../../../../tech-note-index/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../../tech-note-index/" class="md-tabs__link">
         技术记录
       </a>
     </li>
@@ -386,7 +388,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../../python/basic/get-path/" class="md-tabs__link">
+      <a href="../../../python/basic/get-path/" class="md-tabs__link">
         Python
       </a>
     </li>
@@ -402,7 +404,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../../webrtc/intro/concept-intro/" class="md-tabs__link">
+      <a href="../../../webrtc/intro/concept-intro/" class="md-tabs__link">
         WebRTC
       </a>
     </li>
@@ -430,9 +432,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../../.." title="RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt" class="md-nav__button md-logo" aria-label="RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt" data-md-component="logo">
+    <a href="../../.." title="RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt" class="md-nav__button md-logo" aria-label="RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt" data-md-component="logo">
       
-  <img src="../../../../../about/about/favicon.ico" alt="logo">
+  <img src="../../../about/about/favicon.ico" alt="logo">
 
     </a>
     RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt
@@ -448,7 +450,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         Home
       </a>
     </li>
@@ -461,12 +463,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       
       
@@ -517,7 +521,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/android-part-index/" class="md-nav__link">
+      <a href="../../android-part-index/" class="md-nav__link">
         总览
       </a>
     </li>
@@ -531,7 +535,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/startProject/start_new_project/" class="md-nav__link">
+      <a href="../../startProject/start_new_project/" class="md-nav__link">
         新建工程
       </a>
     </li>
@@ -545,7 +549,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/startProject/as-use-kotlin/" class="md-nav__link">
+      <a href="../../startProject/as-use-kotlin/" class="md-nav__link">
         使用Kotlin
       </a>
     </li>
@@ -564,14 +568,16 @@
               
   
   
+    
+  
   
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" checked>
       
       
       
@@ -594,7 +600,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/activity/overview/" class="md-nav__link">
+      <a href="../overview/" class="md-nav__link">
         Activity综述
       </a>
     </li>
@@ -608,7 +614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/activity/act_lifecycle/" class="md-nav__link">
+      <a href="../act_lifecycle/" class="md-nav__link">
         生命周期
       </a>
     </li>
@@ -622,7 +628,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/activity/start-activity-and-send-params/" class="md-nav__link">
+      <a href="../start-activity-and-send-params/" class="md-nav__link">
         启动，携带参数启动
       </a>
     </li>
@@ -636,7 +642,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/activity/launch-send-parcelable/" class="md-nav__link">
+      <a href="../launch-send-parcelable/" class="md-nav__link">
         传递Parcelable对象
       </a>
     </li>
@@ -648,11 +654,93 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../../../../android/activity/activity-result-launcher/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          返回时携带参数
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         返回时携带参数
       </a>
+      
+        
+  
+  <nav class="md-nav md-nav--secondary" aria-label="目录">
+    
+    
+    
+      
+    
+    
+      <label class="md-nav__title" for="__toc">
+        <span class="md-nav__icon md-icon"></span>
+        目录
+      </label>
+      <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    使用示例
+  </a>
+  
+    <nav class="md-nav" aria-label="使用示例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#activity" class="md-nav__link">
+    启动新的Activity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    装载回传数据
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    参考
+  </a>
+  
+</li>
+        
+      </ul>
+      <p style="height: 6px;"></p>
+      <div style="display:block;">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7286632197002340"
+        crossorigin="anonymous"></script>
+        <!-- cube1 -->
+        <ins class="adsbygoogle"
+              style="display:inline-block;width:230px;height:230px"
+              data-ad-client="ca-pub-7286632197002340"
+              data-ad-slot="3425975276"></ins>
+        <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+    
+  </nav>
+  
+      
     </li>
   
 
@@ -664,7 +752,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/activity/start-activity-for-result/" class="md-nav__link">
+      <a href="../start-activity-for-result/" class="md-nav__link">
         🟤 startActivityForResult
       </a>
     </li>
@@ -678,7 +766,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/activity/launch-mode-task-stack/" class="md-nav__link">
+      <a href="../launch-mode-task-stack/" class="md-nav__link">
         启动模式，任务和返回栈
       </a>
     </li>
@@ -692,7 +780,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/activity/activity-tran-animation/" class="md-nav__link">
+      <a href="../activity-tran-animation/" class="md-nav__link">
         过场动画效果
       </a>
     </li>
@@ -706,7 +794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/view_get_size/" class="md-nav__link">
+      <a href="../../ui/view/view_get_size/" class="md-nav__link">
         获取View的宽高
       </a>
     </li>
@@ -720,7 +808,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/activity/view-global-layout-listen/" class="md-nav__link">
+      <a href="../view-global-layout-listen/" class="md-nav__link">
         监听根layout变化
       </a>
     </li>
@@ -734,7 +822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/activity/floating-scale-act/" class="md-nav__link">
+      <a href="../floating-scale-act/" class="md-nav__link">
         应用内悬浮窗
       </a>
     </li>
@@ -748,7 +836,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/activity/uninstall-app/" class="md-nav__link">
+      <a href="../uninstall-app/" class="md-nav__link">
         卸载app
       </a>
     </li>
@@ -797,7 +885,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/textView/intro/" class="md-nav__link">
+      <a href="../../ui/view/textView/intro/" class="md-nav__link">
         TextView简介
       </a>
     </li>
@@ -811,7 +899,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/textView/text_style/" class="md-nav__link">
+      <a href="../../ui/view/textView/text_style/" class="md-nav__link">
         斜体，加粗
       </a>
     </li>
@@ -825,7 +913,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/textView/typeface/" class="md-nav__link">
+      <a href="../../ui/view/textView/typeface/" class="md-nav__link">
         使用字体
       </a>
     </li>
@@ -839,7 +927,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/textView/show_html/" class="md-nav__link">
+      <a href="../../ui/view/textView/show_html/" class="md-nav__link">
         显示Html
       </a>
     </li>
@@ -853,7 +941,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/textView/special_char/" class="md-nav__link">
+      <a href="../../ui/view/textView/special_char/" class="md-nav__link">
         特殊字符
       </a>
     </li>
@@ -893,7 +981,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/textView/SpannableString_intro/" class="md-nav__link">
+      <a href="../../ui/view/textView/SpannableString_intro/" class="md-nav__link">
         简介
       </a>
     </li>
@@ -907,7 +995,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/textView/foregroundColorSpan_not_work/" class="md-nav__link">
+      <a href="../../ui/view/textView/foregroundColorSpan_not_work/" class="md-nav__link">
         ForegroundColorSpan失效
       </a>
     </li>
@@ -921,7 +1009,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/textView/textView_clickableSpan_crash_in_recyclerview/" class="md-nav__link">
+      <a href="../../ui/view/textView/textView_clickableSpan_crash_in_recyclerview/" class="md-nav__link">
         ClickableSpan崩溃问题
       </a>
     </li>
@@ -935,7 +1023,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/text/style/use-replacementspan/" class="md-nav__link">
+      <a href="../../text/style/use-replacementspan/" class="md-nav__link">
         ReplacementSpan下划线
       </a>
     </li>
@@ -991,7 +1079,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/service/service-intro/" class="md-nav__link">
+      <a href="../../service/service-intro/" class="md-nav__link">
         综述
       </a>
     </li>
@@ -1005,7 +1093,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/service/start/background-service/" class="md-nav__link">
+      <a href="../../service/start/background-service/" class="md-nav__link">
         后台服务的用法
       </a>
     </li>
@@ -1019,7 +1107,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/service/start/foreground-service/" class="md-nav__link">
+      <a href="../../service/start/foreground-service/" class="md-nav__link">
         前台服务的用法
       </a>
     </li>
@@ -1033,7 +1121,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/service/IntentService-intro1/" class="md-nav__link">
+      <a href="../../service/IntentService-intro1/" class="md-nav__link">
         IntentService 分析和用法
       </a>
     </li>
@@ -1047,7 +1135,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/service/system-alert-window-service/" class="md-nav__link">
+      <a href="../../service/system-alert-window-service/" class="md-nav__link">
         悬浮窗SystemAlertWindow
       </a>
     </li>
@@ -1096,7 +1184,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/broadcast/intro_use/" class="md-nav__link">
+      <a href="../../broadcast/intro_use/" class="md-nav__link">
         介绍和使用
       </a>
     </li>
@@ -1110,7 +1198,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/broadcast/screen-on-broadcast/" class="md-nav__link">
+      <a href="../../broadcast/screen-on-broadcast/" class="md-nav__link">
         监听屏幕亮灭
       </a>
     </li>
@@ -1159,7 +1247,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/fragment/fragment-intro/" class="md-nav__link">
+      <a href="../../fragment/fragment-intro/" class="md-nav__link">
         简介
       </a>
     </li>
@@ -1173,7 +1261,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/fragment/load-fragment/" class="md-nav__link">
+      <a href="../../fragment/load-fragment/" class="md-nav__link">
         加载Fragment
       </a>
     </li>
@@ -1187,7 +1275,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/fragment/fragments-contact/" class="md-nav__link">
+      <a href="../../fragment/fragments-contact/" class="md-nav__link">
         Fragment间通信
       </a>
     </li>
@@ -1227,7 +1315,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/fragment/dialogFragment/dialog-fragment-demo1/" class="md-nav__link">
+      <a href="../../fragment/dialogFragment/dialog-fragment-demo1/" class="md-nav__link">
         简单使用
       </a>
     </li>
@@ -1241,7 +1329,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/fragment/dialogFragment/dialogFragment-layout-params/" class="md-nav__link">
+      <a href="../../fragment/dialogFragment/dialogFragment-layout-params/" class="md-nav__link">
         修改显示属性
       </a>
     </li>
@@ -1255,7 +1343,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/fragment/dialogFragment/custom_width_height/" class="md-nav__link">
+      <a href="../../fragment/dialogFragment/custom_width_height/" class="md-nav__link">
         自定义宽高和Builder
       </a>
     </li>
@@ -1269,7 +1357,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/fragment/dialogFragment/df-dialog-height-changed/" class="md-nav__link">
+      <a href="../../fragment/dialogFragment/df-dialog-height-changed/" class="md-nav__link">
         高度自适应效果
       </a>
     </li>
@@ -1325,7 +1413,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/resource/resources_overview/" class="md-nav__link">
+      <a href="../../resource/resources_overview/" class="md-nav__link">
         res简介
       </a>
     </li>
@@ -1339,7 +1427,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/drawable/shape/" class="md-nav__link">
+      <a href="../../drawable/shape/" class="md-nav__link">
         shape的绘制和使用
       </a>
     </li>
@@ -1353,7 +1441,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/drawable/selector/" class="md-nav__link">
+      <a href="../../drawable/selector/" class="md-nav__link">
         Button,TextView背景增添动感
       </a>
     </li>
@@ -1367,7 +1455,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/resource/font/app-use-other-font/" class="md-nav__link">
+      <a href="../../resource/font/app-use-other-font/" class="md-nav__link">
         TextView使用其他的字体
       </a>
     </li>
@@ -1381,7 +1469,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/resource/drawable/shape-dotted-line/" class="md-nav__link">
+      <a href="../../resource/drawable/shape-dotted-line/" class="md-nav__link">
         shape绘制虚线
       </a>
     </li>
@@ -1421,7 +1509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/resource/adjust/app-res-adapt-multi-language/" class="md-nav__link">
+      <a href="../../resource/adjust/app-res-adapt-multi-language/" class="md-nav__link">
         多语言
       </a>
     </li>
@@ -1435,7 +1523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/app/app-lang-setting/" class="md-nav__link">
+      <a href="../../app/app-lang-setting/" class="md-nav__link">
         app设置语言
       </a>
     </li>
@@ -1449,7 +1537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/resource/adjust/app-res-adapt-screen-size/" class="md-nav__link">
+      <a href="../../resource/adjust/app-res-adapt-screen-size/" class="md-nav__link">
         屏幕
       </a>
     </li>
@@ -1505,7 +1593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/editText/listen-editor-action/" class="md-nav__link">
+      <a href="../../ui/view/editText/listen-editor-action/" class="md-nav__link">
         EditText监听回车
       </a>
     </li>
@@ -1519,7 +1607,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/editText/edit-text-set-selection-use/" class="md-nav__link">
+      <a href="../../ui/view/editText/edit-text-set-selection-use/" class="md-nav__link">
         光标位置选择
       </a>
     </li>
@@ -1533,7 +1621,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/editText/text-watcher-use/" class="md-nav__link">
+      <a href="../../ui/view/editText/text-watcher-use/" class="md-nav__link">
         监听输入内容
       </a>
     </li>
@@ -1547,7 +1635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/widget/popupwindow/edit-text-cannot-eidt/" class="md-nav__link">
+      <a href="../../ui/widget/popupwindow/edit-text-cannot-eidt/" class="md-nav__link">
         popupWindow无法编辑
       </a>
     </li>
@@ -1561,7 +1649,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/editText/soft-keyboard-cover-et/" class="md-nav__link">
+      <a href="../../ui/view/editText/soft-keyboard-cover-et/" class="md-nav__link">
         软键盘挡住EditText
       </a>
     </li>
@@ -1582,7 +1670,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/button/overview/" class="md-nav__link">
+      <a href="../../ui/view/button/overview/" class="md-nav__link">
         🤳 Button 按钮
       </a>
     </li>
@@ -1596,7 +1684,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/imageView/overview/" class="md-nav__link">
+      <a href="../../ui/view/imageView/overview/" class="md-nav__link">
         🗺 ImageView 显示图片
       </a>
     </li>
@@ -1638,7 +1726,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/layout/linearLayout/intro/" class="md-nav__link">
+      <a href="../../ui/layout/linearLayout/intro/" class="md-nav__link">
         LinearLayout 线性布局
       </a>
     </li>
@@ -1652,7 +1740,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/layout/relativeLayout/intro/" class="md-nav__link">
+      <a href="../../ui/layout/relativeLayout/intro/" class="md-nav__link">
         RelativeLayout 相对布局
       </a>
     </li>
@@ -1666,7 +1754,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/layout/constraintlayout/ConstraintLayout-intro-and-use1/" class="md-nav__link">
+      <a href="../../ui/layout/constraintlayout/ConstraintLayout-intro-and-use1/" class="md-nav__link">
         ConstraintLayout 自适应界面
       </a>
     </li>
@@ -1680,7 +1768,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/layout/constraintlayout/chain_use/" class="md-nav__link">
+      <a href="../../ui/layout/constraintlayout/chain_use/" class="md-nav__link">
         ConstraintLayout 链式
       </a>
     </li>
@@ -1729,7 +1817,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/layout/drawerlayout/drawer-layout-use1/" class="md-nav__link">
+      <a href="../../ui/layout/drawerlayout/drawer-layout-use1/" class="md-nav__link">
         DrawerLayout使用示例
       </a>
     </li>
@@ -1778,7 +1866,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/recyclerView/intro/" class="md-nav__link">
+      <a href="../../ui/view/recyclerView/intro/" class="md-nav__link">
         RecyclerView入门
       </a>
     </li>
@@ -1792,7 +1880,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/recyclerView/demo1/" class="md-nav__link">
+      <a href="../../ui/view/recyclerView/demo1/" class="md-nav__link">
         使用示例
       </a>
     </li>
@@ -1806,7 +1894,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/recyclerView/item_click/" class="md-nav__link">
+      <a href="../../ui/view/recyclerView/item_click/" class="md-nav__link">
         设置子项点击
       </a>
     </li>
@@ -1820,7 +1908,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/recyclerView/show_multi_item/" class="md-nav__link">
+      <a href="../../ui/view/recyclerView/show_multi_item/" class="md-nav__link">
         显示多种子项
       </a>
     </li>
@@ -1834,7 +1922,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/recyclerView/scroll_distance/" class="md-nav__link">
+      <a href="../../ui/view/recyclerView/scroll_distance/" class="md-nav__link">
         获取滚动的距离
       </a>
     </li>
@@ -1848,7 +1936,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/recyclerView/clipToPadding_use/" class="md-nav__link">
+      <a href="../../ui/view/recyclerView/clipToPadding_use/" class="md-nav__link">
         clipToPadding示例
       </a>
     </li>
@@ -1862,7 +1950,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/recyclerView/demo_color_picker/" class="md-nav__link">
+      <a href="../../ui/view/recyclerView/demo_color_picker/" class="md-nav__link">
         示例 - 颜色选择器
       </a>
     </li>
@@ -1876,7 +1964,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/recyclerView/slide-delete-drag-swap-item/" class="md-nav__link">
+      <a href="../../ui/view/recyclerView/slide-delete-drag-swap-item/" class="md-nav__link">
         侧滑删除，拖动排序
       </a>
     </li>
@@ -1890,7 +1978,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/recyclerView/staggered-grid-use/" class="md-nav__link">
+      <a href="../../ui/view/recyclerView/staggered-grid-use/" class="md-nav__link">
         瀑布流效果
       </a>
     </li>
@@ -1904,7 +1992,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/recyclerView/item-animator/" class="md-nav__link">
+      <a href="../../ui/view/recyclerView/item-animator/" class="md-nav__link">
         禁止item更新动画
       </a>
     </li>
@@ -1953,7 +2041,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/permissions/custom-user-permission/" class="md-nav__link">
+      <a href="../../permissions/custom-user-permission/" class="md-nav__link">
         自定义权限
       </a>
     </li>
@@ -2002,7 +2090,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/thread/android-thread-survey/" class="md-nav__link">
+      <a href="../../thread/android-thread-survey/" class="md-nav__link">
         Android多线程综述
       </a>
     </li>
@@ -2042,7 +2130,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/concurrent/thread-pool-use-intro/" class="md-nav__link">
+      <a href="../../concurrent/thread-pool-use-intro/" class="md-nav__link">
         使用介绍
       </a>
     </li>
@@ -2089,7 +2177,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/handler/Handler_src_note/" class="md-nav__link">
+      <a href="../../handler/Handler_src_note/" class="md-nav__link">
         Handler使用分析
       </a>
     </li>
@@ -2103,7 +2191,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/handler/Handler_HandlerThread/" class="md-nav__link">
+      <a href="../../handler/Handler_HandlerThread/" class="md-nav__link">
         HandlerThread使用
       </a>
     </li>
@@ -2117,7 +2205,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/handler/handler-may-leak-memory/" class="md-nav__link">
+      <a href="../../handler/handler-may-leak-memory/" class="md-nav__link">
         Handler可能造成内存泄漏
       </a>
     </li>
@@ -2164,7 +2252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/coroutines/intro1/" class="md-nav__link">
+      <a href="../../coroutines/intro1/" class="md-nav__link">
         使用入门
       </a>
     </li>
@@ -2185,7 +2273,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/thread/async-task-use-intro/" class="md-nav__link">
+      <a href="../../thread/async-task-use-intro/" class="md-nav__link">
         AsyncTask使用介绍
       </a>
     </li>
@@ -2260,7 +2348,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/io/file/Read_write_CSV_file/" class="md-nav__link">
+      <a href="../../io/file/Read_write_CSV_file/" class="md-nav__link">
         读写csv
       </a>
     </li>
@@ -2274,7 +2362,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/io/file/Read_write_Hex_file/" class="md-nav__link">
+      <a href="../../io/file/Read_write_Hex_file/" class="md-nav__link">
         读写hex
       </a>
     </li>
@@ -2288,7 +2376,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/io/file/read-write-json-file/" class="md-nav__link">
+      <a href="../../io/file/read-write-json-file/" class="md-nav__link">
         读写json
       </a>
     </li>
@@ -2309,7 +2397,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/io/mmap/mmap_intro_and_use/" class="md-nav__link">
+      <a href="../../io/mmap/mmap_intro_and_use/" class="md-nav__link">
         mmap 文件映射到内存介绍
       </a>
     </li>
@@ -2323,7 +2411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/io/mmap/mappedByteBuffer-use-demo1/" class="md-nav__link">
+      <a href="../../io/mmap/mappedByteBuffer-use-demo1/" class="md-nav__link">
         MappedByteBuffer文件映射内存使用
       </a>
     </li>
@@ -2372,7 +2460,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/content/sharedpreferences/intro1/" class="md-nav__link">
+      <a href="../../content/sharedpreferences/intro1/" class="md-nav__link">
         SharedPerences 存取配置
       </a>
     </li>
@@ -2447,7 +2535,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/network/URLConnection/HttpURLConnection_get_post/" class="md-nav__link">
+      <a href="../../network/URLConnection/HttpURLConnection_get_post/" class="md-nav__link">
         HttpURLConnection GET POST获取文本数据
       </a>
     </li>
@@ -2461,7 +2549,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/network/URLConnection/post-file/" class="md-nav__link">
+      <a href="../../network/URLConnection/post-file/" class="md-nav__link">
         HttpURLConnection POST上传文件
       </a>
     </li>
@@ -2475,7 +2563,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/network/Media_download_stream_file/" class="md-nav__link">
+      <a href="../../network/Media_download_stream_file/" class="md-nav__link">
         使用URLConnection下载音频文件
       </a>
     </li>
@@ -2496,7 +2584,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/network/google_force_https/" class="md-nav__link">
+      <a href="../../network/google_force_https/" class="md-nav__link">
         强制要求https
       </a>
     </li>
@@ -2536,7 +2624,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/network/okhttp/OkHttp-use1/" class="md-nav__link">
+      <a href="../../network/okhttp/OkHttp-use1/" class="md-nav__link">
         入门
       </a>
     </li>
@@ -2550,7 +2638,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/network/okhttp/OkHttp_Retrofit_use_intro/" class="md-nav__link">
+      <a href="../../network/okhttp/OkHttp_Retrofit_use_intro/" class="md-nav__link">
         OkHttp + Retrofit 使用示例
       </a>
     </li>
@@ -2564,7 +2652,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/network/okhttp/resp-normal-string/" class="md-nav__link">
+      <a href="../../network/okhttp/resp-normal-string/" class="md-nav__link">
         请求普通文本
       </a>
     </li>
@@ -2578,7 +2666,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/network/okhttp/OkHttp_Retrofit_download_file/" class="md-nav__link">
+      <a href="../../network/okhttp/OkHttp_Retrofit_download_file/" class="md-nav__link">
         下载文件与进度监听
       </a>
     </li>
@@ -2592,7 +2680,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/network/okhttp/OkHttp_Retrofit_cancel_request/" class="md-nav__link">
+      <a href="../../network/okhttp/OkHttp_Retrofit_cancel_request/" class="md-nav__link">
         取消请求的方法
       </a>
     </li>
@@ -2606,7 +2694,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/network/okhttp/OkHttp_Retrofit_download_file_partial/" class="md-nav__link">
+      <a href="../../network/okhttp/OkHttp_Retrofit_download_file_partial/" class="md-nav__link">
         下载文件，范围请求
       </a>
     </li>
@@ -2620,7 +2708,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/network/okhttp/upload_file/" class="md-nav__link">
+      <a href="../../network/okhttp/upload_file/" class="md-nav__link">
         上传文件
       </a>
     </li>
@@ -2676,7 +2764,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/progressbar/custom_colorful/" class="md-nav__link">
+      <a href="../../ui/view/progressbar/custom_colorful/" class="md-nav__link">
         进度条
       </a>
     </li>
@@ -2725,7 +2813,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/widget/seekbar/seekbar-custom-thumb-animation/" class="md-nav__link">
+      <a href="../../ui/widget/seekbar/seekbar-custom-thumb-animation/" class="md-nav__link">
         自定义thumb
       </a>
     </li>
@@ -2774,7 +2862,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/view-summary/" class="md-nav__link">
+      <a href="../../ui/view/view-summary/" class="md-nav__link">
         综述
       </a>
     </li>
@@ -2788,7 +2876,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/measureSpec_intro/" class="md-nav__link">
+      <a href="../../ui/view/measureSpec_intro/" class="md-nav__link">
         View.MeasureSpec简述
       </a>
     </li>
@@ -2802,7 +2890,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/rtfsc/post/" class="md-nav__link">
+      <a href="../../ui/view/rtfsc/post/" class="md-nav__link">
         View.post分析
       </a>
     </li>
@@ -2816,7 +2904,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/import/view-in-activity-thinking/" class="md-nav__link">
+      <a href="../../ui/view/import/view-in-activity-thinking/" class="md-nav__link">
         Activity与View的互动思考
       </a>
     </li>
@@ -2865,7 +2953,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/customView/draw-text/" class="md-nav__link">
+      <a href="../../ui/view/customView/draw-text/" class="md-nav__link">
         绘制文字
       </a>
     </li>
@@ -2879,7 +2967,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/customView/canvas-clip-path/" class="md-nav__link">
+      <a href="../../ui/view/customView/canvas-clip-path/" class="md-nav__link">
         裁剪canvas，实现圆角图片
       </a>
     </li>
@@ -2893,7 +2981,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/customView/surfaceView/custom-surface-view/" class="md-nav__link">
+      <a href="../../ui/view/customView/surfaceView/custom-surface-view/" class="md-nav__link">
         自定义SurfaceView
       </a>
     </li>
@@ -2907,7 +2995,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/customView/auto-zoom-line-chart/" class="md-nav__link">
+      <a href="../../ui/view/customView/auto-zoom-line-chart/" class="md-nav__link">
         自动缩放上下限的折线图
       </a>
     </li>
@@ -2921,7 +3009,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/customView/wave-view/" class="md-nav__link">
+      <a href="../../ui/view/customView/wave-view/" class="md-nav__link">
         柱状波形图
       </a>
     </li>
@@ -2935,7 +3023,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/customView/zt-star-moving/" class="md-nav__link">
+      <a href="../../ui/view/customView/zt-star-moving/" class="md-nav__link">
         星球运动
       </a>
     </li>
@@ -2949,7 +3037,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/widget/toast/custom-toast/" class="md-nav__link">
+      <a href="../../ui/widget/toast/custom-toast/" class="md-nav__link">
         自定义Toast
       </a>
     </li>
@@ -2998,7 +3086,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/animation/view-animation-intro/" class="md-nav__link">
+      <a href="../../ui/view/animation/view-animation-intro/" class="md-nav__link">
         简介
       </a>
     </li>
@@ -3012,7 +3100,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/animation/animation-drawable-use/" class="md-nav__link">
+      <a href="../../ui/view/animation/animation-drawable-use/" class="md-nav__link">
         使用AnimationDrawable
       </a>
     </li>
@@ -3026,7 +3114,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/animation/tween-use1/" class="md-nav__link">
+      <a href="../../ui/view/animation/tween-use1/" class="md-nav__link">
         补间动画
       </a>
     </li>
@@ -3040,7 +3128,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/animation/object-animator-intro/" class="md-nav__link">
+      <a href="../../ui/view/animation/object-animator-intro/" class="md-nav__link">
         ObjectAnimator 更改视图位置
       </a>
     </li>
@@ -3089,7 +3177,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/webView/wv-use/" class="md-nav__link">
+      <a href="../../ui/view/webView/wv-use/" class="md-nav__link">
         使用小技巧
       </a>
     </li>
@@ -3103,7 +3191,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/webView/loadData/" class="md-nav__link">
+      <a href="../../ui/view/webView/loadData/" class="md-nav__link">
         loadData 显示html数据
       </a>
     </li>
@@ -3117,7 +3205,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/webView/load-assets-files/" class="md-nav__link">
+      <a href="../../ui/view/webView/load-assets-files/" class="md-nav__link">
         加载assets中的网页
       </a>
     </li>
@@ -3131,7 +3219,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/webView/load-local-html/" class="md-nav__link">
+      <a href="../../ui/view/webView/load-local-html/" class="md-nav__link">
         加载本地网页
       </a>
     </li>
@@ -3145,7 +3233,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/webView/webView-in-NestedScrollView-empty-bottom/" class="md-nav__link">
+      <a href="../../ui/view/webView/webView-in-NestedScrollView-empty-bottom/" class="md-nav__link">
         NestedScrollView中高度不稳
       </a>
     </li>
@@ -3159,7 +3247,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/webView/long-click-pop-menu/" class="md-nav__link">
+      <a href="../../ui/view/webView/long-click-pop-menu/" class="md-nav__link">
         自定义长按文字弹出菜单
       </a>
     </li>
@@ -3173,7 +3261,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/webView/long-click-pop-menu-x5/" class="md-nav__link">
+      <a href="../../ui/view/webView/long-click-pop-menu-x5/" class="md-nav__link">
         x5自定义长按文字弹出菜单
       </a>
     </li>
@@ -3187,7 +3275,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/view/webView/call-java-function/" class="md-nav__link">
+      <a href="../../ui/view/webView/call-java-function/" class="md-nav__link">
         调用Java方法
       </a>
     </li>
@@ -3236,7 +3324,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/statusbar/get-status-bar-height/" class="md-nav__link">
+      <a href="../../ui/statusbar/get-status-bar-height/" class="md-nav__link">
         获取高度
       </a>
     </li>
@@ -3250,7 +3338,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ui/statusbar/android-7-adjust-status-bar-color/" class="md-nav__link">
+      <a href="../../ui/statusbar/android-7-adjust-status-bar-color/" class="md-nav__link">
         修改StatusBar颜色
       </a>
     </li>
@@ -3299,7 +3387,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/media/Camera_record_video_and_output/" class="md-nav__link">
+      <a href="../../media/Camera_record_video_and_output/" class="md-nav__link">
         采集、编码、封包成mp4
       </a>
     </li>
@@ -3313,7 +3401,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/media/Camera_SurfaceView_TextureView_get_nv21/" class="md-nav__link">
+      <a href="../../media/Camera_SurfaceView_TextureView_get_nv21/" class="md-nav__link">
         预览, 获取NV21数据
       </a>
     </li>
@@ -3327,7 +3415,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/media/camera2-get-size-fps/" class="md-nav__link">
+      <a href="../../media/camera2-get-size-fps/" class="md-nav__link">
         Camera2获取尺寸,fps
       </a>
     </li>
@@ -3341,7 +3429,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/media/camera2-get-size-fps-en/" class="md-nav__link">
+      <a href="../../media/camera2-get-size-fps-en/" class="md-nav__link">
         en Camera2 size & fps
       </a>
     </li>
@@ -3416,7 +3504,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/media/MediaPlayer_intro/" class="md-nav__link">
+      <a href="../../media/MediaPlayer_intro/" class="md-nav__link">
         MediaPlayer 基础简介
       </a>
     </li>
@@ -3430,7 +3518,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/media/MediaPlayer_use_play_audio/" class="md-nav__link">
+      <a href="../../media/MediaPlayer_use_play_audio/" class="md-nav__link">
         播放音频
       </a>
     </li>
@@ -3444,7 +3532,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/media/MediaPlayer_use_play_speed/" class="md-nav__link">
+      <a href="../../media/MediaPlayer_use_play_speed/" class="md-nav__link">
         调整音频播放速度
       </a>
     </li>
@@ -3491,7 +3579,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/media/AudioRecord_AudioTrack_pcm_wav/" class="md-nav__link">
+      <a href="../../media/AudioRecord_AudioTrack_pcm_wav/" class="md-nav__link">
         采集和播放PCM, 读写wav
       </a>
     </li>
@@ -3505,7 +3593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/media/MediaMuxer_MediaExtractor_mp4/" class="md-nav__link">
+      <a href="../../media/MediaMuxer_MediaExtractor_mp4/" class="md-nav__link">
         使用MediaMuxer和MediaExtractor
       </a>
     </li>
@@ -3552,7 +3640,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/media/MediaCodec_use_demo/" class="md-nav__link">
+      <a href="../../media/MediaCodec_use_demo/" class="md-nav__link">
         MediaCodec 编解码使用方式
       </a>
     </li>
@@ -3599,7 +3687,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/media/intro/yuv-intro/" class="md-nav__link">
+      <a href="../../media/intro/yuv-intro/" class="md-nav__link">
         YUV简介
       </a>
     </li>
@@ -3613,7 +3701,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/media/intro/h264-intro/" class="md-nav__link">
+      <a href="../../media/intro/h264-intro/" class="md-nav__link">
         H.264简介
       </a>
     </li>
@@ -3669,7 +3757,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/connectivity/bluetooth/Bluetooth2_use_sample/" class="md-nav__link">
+      <a href="../../connectivity/bluetooth/Bluetooth2_use_sample/" class="md-nav__link">
         蓝牙2.0使用方式
       </a>
     </li>
@@ -3683,7 +3771,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/connectivity/bluetooth/bluetooth-spp-connection-note/" class="md-nav__link">
+      <a href="../../connectivity/bluetooth/bluetooth-spp-connection-note/" class="md-nav__link">
         连接注意事项
       </a>
     </li>
@@ -3704,7 +3792,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/connectivity/wifi/WiFi_scan_and_connect/" class="md-nav__link">
+      <a href="../../connectivity/wifi/WiFi_scan_and_connect/" class="md-nav__link">
         wifi连接
       </a>
     </li>
@@ -3718,7 +3806,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/hardware/get-angle-by-sensor/" class="md-nav__link">
+      <a href="../../hardware/get-angle-by-sensor/" class="md-nav__link">
         获取手机当前角度
       </a>
     </li>
@@ -3760,7 +3848,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/activity/simple_launcher/" class="md-nav__link">
+      <a href="../simple_launcher/" class="md-nav__link">
         简易launcher
       </a>
     </li>
@@ -3809,7 +3897,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/aidl/intro_use/" class="md-nav__link">
+      <a href="../../aidl/intro_use/" class="md-nav__link">
         AIDL 了解与使用
       </a>
     </li>
@@ -3858,7 +3946,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/zip/zip-string/" class="md-nav__link">
+      <a href="../../zip/zip-string/" class="md-nav__link">
         压缩字符串
       </a>
     </li>
@@ -3872,7 +3960,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/zip/unzip-file-use-ZipFile/" class="md-nav__link">
+      <a href="../../zip/unzip-file-use-ZipFile/" class="md-nav__link">
         ZipFile解压
       </a>
     </li>
@@ -3921,7 +4009,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/util/base64/use-base64/" class="md-nav__link">
+      <a href="../../util/base64/use-base64/" class="md-nav__link">
         使用base64
       </a>
     </li>
@@ -3970,7 +4058,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/binder/Binder_mechanism_intro/" class="md-nav__link">
+      <a href="../../binder/Binder_mechanism_intro/" class="md-nav__link">
         Android Binder 机制介绍
       </a>
     </li>
@@ -3984,7 +4072,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/binder/Intent_extra_size_limit/" class="md-nav__link">
+      <a href="../../binder/Intent_extra_size_limit/" class="md-nav__link">
         Intent 传递数据大小限制
       </a>
     </li>
@@ -4033,7 +4121,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/notification/demo1/" class="md-nav__link">
+      <a href="../../notification/demo1/" class="md-nav__link">
         使用示例1
       </a>
     </li>
@@ -4082,7 +4170,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/pm/basic-use/" class="md-nav__link">
+      <a href="../../pm/basic-use/" class="md-nav__link">
         常见用法
       </a>
     </li>
@@ -4096,7 +4184,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/pm/restart-App/" class="md-nav__link">
+      <a href="../../pm/restart-App/" class="md-nav__link">
         代码重启app
       </a>
     </li>
@@ -4145,7 +4233,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/rtfsc/Android-Context/" class="md-nav__link">
+      <a href="../../rtfsc/Android-Context/" class="md-nav__link">
         认识Context
       </a>
     </li>
@@ -4159,7 +4247,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/rtfsc/Android_SparseArray_src_code_note/" class="md-nav__link">
+      <a href="../../rtfsc/Android_SparseArray_src_code_note/" class="md-nav__link">
         Android SparseArray 原理解析
       </a>
     </li>
@@ -4208,7 +4296,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../designPattern/Adapter-Pattern/" class="md-nav__link">
+      <a href="../../../designPattern/Adapter-Pattern/" class="md-nav__link">
         适配器模式
       </a>
     </li>
@@ -4222,7 +4310,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../designPattern/Listener_pattern_practice_in_Java_Android/" class="md-nav__link">
+      <a href="../../../designPattern/Listener_pattern_practice_in_Java_Android/" class="md-nav__link">
         监听者模式 - 在Java与Android中的使用
       </a>
     </li>
@@ -4297,7 +4385,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/lib/rx/rx-android-intro/" class="md-nav__link">
+      <a href="../../lib/rx/rx-android-intro/" class="md-nav__link">
         RxAndroid 使用方法初探
       </a>
     </li>
@@ -4344,7 +4432,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/lib/pinyin/lib-tinypinyin-intro/" class="md-nav__link">
+      <a href="../../lib/pinyin/lib-tinypinyin-intro/" class="md-nav__link">
         简介
       </a>
     </li>
@@ -4391,7 +4479,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/lib/eventbus/event-bus-note/" class="md-nav__link">
+      <a href="../../lib/eventbus/event-bus-note/" class="md-nav__link">
         注意事项
       </a>
     </li>
@@ -4438,7 +4526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/lib/android-gpuimage/android-gpuimage-intro/" class="md-nav__link">
+      <a href="../../lib/android-gpuimage/android-gpuimage-intro/" class="md-nav__link">
         初探
       </a>
     </li>
@@ -4494,7 +4582,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/as/use-as/" class="md-nav__link">
+      <a href="../../as/use-as/" class="md-nav__link">
         使用Android Studio
       </a>
     </li>
@@ -4508,7 +4596,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/as/suppress-warnings-use/" class="md-nav__link">
+      <a href="../../as/suppress-warnings-use/" class="md-nav__link">
         SuppressWarnings
       </a>
     </li>
@@ -4522,7 +4610,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/as/update-plugin-from-disk/" class="md-nav__link">
+      <a href="../../as/update-plugin-from-disk/" class="md-nav__link">
         从硬盘安装插件
       </a>
     </li>
@@ -4536,7 +4624,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/gradle/show-all-task-as2022/" class="md-nav__link">
+      <a href="../../gradle/show-all-task-as2022/" class="md-nav__link">
         gradle显示任务
       </a>
     </li>
@@ -4557,7 +4645,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/architect/android-proj-module-use/" class="md-nav__link">
+      <a href="../../architect/android-proj-module-use/" class="md-nav__link">
         模块化
       </a>
     </li>
@@ -4599,7 +4687,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/gradle/overview/" class="md-nav__link">
+      <a href="../../gradle/overview/" class="md-nav__link">
         构建工程 gradle
       </a>
     </li>
@@ -4613,7 +4701,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/gradle/Gradle_for_android_Start/" class="md-nav__link">
+      <a href="../../gradle/Gradle_for_android_Start/" class="md-nav__link">
         Gradle 简介
       </a>
     </li>
@@ -4627,7 +4715,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/gradle/Gradle_for_android_Basic_Build_Customization/" class="md-nav__link">
+      <a href="../../gradle/Gradle_for_android_Basic_Build_Customization/" class="md-nav__link">
         Gradle 基础自定义构建
       </a>
     </li>
@@ -4641,7 +4729,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/gradle/Gradle_for_android_Creating_Build_Variants/" class="md-nav__link">
+      <a href="../../gradle/Gradle_for_android_Creating_Build_Variants/" class="md-nav__link">
         Gradle 构建多种版本
       </a>
     </li>
@@ -4655,7 +4743,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/gradle/gradle-read-local-prop/" class="md-nav__link">
+      <a href="../../gradle/gradle-read-local-prop/" class="md-nav__link">
         Gradle 读取本地配置
       </a>
     </li>
@@ -4669,7 +4757,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/gradle/download_too_slow/" class="md-nav__link">
+      <a href="../../gradle/download_too_slow/" class="md-nav__link">
         Gradle 更换下载源
       </a>
     </li>
@@ -4744,7 +4832,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ndk/start/env/" class="md-nav__link">
+      <a href="../../ndk/start/env/" class="md-nav__link">
         环境配置
       </a>
     </li>
@@ -4758,7 +4846,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ndk/start/new-proj-with-ndk/" class="md-nav__link">
+      <a href="../../ndk/start/new-proj-with-ndk/" class="md-nav__link">
         新建支持C/C++的工程
       </a>
     </li>
@@ -4772,7 +4860,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ndk/start/add-ndk-to-proj/" class="md-nav__link">
+      <a href="../../ndk/start/add-ndk-to-proj/" class="md-nav__link">
         现有工程添加C/C++支持
       </a>
     </li>
@@ -4786,7 +4874,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ndk/start/add-ndk-to-mod/" class="md-nav__link">
+      <a href="../../ndk/start/add-ndk-to-mod/" class="md-nav__link">
         模块添加C/C++支持
       </a>
     </li>
@@ -4833,7 +4921,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ndk/return/return-base-type/" class="md-nav__link">
+      <a href="../../ndk/return/return-base-type/" class="md-nav__link">
         基本类型
       </a>
     </li>
@@ -4847,7 +4935,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ndk/return/return-array/" class="md-nav__link">
+      <a href="../../ndk/return/return-array/" class="md-nav__link">
         数组
       </a>
     </li>
@@ -4861,7 +4949,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ndk/return/return-pojo/" class="md-nav__link">
+      <a href="../../ndk/return/return-pojo/" class="md-nav__link">
         Java对象
       </a>
     </li>
@@ -4882,7 +4970,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ndk/string-use/" class="md-nav__link">
+      <a href="../../ndk/string-use/" class="md-nav__link">
         字符串的使用
       </a>
     </li>
@@ -4896,7 +4984,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ndk/logcat-use/" class="md-nav__link">
+      <a href="../../ndk/logcat-use/" class="md-nav__link">
         打log
       </a>
     </li>
@@ -4936,7 +5024,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ndk/field-use/obj-field-use/" class="md-nav__link">
+      <a href="../../ndk/field-use/obj-field-use/" class="md-nav__link">
         访问实例域
       </a>
     </li>
@@ -4950,7 +5038,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ndk/field-use/static-field-use/" class="md-nav__link">
+      <a href="../../ndk/field-use/static-field-use/" class="md-nav__link">
         访问静态域
       </a>
     </li>
@@ -4971,7 +5059,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ndk/makefile_example/" class="md-nav__link">
+      <a href="../../ndk/makefile_example/" class="md-nav__link">
         Makefile相关示例
       </a>
     </li>
@@ -4985,7 +5073,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ndk/compile_import_a_file/" class="md-nav__link">
+      <a href="../../ndk/compile_import_a_file/" class="md-nav__link">
         NDK 使用.a文件
       </a>
     </li>
@@ -5025,7 +5113,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ndk/io/read_write_txt_file/" class="md-nav__link">
+      <a href="../../ndk/io/read_write_txt_file/" class="md-nav__link">
         读写文本文件
       </a>
     </li>
@@ -5039,7 +5127,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ndk/read_write_file/" class="md-nav__link">
+      <a href="../../ndk/read_write_file/" class="md-nav__link">
         读写文件(old)
       </a>
     </li>
@@ -5060,7 +5148,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ndk/dynamic_reg_function/" class="md-nav__link">
+      <a href="../../ndk/dynamic_reg_function/" class="md-nav__link">
         动态注册JNI方法
       </a>
     </li>
@@ -5074,7 +5162,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/ndk/sprintf-itoa/" class="md-nav__link">
+      <a href="../../ndk/sprintf-itoa/" class="md-nav__link">
         用sprintf代替itoa
       </a>
     </li>
@@ -5149,7 +5237,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/adb/intro/" class="md-nav__link">
+      <a href="../../adb/intro/" class="md-nav__link">
         adb介绍
       </a>
     </li>
@@ -5163,7 +5251,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/adb/adb-wm-use/" class="md-nav__link">
+      <a href="../../adb/adb-wm-use/" class="md-nav__link">
         wm
       </a>
     </li>
@@ -5177,7 +5265,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/adb/adb-pm-use/" class="md-nav__link">
+      <a href="../../adb/adb-pm-use/" class="md-nav__link">
         pm
       </a>
     </li>
@@ -5191,7 +5279,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/adb/adb-screenrecord-use/" class="md-nav__link">
+      <a href="../../adb/adb-screenrecord-use/" class="md-nav__link">
         录屏
       </a>
     </li>
@@ -5205,7 +5293,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/sys/adb_mock_touch_and_monkeyrunner/" class="md-nav__link">
+      <a href="../../sys/adb_mock_touch_and_monkeyrunner/" class="md-nav__link">
         模拟用户点击
       </a>
     </li>
@@ -5219,7 +5307,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/adb/monkey-test-use/" class="md-nav__link">
+      <a href="../../adb/monkey-test-use/" class="md-nav__link">
         Monkey Test
       </a>
     </li>
@@ -5266,7 +5354,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/phone/phone_settings/" class="md-nav__link">
+      <a href="../../phone/phone_settings/" class="md-nav__link">
         设置
       </a>
     </li>
@@ -5280,7 +5368,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/sys/device-node/" class="md-nav__link">
+      <a href="../../sys/device-node/" class="md-nav__link">
         读写设备节点
       </a>
     </li>
@@ -5294,7 +5382,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/sys/device-build-version/" class="md-nav__link">
+      <a href="../../sys/device-build-version/" class="md-nav__link">
         系统版本相关
       </a>
     </li>
@@ -5315,7 +5403,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/sys/anr-intro/" class="md-nav__link">
+      <a href="../../sys/anr-intro/" class="md-nav__link">
         ANR介绍
       </a>
     </li>
@@ -5370,7 +5458,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/jetpack/entry/" class="md-nav__link">
+      <a href="../../jetpack/entry/" class="md-nav__link">
         介绍
       </a>
     </li>
@@ -5412,7 +5500,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/jetpack/dataBinding/start/" class="md-nav__link">
+      <a href="../../jetpack/dataBinding/start/" class="md-nav__link">
         开始使用
       </a>
     </li>
@@ -5426,7 +5514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/jetpack/dataBinding/use_observable/" class="md-nav__link">
+      <a href="../../jetpack/dataBinding/use_observable/" class="md-nav__link">
         Observable 可观察对象
       </a>
     </li>
@@ -5440,7 +5528,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/jetpack/dataBinding/use_observableField/" class="md-nav__link">
+      <a href="../../jetpack/dataBinding/use_observableField/" class="md-nav__link">
         ObservableField 可观察数据对象
       </a>
     </li>
@@ -5454,7 +5542,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/jetpack/dataBinding/set_on_click/" class="md-nav__link">
+      <a href="../../jetpack/dataBinding/set_on_click/" class="md-nav__link">
         点击事件设置
       </a>
     </li>
@@ -5468,7 +5556,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/jetpack/dataBinding/layout_op/" class="md-nav__link">
+      <a href="../../jetpack/dataBinding/layout_op/" class="md-nav__link">
         layout 表达式语言
       </a>
     </li>
@@ -5482,7 +5570,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/jetpack/dataBinding/layout_data_intro/" class="md-nav__link">
+      <a href="../../jetpack/dataBinding/layout_data_intro/" class="md-nav__link">
         layout data
       </a>
     </li>
@@ -5496,7 +5584,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/jetpack/dataBinding/layout-include/" class="md-nav__link">
+      <a href="../../jetpack/dataBinding/layout-include/" class="md-nav__link">
         layout include
       </a>
     </li>
@@ -5510,7 +5598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/jetpack/dataBinding/two_way/" class="md-nav__link">
+      <a href="../../jetpack/dataBinding/two_way/" class="md-nav__link">
         双向数据绑定
       </a>
     </li>
@@ -5550,7 +5638,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/jetpack/dataBinding/binding_adapters_custom_adapter/" class="md-nav__link">
+      <a href="../../jetpack/dataBinding/binding_adapters_custom_adapter/" class="md-nav__link">
         自定义逻辑
       </a>
     </li>
@@ -5564,7 +5652,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/jetpack/dataBinding/binding_adapters_cvt_obj/" class="md-nav__link">
+      <a href="../../jetpack/dataBinding/binding_adapters_cvt_obj/" class="md-nav__link">
         对象转换
       </a>
     </li>
@@ -5620,7 +5708,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/jetpack/liveData/use_mutableLiveData/" class="md-nav__link">
+      <a href="../../jetpack/liveData/use_mutableLiveData/" class="md-nav__link">
         mutableLiveData事件通知
       </a>
     </li>
@@ -5669,7 +5757,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/jetpack/lifeCycle/lifecycle_intro/" class="md-nav__link">
+      <a href="../../jetpack/lifeCycle/lifecycle_intro/" class="md-nav__link">
         Lifecycle简介
       </a>
     </li>
@@ -5718,7 +5806,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/jetpack/workManager/use1/" class="md-nav__link">
+      <a href="../../jetpack/workManager/use1/" class="md-nav__link">
         入门示例
       </a>
     </li>
@@ -5732,7 +5820,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/jetpack/workManager/use2/" class="md-nav__link">
+      <a href="../../jetpack/workManager/use2/" class="md-nav__link">
         工作约束，延迟与查询工作
       </a>
     </li>
@@ -5746,7 +5834,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/jetpack/workManager/periodic1/" class="md-nav__link">
+      <a href="../../jetpack/workManager/periodic1/" class="md-nav__link">
         定时任务
       </a>
     </li>
@@ -5795,7 +5883,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/jetpack/viewModel/viewModel_intro/" class="md-nav__link">
+      <a href="../../jetpack/viewModel/viewModel_intro/" class="md-nav__link">
         简介
       </a>
     </li>
@@ -5809,7 +5897,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/jetpack/viewModel/act-use-vm/" class="md-nav__link">
+      <a href="../../jetpack/viewModel/act-use-vm/" class="md-nav__link">
         Activity使用
       </a>
     </li>
@@ -5823,7 +5911,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/jetpack/viewModel/act-frag-use-one-vm/" class="md-nav__link">
+      <a href="../../jetpack/viewModel/act-frag-use-one-vm/" class="md-nav__link">
         Activity Fragment 共用vm
       </a>
     </li>
@@ -5872,7 +5960,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/jetpack/room/db-room-start/" class="md-nav__link">
+      <a href="../../jetpack/room/db-room-start/" class="md-nav__link">
         开始使用Room
       </a>
     </li>
@@ -5886,7 +5974,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/jetpack/room/room-entity-intro/" class="md-nav__link">
+      <a href="../../jetpack/room/room-entity-intro/" class="md-nav__link">
         实体类介绍
       </a>
     </li>
@@ -5900,7 +5988,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/jetpack/room/room-add/" class="md-nav__link">
+      <a href="../../jetpack/room/room-add/" class="md-nav__link">
         新增数据
       </a>
     </li>
@@ -5914,7 +6002,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/jetpack/room/room-update/" class="md-nav__link">
+      <a href="../../jetpack/room/room-update/" class="md-nav__link">
         更新数据
       </a>
     </li>
@@ -5963,7 +6051,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/jetpack/compose/compose-sample-proj1/" class="md-nav__link">
+      <a href="../../jetpack/compose/compose-sample-proj1/" class="md-nav__link">
         引入示例
       </a>
     </li>
@@ -5977,7 +6065,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/jetpack/compose/use-compose-in-proj/" class="md-nav__link">
+      <a href="../../jetpack/compose/use-compose-in-proj/" class="md-nav__link">
         现有工程使用Compose
       </a>
     </li>
@@ -6026,7 +6114,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/jetpack/camerax/simple-preview/" class="md-nav__link">
+      <a href="../../jetpack/camerax/simple-preview/" class="md-nav__link">
         打开摄像头预览
       </a>
     </li>
@@ -6040,7 +6128,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/jetpack/camerax/image-analysis-use/" class="md-nav__link">
+      <a href="../../jetpack/camerax/image-analysis-use/" class="md-nav__link">
         分析器获取帧数据
       </a>
     </li>
@@ -6054,7 +6142,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/jetpack/camerax/preview-floating-window/" class="md-nav__link">
+      <a href="../../jetpack/camerax/preview-floating-window/" class="md-nav__link">
         应用内预览悬浮窗
       </a>
     </li>
@@ -6068,7 +6156,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../android/jetpack/camerax/preview-floating-system-alert-window/" class="md-nav__link">
+      <a href="../../jetpack/camerax/preview-floating-system-alert-window/" class="md-nav__link">
         预览悬浮窗,可后台
       </a>
     </li>
@@ -6123,7 +6211,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../java/intro/" class="md-nav__link">
+      <a href="../../../java/intro/" class="md-nav__link">
         简介
       </a>
     </li>
@@ -6137,7 +6225,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../java/basic/java-env-dev/" class="md-nav__link">
+      <a href="../../../java/basic/java-env-dev/" class="md-nav__link">
         开发环境
       </a>
     </li>
@@ -6179,7 +6267,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../java/basic/java-basic-note/" class="md-nav__link">
+      <a href="../../../java/basic/java-basic-note/" class="md-nav__link">
         基础笔记
       </a>
     </li>
@@ -6193,7 +6281,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../java/interface/java-interface-and-abstract-class/" class="md-nav__link">
+      <a href="../../../java/interface/java-interface-and-abstract-class/" class="md-nav__link">
         接口与抽象类
       </a>
     </li>
@@ -6242,7 +6330,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../java/class/class-basic/" class="md-nav__link">
+      <a href="../../../java/class/class-basic/" class="md-nav__link">
         基础
       </a>
     </li>
@@ -6256,7 +6344,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../java/class/class-init-step/" class="md-nav__link">
+      <a href="../../../java/class/class-init-step/" class="md-nav__link">
         类的初始化步骤
       </a>
     </li>
@@ -6270,7 +6358,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../java/class/abs-class-vs-interface/" class="md-nav__link">
+      <a href="../../../java/class/abs-class-vs-interface/" class="md-nav__link">
         接口与抽象类
       </a>
     </li>
@@ -6284,7 +6372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../java/class/equals-and-equal/" class="md-nav__link">
+      <a href="../../../java/class/equals-and-equal/" class="md-nav__link">
         equals方法与 == 的区别
       </a>
     </li>
@@ -6305,7 +6393,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../java/concept/oo/" class="md-nav__link">
+      <a href="../../../java/concept/oo/" class="md-nav__link">
         面向对象
       </a>
     </li>
@@ -6347,7 +6435,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../java/container/Java-Container/" class="md-nav__link">
+      <a href="../../../java/container/Java-Container/" class="md-nav__link">
         简介
       </a>
     </li>
@@ -6387,7 +6475,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../java/container/list/Java-ArrayList-intro/" class="md-nav__link">
+      <a href="../../../java/container/list/Java-ArrayList-intro/" class="md-nav__link">
         ArrayList介绍
       </a>
     </li>
@@ -6434,7 +6522,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../java/container/map/Java-HashMap-source-code/" class="md-nav__link">
+      <a href="../../../java/container/map/Java-HashMap-source-code/" class="md-nav__link">
         HashMap解析
       </a>
     </li>
@@ -6448,7 +6536,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../java/container/map/Java-LinkedHashMap-code/" class="md-nav__link">
+      <a href="../../../java/container/map/Java-LinkedHashMap-code/" class="md-nav__link">
         LinkedHashMap 实现原理
       </a>
     </li>
@@ -6462,7 +6550,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../java/container/map/Java-read-write-properties/" class="md-nav__link">
+      <a href="../../../java/container/map/Java-read-write-properties/" class="md-nav__link">
         Properties使用
       </a>
     </li>
@@ -6518,7 +6606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../java/thread/thread-class-intro/" class="md-nav__link">
+      <a href="../../../java/thread/thread-class-intro/" class="md-nav__link">
         线程简介
       </a>
     </li>
@@ -6532,7 +6620,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../java/concurrent/Java-read-write-lock-use/" class="md-nav__link">
+      <a href="../../../java/concurrent/Java-read-write-lock-use/" class="md-nav__link">
         读写锁的使用
       </a>
     </li>
@@ -6581,7 +6669,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../java/io/Java-read-write-file/" class="md-nav__link">
+      <a href="../../../java/io/Java-read-write-file/" class="md-nav__link">
         读写文件
       </a>
     </li>
@@ -6595,7 +6683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../java/io/Java-read-write-xls/" class="md-nav__link">
+      <a href="../../../java/io/Java-read-write-xls/" class="md-nav__link">
         读写xls
       </a>
     </li>
@@ -6644,7 +6732,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../java/reg/reg_use/" class="md-nav__link">
+      <a href="../../../java/reg/reg_use/" class="md-nav__link">
         使用正则表达式
       </a>
     </li>
@@ -6658,7 +6746,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../java/reg/find-samples/" class="md-nav__link">
+      <a href="../../../java/reg/find-samples/" class="md-nav__link">
         查找示例
       </a>
     </li>
@@ -6672,7 +6760,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../java/reg/extract-between/" class="md-nav__link">
+      <a href="../../../java/reg/extract-between/" class="md-nav__link">
         提取特定字符
       </a>
     </li>
@@ -6686,7 +6774,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../java/reg/split-samples/" class="md-nav__link">
+      <a href="../../../java/reg/split-samples/" class="md-nav__link">
         分隔插入字符
       </a>
     </li>
@@ -6700,7 +6788,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../java/reg/code/extract-en-between-not-en/" class="md-nav__link">
+      <a href="../../../java/reg/code/extract-en-between-not-en/" class="md-nav__link">
         例子1
       </a>
     </li>
@@ -6714,7 +6802,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../java/reg/code/find-en-word-between-not-word/" class="md-nav__link">
+      <a href="../../../java/reg/code/find-en-word-between-not-word/" class="md-nav__link">
         例子2
       </a>
     </li>
@@ -6735,7 +6823,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../java/calendar/Java-Calendar-use/" class="md-nav__link">
+      <a href="../../../java/calendar/Java-Calendar-use/" class="md-nav__link">
         日历
       </a>
     </li>
@@ -6749,7 +6837,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../java/anotation/Java-annotation-intro/" class="md-nav__link">
+      <a href="../../../java/anotation/Java-annotation-intro/" class="md-nav__link">
         注解使用与简单说明
       </a>
     </li>
@@ -6763,7 +6851,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../java/security/Java-encrypt-note/" class="md-nav__link">
+      <a href="../../../java/security/Java-encrypt-note/" class="md-nav__link">
         使用加密算法
       </a>
     </li>
@@ -6805,7 +6893,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../java/swing/Java-Swing-use1/" class="md-nav__link">
+      <a href="../../../java/swing/Java-Swing-use1/" class="md-nav__link">
         使用示例
       </a>
     </li>
@@ -6860,7 +6948,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../kotlin/breif/kt-first/" class="md-nav__link">
+      <a href="../../../kotlin/breif/kt-first/" class="md-nav__link">
         Kotlin系列简介
       </a>
     </li>
@@ -6874,7 +6962,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../kotlin/basic/intro/hello-world/" class="md-nav__link">
+      <a href="../../../kotlin/basic/intro/hello-world/" class="md-nav__link">
         Hello World
       </a>
     </li>
@@ -6888,7 +6976,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../kotlin/basic/kotlin-common-patterns-in-android/" class="md-nav__link">
+      <a href="../../../kotlin/basic/kotlin-common-patterns-in-android/" class="md-nav__link">
         Android开发中使用常见的Kotlin模式
       </a>
     </li>
@@ -6930,7 +7018,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../kotlin/basic/basic-syntax/" class="md-nav__link">
+      <a href="../../../kotlin/basic/basic-syntax/" class="md-nav__link">
         基础概念
       </a>
     </li>
@@ -6944,7 +7032,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../kotlin/basic/functions/" class="md-nav__link">
+      <a href="../../../kotlin/basic/functions/" class="md-nav__link">
         方法fun
       </a>
     </li>
@@ -6965,7 +7053,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../kotlin/basic/idioms/" class="md-nav__link">
+      <a href="../../../kotlin/basic/idioms/" class="md-nav__link">
         常用写法
       </a>
     </li>
@@ -7007,7 +7095,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../kotlin/coroutines/basic/first/" class="md-nav__link">
+      <a href="../../../kotlin/coroutines/basic/first/" class="md-nav__link">
         入门
       </a>
     </li>
@@ -7021,7 +7109,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../kotlin/coroutines/basic/b2/" class="md-nav__link">
+      <a href="../../../kotlin/coroutines/basic/b2/" class="md-nav__link">
         基础
       </a>
     </li>
@@ -7035,7 +7123,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../kotlin/coroutines/cancel-timeout/" class="md-nav__link">
+      <a href="../../../kotlin/coroutines/cancel-timeout/" class="md-nav__link">
         取消与超时
       </a>
     </li>
@@ -7090,7 +7178,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../designPattern/Adapter-Pattern/" class="md-nav__link">
+      <a href="../../../designPattern/Adapter-Pattern/" class="md-nav__link">
         适配器模式
       </a>
     </li>
@@ -7104,7 +7192,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../designPattern/Listener_pattern_practice_in_Java_Android/" class="md-nav__link">
+      <a href="../../../designPattern/Listener_pattern_practice_in_Java_Android/" class="md-nav__link">
         监听者模式 Java&Android
       </a>
     </li>
@@ -7118,7 +7206,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../designPattern/Bridge-Pattern/" class="md-nav__link">
+      <a href="../../../designPattern/Bridge-Pattern/" class="md-nav__link">
         桥接模式
       </a>
     </li>
@@ -7132,7 +7220,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../designPattern/Builder-Pattern/" class="md-nav__link">
+      <a href="../../../designPattern/Builder-Pattern/" class="md-nav__link">
         构造器模式
       </a>
     </li>
@@ -7146,7 +7234,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../designPattern/Command-pattern/" class="md-nav__link">
+      <a href="../../../designPattern/Command-pattern/" class="md-nav__link">
         命令模式
       </a>
     </li>
@@ -7160,7 +7248,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../designPattern/Decoration_Java/" class="md-nav__link">
+      <a href="../../../designPattern/Decoration_Java/" class="md-nav__link">
         装饰者模式
       </a>
     </li>
@@ -7174,7 +7262,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../designPattern/Strategy-Pattern/" class="md-nav__link">
+      <a href="../../../designPattern/Strategy-Pattern/" class="md-nav__link">
         策略模式
       </a>
     </li>
@@ -7188,7 +7276,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../designPattern/Factory_method_Java/" class="md-nav__link">
+      <a href="../../../designPattern/Factory_method_Java/" class="md-nav__link">
         工厂方法
       </a>
     </li>
@@ -7202,7 +7290,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../designPattern/Iterator_Java/" class="md-nav__link">
+      <a href="../../../designPattern/Iterator_Java/" class="md-nav__link">
         迭代器
       </a>
     </li>
@@ -7216,7 +7304,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../designPattern/Mediator-Pattern/" class="md-nav__link">
+      <a href="../../../designPattern/Mediator-Pattern/" class="md-nav__link">
         中介者
       </a>
     </li>
@@ -7230,7 +7318,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../designPattern/Memento-Pattern/" class="md-nav__link">
+      <a href="../../../designPattern/Memento-Pattern/" class="md-nav__link">
         备忘录模式
       </a>
     </li>
@@ -7244,7 +7332,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../designPattern/Prototype-Pattern/" class="md-nav__link">
+      <a href="../../../designPattern/Prototype-Pattern/" class="md-nav__link">
         原型模式
       </a>
     </li>
@@ -7258,7 +7346,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../designPattern/Proxy-Pattern/" class="md-nav__link">
+      <a href="../../../designPattern/Proxy-Pattern/" class="md-nav__link">
         代理模式
       </a>
     </li>
@@ -7272,7 +7360,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../designPattern/Responsibility-Chain-Pattern/" class="md-nav__link">
+      <a href="../../../designPattern/Responsibility-Chain-Pattern/" class="md-nav__link">
         责任链模式
       </a>
     </li>
@@ -7286,7 +7374,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../designPattern/State-Pattern/" class="md-nav__link">
+      <a href="../../../designPattern/State-Pattern/" class="md-nav__link">
         状态模式
       </a>
     </li>
@@ -7300,7 +7388,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../designPattern/Template-Method-Pattern_Java/" class="md-nav__link">
+      <a href="../../../designPattern/Template-Method-Pattern_Java/" class="md-nav__link">
         模板方法模式
       </a>
     </li>
@@ -7314,7 +7402,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../designPattern/Visitor-Pattern/" class="md-nav__link">
+      <a href="../../../designPattern/Visitor-Pattern/" class="md-nav__link">
         访问者模式
       </a>
     </li>
@@ -7328,7 +7416,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../designPattern/Flyweight-Pattern/" class="md-nav__link">
+      <a href="../../../designPattern/Flyweight-Pattern/" class="md-nav__link">
         享元模式
       </a>
     </li>
@@ -7342,7 +7430,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../designPattern/Facade-Pattern/" class="md-nav__link">
+      <a href="../../../designPattern/Facade-Pattern/" class="md-nav__link">
         门面模式
       </a>
     </li>
@@ -7362,14 +7450,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
       
       
       
@@ -7392,7 +7478,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../tech-note-index/" class="md-nav__link">
+      <a href="../../../tech-note-index/" class="md-nav__link">
         📚 引言
       </a>
     </li>
@@ -7406,7 +7492,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../recent-post/" class="md-nav__link">
+      <a href="../../../recent-post/" class="md-nav__link">
         🔥 最近更新
       </a>
     </li>
@@ -7420,7 +7506,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../tags/" class="md-nav__link">
+      <a href="../../../tags/" class="md-nav__link">
         🏷 本站标签
       </a>
     </li>
@@ -7434,7 +7520,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../git/git-tips/" class="md-nav__link">
+      <a href="../../../git/git-tips/" class="md-nav__link">
         Git 使用技巧
       </a>
     </li>
@@ -7476,7 +7562,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../nestjs/nestjs-websocket-start/" class="md-nav__link">
+      <a href="../../../nestjs/nestjs-websocket-start/" class="md-nav__link">
         NestJS WebSocket
       </a>
     </li>
@@ -7490,7 +7576,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../nestjs/wss-nginx-cfg/" class="md-nav__link">
+      <a href="../../../nestjs/wss-nginx-cfg/" class="md-nav__link">
         WSS Nginx配置
       </a>
     </li>
@@ -7504,7 +7590,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../nestjs/nestjs-static-file/" class="md-nav__link">
+      <a href="../../../nestjs/nestjs-static-file/" class="md-nav__link">
         NestJS静态资源文件
       </a>
     </li>
@@ -7518,7 +7604,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../nestjs/nest-devops/" class="md-nav__link">
+      <a href="../../../nestjs/nest-devops/" class="md-nav__link">
         NestJS部署
       </a>
     </li>
@@ -7532,7 +7618,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../nestjs/mp-wx-http-status-code/" class="md-nav__link">
+      <a href="../../../nestjs/mp-wx-http-status-code/" class="md-nav__link">
         NestJS微信公众号201
       </a>
     </li>
@@ -7572,7 +7658,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../nestjs/simple-chat/create-nest-project/" class="md-nav__link">
+      <a href="../../../nestjs/simple-chat/create-nest-project/" class="md-nav__link">
         1.新建工程使用websocket
       </a>
     </li>
@@ -7586,7 +7672,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../nestjs/simple-chat/web-connect-local/" class="md-nav__link">
+      <a href="../../../nestjs/simple-chat/web-connect-local/" class="md-nav__link">
         2.新建页面index.html
       </a>
     </li>
@@ -7600,7 +7686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../nestjs/simple-chat/transfer-msg-local/" class="md-nav__link">
+      <a href="../../../nestjs/simple-chat/transfer-msg-local/" class="md-nav__link">
         3.本地服务群发消息
       </a>
     </li>
@@ -7614,7 +7700,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../nestjs/simple-chat/deploy-on-server/" class="md-nav__link">
+      <a href="../../../nestjs/simple-chat/deploy-on-server/" class="md-nav__link">
         4.部署服务
       </a>
     </li>
@@ -7628,7 +7714,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../nestjs/simple-chat/room-chat/" class="md-nav__link">
+      <a href="../../../nestjs/simple-chat/room-chat/" class="md-nav__link">
         5.分房聊天
       </a>
     </li>
@@ -7684,7 +7770,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../media/color/yuv-intro/" class="md-nav__link">
+      <a href="../../../media/color/yuv-intro/" class="md-nav__link">
         YUV简介
       </a>
     </li>
@@ -7698,7 +7784,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../media/video/yuv-save-format/" class="md-nav__link">
+      <a href="../../../media/video/yuv-save-format/" class="md-nav__link">
         YUV存储方式
       </a>
     </li>
@@ -7712,7 +7798,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../media/audio/some-audio-video-media-format/" class="md-nav__link">
+      <a href="../../../media/audio/some-audio-video-media-format/" class="md-nav__link">
         常见音视频格式
       </a>
     </li>
@@ -7761,7 +7847,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../cocos/creator/ccc-touch-event/" class="md-nav__link">
+      <a href="../../../cocos/creator/ccc-touch-event/" class="md-nav__link">
         触摸事件穿透
       </a>
     </li>
@@ -7775,7 +7861,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../cocos/creator/ccc-postion-and-cvt/" class="md-nav__link">
+      <a href="../../../cocos/creator/ccc-postion-and-cvt/" class="md-nav__link">
         坐标变换
       </a>
     </li>
@@ -7789,7 +7875,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../cocos/creator/ccc-drag-anywhere/" class="md-nav__link">
+      <a href="../../../cocos/creator/ccc-drag-anywhere/" class="md-nav__link">
         任意拖动
       </a>
     </li>
@@ -7803,7 +7889,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../cocos/creator/ccc-drag-to-target/" class="md-nav__link">
+      <a href="../../../cocos/creator/ccc-drag-to-target/" class="md-nav__link">
         拖动到目的地
       </a>
     </li>
@@ -7817,7 +7903,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../cocos/creator/g/dev-2d-game/" class="md-nav__link">
+      <a href="../../../cocos/creator/g/dev-2d-game/" class="md-nav__link">
         2D开发记录
       </a>
     </li>
@@ -7866,7 +7952,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../linux/usr/ls-use/" class="md-nav__link">
+      <a href="../../../linux/usr/ls-use/" class="md-nav__link">
         ls
       </a>
     </li>
@@ -7880,7 +7966,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../linux/usr/awk-use/" class="md-nav__link">
+      <a href="../../../linux/usr/awk-use/" class="md-nav__link">
         awk
       </a>
     </li>
@@ -7894,7 +7980,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../linux/usr/grep-use/" class="md-nav__link">
+      <a href="../../../linux/usr/grep-use/" class="md-nav__link">
         grep
       </a>
     </li>
@@ -7908,7 +7994,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../linux/usr/find-use/" class="md-nav__link">
+      <a href="../../../linux/usr/find-use/" class="md-nav__link">
         find
       </a>
     </li>
@@ -7922,7 +8008,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../linux/usr/curl-use/" class="md-nav__link">
+      <a href="../../../linux/usr/curl-use/" class="md-nav__link">
         curl
       </a>
     </li>
@@ -7936,7 +8022,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../linux/shell/for-use/" class="md-nav__link">
+      <a href="../../../linux/shell/for-use/" class="md-nav__link">
         for循环
       </a>
     </li>
@@ -7950,7 +8036,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../linux/usr/netstat-use/" class="md-nav__link">
+      <a href="../../../linux/usr/netstat-use/" class="md-nav__link">
         netstat查看网络状态
       </a>
     </li>
@@ -7964,7 +8050,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../redis/redis-docker-master-slave-sentinel-123/" class="md-nav__link">
+      <a href="../../../redis/redis-docker-master-slave-sentinel-123/" class="md-nav__link">
         Redis docker 主从模式与哨兵
       </a>
     </li>
@@ -7978,7 +8064,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../apollo/apollo-docker-run-dev-fat/" class="md-nav__link">
+      <a href="../../../apollo/apollo-docker-run-dev-fat/" class="md-nav__link">
         Apollo docker 部署
       </a>
     </li>
@@ -7992,7 +8078,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../nginx/nginx-conf-note/" class="md-nav__link">
+      <a href="../../../nginx/nginx-conf-note/" class="md-nav__link">
         nginx常见配置
       </a>
     </li>
@@ -8006,7 +8092,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../db/mysql/docker-mysql-modify-pwd/" class="md-nav__link">
+      <a href="../../../db/mysql/docker-mysql-modify-pwd/" class="md-nav__link">
         docker mysql 修改密码
       </a>
     </li>
@@ -8020,7 +8106,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../server/component/xxl-job/docker-run-xxl-job/" class="md-nav__link">
+      <a href="../../../server/component/xxl-job/docker-run-xxl-job/" class="md-nav__link">
         xxl-job docker 部署
       </a>
     </li>
@@ -8069,7 +8155,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../embedded/base/what-is-float-NaN-Inf/" class="md-nav__link">
+      <a href="../../../embedded/base/what-is-float-NaN-Inf/" class="md-nav__link">
         float类型中NaN和Inf是什么
       </a>
     </li>
@@ -8109,7 +8195,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../embedded/wifi/ESP8266-struc-start/" class="md-nav__link">
+      <a href="../../../embedded/wifi/ESP8266-struc-start/" class="md-nav__link">
         架构探索-运行的起始
       </a>
     </li>
@@ -8123,7 +8209,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../embedded/wifi/ESP8266-Bootloader-rtfsc-rboot-1/" class="md-nav__link">
+      <a href="../../../embedded/wifi/ESP8266-Bootloader-rtfsc-rboot-1/" class="md-nav__link">
         Bootloader开源代码解析之rboot（一）
       </a>
     </li>
@@ -8137,7 +8223,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../embedded/wifi/ESP8266-Bootloader-rtfsc-rboot-2/" class="md-nav__link">
+      <a href="../../../embedded/wifi/ESP8266-Bootloader-rtfsc-rboot-2/" class="md-nav__link">
         Bootloader开源代码解析之rboot（二）
       </a>
     </li>
@@ -8184,7 +8270,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../embedded/dev/utils-enum-tostring/" class="md-nav__link">
+      <a href="../../../embedded/dev/utils-enum-tostring/" class="md-nav__link">
         ENUM转字符串
       </a>
     </li>
@@ -8198,7 +8284,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../embedded/dev/utils-binary-cvt/" class="md-nav__link">
+      <a href="../../../embedded/dev/utils-binary-cvt/" class="md-nav__link">
         二进制转换
       </a>
     </li>
@@ -8212,7 +8298,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../embedded/dev/utils-for-chips-base-time-space-cal/" class="md-nav__link">
+      <a href="../../../embedded/dev/utils-for-chips-base-time-space-cal/" class="md-nav__link">
         不同芯片的基础时空开销计算
       </a>
     </li>
@@ -8238,16 +8324,14 @@
               
   
   
-    
-  
   
     
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_10" type="checkbox" id="__nav_7_10" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_10" type="checkbox" id="__nav_7_10" >
       
       
       
@@ -8268,127 +8352,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          TableView显示列表
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../ios/uikit/tableview/case/table-view-and-other/" class="md-nav__link">
         TableView显示列表
       </a>
-      
-        
-  
-  <nav class="md-nav md-nav--secondary" aria-label="目录">
-    
-    
-    
-      
-    
-    
-      <label class="md-nav__title" for="__toc">
-        <span class="md-nav__icon md-icon"></span>
-        目录
-      </label>
-      <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    简单风格列表
-  </a>
-  
-    <nav class="md-nav" aria-label="简单风格列表">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#gopage2vc" class="md-nav__link">
-    GoPage2VC
-  </a>
-  
-    <nav class="md-nav" aria-label="GoPage2VC">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    头文件
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#m" class="md-nav__link">
-    m文件
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mainstoryboard" class="md-nav__link">
-    Main.storyboard
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    添加图标
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    子项点击
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    参考
-  </a>
-  
-</li>
-        
-      </ul>
-      <p style="height: 6px;"></p>
-      <div style="display:block;">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7286632197002340"
-        crossorigin="anonymous"></script>
-        <!-- cube1 -->
-        <ins class="adsbygoogle"
-              style="display:inline-block;width:230px;height:230px"
-              data-ad-client="ca-pub-7286632197002340"
-              data-ad-slot="3425975276"></ins>
-        <script>
-              (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
-    
-  </nav>
-  
-      
     </li>
   
 
@@ -8400,7 +8368,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../table-view-and-other-cell/" class="md-nav__link">
+      <a href="../../../ios/uikit/tableview/case/table-view-and-other-cell/" class="md-nav__link">
         TableView自定义Cell
       </a>
     </li>
@@ -8440,7 +8408,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../table-view-storyboard-sample1/" class="md-nav__link">
+      <a href="../../../ios/uikit/tableview/table-view-storyboard-sample1/" class="md-nav__link">
         1.开始使用
       </a>
     </li>
@@ -8454,7 +8422,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../table-view-storyboard-sample2/" class="md-nav__link">
+      <a href="../../../ios/uikit/tableview/table-view-storyboard-sample2/" class="md-nav__link">
         2.显示数据详情
       </a>
     </li>
@@ -8468,7 +8436,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../table-view-storyboard-sample3/" class="md-nav__link">
+      <a href="../../../ios/uikit/tableview/table-view-storyboard-sample3/" class="md-nav__link">
         3.列表使用DataSource
       </a>
     </li>
@@ -8482,7 +8450,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../table-view-storyboard-sample4-ds/" class="md-nav__link">
+      <a href="../../../ios/uikit/tableview/table-view-storyboard-sample4-ds/" class="md-nav__link">
         4.详情使用DataSource
       </a>
     </li>
@@ -8496,7 +8464,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../table-view-storyboard-sample5-edit/" class="md-nav__link">
+      <a href="../../../ios/uikit/tableview/table-view-storyboard-sample5-edit/" class="md-nav__link">
         5.编辑详情标题
       </a>
     </li>
@@ -8517,7 +8485,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../lib/a-lib-missing-arch/" class="md-nav__link">
+      <a href="../../../ios/lib/a-lib-missing-arch/" class="md-nav__link">
         .a不支持的架构问题
       </a>
     </li>
@@ -8557,7 +8525,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../xcode/basic-use/" class="md-nav__link">
+      <a href="../../../ios/xcode/basic-use/" class="md-nav__link">
         基本使用
       </a>
     </li>
@@ -8578,7 +8546,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../duns-apple-2022/" class="md-nav__link">
+      <a href="../../../ios/duns-apple-2022/" class="md-nav__link">
         DUNS
       </a>
     </li>
@@ -8627,7 +8595,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../lua/start/lua-simple-start-mac/" class="md-nav__link">
+      <a href="../../../lua/start/lua-simple-start-mac/" class="md-nav__link">
         Lua Mac编译和安装
       </a>
     </li>
@@ -8641,7 +8609,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../lua/start/lua-base/" class="md-nav__link">
+      <a href="../../../lua/start/lua-base/" class="md-nav__link">
         Lua基本操作
       </a>
     </li>
@@ -8690,7 +8658,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ruankao/pm3/1-information-and-sys/" class="md-nav__link">
+      <a href="../../../ruankao/pm3/1-information-and-sys/" class="md-nav__link">
         1.信息和信息化系统
       </a>
     </li>
@@ -8704,7 +8672,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../ruankao/pm3/2-info-sys-manage-basic/" class="md-nav__link">
+      <a href="../../../ruankao/pm3/2-info-sys-manage-basic/" class="md-nav__link">
         2.信息系统项目管理基础
       </a>
     </li>
@@ -8753,7 +8721,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../db/note-mongodb-mysql/" class="md-nav__link">
+      <a href="../../../db/note-mongodb-mysql/" class="md-nav__link">
         MongoDB和MySQL的对比
       </a>
     </li>
@@ -8774,7 +8742,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../sip/sip-err-code/" class="md-nav__link">
+      <a href="../../../sip/sip-err-code/" class="md-nav__link">
         📞 SIP错误码
       </a>
     </li>
@@ -8788,7 +8756,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../sip/sip-and-sdp/" class="md-nav__link">
+      <a href="../../../sip/sip-and-sdp/" class="md-nav__link">
         SIP与SDP
       </a>
     </li>
@@ -8856,7 +8824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../fun/joke-1/" class="md-nav__link">
+      <a href="../../../fun/joke-1/" class="md-nav__link">
         程序笑话集1
       </a>
     </li>
@@ -8870,7 +8838,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../fun/joke-2/" class="md-nav__link">
+      <a href="../../../fun/joke-2/" class="md-nav__link">
         程序笑话集2
       </a>
     </li>
@@ -8884,7 +8852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../fun/joke-3/" class="md-nav__link">
+      <a href="../../../fun/joke-3/" class="md-nav__link">
         程序笑话集3
       </a>
     </li>
@@ -8898,7 +8866,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../fun/joke-4/" class="md-nav__link">
+      <a href="../../../fun/joke-4/" class="md-nav__link">
         程序笑话集4
       </a>
     </li>
@@ -8912,7 +8880,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../fun/joke-5/" class="md-nav__link">
+      <a href="../../../fun/joke-5/" class="md-nav__link">
         程序笑话沙雕图5
       </a>
     </li>
@@ -8933,7 +8901,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../fun/http-code/" class="md-nav__link">
+      <a href="../../../fun/http-code/" class="md-nav__link">
         网络状态码
       </a>
     </li>
@@ -9031,7 +8999,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../about/" class="md-nav__link">
+      <a href="../../../about/" class="md-nav__link">
         🙋‍♂️ 关于
       </a>
     </li>
@@ -9045,7 +9013,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../about/fr/" class="md-nav__link">
+      <a href="../../../about/fr/" class="md-nav__link">
         🛳 友链
       </a>
     </li>
@@ -9059,7 +9027,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../about/sponsor-author/" class="md-nav__link">
+      <a href="../../../about/sponsor-author/" class="md-nav__link">
         🎉 支持作者
       </a>
     </li>
@@ -9073,7 +9041,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../about/site-dev-note/" class="md-nav__link">
+      <a href="../../../about/site-dev-note/" class="md-nav__link">
         ⏱ 本站开发记录
       </a>
     </li>
@@ -9121,7 +9089,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../python/basic/get-path/" class="md-nav__link">
+      <a href="../../../python/basic/get-path/" class="md-nav__link">
         获取路径
       </a>
     </li>
@@ -9163,7 +9131,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../python/basic/dictionary-JSON-file/" class="md-nav__link">
+      <a href="../../../python/basic/dictionary-JSON-file/" class="md-nav__link">
         dict和JSON
       </a>
     </li>
@@ -9177,7 +9145,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../python/io/scan-file-like-tree/" class="md-nav__link">
+      <a href="../../../python/io/scan-file-like-tree/" class="md-nav__link">
         查看目录中的文件
       </a>
     </li>
@@ -9191,7 +9159,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../python/io/read-write-csv/" class="md-nav__link">
+      <a href="../../../python/io/read-write-csv/" class="md-nav__link">
         读写csv
       </a>
     </li>
@@ -9240,7 +9208,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../python/openpyxl/openpyxl-tutorial/" class="md-nav__link">
+      <a href="../../../python/openpyxl/openpyxl-tutorial/" class="md-nav__link">
         openpyxl使用指南
       </a>
     </li>
@@ -9254,7 +9222,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../python/openpyxl/openpyxl-charts-bar-column/" class="md-nav__link">
+      <a href="../../../python/openpyxl/openpyxl-charts-bar-column/" class="md-nav__link">
         Excel绘制柱形图
       </a>
     </li>
@@ -9268,7 +9236,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../python/openpyxl/op-excel-openpyxl-use/" class="md-nav__link">
+      <a href="../../../python/openpyxl/op-excel-openpyxl-use/" class="md-nav__link">
         【运营】处理Excel数据示例
       </a>
     </li>
@@ -9282,7 +9250,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../python/openpyxl/op-excel-openpyxl-bar-column-chart/" class="md-nav__link">
+      <a href="../../../python/openpyxl/op-excel-openpyxl-bar-column-chart/" class="md-nav__link">
         【运营】Excel绘制柱形图
       </a>
     </li>
@@ -9296,7 +9264,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../python/openpyxl/op-draw-funnel-1/" class="md-nav__link">
+      <a href="../../../python/openpyxl/op-draw-funnel-1/" class="md-nav__link">
         【运营】绘制漏斗图
       </a>
     </li>
@@ -9345,7 +9313,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../python/matplotlib/matplotlib-intro1/" class="md-nav__link">
+      <a href="../../../python/matplotlib/matplotlib-intro1/" class="md-nav__link">
         Matplotlib快速入门
       </a>
     </li>
@@ -9359,7 +9327,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../python/matplotlib/matplotlib-intro-parts/" class="md-nav__link">
+      <a href="../../../python/matplotlib/matplotlib-intro-parts/" class="md-nav__link">
         Matplotlib组成部分
       </a>
     </li>
@@ -9408,7 +9376,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../python/scrapy/scrapy-hw-blog-record/" class="md-nav__link">
+      <a href="../../../python/scrapy/scrapy-hw-blog-record/" class="md-nav__link">
         获取博客标题和URL
       </a>
     </li>
@@ -9457,7 +9425,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../python/mysql/use1/" class="md-nav__link">
+      <a href="../../../python/mysql/use1/" class="md-nav__link">
         操作MySQL
       </a>
     </li>
@@ -9478,7 +9446,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../python/basic/pip-solution/" class="md-nav__link">
+      <a href="../../../python/basic/pip-solution/" class="md-nav__link">
         pip源
       </a>
     </li>
@@ -9520,7 +9488,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../python/record/ffmpeg-extraction-mp4-use/" class="md-nav__link">
+      <a href="../../../python/record/ffmpeg-extraction-mp4-use/" class="md-nav__link">
         Python调用ffmpeg
       </a>
     </li>
@@ -9534,7 +9502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../python/record/python3-send-email/" class="md-nav__link">
+      <a href="../../../python/record/python3-send-email/" class="md-nav__link">
         发送邮件
       </a>
     </li>
@@ -9548,7 +9516,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../python/record/adb-use/" class="md-nav__link">
+      <a href="../../../python/record/adb-use/" class="md-nav__link">
         调用adb
       </a>
     </li>
@@ -9597,7 +9565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../pyqt/pycharm-install-and-config/" class="md-nav__link">
+      <a href="../../../pyqt/pycharm-install-and-config/" class="md-nav__link">
         安装PyCharm
       </a>
     </li>
@@ -9611,7 +9579,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../pyqt/install-pyqt5/" class="md-nav__link">
+      <a href="../../../pyqt/install-pyqt5/" class="md-nav__link">
         安装PyQt5
       </a>
     </li>
@@ -9625,7 +9593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../pyqt/pyqt-QMainWindow-use1/" class="md-nav__link">
+      <a href="../../../pyqt/pyqt-QMainWindow-use1/" class="md-nav__link">
         QMainWindow 简单使用
       </a>
     </li>
@@ -9639,7 +9607,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../pyqt/pyqt-adjust-screen-resolution/" class="md-nav__link">
+      <a href="../../../pyqt/pyqt-adjust-screen-resolution/" class="md-nav__link">
         PyQt适配不同屏幕分辨率
       </a>
     </li>
@@ -9653,7 +9621,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../pyqt/pyqt-drag-and-drop/" class="md-nav__link">
+      <a href="../../../pyqt/pyqt-drag-and-drop/" class="md-nav__link">
         PyQt拖入
       </a>
     </li>
@@ -9667,7 +9635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../pyqt/pyqt-QFileDialog-use/" class="md-nav__link">
+      <a href="../../../pyqt/pyqt-QFileDialog-use/" class="md-nav__link">
         QFileDialog文件选择弹窗
       </a>
     </li>
@@ -9681,7 +9649,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../pyqt/pyqt-locale/" class="md-nav__link">
+      <a href="../../../pyqt/pyqt-locale/" class="md-nav__link">
         PyQt多语言
       </a>
     </li>
@@ -9695,7 +9663,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../pyqt/pyqt5-custom-QWidget-use/" class="md-nav__link">
+      <a href="../../../pyqt/pyqt5-custom-QWidget-use/" class="md-nav__link">
         PyQt创建自定义QWidget
       </a>
     </li>
@@ -9709,7 +9677,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../pyqt/pyqt-QThread/" class="md-nav__link">
+      <a href="../../../pyqt/pyqt-QThread/" class="md-nav__link">
         PyQt线程类QThread
       </a>
     </li>
@@ -9723,7 +9691,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../pyqt/pyqt-pack-exe/" class="md-nav__link">
+      <a href="../../../pyqt/pyqt-pack-exe/" class="md-nav__link">
         PyQt打包成exe文件
       </a>
     </li>
@@ -9737,7 +9705,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../pyqt/pyqt5-install-license/" class="md-nav__link">
+      <a href="../../../pyqt/pyqt5-install-license/" class="md-nav__link">
         PyQt5安装商业版
       </a>
     </li>
@@ -9792,7 +9760,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../webrtc/intro/concept-intro/" class="md-nav__link">
+      <a href="../../../webrtc/intro/concept-intro/" class="md-nav__link">
         WebRTC简介
       </a>
     </li>
@@ -9806,7 +9774,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../webrtc/media/media-consultation-sdp-intro/" class="md-nav__link">
+      <a href="../../../webrtc/media/media-consultation-sdp-intro/" class="md-nav__link">
         媒体协商与SDP简介
       </a>
     </li>
@@ -9848,7 +9816,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../webrtc/web-samples/getUserMedia-open-camera/" class="md-nav__link">
+      <a href="../../../webrtc/web-samples/getUserMedia-open-camera/" class="md-nav__link">
         WebRTC打开摄像头
       </a>
     </li>
@@ -9862,7 +9830,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../webrtc/web-samples/resolution/" class="md-nav__link">
+      <a href="../../../webrtc/web-samples/resolution/" class="md-nav__link">
         WebRTC视频分辨率
       </a>
     </li>
@@ -9876,7 +9844,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../webrtc/web-samples/canvas1/" class="md-nav__link">
+      <a href="../../../webrtc/web-samples/canvas1/" class="md-nav__link">
         WebRTC截取本地视频帧
       </a>
     </li>
@@ -9890,7 +9858,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../webrtc/web-samples/css-filters/" class="md-nav__link">
+      <a href="../../../webrtc/web-samples/css-filters/" class="md-nav__link">
         WebRTC与css滤镜
       </a>
     </li>
@@ -9904,7 +9872,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../webrtc/web-samples/getusermedia-record/" class="md-nav__link">
+      <a href="../../../webrtc/web-samples/getusermedia-record/" class="md-nav__link">
         WebRTC与录制视频
       </a>
     </li>
@@ -9918,7 +9886,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../webrtc/web-samples/getdisplaymedia/" class="md-nav__link">
+      <a href="../../../webrtc/web-samples/getdisplaymedia/" class="md-nav__link">
         WebRTC分享屏幕与录屏
       </a>
     </li>
@@ -9932,7 +9900,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../webrtc/web-samples/audio-collection/" class="md-nav__link">
+      <a href="../../../webrtc/web-samples/audio-collection/" class="md-nav__link">
         WebRTC与音频音量
       </a>
     </li>
@@ -9946,7 +9914,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../webrtc/capture/video-local-peer/" class="md-nav__link">
+      <a href="../../../webrtc/capture/video-local-peer/" class="md-nav__link">
         WebRTC模拟传输视频
       </a>
     </li>
@@ -9960,7 +9928,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../webrtc/peerconnection/upgrade-to-video/" class="md-nav__link">
+      <a href="../../../webrtc/peerconnection/upgrade-to-video/" class="md-nav__link">
         WebRTC音频升级到视频通话
       </a>
     </li>
@@ -9974,7 +9942,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../webrtc/peerconnection/multi-relay/" class="md-nav__link">
+      <a href="../../../webrtc/peerconnection/multi-relay/" class="md-nav__link">
         WebRTC本地多个转发节点
       </a>
     </li>
@@ -9988,7 +9956,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../webrtc/peerconnection/change-codec/" class="md-nav__link">
+      <a href="../../../webrtc/peerconnection/change-codec/" class="md-nav__link">
         选择codec
       </a>
     </li>
@@ -10009,7 +9977,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../webrtc/turn/ubuntu-run-coturn/" class="md-nav__link">
+      <a href="../../../webrtc/turn/ubuntu-run-coturn/" class="md-nav__link">
         Ubuntu运行coturn
       </a>
     </li>
@@ -10051,7 +10019,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../webrtc/intro/sync-build/" class="md-nav__link">
+      <a href="../../../webrtc/intro/sync-build/" class="md-nav__link">
         WebRTC下载和编译（Mac）
       </a>
     </li>
@@ -10065,7 +10033,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../webrtc/android/agc-ns-compile/" class="md-nav__link">
+      <a href="../../../webrtc/android/agc-ns-compile/" class="md-nav__link">
         WebRTC抽取AGC增益与ANS噪声抑制模块给Android
       </a>
     </li>
@@ -10086,7 +10054,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../webrtc/some-reference/" class="md-nav__link">
+      <a href="../../../webrtc/some-reference/" class="md-nav__link">
         WebRTC的一些参考
       </a>
     </li>
@@ -10128,67 +10096,33 @@
         
           <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    简单风格列表
+    使用示例
   </a>
   
-    <nav class="md-nav" aria-label="简单风格列表">
+    <nav class="md-nav" aria-label="使用示例">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#gopage2vc" class="md-nav__link">
-    GoPage2VC
-  </a>
-  
-    <nav class="md-nav" aria-label="GoPage2VC">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    头文件
+  <a href="#activity" class="md-nav__link">
+    启动新的Activity
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#m" class="md-nav__link">
-    m文件
+  <a href="#_2" class="md-nav__link">
+    装载回传数据
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mainstoryboard" class="md-nav__link">
-    Main.storyboard
-  </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    添加图标
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    子项点击
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
     参考
   </a>
   
@@ -10224,174 +10158,149 @@
 
   
 
+  <nav class="md-tags" >
+    
+      
+        <a href="../../../tags/#android-activity" class="md-tag">
+          Android Activity
+        </a>
+      
+    
+  </nav>
 
 
-<h1 id="ios-tableviewstoryboard">iOS 添加TableView到页面中，使用storyboard<a class="headerlink" href="#ios-tableviewstoryboard" title="Permanent link">&para;</a></h1>
-<details class="note"><summary>更新日期 2022-3-3</summary><ul>
-<li>2022-3-2 创建文档</li>
+
+<h1 id="android-activity-result-launcher">Android Activity Result Launcher<a class="headerlink" href="#android-activity-result-launcher" title="Permanent link">&para;</a></h1>
+<details class="note"><summary>更新日期 2023-06-01</summary><ul>
+<li>2023-06-01 创建文档</li>
 </ul>
 </details>
-<details class="note" open="open"><summary>开发环境与工具</summary><ul>
-<li>Xcode13</li>
-<li>iOS 14.4</li>
-<li>OC</li>
-</ul>
-</details>
-<p>想在一个页面下方显示列表，上面显示其他东西。storyboard中已经有一个VC了。整个页面一开始并不是Table View Controller。
-我们需要添加一个Table View到想要的地方。</p>
-<h2 id="_1">简单风格列表<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>实现一个简单风格的列表，显示一行文字。</p>
-<p>先来看OC代码部分</p>
-<h3 id="gopage2vc">GoPage2VC<a class="headerlink" href="#gopage2vc" title="Permanent link">&para;</a></h3>
-<p>我们新建<code>GoPage2VC</code>来控制界面。</p>
-<h4 id="_2">头文件<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
-<p>新建OC文件，头文件<code>GoPage2VC.h</code>代码如下
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// GoPage2VC.h</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="cp">#import &lt;UIKit/UIKit.h&gt;</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">NS_ASSUME_NONNULL_BEGIN</span><span class="w"></span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">@interface</span> <span class="nc">GoPage2VC</span>: <span class="bp">UIViewController</span><span class="o">&lt;</span><span class="bp">UITableViewDelegate</span><span class="p">,</span><span class="w"> </span><span class="bp">UITableViewDataSource</span><span class="o">&gt;</span><span class="w"></span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="k">@property</span><span class="w"> </span><span class="p">(</span><span class="k">weak</span><span class="p">,</span><span class="w"> </span><span class="k">nonatomic</span><span class="p">)</span><span class="w"> </span><span class="kt">IBOutlet</span><span class="w"> </span><span class="bp">UILabel</span><span class="w"> </span><span class="o">*</span><span class="n">timeLb</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="k">@property</span><span class="w"> </span><span class="p">(</span><span class="k">strong</span><span class="p">,</span><span class="w"> </span><span class="k">nonatomic</span><span class="p">)</span><span class="w"> </span><span class="bp">NSArray</span><span class="w"> </span><span class="o">*</span><span class="n">list</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="k">@end</span><span class="w"></span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="n">NS_ASSUME_NONNULL_END</span><span class="w"></span>
-</code></pre></div>
-<code>GoPage2VC</code>继承<code>UIViewController</code>，并且需要<code>UITableViewDataSource</code>。</p>
-<p><code>timeLb</code>用来显示自定义文字。</p>
-<p><code>NSArray *list</code>装着我们要显示的数据。</p>
-<h4 id="m">m文件<a class="headerlink" href="#m" title="Permanent link">&para;</a></h4>
-<p><code>GoPage2VC.m</code>实现功能
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// GoPage2VC.m</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="cp">#import &quot;GoPage2VC.h&quot;</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">static</span><span class="w"> </span><span class="bp">NSString</span><span class="w"> </span><span class="o">*</span><span class="n">DataCellID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">@&quot;dataCellID&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// 给cell用的</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">@implementation</span> <span class="nc">GoPage2VC</span>: <span class="bp">UIViewController</span><span class="w"></span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="k">@synthesize</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_list</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewDidLoad</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="p">[</span><span class="nb">super</span><span class="w"> </span><span class="n">viewDidLoad</span><span class="p">];</span><span class="w"></span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="nb">self</span><span class="p">.</span><span class="n">timeLb</span><span class="p">.</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="bp">NSString</span><span class="w"> </span><span class="n">stringWithFormat</span><span class="o">:</span><span class="s">@&quot;打开时间: %@&quot;</span><span class="p">,[</span><span class="nb">self</span><span class="w"> </span><span class="n">getCurrentTime</span><span class="p">]];</span><span class="w"></span>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="bp">NSArray</span><span class="o">*</span><span class="w"> </span><span class="n">dataArr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[[</span><span class="bp">NSArray</span><span class="w"> </span><span class="n">alloc</span><span class="p">]</span><span class="w"> </span><span class="n">initWithObjects</span><span class="o">:</span><span class="s">@&quot;an.rustfisher.com&quot;</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">                        </span><span class="s">@&quot;RustFisher&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">@&quot;AnRFDev&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">@&quot;iOS&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">@&quot;iOS入门学习&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">@&quot;rustfisher.com&quot;</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">                        </span><span class="s">@&quot;Swift&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">nil</span><span class="p">];</span><span class="w"></span>
-<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">    </span><span class="nb">self</span><span class="p">.</span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dataArr</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="p">}</span><span class="w"></span>
-<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>
-<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="p">-</span> <span class="p">(</span><span class="n">NSInteger</span><span class="p">)</span><span class="nf">tableView:</span><span class="p">(</span><span class="bp">UITableView</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="nv">tableView</span><span class="w"> </span><span class="nf">numberOfRowsInSection:</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">)</span><span class="nv">section</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">self</span><span class="p">.</span><span class="n">list</span><span class="p">.</span><span class="n">count</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="p">}</span><span class="w"></span>
-<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>
-<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="c1">// 处理cell</span>
-<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="p">-</span> <span class="p">(</span><span class="bp">UITableViewCell</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="nf">tableView:</span><span class="p">(</span><span class="bp">UITableView</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="nv">tableView</span><span class="w"> </span><span class="nf">cellForRowAtIndexPath:</span><span class="p">(</span><span class="bp">NSIndexPath</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="nv">indexPath</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">    </span><span class="bp">UITableViewCell</span><span class="o">*</span><span class="w"> </span><span class="n">cell</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">tableView</span><span class="w"> </span><span class="n">dequeueReusableCellWithIdentifier</span><span class="o">:</span><span class="n">DataCellID</span><span class="p">];</span><span class="w"></span>
-<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">cell</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">nil</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="w">        </span><span class="n">cell</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[[</span><span class="bp">UITableViewCell</span><span class="w"> </span><span class="n">alloc</span><span class="p">]</span><span class="w"> </span><span class="n">initWithStyle</span><span class="o">:</span><span class="n">UITableViewCellStyleDefault</span><span class="w"> </span><span class="n">reuseIdentifier</span><span class="o">:</span><span class="n">DataCellID</span><span class="p">];</span><span class="w"></span>
-<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
-<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="w">    </span><span class="n">cell</span><span class="p">.</span><span class="n">textLabel</span><span class="p">.</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">list</span><span class="w"> </span><span class="n">objectAtIndex</span><span class="o">:</span><span class="n">indexPath</span><span class="p">.</span><span class="n">row</span><span class="p">];</span><span class="w"></span>
-<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">cell</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="p">}</span><span class="w"></span>
-<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>
-<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="p">-(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span><span class="nf">getCurrentTime</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a><span class="w">    </span><span class="bp">NSDateFormatter</span><span class="w"> </span><span class="o">*</span><span class="n">formatter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[[</span><span class="bp">NSDateFormatter</span><span class="w"> </span><span class="n">alloc</span><span class="p">]</span><span class="w"> </span><span class="n">init</span><span class="p">];</span><span class="w"></span>
-<a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a><span class="w">    </span><span class="p">[</span><span class="n">formatter</span><span class="w"> </span><span class="n">setDateFormat</span><span class="o">:</span><span class="s">@&quot;YYYY-MM-dd HH:mm:ss&quot;</span><span class="p">];</span><span class="w"></span>
-<a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a><span class="w">    </span><span class="bp">NSDate</span><span class="w"> </span><span class="o">*</span><span class="n">datenow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="bp">NSDate</span><span class="w"> </span><span class="n">date</span><span class="p">];</span><span class="w"></span>
-<a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a><span class="w">    </span><span class="bp">NSString</span><span class="w"> </span><span class="o">*</span><span class="n">currentTimeString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">formatter</span><span class="w"> </span><span class="n">stringFromDate</span><span class="o">:</span><span class="n">datenow</span><span class="p">];</span><span class="w"></span>
-<a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">currentTimeString</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a><span class="p">}</span><span class="w"></span>
-<a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a>
-<a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a><span class="k">@end</span><span class="w"></span>
-</code></pre></div>
-先自定一个变量<code>@synthesize list = _list;</code>指向我们的数据。</p>
-<p>在<code>viewDidLoad</code>中我们放入测试数据。</p>
-<p>列表相关：</p>
+<p>我们已经知道<a href="../start-activity-and-send-params/">启动activity的时候可以传递一些参数</a>。那么在关闭activity时，能不能将一些数据传回上一个activity呢？</p>
+<p>本文给出1个例子，实现关闭activity时，将一些数据传回给上一个activity。</p>
+<p>例子中会有2个Activity来做示范，<code>ForResultResultLauncher1Act</code>和<code>ForResultSecondAct</code>。</p>
+<h2 id="_1">使用示例<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="activity">启动新的Activity<a class="headerlink" href="#activity" title="Permanent link">&para;</a></h3>
+<p><code>ForResultResultLauncher1Act</code>是第一个Activity。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span>
+<span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span>
+<span class="normal"><a href="#__codelineno-0-21">21</a></span>
+<span class="normal"><a href="#__codelineno-0-22">22</a></span>
+<span class="normal"><a href="#__codelineno-0-23">23</a></span>
+<span class="normal"><a href="#__codelineno-0-24">24</a></span>
+<span class="normal"><a href="#__codelineno-0-25">25</a></span>
+<span class="normal"><a href="#__codelineno-0-26">26</a></span>
+<span class="normal"><a href="#__codelineno-0-27">27</a></span>
+<span class="normal"><a href="#__codelineno-0-28">28</a></span>
+<span class="normal"><a href="#__codelineno-0-29">29</a></span>
+<span class="normal"><a href="#__codelineno-0-30">30</a></span>
+<span class="normal"><a href="#__codelineno-0-31">31</a></span>
+<span class="normal"><a href="#__codelineno-0-32">32</a></span>
+<span class="normal"><a href="#__codelineno-0-33">33</a></span>
+<span class="normal"><a href="#__codelineno-0-34">34</a></span>
+<span class="normal"><a href="#__codelineno-0-35">35</a></span>
+<span class="normal"><a href="#__codelineno-0-36">36</a></span>
+<span class="normal"><a href="#__codelineno-0-37">37</a></span>
+<span class="normal"><a href="#__codelineno-0-38">38</a></span>
+<span class="normal"><a href="#__codelineno-0-39">39</a></span>
+<span class="normal"><a href="#__codelineno-0-40">40</a></span>
+<span class="normal"><a href="#__codelineno-0-41">41</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">android.content.Intent</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">android.os.Bundle</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">android.util.Log</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">android.widget.TextView</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">android.widget.Toast</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="kn">import</span><span class="w"> </span><span class="nn">androidx.activity.result.ActivityResultLauncher</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="kn">import</span><span class="w"> </span><span class="nn">androidx.activity.result.contract.ActivityResultContracts</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="kn">import</span><span class="w"> </span><span class="nn">com.rustfisher.baselib.AbsActivity</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="cm">/**</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="cm"> * 演示返回是传递参数</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="cm"> */</span><span class="w"></span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ForResultResultLauncher1Act</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">AbsActivity</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">TextView</span><span class="w"> </span><span class="n">mTitleTv</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">TextView</span><span class="w"> </span><span class="n">mSubTitleTv</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">ActivityResultLauncher</span><span class="o">&lt;</span><span class="n">Intent</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mEditInfoLauncher</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="w">    </span><span class="nd">@Override</span><span class="w"></span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onCreate</span><span class="p">(</span><span class="n">Bundle</span><span class="w"> </span><span class="n">savedInstanceState</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="w">        </span><span class="kd">super</span><span class="p">.</span><span class="na">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="w">        </span><span class="n">TAG</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="w">        </span><span class="n">setContentView</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">layout</span><span class="p">.</span><span class="na">act_for_res_first</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="w">        </span><span class="n">mTitleTv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">findViewById</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">tv1</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="w">        </span><span class="n">mSubTitleTv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">findViewById</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">tv2</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="w">        </span><span class="n">findViewById</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">edit_btn</span><span class="p">).</span><span class="na">setOnClickListener</span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">mEditInfoLauncher</span><span class="p">.</span><span class="na">launch</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Intent</span><span class="p">(</span><span class="n">getApplicationContext</span><span class="p">(),</span><span class="w"> </span><span class="n">ForResultSecondAct</span><span class="p">.</span><span class="na">class</span><span class="p">)));</span><span class="w"></span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="w">        </span><span class="n">mEditInfoLauncher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">registerForActivityResult</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ActivityResultContracts</span><span class="p">.</span><span class="na">StartActivityForResult</span><span class="p">(),</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="w">            </span><span class="n">Log</span><span class="p">.</span><span class="na">i</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;修改昵称返回： &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">result</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="na">getResultCode</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">RESULT_OK</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="w">                </span><span class="n">mTitleTv</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="na">getData</span><span class="p">().</span><span class="na">getStringExtra</span><span class="p">(</span><span class="n">ForResultSecondAct</span><span class="p">.</span><span class="na">K_TITLE</span><span class="p">));</span><span class="w"></span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="w">                </span><span class="n">mSubTitleTv</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="na">getData</span><span class="p">().</span><span class="na">getStringExtra</span><span class="p">(</span><span class="n">ForResultSecondAct</span><span class="p">.</span><span class="na">K_SUB_TITLE</span><span class="p">));</span><span class="w"></span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="w">                </span><span class="n">Toast</span><span class="p">.</span><span class="na">makeText</span><span class="p">(</span><span class="n">getApplicationContext</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;未保存修改&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Toast</span><span class="p">.</span><span class="na">LENGTH_SHORT</span><span class="p">).</span><span class="na">show</span><span class="p">();</span><span class="w"></span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="w">            </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="w">        </span><span class="p">});</span><span class="w"></span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+
+<p>启动第二个Activity时，用到了<strong>ActivityResultLauncher</strong>。</p>
+<p>调用<code>registerForActivityResult</code>方法注册返回时的结果事件。回传的数据在<code>result</code>中。</p>
+<h3 id="_2">装载回传数据<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p><code>ForResultSecondAct</code>是第二个activity。它可以设置返回时携带的数据。
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span>
+<span class="normal"><a href="#__codelineno-1-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">Intent</span><span class="w"> </span><span class="n">resultIntent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Intent</span><span class="p">();</span><span class="w"></span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="n">resultIntent</span><span class="p">.</span><span class="na">putExtra</span><span class="p">(</span><span class="n">K_TITLE</span><span class="p">,</span><span class="w"> </span><span class="n">mTitleEt</span><span class="p">.</span><span class="na">getText</span><span class="p">().</span><span class="na">toString</span><span class="p">());</span><span class="w"></span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="n">resultIntent</span><span class="p">.</span><span class="na">putExtra</span><span class="p">(</span><span class="n">K_SUB_TITLE</span><span class="p">,</span><span class="w"> </span><span class="n">mSubTitleEt</span><span class="p">.</span><span class="na">getText</span><span class="p">().</span><span class="na">toString</span><span class="p">());</span><span class="w"></span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">setResult</span><span class="p">(</span><span class="n">RESULT_OK</span><span class="p">,</span><span class="w"> </span><span class="n">resultIntent</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="n">finish</span><span class="p">();</span><span class="w"></span>
+</code></pre></div></td></tr></table></div></p>
+<p><code>RESULT_OK</code>是Activity类的静态常量。可用于代表操作的结果。
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span>
+<span class="normal"><a href="#__codelineno-2-5">5</a></span>
+<span class="normal"><a href="#__codelineno-2-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cm">/** Standard activity result: operation canceled. */</span><span class="w"></span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">RESULT_CANCELED</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="cm">/** Standard activity result: operation succeeded. */</span><span class="w"></span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">RESULT_OK</span><span class="w">           </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="cm">/** Start of user-defined activity results. */</span><span class="w"></span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">RESULT_FIRST_USER</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div></p>
+<h2 id="_3">参考<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>numberOfRowsInSection</code>方法中指定了数据的数量</li>
-<li><code>cellForRowAtIndexPath</code>方法里重用或者新建一个cell。<ul>
-<li>这里用的是默认的样式<code>UITableViewCellStyleDefault</code>，它带有一个<code>textLabel</code></li>
-<li>把对应的数据交给cell即可</li>
+<li><a href="../start-activity-for-result/">Android Activity 返回时携带参数</a></li>
 </ul>
-</li>
-</ul>
-<h3 id="mainstoryboard">Main.storyboard<a class="headerlink" href="#mainstoryboard" title="Permanent link">&para;</a></h3>
-<p>接下来操作storyboard。Main.storyboard里有一个界面（scene）。需要把它的类设置成<code>GoPage2VC</code>。</p>
-<p><img alt="storyboard" src="sb.png" /></p>
-<p>页面下方拖入一个Table View，设置好约束，让它贴着底部。</p>
-<p>页面上方放2个label，显示一些文字。把<code>打开时间</code>的label和<code>GoPage2VC.h</code>里面的<code>*timeLb</code>连起来。</p>
-<p>接下来重点处理Table View。</p>
-<p>右键点Table View并按住拖动，拖到VC上（红色箭头），或者是拖到黄色圆圈的地方（蓝色箭头）。</p>
-<p><img alt="拖动" src="table-view-drag.png" /></p>
-<p>其实就是让TableView的datasource关联到<code>GoPage2VC</code></p>
-<p><img alt="outlets" src="table-view-outlets.png" /></p>
-<p>现在Table View的Prototype Cells数值为0，因为我们用的还是默认样式<code>UITableViewCellStyleDefault</code>。</p>
-<p>运行一下可以看到效果（iPhone7）</p>
-<details class="note" open="open"><summary>运行效果1</summary><p><img alt="效果" src="tb-1.png" /></p>
-</details>
-<h3 id="_3">添加图标<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<p>往工程的Assets.xcassets里加2个小图标。</p>
-<p>在<code>GoPage2VC.m</code>里，使用小图标。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// GoPage2VC.m</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">-</span> <span class="p">(</span><span class="bp">UITableViewCell</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="nf">tableView:</span><span class="p">(</span><span class="bp">UITableView</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="nv">tableView</span><span class="w"> </span><span class="nf">cellForRowAtIndexPath:</span><span class="p">(</span><span class="bp">NSIndexPath</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="nv">indexPath</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="bp">UITableViewCell</span><span class="o">*</span><span class="w"> </span><span class="n">cell</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">tableView</span><span class="w"> </span><span class="n">dequeueReusableCellWithIdentifier</span><span class="o">:</span><span class="n">DataCellID</span><span class="p">];</span><span class="w"></span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">cell</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">nil</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">        </span><span class="n">cell</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[[</span><span class="bp">UITableViewCell</span><span class="w"> </span><span class="n">alloc</span><span class="p">]</span><span class="w"> </span><span class="n">initWithStyle</span><span class="o">:</span><span class="n">UITableViewCellStyleDefault</span><span class="w"> </span><span class="n">reuseIdentifier</span><span class="o">:</span><span class="n">DataCellID</span><span class="p">];</span><span class="w"></span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="n">cell</span><span class="p">.</span><span class="n">textLabel</span><span class="p">.</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">list</span><span class="w"> </span><span class="n">objectAtIndex</span><span class="o">:</span><span class="n">indexPath</span><span class="p">.</span><span class="n">row</span><span class="p">];</span><span class="w"></span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">indexPath</span><span class="p">.</span><span class="n">row</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">        </span><span class="n">cell</span><span class="p">.</span><span class="n">imageView</span><span class="p">.</span><span class="n">image</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="bp">UIImage</span><span class="w"> </span><span class="n">imageNamed</span><span class="o">:</span><span class="s">@&quot;itemIv1&quot;</span><span class="p">];</span><span class="w"></span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">        </span><span class="n">cell</span><span class="p">.</span><span class="n">imageView</span><span class="p">.</span><span class="n">image</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="bp">UIImage</span><span class="w"> </span><span class="n">imageNamed</span><span class="o">:</span><span class="s">@&quot;itemIv2&quot;</span><span class="p">];</span><span class="w"></span>
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
-<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">cell</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="p">}</span><span class="w"></span>
-</code></pre></div>
-默认样式的cell带有<code>imageView</code>。我们把图片交给cell来显示。</p>
-<p>增加一些测试数据，运行可以看到效果</p>
-<details class="note" open="open"><summary>运行效果2</summary><p><img alt="run2" src="run2.png" /></p>
-</details>
-<h3 id="_4">子项点击<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<p>在<code>GoPage2VC.m</code>中复写<code>didSelectRowAtIndexPath</code>方法，在这里响应用户点击子项。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// GoPage2VC.m</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">tableView:</span><span class="p">(</span><span class="bp">UITableView</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="nv">tableView</span><span class="w"> </span><span class="nf">didSelectRowAtIndexPath:</span><span class="p">(</span><span class="bp">NSIndexPath</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="nv">indexPath</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="bp">NSString</span><span class="w"> </span><span class="o">*</span><span class="n">rowString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">list</span><span class="w"> </span><span class="n">objectAtIndex</span><span class="o">:</span><span class="p">[</span><span class="n">indexPath</span><span class="w"> </span><span class="n">row</span><span class="p">]];</span><span class="w"></span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="bp">UIAlertController</span><span class="o">*</span><span class="w"> </span><span class="n">alert</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="bp">UIAlertController</span><span class="w"> </span><span class="n">alertControllerWithTitle</span><span class="o">:</span><span class="s">@&quot;点击了&quot;</span><span class="w"></span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">                                   </span><span class="nl">message</span><span class="p">:</span><span class="n">rowString</span><span class="w"></span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">                                   </span><span class="nl">preferredStyle</span><span class="p">:</span><span class="n">UIAlertControllerStyleAlert</span><span class="p">];</span><span class="w"></span>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="p">[</span><span class="n">alert</span><span class="w"> </span><span class="n">addAction</span><span class="o">:</span><span class="p">[</span><span class="bp">UIAlertAction</span><span class="w"> </span><span class="n">actionWithTitle</span><span class="o">:</span><span class="s">@&quot;确定&quot;</span><span class="w"> </span><span class="n">style</span><span class="o">:</span><span class="n">UIAlertActionStyleDefault</span><span class="w"> </span><span class="n">handler</span><span class="o">:^</span><span class="p">(</span><span class="bp">UIAlertAction</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">_Nonnull</span><span class="w"> </span><span class="n">action</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">        </span><span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;默认操作&quot;</span><span class="p">);</span><span class="w"></span>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="p">}]];</span><span class="w"></span>
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="p">[</span><span class="nb">self</span><span class="w"> </span><span class="n">presentViewController</span><span class="o">:</span><span class="n">alert</span><span class="w"> </span><span class="n">animated</span><span class="o">:</span><span class="nb">YES</span><span class="w"> </span><span class="n">completion</span><span class="o">:</span><span class="nb">nil</span><span class="p">];</span><span class="w"></span>
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="p">}</span><span class="w"></span>
-</code></pre></div>
-里面使用<code>UIAlertController</code>弹出一个窗口。或者打个log也行。</p>
-<p>运行起来点击发现没有反应。检查storyboard，发现要把Table View的delegate关联到<code>GoPage2VC</code>。
-我们可以从右边栏Outlets那里把delegate拖到<code>GoPage2VC</code>上。</p>
-<p><img alt="delegate关联" src="tb-delegate.png" /></p>
-<p>再运行到iPhone7上</p>
-<details class="note" open="open"><summary>点击弹出</summary><p><img alt="iPhone7" src="run-item.png" /></p>
-</details>
-<p>接下来我们可以自定义cell <a class="md-button" href="/ios/uikit/tableview/case/table-view-and-other-cell/">TableView自定义cell</a></p>
-<h2 id="_5">参考<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://developer.apple.com/documentation/uikit/uialertcontroller?language=objc">uialertcontroller - developer.apple</a></li>
-<li><a href="https://blog.csdn.net/weixin_36709064/article/details/89458043">“this class is not key value coding-compliant for the xxx” - CSDN</a></li>
-</ul>
-<details class="note"><summary>本文也发布在</summary><p><a class="md-button" href="https://bbs.huaweicloud.com/blogs/335688">华为云</a></p>
-</details>
 
               
 
   <details class="info" open><summary class="">本站说明</summary>
     <!-- <p><b>本站作者</b>: <a href="https://rustfisher.com">rustfisher.com</a> | rf.cs@foxmail.com</p>
-    <p><b>本文链接</b>: <a href="https://www.an.rustfisher.com/ios/uikit/tableview/case/table-view-and-other/">https://www.an.rustfisher.com/ios/uikit/tableview/case/table-view-and-other/</a></p> -->
+    <p><b>本文链接</b>: <a href="https://www.an.rustfisher.com/android/activity/activity-result-launcher/">https://www.an.rustfisher.com/android/activity/activity-result-launcher/</a></p> -->
     <p>一起在知识的海洋里呛水吧。广告内容与本站无关。如果喜欢本站内容，欢迎投喂作者，谢谢支持服务器。如有疑问和建议，欢迎在下方评论~</p>
     <p>
       <a class="md-button" href="https://gitee.com/rustfisher/AndroidTutorial">📖AndroidTutorial</a>
@@ -10506,7 +10415,7 @@ setTimeout(() => {
     <nav class="md-footer__inner md-grid" aria-label="页脚">
       
         
-        <a href="../../../../../embedded/dev/utils-for-chips-base-time-space-cal/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 不同芯片的基础时空开销计算" rel="prev">
+        <a href="../launch-send-parcelable/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 传递Parcelable对象" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -10515,20 +10424,20 @@ setTimeout(() => {
               <span class="md-footer__direction">
                 上一页
               </span>
-              不同芯片的基础时空开销计算
+              传递Parcelable对象
             </div>
           </div>
         </a>
       
       
         
-        <a href="../table-view-and-other-cell/" class="md-footer__link md-footer__link--next" aria-label="下一页: TableView自定义Cell" rel="next">
+        <a href="../start-activity-for-result/" class="md-footer__link md-footer__link--next" aria-label="下一页: 🟤 startActivityForResult" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 下一页
               </span>
-              TableView自定义Cell
+              🟤 startActivityForResult
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -10588,14 +10497,14 @@ setTimeout(() => {
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["tabs", "navigation.tabs", "navigation.sections", "content.code.annotate"], "search": "../../../../../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["tabs", "navigation.tabs", "navigation.sections", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.85cb4492.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../../../assets/javascripts/bundle.f758a944.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.f758a944.min.js"></script>
       
-        <script src="../../../../../about/baidu.js"></script>
+        <script src="../../../about/baidu.js"></script>
       
-        <script src="../../../../../about/so_360.js"></script>
+        <script src="../../../about/so_360.js"></script>
       
     
   </body>
