@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Room 在 SQLite 上提供了一个抽象层。本文介绍Room的用法。引入Room；准备数据，设计结构；数据库操作。">
+        <meta name="description" content="Android Room 在 SQLite 上提供了一个抽象层。本文介绍Room的用法。引入Room；准备数据，设计结构；数据库操作。介绍常见的崩溃情况。">
       
       
       
@@ -101,8 +101,8 @@
     <!-- 暂时让时间一致 -->
       
       
-      <meta name="bytedance:updated_time" content="2022-08-03 00:43:57+08:00"/>
-      <meta name="bytedance:lrDate_time" content="2022-08-03 00:43:57+08:00"/>
+      <meta name="bytedance:updated_time" content="2023-06-14 00:43:57+08:00"/>
+      <meta name="bytedance:lrDate_time" content="2023-06-14 00:43:57+08:00"/>
     
 
     
@@ -111,7 +111,7 @@
   
 
   <meta property="og:image" content="https://www.an.rustfisher.com/about/_media/cover/as-logo-700.png" />
-  <meta property="og:description" content="Room 在 SQLite 上提供了一个抽象层。本文介绍Room的用法。引入Room；准备数据，设计结构；数据库操作。">
+  <meta property="og:description" content="Android Room 在 SQLite 上提供了一个抽象层。本文介绍Room的用法。引入Room；准备数据，设计结构；数据库操作。介绍常见的崩溃情况。">
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGC5WSNW8Y"></script>
@@ -136,9 +136,9 @@
           "@type": "Person",
           "name": "RustFisher"
         },
-        "datePublished": "2022-08-03 00:43:57+08:00",
-        "dateModified": "2022-08-03 00:43:57+08:00",
-        "description": "Room 在 SQLite 上提供了一个抽象层。本文介绍Room的用法。引入Room；准备数据，设计结构；数据库操作。",
+        "datePublished": "2023-06-14 00:43:57+08:00",
+        "dateModified": "2023-06-14 00:43:57+08:00",
+        "description": "Android Room 在 SQLite 上提供了一个抽象层。本文介绍Room的用法。引入Room；准备数据，设计结构；数据库操作。介绍常见的崩溃情况。",
         "publisher": {
           "@type": "Person",
           "name": "RustFisher",
@@ -10285,7 +10285,8 @@
 
 
 <h1 id="room">开始使用Room<a class="headerlink" href="#room" title="Permanent link">&para;</a></h1>
-<details class="note"><summary>更新日期 2021-9-1</summary><ul>
+<details class="note"><summary>更新日期 2023-6-14</summary><ul>
+<li>2023-6-14 更新例子</li>
 <li>2021-9-1 更新格式</li>
 <li>2021-6-26 创建文档</li>
 </ul>
@@ -10297,6 +10298,9 @@
 <li>准备数据，设计结构</li>
 <li>数据库操作</li>
 </ul>
+<div class="admonition tip">
+<p>本文介绍Room的用法。引入Room；准备数据，设计结构；数据库操作。介绍常见的崩溃情况。</p>
+</div>
 <h2 id="_1">具体步骤<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <h3 id="room_1">引入Room<a class="headerlink" href="#room_1" title="Permanent link">&para;</a></h3>
 <p>在模块<code>gradle</code>引入Room</p>
@@ -10430,6 +10434,7 @@
 <p>条件查询，例如通过指定的uid查询 <code>SELECT * FROM user WHERE uid IN (:userIds)</code>。</p>
 <p>sql语句和Java方法中的参数用冒号<code>:</code>进行对应。
 例如方法中的参数<code>String first</code>，在sql语句中是<code>:first</code>。</p>
+<p>如果要倒序，加个<code>DESC</code>即。例如 <code>ORDER BY start_timestamp DESC;</code></p>
 <h4 id="_6">增<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
 <p>使用<code>@Insert</code>注解。</p>
 <h4 id="_7">删<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
