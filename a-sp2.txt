@@ -14,6 +14,7 @@ https://www.an.rustfisher.com/android/ui/view/view_get_size/index.html
 https://www.an.rustfisher.com/android/activity/view-global-layout-listen/index.html
 https://www.an.rustfisher.com/android/activity/floating-scale-act/index.html
 https://www.an.rustfisher.com/android/activity/uninstall-app/index.html
+https://www.an.rustfisher.com/android/app/application-reg-lifecycle/index.html
 https://www.an.rustfisher.com/android/ui/view/textView/intro/index.html
 https://www.an.rustfisher.com/android/ui/view/textView/text_style/index.html
 https://www.an.rustfisher.com/android/ui/view/textView/typeface/index.html
