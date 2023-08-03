@@ -291,6 +291,7 @@ https://www.an.rustfisher.com/nestjs/simple-chat/web-connect-local/index.html
 https://www.an.rustfisher.com/nestjs/simple-chat/transfer-msg-local/index.html
 https://www.an.rustfisher.com/nestjs/simple-chat/deploy-on-server/index.html
 https://www.an.rustfisher.com/nestjs/simple-chat/room-chat/index.html
+https://www.an.rustfisher.com/media/info/media-open-source-projects/index.html
 https://www.an.rustfisher.com/media/color/yuv-intro/index.html
 https://www.an.rustfisher.com/media/video/yuv-save-format/index.html
 https://www.an.rustfisher.com/media/audio/some-audio-video-media-format/index.html
