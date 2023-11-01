@@ -158,6 +158,7 @@ https://www.an.rustfisher.com/android/as/use-as/
 https://www.an.rustfisher.com/android/as/suppress-warnings-use/
 https://www.an.rustfisher.com/android/as/update-plugin-from-disk/
 https://www.an.rustfisher.com/android/gradle/show-all-task-as2022/
+https://www.an.rustfisher.com/android/as/build-module-ouput-jar/
 https://www.an.rustfisher.com/android/architect/android-proj-module-use/
 https://www.an.rustfisher.com/android/gradle/overview/
 https://www.an.rustfisher.com/android/gradle/Gradle_for_android_Start/
