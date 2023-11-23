@@ -10345,13 +10345,13 @@
 </code></pre></div></td></tr></table></div></p>
 <div class="admonition note">
 <p class="admonition-title">gradle相关方法说明</p>
-<p>1、Task 类型：<strong>(type: Copy)</strong> 表示继承 Copy 这个类
-2、<strong>from</strong> 和 <strong>into</strong> 是复制文件使用的方法</p>
+<p>1、Task 类型：<strong>(type: Copy)</strong> 表示继承 Copy 这个类</p>
+<p>2、<strong>from</strong> 和 <strong>into</strong> 是复制文件使用的方法</p>
 </div>
 <p>执行这个gradle任务即可看到效果。</p>
 <h3 id="gradle">执行gradle任务<a class="headerlink" href="#gradle" title="Permanent link">&para;</a></h3>
-<p>可以在Android Studio右边的Gradle栏目里找到makeJar这个任务。
-一般在 libName -&gt; Tasks -&gt; other -&gt; makeJar</p>
+<p>可以在Android Studio右边的Gradle栏目里找到makeJar这个任务。</p>
+<p>一般在 libName -&gt; Tasks -&gt; other -&gt; makeJar</p>
 <p>执行过一次后，在顶部任务栏中能找到这个任务</p>
 <h2 id="jar">合并jar包<a class="headerlink" href="#jar" title="Permanent link">&para;</a></h2>
 <p>再makeJar基础上，再添加一个任务。把模块里的第三方jar包合并进去。
@@ -10414,7 +10414,7 @@
 <a id="__codelineno-1-29" name="__codelineno-1-29"></a><span class="n">mergeJar</span><span class="o">.</span><span class="na">dependsOn</span><span class="o">(</span><span class="n">makeJar</span><span class="o">,</span><span class="w"> </span><span class="n">build</span><span class="o">)</span><span class="w"></span>
 </code></pre></div></td></tr></table></div></p>
 <div class="admonition warning">
-<p>上面用了过时的属性</p>
+<p>上面用了过时的属性 <strong>destinationDir</strong> <strong>archiveName</strong></p>
 </div>
 <h2 id="_1">参考<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
