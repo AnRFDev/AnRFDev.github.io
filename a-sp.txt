@@ -212,6 +212,7 @@ https://www.an.rustfisher.com/android/jetpack/workManager/periodic1/
 https://www.an.rustfisher.com/android/jetpack/viewModel/viewModel_intro/
 https://www.an.rustfisher.com/android/jetpack/viewModel/act-use-vm/
 https://www.an.rustfisher.com/android/jetpack/viewModel/act-frag-use-one-vm/
+https://www.an.rustfisher.com/android/androidx/viewModel/when-viewmodel-release-juejin/
 https://www.an.rustfisher.com/android/jetpack/room/db-room-start/
 https://www.an.rustfisher.com/android/jetpack/room/room-entity-intro/
 https://www.an.rustfisher.com/android/jetpack/room/room-add/
