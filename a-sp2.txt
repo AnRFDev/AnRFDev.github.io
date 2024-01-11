@@ -184,6 +184,7 @@ https://www.an.rustfisher.com/android/ndk/read_write_file/index.html
 https://www.an.rustfisher.com/android/ndk/dynamic_reg_function/index.html
 https://www.an.rustfisher.com/android/ndk/sprintf-itoa/index.html
 https://www.an.rustfisher.com/android/adb/intro/index.html
+https://www.an.rustfisher.com/android/adb/adb-s-install/index.html
 https://www.an.rustfisher.com/android/adb/adb-wm-use/index.html
 https://www.an.rustfisher.com/android/adb/adb-pm-use/index.html
 https://www.an.rustfisher.com/android/adb/adb-screenrecord-use/index.html
