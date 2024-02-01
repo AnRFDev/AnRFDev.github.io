@@ -14767,7 +14767,7 @@
 <h2 id="_3">总结<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>至此，我们了解了如何使用<strong>Parcelable</strong>这个接口。
 <strong>Parcel</strong>和<strong>Parcelable</strong>是Android IPC中使用到的容器和工具。大家可以了解一下<em>Binder机制</em>。</p>
-<p><a class="md-button" href="https://an.rustfisher.com/android/binder/Binder_mechanism_intro/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M249.6 471.5c10.8 3.8 22.4-4.1 22.4-15.5V78.6c0-4.2-1.6-8.4-5-11C247.4 52 202.4 32 144 32 93.5 32 46.3 45.3 18.1 56.1 6.8 60.5 0 71.7 0 83.8v370.3c0 11.9 12.8 20.2 24.1 16.5C55.6 460.1 105.5 448 144 448c33.9 0 79 14 105.6 23.5zm76.8 0C353 462 398.1 448 432 448c38.5 0 88.4 12.1 119.9 22.6 11.3 3.8 24.1-4.6 24.1-16.5V83.8c0-12.1-6.8-23.3-18.1-27.6C529.7 45.3 482.5 32 432 32c-58.4 0-103.4 20-123 35.6-3.3 2.6-5 6.8-5 11V456c0 11.4 11.7 19.3 22.4 15.5z"/></svg></span> Binder机制</a></p>
+<p><a class="md-button" href="https://an.rustfisher.com/android/binder/Binder_mechanism_intro/">📖 Binder机制</a></p>
 <p>一般认为，普通情况下<strong>Parcelable</strong>性能上会优于<strong>Serializable</strong>。
 <strong>Serializable</strong>涉及到序列化，系统会通过反射的方法来获取信息。相对而言比较耗资源。
 <strong>Parcel</strong>并不涉及序列化机制。它是为了高性能IPC传输设计的。因此，<strong>Parcel</strong>并不适合用来永久化存储数据。</p>

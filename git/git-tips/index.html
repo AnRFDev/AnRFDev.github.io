@@ -172,7 +172,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#git" class="md-skip">
+        <a href="#git-see_no_evil" class="md-skip">
           跳转至
         </a>
       
@@ -11097,7 +11097,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#git_1" class="md-nav__link">
+  <a href="#git" class="md-nav__link">
     <span class="md-ellipsis">
       给 git 命令起别名
     </span>
@@ -11376,7 +11376,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#git_2" class="md-nav__link">
+  <a href="#git_1" class="md-nav__link">
     <span class="md-ellipsis">
       以最后提交的顺序列出所有 Git 分支
     </span>
@@ -15588,7 +15588,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#git_1" class="md-nav__link">
+  <a href="#git" class="md-nav__link">
     <span class="md-ellipsis">
       给 git 命令起别名
     </span>
@@ -15867,7 +15867,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#git_2" class="md-nav__link">
+  <a href="#git_1" class="md-nav__link">
     <span class="md-ellipsis">
       以最后提交的顺序列出所有 Git 分支
     </span>
@@ -15977,7 +15977,7 @@
                   
 
 
-<h1 id="git">Git 的奇技淫巧<img alt="🙈" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f648.svg" title=":see_no_evil:" /><a class="headerlink" href="#git" title="Permanent link">&para;</a></h1>
+<h1 id="git-see_no_evil">Git 的奇技淫巧:see_no_evil:<a class="headerlink" href="#git-see_no_evil" title="Permanent link">&para;</a></h1>
 <details class="note">
 <summary>原文作者</summary>
 <p>https://github.com/521xueweihan/git-tips</p>
@@ -16192,7 +16192,7 @@ The command output as below:</p>
 <p>这个过程需要 <code>cherry-pick</code> 命令，<a href="http://sg552.iteye.com/blog/1300713#bc2367928">参考</a></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>&lt;branch-name&gt;<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>cherry-pick<span class="w"> </span>&lt;commit-id&gt;
 </code></pre></div>
-<h2 id="git_1">给 git 命令起别名<a class="headerlink" href="#git_1" title="Permanent link">&para;</a></h2>
+<h2 id="git">给 git 命令起别名<a class="headerlink" href="#git" title="Permanent link">&para;</a></h2>
 <p>简化命令</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>alias.&lt;handle&gt;<span class="w"> </span>&lt;command&gt;
 <a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a>
@@ -16306,7 +16306,7 @@ The command output as below:</p>
 <p>不再将文件的权限变化视作改动</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-80-1" name="__codelineno-80-1" href="#__codelineno-80-1"></a>git<span class="w"> </span>config<span class="w"> </span>core.fileMode<span class="w"> </span><span class="nb">false</span>
 </code></pre></div>
-<h2 id="git_2">以最后提交的顺序列出所有 Git 分支<a class="headerlink" href="#git_2" title="Permanent link">&para;</a></h2>
+<h2 id="git_1">以最后提交的顺序列出所有 Git 分支<a class="headerlink" href="#git_1" title="Permanent link">&para;</a></h2>
 <p>最新的放在最上面</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-81-1" name="__codelineno-81-1" href="#__codelineno-81-1"></a>git<span class="w"> </span><span class="k">for</span>-each-ref<span class="w"> </span>--sort<span class="o">=</span>-committerdate<span class="w"> </span>--format<span class="o">=</span><span class="s1">&#39;%(refname:short)&#39;</span><span class="w"> </span>refs/heads/
 </code></pre></div>

@@ -38,9 +38,51 @@
 } */
 
 /* 中间主体内容 */
-/* .md-typeset {
+.md-typeset {
   font-size: 16px;
-} */
+}
+
+.md-typeset h1 {
+  font-size: 32px;
+  color: black;
+}
+
+.md-typeset h2 {
+  font-size: 24px;
+  color: black;
+}
+
+.md-typeset h3 {
+  font-size: 20px;
+  color: black;
+}
+
+.md-typeset h4 {
+  font-size: 18px;
+  color: black;
+}
+
+summary {
+  font-size: 16px;
+}
+
+.md-nav {
+  font-size: 16px;
+  color: black;
+}
+
+.md-nav li {
+  font-size: 16.6px;
+  color: black;
+}
+
+.md-nav__link .md-ellipsis {
+  color: black;
+}
+
+.md-typeset .admonition-title {
+  font-size: 16px;
+}
 
 .post-signature {
   --blog-bg-color: #fff;
