@@ -228,6 +228,7 @@ https://www.an.rustfisher.com/java/intro/
 https://www.an.rustfisher.com/java/basic/java-env-dev/
 https://www.an.rustfisher.com/java/basic/java-basic-note/
 https://www.an.rustfisher.com/java/interface/java-interface-and-abstract-class/
+https://www.an.rustfisher.com/java/basic/java-bit/
 https://www.an.rustfisher.com/java/class/class-basic/
 https://www.an.rustfisher.com/java/class/class-init-step/
 https://www.an.rustfisher.com/java/class/abs-class-vs-interface/
