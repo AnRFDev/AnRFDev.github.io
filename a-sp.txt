@@ -340,11 +340,11 @@ https://www.an.rustfisher.com/ruankao/pm3/2-info-sys-manage-basic/
 https://www.an.rustfisher.com/db/note-mongodb-mysql/
 https://www.an.rustfisher.com/sip/sip-err-code/
 https://www.an.rustfisher.com/sip/sip-and-sdp/
-https://www.an.rustfisher.com/fun/joke-1/
-https://www.an.rustfisher.com/fun/joke-2/
-https://www.an.rustfisher.com/fun/joke-3/
-https://www.an.rustfisher.com/fun/joke-4/
 https://www.an.rustfisher.com/fun/joke-5/
+https://www.an.rustfisher.com/fun/joke-4/
+https://www.an.rustfisher.com/fun/joke-3/
+https://www.an.rustfisher.com/fun/joke-2/
+https://www.an.rustfisher.com/fun/joke-1/
 https://www.an.rustfisher.com/fun/http-code/
 https://www.an.rustfisher.com/about/
 https://www.an.rustfisher.com/about/fr/
