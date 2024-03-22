@@ -27,7 +27,7 @@
     
     
       
-        <title>监听输入内容 - RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt</title>
+        <title>Android EditText监听输入内容，动态限制输入，检查输入回车 - RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt</title>
       
     
     
@@ -92,13 +92,29 @@
 
   
     
+      <meta name="title" content="Android EditText监听输入内容，动态限制输入，检查输入回车"/>
+      <meta property="og:title" content="Android EditText监听输入内容，动态限制输入，检查输入回车"/>
+    
     
       <meta name="keywords" content="安卓教程,Android教程,edittext,TextWatcher"/>
     
     
 
     
+      
+      <!-- 设置字节跳动搜索 -->
+      <meta name="bytedance:published_time" content="2024-03-22 00:22:22+08:00"/>
 
+      <!-- 360 -->
+      <meta property="og:release_date" content="2024-03-22 00:22:22+08:00"/>
+    
+
+    
+    <!-- 暂时让时间一致 -->
+      
+      
+      <meta name="bytedance:updated_time" content="2024-03-22 00:43:57+08:00"/>
+      <meta name="bytedance:lrDate_time" content="2024-03-22 00:43:57+08:00"/>
     
 
     
@@ -141,8 +157,8 @@
           "@type": "Person",
           "name": "RustFisher"
         },
-        "datePublished": "2022-08-03T00:43:57+08:00",
-        "dateModified": "2022-08-16T00:43:57+08:00",
+        "datePublished": "2024-03-22 00:43:57+08:00",
+        "dateModified": "2024-03-22 00:43:57+08:00",
         "description": "安卓开发，安卓教程，Android入门，安卓新手教程，软件开发基础。突出一个简单明了，上手快。从实用性出发，快速掌握Android开发基本技能。插件式学习，学以致用。",
         "publisher": {
           "@type": "Person",
@@ -186,7 +202,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#android-edittext" class="md-skip">
           跳转至
         </a>
       
@@ -219,7 +235,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              监听输入内容
+              Android EditText监听输入内容，动态限制输入，检查输入回车
             
           </span>
         </div>
@@ -2132,6 +2148,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -2160,6 +2178,8 @@
     
     
     
+      
+    
     
       <label class="md-nav__title" for="__toc">
         <span class="md-nav__icon md-icon"></span>
@@ -2171,6 +2191,15 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       代码中动态限制输入长度
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edittext" class="md-nav__link">
+    <span class="md-ellipsis">
+      EditText检查输入回车
     </span>
   </a>
   
@@ -14506,6 +14535,8 @@
     
     
     
+      
+    
     
       <label class="md-nav__title" for="__toc">
         <span class="md-nav__icon md-icon"></span>
@@ -14517,6 +14548,15 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       代码中动态限制输入长度
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edittext" class="md-nav__link">
+    <span class="md-ellipsis">
+      EditText检查输入回车
     </span>
   </a>
   
@@ -14552,8 +14592,8 @@
                   
 
 
-  <h1>监听输入内容</h1>
-
+<h1 id="android-edittext">Android EditText动态限制输入，检查输入回车<a class="headerlink" href="#android-edittext" title="Permanent link">&para;</a></h1>
+<p>本文介绍<strong>TextWatcher</strong>的具体使用案例。</p>
 <h2 id="_1">代码中动态限制输入长度<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>使用<code>TextWatcher</code></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">mQueryEt</span><span class="p">.</span><span class="na">addTextChangedListener</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">TextWatcher</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -14576,6 +14616,46 @@
 <a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="p">});</span>
 </code></pre></div>
+<h2 id="edittext">EditText检查输入回车<a class="headerlink" href="#edittext" title="Permanent link">&para;</a></h2>
+<p>不给输入空格或者回车。前面输入字符后，检测到回车则发起搜索。</p>
+<p>并且用<strong>InputMethodManager</strong>关闭键盘</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">mBinding</span><span class="p">.</span><span class="na">searchEt</span><span class="p">.</span><span class="na">addTextChangedListener</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">TextWatcher</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="nd">@Override</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">beforeTextChanged</span><span class="p">(</span><span class="n">CharSequence</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">after</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">        </span><span class="c1">// 忽略</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="nd">@Override</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onTextChanged</span><span class="p">(</span><span class="n">CharSequence</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">before</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="c1">//                Log.i(TAG, &quot;onTextChanged:   &quot; + s);</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="nd">@Override</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">afterTextChanged</span><span class="p">(</span><span class="n">Editable</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">toString</span><span class="p">();</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">input</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s">&quot;\n&quot;</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">input</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">            </span><span class="n">mBinding</span><span class="p">.</span><span class="na">searchEt</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">TextUtils</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">(</span><span class="n">input</span><span class="p">.</span><span class="na">trim</span><span class="p">()))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">            </span><span class="n">mBinding</span><span class="p">.</span><span class="na">clearInputIv</span><span class="p">.</span><span class="na">setVisibility</span><span class="p">(</span><span class="n">View</span><span class="p">.</span><span class="na">INVISIBLE</span><span class="p">);</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">            </span><span class="n">mBinding</span><span class="p">.</span><span class="na">clearInputIv</span><span class="p">.</span><span class="na">setVisibility</span><span class="p">(</span><span class="n">View</span><span class="p">.</span><span class="na">VISIBLE</span><span class="p">);</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">input</span><span class="p">.</span><span class="na">substring</span><span class="p">(</span><span class="n">input</span><span class="p">.</span><span class="na">length</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">input</span><span class="p">.</span><span class="na">length</span><span class="p">());</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;\n&quot;</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">last</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">                </span><span class="n">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">input</span><span class="p">.</span><span class="na">trim</span><span class="p">();</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="w">                </span><span class="n">mBinding</span><span class="p">.</span><span class="na">searchEt</span><span class="p">.</span><span class="na">setText</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="w">                </span><span class="n">mBinding</span><span class="p">.</span><span class="na">searchEt</span><span class="p">.</span><span class="na">setSelection</span><span class="p">(</span><span class="n">input</span><span class="p">.</span><span class="na">length</span><span class="p">());</span>
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="w">                </span><span class="c1">// 业务代码 例如发起搜索</span>
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="w">                </span><span class="c1">// reqSearch(input); </span>
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="w">                </span><span class="n">InputMethodManager</span><span class="w"> </span><span class="n">imm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">InputMethodManager</span><span class="p">)</span><span class="w"> </span><span class="n">getSystemService</span><span class="p">(</span><span class="n">Context</span><span class="p">.</span><span class="na">INPUT_METHOD_SERVICE</span><span class="p">);</span>
+<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="w">                </span><span class="n">imm</span><span class="p">.</span><span class="na">hideSoftInputFromWindow</span><span class="p">(</span><span class="n">mBinding</span><span class="p">.</span><span class="na">searchEt</span><span class="p">.</span><span class="na">getWindowToken</span><span class="p">(),</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a><span class="p">});</span>
+</code></pre></div>
 
 
 
@@ -14590,6 +14670,43 @@
 
 
 
+
+<!-- <h2 id="__comments">评论</h2> -->
+<script src="https://giscus.app/client.js" data-repo="AnRFDev/AnRFDev.github.io" data-repo-id="R_kgDOIxzGZQ"
+    data-category="General" data-category-id="DIC_kwDOIxzGZc4CTo85" data-mapping="pathname" data-strict="0"
+    data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme"
+    data-lang="zh-CN" crossorigin="anonymous" async>
+    </script>
+
+<!-- Synchronize Giscus theme with palette -->
+<script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set palette on initial load */
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+        var theme = palette.color.scheme === "slate" ? "dark" : "light"
+        giscus.setAttribute("data-theme", theme)
+    }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function () {
+        var ref = document.querySelector("[data-md-component=palette]")
+        ref.addEventListener("change", function () {
+            var palette = __md_get("__palette")
+            if (palette && typeof palette.color === "object") {
+                var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+                /* Instruct Giscus to change theme */
+                var frame = document.querySelector(".giscus-frame")
+                frame.contentWindow.postMessage(
+                    { giscus: { setConfig: { theme } } },
+                    "https://giscus.app"
+                )
+            }
+        })
+    })
+</script>
 
                 
 
@@ -14659,6 +14776,43 @@ setTimeout(() => {
 </script>
 
   
+<!-- <h2 id="__comments">评论</h2> -->
+<script src="https://giscus.app/client.js" data-repo="AnRFDev/AnRFDev.github.io" data-repo-id="R_kgDOIxzGZQ"
+    data-category="General" data-category-id="DIC_kwDOIxzGZc4CTo85" data-mapping="pathname" data-strict="0"
+    data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme"
+    data-lang="zh-CN" crossorigin="anonymous" async>
+    </script>
+
+<!-- Synchronize Giscus theme with palette -->
+<script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set palette on initial load */
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+        var theme = palette.color.scheme === "slate" ? "dark" : "light"
+        giscus.setAttribute("data-theme", theme)
+    }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function () {
+        var ref = document.querySelector("[data-md-component=palette]")
+        ref.addEventListener("change", function () {
+            var palette = __md_get("__palette")
+            if (palette && typeof palette.color === "object") {
+                var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+                /* Instruct Giscus to change theme */
+                var frame = document.querySelector(".giscus-frame")
+                frame.contentWindow.postMessage(
+                    { giscus: { setConfig: { theme } } },
+                    "https://giscus.app"
+                )
+            }
+        })
+    })
+</script>
+
 
 
               </article>
