@@ -15,6 +15,7 @@ https://www.an.rustfisher.com/android/activity/view-global-layout-listen/
 https://www.an.rustfisher.com/android/activity/floating-scale-act/
 https://www.an.rustfisher.com/android/activity/uninstall-app/
 https://www.an.rustfisher.com/android/app/application-reg-lifecycle/
+https://www.an.rustfisher.com/android/activity/intent-like-launcher/
 https://www.an.rustfisher.com/android/ui/view/textView/intro/
 https://www.an.rustfisher.com/android/ui/view/textView/text_style/
 https://www.an.rustfisher.com/android/ui/view/textView/typeface/
