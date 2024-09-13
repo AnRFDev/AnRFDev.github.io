@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="使用intent在service中模拟点击Launcher启动。点击notification通知，模拟用户点击App启动。">
+        <meta name="description" content="使用intent在service中模拟点击Launcher启动。点击notification通知，模拟用户点击App启动。可应用在通知栏动作处理中。">
       
       
       
@@ -115,8 +115,8 @@
     <!-- 暂时让时间一致 -->
       
       
-      <meta name="bytedance:updated_time" content="2024-06-27 00:43:57+08:00"/>
-      <meta name="bytedance:lrDate_time" content="2024-06-27 00:43:57+08:00"/>
+      <meta name="bytedance:updated_time" content="2024-09-13 00:43:57+08:00"/>
+      <meta name="bytedance:lrDate_time" content="2024-09-13 00:43:57+08:00"/>
     
 
     
@@ -125,7 +125,7 @@
   
 
   <meta property="og:image" content="https://www.an.rustfisher.com/about/_media/cover/as-logo-700.png" />
-  <meta property="og:description" content="使用intent在service中模拟点击Launcher启动。点击notification通知，模拟用户点击App启动。">
+  <meta property="og:description" content="使用intent在service中模拟点击Launcher启动。点击notification通知，模拟用户点击App启动。可应用在通知栏动作处理中。">
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGC5WSNW8Y"></script>
@@ -159,9 +159,9 @@
           "@type": "Person",
           "name": "RustFisher"
         },
-        "datePublished": "2024-06-27 00:43:57+08:00",
-        "dateModified": "2024-06-27 00:43:57+08:00",
-        "description": "使用intent在service中模拟点击Launcher启动。点击notification通知，模拟用户点击App启动。",
+        "datePublished": "2024-09-13 00:43:57+08:00",
+        "dateModified": "2024-09-13 00:43:57+08:00",
+        "description": "使用intent在service中模拟点击Launcher启动。点击notification通知，模拟用户点击App启动。可应用在通知栏动作处理中。",
         "publisher": {
           "@type": "Person",
           "name": "RustFisher",
@@ -1086,6 +1086,15 @@
   <a href="#notification" class="md-nav__link">
     <span class="md-ellipsis">
       在Notification中的使用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      其他
     </span>
   </a>
   
@@ -14495,6 +14504,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      其他
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
       <p style="height: 6px;"></p>
       <div style="display:block;">
@@ -14544,8 +14562,9 @@
 
 <h1 id="android-intentlauncher">Android 使用Intent模拟点击Launcher启动<a class="headerlink" href="#android-intentlauncher" title="Permanent link">&para;</a></h1>
 <details class="note">
-<summary>更新日期 2024-06-27</summary>
+<summary>更新日期 2024-09-13</summary>
 <ul>
+<li>2024-09-13 更新说明</li>
 <li>2024-06-27 创建文档</li>
 </ul>
 </details>
@@ -14712,6 +14731,11 @@
 <div class="admonition note">
 <p>本案例在FCM service中使用，vivo手机测试ok</p>
 </div>
+<h2 id="_1">其他<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>例如在vivo手机上，启动应用可以在Android studio控制台看到
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.rustfisher.demo/com.rustfisher.demo.StartActivity }
+</code></pre></div>
+里面就能看到 MAIN LAUNCHER 和启动的activity</p>
 
 
 
