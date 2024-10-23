@@ -137,6 +137,7 @@ https://www.an.rustfisher.com/android/connectivity/bluetooth/Bluetooth2_use_samp
 https://www.an.rustfisher.com/android/connectivity/bluetooth/bluetooth-spp-connection-note/index.html
 https://www.an.rustfisher.com/android/connectivity/wifi/WiFi_scan_and_connect/index.html
 https://www.an.rustfisher.com/android/hardware/get-angle-by-sensor/index.html
+https://www.an.rustfisher.com/android/hardware/sensor-and-screen-off/index.html
 https://www.an.rustfisher.com/android/activity/simple_launcher/index.html
 https://www.an.rustfisher.com/android/aidl/intro_use/index.html
 https://www.an.rustfisher.com/android/zip/zip-string/index.html
