@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="当靠近手机时熄屏，远离手机时恢复亮屏">
+        <meta name="description" content="在一些通话场景中，如果用户将手机贴近耳朵，此时熄屏避免用户误触。通话结束或者手机放下时，恢复屏幕显示。使用SensorManager来实现屏幕控制。">
       
       
       
@@ -105,18 +105,18 @@
     
       
       <!-- 设置字节跳动搜索 -->
-      <meta name="bytedance:published_time" content="2024-10-23 00:22:22+08:00"/>
+      <meta name="bytedance:published_time" content="2024-10-25 00:22:22+08:00"/>
 
       <!-- 360 -->
-      <meta property="og:release_date" content="2024-10-23 00:22:22+08:00"/>
+      <meta property="og:release_date" content="2024-10-25 00:22:22+08:00"/>
     
 
     
     <!-- 暂时让时间一致 -->
       
       
-      <meta name="bytedance:updated_time" content="2024-10-23 00:43:57+08:00"/>
-      <meta name="bytedance:lrDate_time" content="2024-10-23 00:43:57+08:00"/>
+      <meta name="bytedance:updated_time" content="2024-10-25 00:43:57+08:00"/>
+      <meta name="bytedance:lrDate_time" content="2024-10-25 00:43:57+08:00"/>
     
 
     
@@ -125,7 +125,7 @@
   
 
   <meta property="og:image" content="https://www.an.rustfisher.com/about/_media/cover/as-logo-700.png" />
-  <meta property="og:description" content="当靠近手机时熄屏，远离手机时恢复亮屏">
+  <meta property="og:description" content="在一些通话场景中，如果用户将手机贴近耳朵，此时熄屏避免用户误触。通话结束或者手机放下时，恢复屏幕显示。使用SensorManager来实现屏幕控制。">
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGC5WSNW8Y"></script>
@@ -159,9 +159,9 @@
           "@type": "Person",
           "name": "RustFisher"
         },
-        "datePublished": "2024-10-23 00:43:57+08:00",
-        "dateModified": "2024-10-23 00:43:57+08:00",
-        "description": "当靠近手机时熄屏，远离手机时恢复亮屏",
+        "datePublished": "2024-10-25 00:43:57+08:00",
+        "dateModified": "2024-10-25 00:43:57+08:00",
+        "description": "在一些通话场景中，如果用户将手机贴近耳朵，此时熄屏避免用户误触。通话结束或者手机放下时，恢复屏幕显示。使用SensorManager来实现屏幕控制。",
         "publisher": {
           "@type": "Person",
           "name": "RustFisher",
@@ -14495,8 +14495,9 @@
 
 <h1 id="android">Android 当靠近手机时熄屏，远离手机时恢复亮屏<a class="headerlink" href="#android" title="Permanent link">&para;</a></h1>
 <details class="note">
-<summary>更新日期 2024-10-23</summary>
+<summary>更新日期 2024-10-25</summary>
 <ul>
+<li>2024-10-25 增加<code>sensorManager.flush</code></li>
 <li>2024-10-23 新建文档</li>
 </ul>
 </details>
@@ -14561,53 +14562,55 @@
 <a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a><span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onPause</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a><span class="w">        </span><span class="kd">super</span><span class="p">.</span><span class="na">onPause</span><span class="p">();</span>
 <a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a><span class="w">        </span><span class="n">sensorManager</span><span class="p">.</span><span class="na">unregisterListener</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
-<a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a>
-<a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a><span class="w">    </span><span class="nd">@Override</span>
-<a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a><span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onDestroy</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-50" name="__codelineno-1-50" href="#__codelineno-1-50"></a><span class="w">        </span><span class="kd">super</span><span class="p">.</span><span class="na">onDestroy</span><span class="p">();</span>
-<a id="__codelineno-1-51" name="__codelineno-1-51" href="#__codelineno-1-51"></a>
-<a id="__codelineno-1-52" name="__codelineno-1-52" href="#__codelineno-1-52"></a><span class="w">        </span><span class="n">releaseWakeLock</span><span class="p">();</span>
-<a id="__codelineno-1-53" name="__codelineno-1-53" href="#__codelineno-1-53"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-54" name="__codelineno-1-54" href="#__codelineno-1-54"></a>
-<a id="__codelineno-1-55" name="__codelineno-1-55" href="#__codelineno-1-55"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">acquireWakeLock</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-56" name="__codelineno-1-56" href="#__codelineno-1-56"></a><span class="w">        </span><span class="c1">// &quot;息屏&quot;</span>
-<a id="__codelineno-1-57" name="__codelineno-1-57" href="#__codelineno-1-57"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">wakeLock</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-58" name="__codelineno-1-58" href="#__codelineno-1-58"></a><span class="w">            </span><span class="n">wakeLock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">powerManager</span><span class="p">.</span><span class="na">newWakeLock</span><span class="p">(</span><span class="n">PowerManager</span><span class="p">.</span><span class="na">PROXIMITY_SCREEN_OFF_WAKE_LOCK</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;RustFisherDemo:PageWakeLock&quot;</span><span class="p">);</span>
-<a id="__codelineno-1-59" name="__codelineno-1-59" href="#__codelineno-1-59"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-1-60" name="__codelineno-1-60" href="#__codelineno-1-60"></a><span class="w">        </span><span class="n">wakeLock</span><span class="p">.</span><span class="na">acquire</span><span class="p">();</span>
-<a id="__codelineno-1-61" name="__codelineno-1-61" href="#__codelineno-1-61"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-62" name="__codelineno-1-62" href="#__codelineno-1-62"></a>
-<a id="__codelineno-1-63" name="__codelineno-1-63" href="#__codelineno-1-63"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">releaseWakeLock</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-64" name="__codelineno-1-64" href="#__codelineno-1-64"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">wakeLock</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">wakeLock</span><span class="p">.</span><span class="na">isHeld</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-65" name="__codelineno-1-65" href="#__codelineno-1-65"></a><span class="w">            </span><span class="c1">// 不息屏</span>
-<a id="__codelineno-1-66" name="__codelineno-1-66" href="#__codelineno-1-66"></a><span class="w">            </span><span class="n">wakeLock</span><span class="p">.</span><span class="na">release</span><span class="p">();</span>
-<a id="__codelineno-1-67" name="__codelineno-1-67" href="#__codelineno-1-67"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-1-68" name="__codelineno-1-68" href="#__codelineno-1-68"></a>
-<a id="__codelineno-1-69" name="__codelineno-1-69" href="#__codelineno-1-69"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-70" name="__codelineno-1-70" href="#__codelineno-1-70"></a>
-<a id="__codelineno-1-71" name="__codelineno-1-71" href="#__codelineno-1-71"></a><span class="w">    </span><span class="nd">@Override</span>
-<a id="__codelineno-1-72" name="__codelineno-1-72" href="#__codelineno-1-72"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onSensorChanged</span><span class="p">(</span><span class="n">SensorEvent</span><span class="w"> </span><span class="n">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-73" name="__codelineno-1-73" href="#__codelineno-1-73"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="na">sensor</span><span class="p">.</span><span class="na">getType</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Sensor</span><span class="p">.</span><span class="na">TYPE_PROXIMITY</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-74" name="__codelineno-1-74" href="#__codelineno-1-74"></a><span class="w">            </span><span class="c1">// &quot;event.values[0]: &quot; + event.values[0] + &quot; , max range:&quot; + proximitySensor.getMaximumRange()</span>
-<a id="__codelineno-1-75" name="__codelineno-1-75" href="#__codelineno-1-75"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="na">values</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">proximitySensor</span><span class="p">.</span><span class="na">getMaximumRange</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-76" name="__codelineno-1-76" href="#__codelineno-1-76"></a><span class="w">                </span><span class="c1">// 设备接近物体，息屏</span>
-<a id="__codelineno-1-77" name="__codelineno-1-77" href="#__codelineno-1-77"></a><span class="w">                </span><span class="n">acquireWakeLock</span><span class="p">();</span>
-<a id="__codelineno-1-78" name="__codelineno-1-78" href="#__codelineno-1-78"></a><span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-79" name="__codelineno-1-79" href="#__codelineno-1-79"></a><span class="w">                </span><span class="c1">// 设备远离物体，亮屏</span>
-<a id="__codelineno-1-80" name="__codelineno-1-80" href="#__codelineno-1-80"></a><span class="w">                </span><span class="n">releaseWakeLock</span><span class="p">();</span>
-<a id="__codelineno-1-81" name="__codelineno-1-81" href="#__codelineno-1-81"></a><span class="w">            </span><span class="p">}</span>
-<a id="__codelineno-1-82" name="__codelineno-1-82" href="#__codelineno-1-82"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-1-83" name="__codelineno-1-83" href="#__codelineno-1-83"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-84" name="__codelineno-1-84" href="#__codelineno-1-84"></a>
-<a id="__codelineno-1-85" name="__codelineno-1-85" href="#__codelineno-1-85"></a><span class="w">    </span><span class="nd">@Override</span>
-<a id="__codelineno-1-86" name="__codelineno-1-86" href="#__codelineno-1-86"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onAccuracyChanged</span><span class="p">(</span><span class="n">Sensor</span><span class="w"> </span><span class="n">sensor</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">accuracy</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-87" name="__codelineno-1-87" href="#__codelineno-1-87"></a><span class="w">        </span><span class="c1">// 传感器精度变化时的处理，通常不需要特别处理</span>
-<a id="__codelineno-1-88" name="__codelineno-1-88" href="#__codelineno-1-88"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-89" name="__codelineno-1-89" href="#__codelineno-1-89"></a><span class="p">}</span>
+<a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a><span class="w">        </span><span class="n">sensorManager</span><span class="p">.</span><span class="na">flush</span><span class="p">(</span><span class="n">sensorEventListener</span><span class="p">);</span>
+<a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a>
+<a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a><span class="w">    </span><span class="nd">@Override</span>
+<a id="__codelineno-1-50" name="__codelineno-1-50" href="#__codelineno-1-50"></a><span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onDestroy</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-51" name="__codelineno-1-51" href="#__codelineno-1-51"></a><span class="w">        </span><span class="kd">super</span><span class="p">.</span><span class="na">onDestroy</span><span class="p">();</span>
+<a id="__codelineno-1-52" name="__codelineno-1-52" href="#__codelineno-1-52"></a>
+<a id="__codelineno-1-53" name="__codelineno-1-53" href="#__codelineno-1-53"></a><span class="w">        </span><span class="n">releaseWakeLock</span><span class="p">();</span>
+<a id="__codelineno-1-54" name="__codelineno-1-54" href="#__codelineno-1-54"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-55" name="__codelineno-1-55" href="#__codelineno-1-55"></a>
+<a id="__codelineno-1-56" name="__codelineno-1-56" href="#__codelineno-1-56"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">acquireWakeLock</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-57" name="__codelineno-1-57" href="#__codelineno-1-57"></a><span class="w">        </span><span class="c1">// &quot;息屏&quot;</span>
+<a id="__codelineno-1-58" name="__codelineno-1-58" href="#__codelineno-1-58"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">wakeLock</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-59" name="__codelineno-1-59" href="#__codelineno-1-59"></a><span class="w">            </span><span class="n">wakeLock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">powerManager</span><span class="p">.</span><span class="na">newWakeLock</span><span class="p">(</span><span class="n">PowerManager</span><span class="p">.</span><span class="na">PROXIMITY_SCREEN_OFF_WAKE_LOCK</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;RustFisherDemo:PageWakeLock&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-60" name="__codelineno-1-60" href="#__codelineno-1-60"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-1-61" name="__codelineno-1-61" href="#__codelineno-1-61"></a><span class="w">        </span><span class="n">wakeLock</span><span class="p">.</span><span class="na">acquire</span><span class="p">();</span>
+<a id="__codelineno-1-62" name="__codelineno-1-62" href="#__codelineno-1-62"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-63" name="__codelineno-1-63" href="#__codelineno-1-63"></a>
+<a id="__codelineno-1-64" name="__codelineno-1-64" href="#__codelineno-1-64"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">releaseWakeLock</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-65" name="__codelineno-1-65" href="#__codelineno-1-65"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">wakeLock</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">wakeLock</span><span class="p">.</span><span class="na">isHeld</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-66" name="__codelineno-1-66" href="#__codelineno-1-66"></a><span class="w">            </span><span class="c1">// 不息屏</span>
+<a id="__codelineno-1-67" name="__codelineno-1-67" href="#__codelineno-1-67"></a><span class="w">            </span><span class="n">wakeLock</span><span class="p">.</span><span class="na">release</span><span class="p">();</span>
+<a id="__codelineno-1-68" name="__codelineno-1-68" href="#__codelineno-1-68"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-1-69" name="__codelineno-1-69" href="#__codelineno-1-69"></a>
+<a id="__codelineno-1-70" name="__codelineno-1-70" href="#__codelineno-1-70"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-71" name="__codelineno-1-71" href="#__codelineno-1-71"></a>
+<a id="__codelineno-1-72" name="__codelineno-1-72" href="#__codelineno-1-72"></a><span class="w">    </span><span class="nd">@Override</span>
+<a id="__codelineno-1-73" name="__codelineno-1-73" href="#__codelineno-1-73"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onSensorChanged</span><span class="p">(</span><span class="n">SensorEvent</span><span class="w"> </span><span class="n">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-74" name="__codelineno-1-74" href="#__codelineno-1-74"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="na">sensor</span><span class="p">.</span><span class="na">getType</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Sensor</span><span class="p">.</span><span class="na">TYPE_PROXIMITY</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-75" name="__codelineno-1-75" href="#__codelineno-1-75"></a><span class="w">            </span><span class="c1">// &quot;event.values[0]: &quot; + event.values[0] + &quot; , max range:&quot; + proximitySensor.getMaximumRange()</span>
+<a id="__codelineno-1-76" name="__codelineno-1-76" href="#__codelineno-1-76"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="na">values</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">proximitySensor</span><span class="p">.</span><span class="na">getMaximumRange</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-77" name="__codelineno-1-77" href="#__codelineno-1-77"></a><span class="w">                </span><span class="c1">// 设备接近物体，息屏</span>
+<a id="__codelineno-1-78" name="__codelineno-1-78" href="#__codelineno-1-78"></a><span class="w">                </span><span class="n">acquireWakeLock</span><span class="p">();</span>
+<a id="__codelineno-1-79" name="__codelineno-1-79" href="#__codelineno-1-79"></a><span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-80" name="__codelineno-1-80" href="#__codelineno-1-80"></a><span class="w">                </span><span class="c1">// 设备远离物体，亮屏</span>
+<a id="__codelineno-1-81" name="__codelineno-1-81" href="#__codelineno-1-81"></a><span class="w">                </span><span class="n">releaseWakeLock</span><span class="p">();</span>
+<a id="__codelineno-1-82" name="__codelineno-1-82" href="#__codelineno-1-82"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-1-83" name="__codelineno-1-83" href="#__codelineno-1-83"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-1-84" name="__codelineno-1-84" href="#__codelineno-1-84"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-85" name="__codelineno-1-85" href="#__codelineno-1-85"></a>
+<a id="__codelineno-1-86" name="__codelineno-1-86" href="#__codelineno-1-86"></a><span class="w">    </span><span class="nd">@Override</span>
+<a id="__codelineno-1-87" name="__codelineno-1-87" href="#__codelineno-1-87"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onAccuracyChanged</span><span class="p">(</span><span class="n">Sensor</span><span class="w"> </span><span class="n">sensor</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">accuracy</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-88" name="__codelineno-1-88" href="#__codelineno-1-88"></a><span class="w">        </span><span class="c1">// 传感器精度变化时的处理，通常不需要特别处理</span>
+<a id="__codelineno-1-89" name="__codelineno-1-89" href="#__codelineno-1-89"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-90" name="__codelineno-1-90" href="#__codelineno-1-90"></a><span class="p">}</span>
 </code></pre></div></p>
 <p>熄屏和恢复主要使用<strong>PowerManager</strong>获取<strong>PowerManager.WakeLock</strong>。</p>
 <p>注意熄屏要使用 <strong>PowerManager.PROXIMITY_SCREEN_OFF_WAKE_LOCK</strong></p>
+<p>某些华为、荣耀手机需要 <code>sensorManager.flush(sensorEventListener);</code> 。否则离开界面后，应用还是会走熄屏逻辑。</p>
 
 
 
