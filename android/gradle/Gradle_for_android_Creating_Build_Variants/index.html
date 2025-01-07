@@ -115,8 +115,8 @@
     <!-- 暂时让时间一致 -->
       
       
-      <meta name="bytedance:updated_time" content="2022-08-03 00:43:57+08:00"/>
-      <meta name="bytedance:lrDate_time" content="2022-08-03 00:43:57+08:00"/>
+      <meta name="bytedance:updated_time" content="2025-01-07 00:43:57+08:00"/>
+      <meta name="bytedance:lrDate_time" content="2025-01-07 00:43:57+08:00"/>
     
 
     
@@ -159,8 +159,8 @@
           "@type": "Person",
           "name": "RustFisher"
         },
-        "datePublished": "2022-08-03 00:43:57+08:00",
-        "dateModified": "2022-08-03 00:43:57+08:00",
+        "datePublished": "2025-01-07 00:43:57+08:00",
+        "dateModified": "2025-01-07 00:43:57+08:00",
         "description": "Gradle 构建多种版本。开发APP时，会有生成不同版本的需求。比如测试版本和发布版本。不同版本之间通常有不同的设置。",
         "publisher": {
           "@type": "Person",
@@ -14812,8 +14812,9 @@
 
 <h1 id="gradle">Gradle 构建多种版本<a class="headerlink" href="#gradle" title="Permanent link">&para;</a></h1>
 <details class="note">
-<summary>更新日期：2022-5-25</summary>
+<summary>更新日期：2025-1-7</summary>
 <ul>
+<li>2025-1-7 更新build.gradle.kts例子</li>
 <li>2022-5-25 更新格式</li>
 <li>2022-2-3 创建文档</li>
 </ul>
@@ -14909,49 +14910,67 @@
 <a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="o">}</span>
 <a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="o">}</span>
 </code></pre></div>
+<p>在 <strong>build.gradle.kts</strong> 中添加
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">android</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="c1">// Specifies one flavor dimension.  </span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="n">flavorDimensions</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">&quot;version&quot;</span><span class="w">  </span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="n">productFlavors</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">        </span><span class="n">create</span><span class="p">(</span><span class="s">&quot;yt&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">            </span><span class="n">applicationId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;com.rustfisher.an&quot;</span><span class="w">  </span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">        </span><span class="p">}</span><span class="w">  </span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">        </span><span class="c1">// 其他客户    </span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">        </span><span class="n">create</span><span class="p">(</span><span class="s">&quot;other&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">            </span><span class="n">applicationId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;com.rustfisher.an.other&quot;</span><span class="w">  </span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">            </span><span class="n">versionNameSuffix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;-other&quot;</span><span class="w">  </span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">        </span><span class="p">}</span><span class="w">  </span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">    </span><span class="c1">// 其他配置...</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="p">}</span>
+</code></pre></div></p>
 <h3 id="_4">资源文件<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>新建了productFlavors类型后，我们可以新建相应的资源目录。</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>src
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>├── androidTest
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>├── debug
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>├── greenRelease // release版本  采用green
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>├── main
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>├── redDebug // debug版本   采用red
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>├── staging
-<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>└── test
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>src
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>├── androidTest
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>├── debug
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>├── greenRelease // release版本  采用green
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>├── main
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>├── redDebug // debug版本   采用red
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>├── staging
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>└── test
 </code></pre></div>
 <h3 id="multiflavor-variants">多种特种的变量 Multiflavor variants<a class="headerlink" href="#multiflavor-variants" title="Permanent link">&para;</a></h3>
 <p>在Product flavors中可以进行组合，例如</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">android</span><span class="w"> </span><span class="o">{</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="n">flavorDimensions</span><span class="o">(</span><span class="s2">&quot;color&quot;</span><span class="o">,</span><span class="w"> </span><span class="s2">&quot;price&quot;</span><span class="o">)</span><span class="w"> </span><span class="c1">// 新建了2种类型</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="c1">// 多渠道打包可以用在这里配置</span>
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">    </span><span class="c1">// 一旦配置了productFlavors，debug时会默认选一个选项</span>
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">    </span><span class="n">productFlavors</span><span class="w"> </span><span class="o">{</span>
-<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">        </span><span class="n">red</span><span class="w"> </span><span class="o">{</span>
-<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">            </span><span class="n">versionName</span><span class="w"> </span><span class="s2">&quot;1.0-red&quot;</span>
-<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">            </span><span class="n">dimension</span><span class="w"> </span><span class="s2">&quot;color&quot;</span>
-<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">        </span><span class="o">}</span>
-<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">        </span><span class="n">green</span><span class="w"> </span><span class="o">{</span>
-<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">            </span><span class="n">applicationId</span><span class="w"> </span><span class="s2">&quot;com.rustfisher.gradletest.green&quot;</span><span class="w"> </span><span class="c1">// 使用另一个签名</span>
-<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">            </span><span class="n">versionNameSuffix</span><span class="w"> </span><span class="s2">&quot;-green&quot;</span>
-<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">            </span><span class="n">dimension</span><span class="w"> </span><span class="s2">&quot;color&quot;</span>
-<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">        </span><span class="o">}</span>
-<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="w">        </span><span class="n">freeApp</span><span class="w"> </span><span class="o">{</span>
-<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="w">            </span><span class="n">dimension</span><span class="w"> </span><span class="s2">&quot;price&quot;</span>
-<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="w">        </span><span class="o">}</span>
-<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="w">        </span><span class="n">paidApp</span><span class="w"> </span><span class="o">{</span>
-<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="w">            </span><span class="n">dimension</span><span class="w"> </span><span class="s2">&quot;price&quot;</span>
-<a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="w">        </span><span class="o">}</span>
-<a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="w">    </span><span class="o">}</span>
-<a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a><span class="o">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">android</span><span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="n">flavorDimensions</span><span class="o">(</span><span class="s2">&quot;color&quot;</span><span class="o">,</span><span class="w"> </span><span class="s2">&quot;price&quot;</span><span class="o">)</span><span class="w"> </span><span class="c1">// 新建了2种类型</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="c1">// 多渠道打包可以用在这里配置</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">    </span><span class="c1">// 一旦配置了productFlavors，debug时会默认选一个选项</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">    </span><span class="n">productFlavors</span><span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">        </span><span class="n">red</span><span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">            </span><span class="n">versionName</span><span class="w"> </span><span class="s2">&quot;1.0-red&quot;</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">            </span><span class="n">dimension</span><span class="w"> </span><span class="s2">&quot;color&quot;</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">        </span><span class="o">}</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">        </span><span class="n">green</span><span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">            </span><span class="n">applicationId</span><span class="w"> </span><span class="s2">&quot;com.rustfisher.gradletest.green&quot;</span><span class="w"> </span><span class="c1">// 使用另一个签名</span>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">            </span><span class="n">versionNameSuffix</span><span class="w"> </span><span class="s2">&quot;-green&quot;</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">            </span><span class="n">dimension</span><span class="w"> </span><span class="s2">&quot;color&quot;</span>
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">        </span><span class="o">}</span>
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">        </span><span class="n">freeApp</span><span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="w">            </span><span class="n">dimension</span><span class="w"> </span><span class="s2">&quot;price&quot;</span>
+<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="w">        </span><span class="o">}</span>
+<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="w">        </span><span class="n">paidApp</span><span class="w"> </span><span class="o">{</span>
+<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="w">            </span><span class="n">dimension</span><span class="w"> </span><span class="s2">&quot;price&quot;</span>
+<a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a><span class="w">        </span><span class="o">}</span>
+<a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a><span class="w">    </span><span class="o">}</span>
+<a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a><span class="o">}</span>
 </code></pre></div>
 <p>那么在打包apk时，可以有如下4种版本  </p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>green-freeApp 
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>green-paidApp 
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>red-freeApp 
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>red-paidApp
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>green-freeApp 
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>green-paidApp 
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>red-freeApp 
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>red-paidApp
 </code></pre></div>
 一旦添加flavorDimensions，就必须为每一个flavor制定dimension。<br />
 就像上面的<code>color</code>和<code>price</code>必须出现在下面4种productFlavors之中。否则会报错。</p>
@@ -14962,53 +14981,53 @@
 <p>Android plugin for Gradle 会自动为每个配置的构建类型创建任务。<br />
 新建项目时，会有默认的assembleDebug 和 assembleRelease。<br />
 经过上面的配置以后，会有产生相对应的任务
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>assemble
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>assembleAndroidTest
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>assembleDebug
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>assembleFreeApp
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>assembleGreen
-<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>assembleGreenFreeApp
-<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>assembleGreenPaidApp
-<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>assemblePaidApp
-<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>assembleRed
-<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>assembleRedFreeApp
-<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>assembleRedPaidApp
-<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>assembleRelease
-<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>assembleStaging
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>assemble
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>assembleAndroidTest
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>assembleDebug
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>assembleFreeApp
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>assembleGreen
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>assembleGreenFreeApp
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>assembleGreenPaidApp
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>assemblePaidApp
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>assembleRed
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>assembleRedFreeApp
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>assembleRedPaidApp
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>assembleRelease
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>assembleStaging
 </code></pre></div></p>
 <h3 id="resource-and-manifest-merging">Resource and manifest merging<a class="headerlink" href="#resource-and-manifest-merging" title="Permanent link">&para;</a></h3>
 <p>Android的Gradle插件会在打包app前将主要资源和构建类型资源合在一起。另外，lib工程也可以提供
 额外可被合并的资源文件。manifest文件也可被合并。比如在debug版本中申请正式版中不需要的权限。</p>
 <h3 id="_5">定义构建变量<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>给productFlavors中的类型添加资源</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>productFlavors {
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>    red {
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>        versionName &quot;1.0-red&quot;
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>        dimension &quot;color&quot;
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>        resValue(&quot;color&quot;, &quot;flavor_color&quot;, &quot;#ff0000&quot;)
-<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>    }
-<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>    green {
-<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>        applicationId &quot;com.rustfisher.gradletest.green&quot; // 使用另一个签名
-<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>        versionNameSuffix &quot;-green&quot;
-<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>        resValue(&quot;color&quot;, &quot;flavor_color&quot;, &quot;#00ff00&quot;)
-<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>        dimension &quot;color&quot;
-<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>    }
-<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>// ...
-<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>}
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>productFlavors {
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>    red {
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>        versionName &quot;1.0-red&quot;
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>        dimension &quot;color&quot;
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>        resValue(&quot;color&quot;, &quot;flavor_color&quot;, &quot;#ff0000&quot;)
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>    }
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>    green {
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>        applicationId &quot;com.rustfisher.gradletest.green&quot; // 使用另一个签名
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>        versionNameSuffix &quot;-green&quot;
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>        resValue(&quot;color&quot;, &quot;flavor_color&quot;, &quot;#00ff00&quot;)
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>        dimension &quot;color&quot;
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>    }
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>// ...
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>}
 </code></pre></div>
 <p>上面的<code>flavor_color</code>可以在代码中通过R文件找到<code>R.color.flavor_color</code></p>
 <h3 id="flavor">获取flavor名<a class="headerlink" href="#flavor" title="Permanent link">&para;</a></h3>
 <p>可以通过<code>variant.getFlavorName()</code>拿到flavor名。
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>android {
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>    // ...
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>    applicationVariants.all { variant -&gt;
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>        variant.outputs.all {
-<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>            if (variant.getFlavorName() == &#39;rust-fisher&#39;) {
-<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>                outputFileName = &quot;RustFisher-app_v${defaultConfig.versionName}_${defaultConfig.versionCode}_${getTime()}.apk&quot;
-<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>            }
-<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>        }
-<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>    }
-<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>}
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>android {
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>    // ...
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>    applicationVariants.all { variant -&gt;
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>        variant.outputs.all {
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>            if (variant.getFlavorName() == &#39;rust-fisher&#39;) {
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>                outputFileName = &quot;RustFisher-app_v${defaultConfig.versionName}_${defaultConfig.versionCode}_${getTime()}.apk&quot;
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>            }
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>        }
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>    }
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>}
 </code></pre></div></p>
 <p>参考：<em>Gradle for Android</em>  Kevin Pelgrims</p>
 <details class="note">
