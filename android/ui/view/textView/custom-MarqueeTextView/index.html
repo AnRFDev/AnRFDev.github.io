@@ -6,35 +6,35 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Java中字节byte与位操作，按位声明一个字节，左移操作等等。">
+        <meta name="description" content="自定义MarqueeTextView继承自TextView，实现跑马灯效果">
       
       
       
-        <link rel="canonical" href="https://www.an.rustfisher.com/java/basic/java-bit/">
+        <link rel="canonical" href="https://www.an.rustfisher.com/android/ui/view/textView/custom-MarqueeTextView/">
       
       
-        <link rel="prev" href="../../interface/java-interface-and-abstract-class/">
+        <link rel="prev" href="../special_char/">
       
       
-        <link rel="next" href="../../class/class-basic/">
+        <link rel="next" href="../SpannableString_intro/">
       
       
-        <link rel="alternate" type="application/rss+xml" title="RSS 订阅" href="../../../feed_rss_created.xml">
-        <link rel="alternate" type="application/rss+xml" title="已更新内容的 RSS 订阅" href="../../../feed_rss_updated.xml">
+        <link rel="alternate" type="application/rss+xml" title="RSS 订阅" href="../../../../../feed_rss_created.xml">
+        <link rel="alternate" type="application/rss+xml" title="已更新内容的 RSS 订阅" href="../../../../../feed_rss_updated.xml">
       
-      <link rel="icon" href="../../../about/about/favicon.ico">
+      <link rel="icon" href="../../../../../about/about/favicon.ico">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.6">
     
     
       
-        <title>字节byte与位操作 - RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt</title>
+        <title>Android自定义跑马灯MarqueeTextView - RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.50c56a3b.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.50c56a3b.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -53,13 +53,13 @@
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extras.css">
+      <link rel="stylesheet" href="../../../../../stylesheets/extras.css">
     
-      <link rel="stylesheet" href="../../../stylesheets/recent.css">
+      <link rel="stylesheet" href="../../../../../stylesheets/recent.css">
     
-      <link rel="stylesheet" href="../../../stylesheets/main.8464ae1a.min.css">
+      <link rel="stylesheet" href="../../../../../stylesheets/main.8464ae1a.min.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -82,7 +82,7 @@
   <meta property="og:type" content="website">
 
   
-    <meta property="og:url" content="https://www.an.rustfisher.com/java/basic/java-bit/"/>
+    <meta property="og:url" content="https://www.an.rustfisher.com/android/ui/view/textView/custom-MarqueeTextView/"/>
   
 
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
@@ -92,11 +92,11 @@
 
   
     
-      <meta name="title" content="字节byte与位操作"/>
-      <meta property="og:title" content="字节byte与位操作"/>
+      <meta name="title" content="Android自定义跑马灯MarqueeTextView"/>
+      <meta property="og:title" content="Android自定义跑马灯MarqueeTextView"/>
     
     
-      <meta name="keywords" content="Java教程,环境设置"/>
+      <meta name="keywords" content="安卓教程,Android教程,TextView,跑马灯"/>
     
     
       
@@ -105,18 +105,18 @@
     
       
       <!-- 设置字节跳动搜索 -->
-      <meta name="bytedance:published_time" content="2024-02-04 14:25:57+08:00"/>
+      <meta name="bytedance:published_time" content="2025-04-08 00:22:22+08:00"/>
 
       <!-- 360 -->
-      <meta property="og:release_date" content="2024-02-04 14:25:57+08:00"/>
+      <meta property="og:release_date" content="2025-04-08 00:22:22+08:00"/>
     
 
     
     <!-- 暂时让时间一致 -->
       
       
-      <meta name="bytedance:updated_time" content="2024-02-05 14:25:57+08:00"/>
-      <meta name="bytedance:lrDate_time" content="2024-02-05 14:25:57+08:00"/>
+      <meta name="bytedance:updated_time" content="2025-04-08 00:43:57+08:00"/>
+      <meta name="bytedance:lrDate_time" content="2025-04-08 00:43:57+08:00"/>
     
 
     
@@ -124,8 +124,8 @@
     
   
 
-  <meta property="og:image" content="https://www.an.rustfisher.com/about/_media/cover/java_round_blue_512.png" />
-  <meta property="og:description" content="Java中字节byte与位操作，按位声明一个字节，左移操作等等。">
+  <meta property="og:image" content="https://www.an.rustfisher.com/about/_media/cover/as-logo-700.png" />
+  <meta property="og:description" content="自定义MarqueeTextView继承自TextView，实现跑马灯效果">
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGC5WSNW8Y"></script>
@@ -151,7 +151,7 @@
         "@context": "https://schema.org/",
         "@type": "Article",
         "name": "安卓开发 | 软件开发 | 编程 | RustFisher",
-        "headline": "RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt - byte与位操作",
+        "headline": "RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt - 自定义跑马灯MarqueeTextView",
         "image": [
           "https://an.rustfisher.com/about/res/fish_dev.png"
         ],  
@@ -159,9 +159,9 @@
           "@type": "Person",
           "name": "RustFisher"
         },
-        "datePublished": "2024-02-05 14:25:57+08:00",
-        "dateModified": "2024-02-05 14:25:57+08:00",
-        "description": "Java中字节byte与位操作，按位声明一个字节，左移操作等等。",
+        "datePublished": "2025-04-08 00:43:57+08:00",
+        "dateModified": "2025-04-08 00:43:57+08:00",
+        "description": "自定义MarqueeTextView继承自TextView，实现跑马灯效果",
         "publisher": {
           "@type": "Person",
           "name": "RustFisher",
@@ -204,7 +204,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#javabyte" class="md-skip">
+        <a href="#androidmarqueetextview" class="md-skip">
           跳转至
         </a>
       
@@ -218,9 +218,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../.." title="RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt" class="md-header__button md-logo" aria-label="RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt" data-md-component="logo">
+    <a href="../../../../.." title="RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt" class="md-header__button md-logo" aria-label="RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt" data-md-component="logo">
       
-  <img src="../../../about/about/favicon.ico" alt="logo">
+  <img src="../../../../../about/about/favicon.ico" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -237,7 +237,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              字节byte与位操作
+              Android自定义跑马灯MarqueeTextView
             
           </span>
         </div>
@@ -332,7 +332,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../.." class="md-tabs__link">
+      <a href="../../../../.." class="md-tabs__link">
         
   
     
@@ -347,17 +347,21 @@
         
   
   
+    
+  
   
     
     
       
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../../android/android-part-index/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../../android-part-index/" class="md-tabs__link">
           
   
   Android
@@ -378,7 +382,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../android/jetpack/entry/" class="md-tabs__link">
+        <a href="../../../../jetpack/entry/" class="md-tabs__link">
           
   
   AndroidX
@@ -392,13 +396,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../intro/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../../../java/intro/" class="md-tabs__link">
           
   
   Java
@@ -416,7 +418,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../kotlin/breif/kt-first/" class="md-tabs__link">
+        <a href="../../../../../kotlin/breif/kt-first/" class="md-tabs__link">
           
   
   Kotlin
@@ -434,7 +436,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../designPattern/Adapter-Pattern/" class="md-tabs__link">
+        <a href="../../../../../designPattern/Adapter-Pattern/" class="md-tabs__link">
           
   
   设计模式
@@ -452,7 +454,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../tech-note-index/" class="md-tabs__link">
+        <a href="../../../../../tech-note-index/" class="md-tabs__link">
           
   
   技术记录
@@ -470,7 +472,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../python/basic/get-path/" class="md-tabs__link">
+        <a href="../../../../../python/basic/get-path/" class="md-tabs__link">
           
   
   Python
@@ -488,7 +490,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../webrtc/intro/concept-intro/" class="md-tabs__link">
+        <a href="../../../../../webrtc/intro/concept-intro/" class="md-tabs__link">
           
   
   WebRTC
@@ -521,9 +523,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt" class="md-nav__button md-logo" aria-label="RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt" data-md-component="logo">
+    <a href="../../../../.." title="RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt" class="md-nav__button md-logo" aria-label="RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt" data-md-component="logo">
       
-  <img src="../../../about/about/favicon.ico" alt="logo">
+  <img src="../../../../../about/about/favicon.ico" alt="logo">
 
     </a>
     RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt
@@ -538,7 +540,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../../../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -555,8 +557,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -565,12 +569,12 @@
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -584,7 +588,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Android
@@ -638,7 +642,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/android-part-index/" class="md-nav__link">
+      <a href="../../../../android-part-index/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -659,7 +663,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/startProject/start_new_project/" class="md-nav__link">
+      <a href="../../../../startProject/start_new_project/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -680,7 +684,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/startProject/as-use-kotlin/" class="md-nav__link">
+      <a href="../../../../startProject/as-use-kotlin/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -749,7 +753,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/activity/overview/" class="md-nav__link">
+      <a href="../../../../activity/overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -770,7 +774,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/activity/act_lifecycle/" class="md-nav__link">
+      <a href="../../../../activity/act_lifecycle/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -791,7 +795,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/activity/start-activity-and-send-params/" class="md-nav__link">
+      <a href="../../../../activity/start-activity-and-send-params/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -812,7 +816,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/activity/launch-send-parcelable/" class="md-nav__link">
+      <a href="../../../../activity/launch-send-parcelable/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -833,7 +837,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/activity/activity-result-launcher/" class="md-nav__link">
+      <a href="../../../../activity/activity-result-launcher/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -854,7 +858,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/activity/start-activity-for-result/" class="md-nav__link">
+      <a href="../../../../activity/start-activity-for-result/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -875,7 +879,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/activity/launch-mode-task-stack/" class="md-nav__link">
+      <a href="../../../../activity/launch-mode-task-stack/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -896,7 +900,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/activity/activity-tran-animation/" class="md-nav__link">
+      <a href="../../../../activity/activity-tran-animation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -917,7 +921,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/view_get_size/" class="md-nav__link">
+      <a href="../../view_get_size/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -938,7 +942,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/activity/view-global-layout-listen/" class="md-nav__link">
+      <a href="../../../../activity/view-global-layout-listen/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -959,7 +963,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/activity/floating-scale-act/" class="md-nav__link">
+      <a href="../../../../activity/floating-scale-act/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -980,7 +984,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/activity/uninstall-app/" class="md-nav__link">
+      <a href="../../../../activity/uninstall-app/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1001,7 +1005,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/app/application-reg-lifecycle/" class="md-nav__link">
+      <a href="../../../../app/application-reg-lifecycle/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1022,7 +1026,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/activity/intent-like-launcher/" class="md-nav__link">
+      <a href="../../../../activity/intent-like-launcher/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1048,8 +1052,10 @@
                 
   
   
+    
   
   
+  
     
     
     
@@ -1058,12 +1064,12 @@
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
         
           
           <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
@@ -1077,7 +1083,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_3">
             <span class="md-nav__icon md-icon"></span>
             📃 TextView 显示文字
@@ -1091,7 +1097,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/textView/intro/" class="md-nav__link">
+      <a href="../intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1112,7 +1118,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/textView/text_style/" class="md-nav__link">
+      <a href="../text_style/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1133,7 +1139,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/textView/typeface/" class="md-nav__link">
+      <a href="../typeface/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1154,7 +1160,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/textView/show_html/" class="md-nav__link">
+      <a href="../show_html/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1175,7 +1181,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/textView/special_char/" class="md-nav__link">
+      <a href="../special_char/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1193,10 +1199,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../android/ui/view/textView/custom-MarqueeTextView/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    自定义跑马灯MarqueeTextView
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1205,6 +1231,58 @@
   
 
       </a>
+      
+        
+  
+  <nav class="md-nav md-nav--secondary" aria-label="toc.title">
+    
+    
+    
+      
+    
+    
+      <label class="md-nav__title" for="__toc">
+        <span class="md-nav__icon md-icon"></span>
+        toc.title
+      </label>
+      <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      完整代码
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xml" class="md-nav__link">
+    <span class="md-ellipsis">
+      在xml中使用
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+      <p style="height: 6px;"></p>
+      <div style="display:block;">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7286632197002340"
+        crossorigin="anonymous"></script>
+        <!-- cube1 -->
+        <ins class="adsbygoogle"
+              style="display:inline-block;width:230px;height:230px"
+              data-ad-client="ca-pub-7286632197002340"
+              data-ad-slot="3425975276"></ins>
+        <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+    
+  </nav>
+  
+      
     </li>
   
 
@@ -1254,7 +1332,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/textView/SpannableString_intro/" class="md-nav__link">
+      <a href="../SpannableString_intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1275,7 +1353,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/textView/foregroundColorSpan_not_work/" class="md-nav__link">
+      <a href="../foregroundColorSpan_not_work/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1296,7 +1374,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/textView/textView_clickableSpan_crash_in_recyclerview/" class="md-nav__link">
+      <a href="../textView_clickableSpan_crash_in_recyclerview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1317,7 +1395,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/text/style/use-replacementspan/" class="md-nav__link">
+      <a href="../../../../text/style/use-replacementspan/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1394,7 +1472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/service/service-intro/" class="md-nav__link">
+      <a href="../../../../service/service-intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1415,7 +1493,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/service/start/background-service/" class="md-nav__link">
+      <a href="../../../../service/start/background-service/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1436,7 +1514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/service/start/foreground-service/" class="md-nav__link">
+      <a href="../../../../service/start/foreground-service/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1457,7 +1535,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/service/IntentService-intro1/" class="md-nav__link">
+      <a href="../../../../service/IntentService-intro1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1478,7 +1556,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/service/system-alert-window-service/" class="md-nav__link">
+      <a href="../../../../service/system-alert-window-service/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1547,7 +1625,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/broadcast/intro_use/" class="md-nav__link">
+      <a href="../../../../broadcast/intro_use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1568,7 +1646,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/broadcast/screen-on-broadcast/" class="md-nav__link">
+      <a href="../../../../broadcast/screen-on-broadcast/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1637,7 +1715,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/fragment/fragment-intro/" class="md-nav__link">
+      <a href="../../../../fragment/fragment-intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1658,7 +1736,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/fragment/load-fragment/" class="md-nav__link">
+      <a href="../../../../fragment/load-fragment/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1679,7 +1757,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/fragment/fragments-contact/" class="md-nav__link">
+      <a href="../../../../fragment/fragments-contact/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1737,7 +1815,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/fragment/dialogFragment/dialog-fragment-demo1/" class="md-nav__link">
+      <a href="../../../../fragment/dialogFragment/dialog-fragment-demo1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1758,7 +1836,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/fragment/dialogFragment/dialogFragment-layout-params/" class="md-nav__link">
+      <a href="../../../../fragment/dialogFragment/dialogFragment-layout-params/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1779,7 +1857,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/fragment/dialogFragment/custom_width_height/" class="md-nav__link">
+      <a href="../../../../fragment/dialogFragment/custom_width_height/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1800,7 +1878,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/fragment/dialogFragment/df-dialog-height-changed/" class="md-nav__link">
+      <a href="../../../../fragment/dialogFragment/df-dialog-height-changed/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1877,7 +1955,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/resource/resources_overview/" class="md-nav__link">
+      <a href="../../../../resource/resources_overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1898,7 +1976,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/drawable/shape/" class="md-nav__link">
+      <a href="../../../../drawable/shape/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1919,7 +1997,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/drawable/selector/" class="md-nav__link">
+      <a href="../../../../drawable/selector/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1940,7 +2018,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/resource/font/app-use-other-font/" class="md-nav__link">
+      <a href="../../../../resource/font/app-use-other-font/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1961,7 +2039,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/resource/drawable/shape-dotted-line/" class="md-nav__link">
+      <a href="../../../../resource/drawable/shape-dotted-line/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2019,7 +2097,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/resource/adjust/app-res-adapt-multi-language/" class="md-nav__link">
+      <a href="../../../../resource/adjust/app-res-adapt-multi-language/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2040,7 +2118,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/app/app-lang-setting/" class="md-nav__link">
+      <a href="../../../../app/app-lang-setting/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2061,7 +2139,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/resource/adjust/app-res-adapt-screen-size/" class="md-nav__link">
+      <a href="../../../../resource/adjust/app-res-adapt-screen-size/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2138,7 +2216,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/editText/listen-editor-action/" class="md-nav__link">
+      <a href="../../editText/listen-editor-action/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2159,7 +2237,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/editText/edit-text-set-selection-use/" class="md-nav__link">
+      <a href="../../editText/edit-text-set-selection-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2180,7 +2258,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/editText/text-watcher-use/" class="md-nav__link">
+      <a href="../../editText/text-watcher-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2201,7 +2279,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/widget/popupwindow/edit-text-cannot-eidt/" class="md-nav__link">
+      <a href="../../../widget/popupwindow/edit-text-cannot-eidt/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2222,7 +2300,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/editText/soft-keyboard-cover-et/" class="md-nav__link">
+      <a href="../../editText/soft-keyboard-cover-et/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2251,7 +2329,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/button/overview/" class="md-nav__link">
+      <a href="../../button/overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2272,7 +2350,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/imageView/overview/" class="md-nav__link">
+      <a href="../../imageView/overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2333,7 +2411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/layout/linearLayout/intro/" class="md-nav__link">
+      <a href="../../../layout/linearLayout/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2354,7 +2432,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/layout/relativeLayout/intro/" class="md-nav__link">
+      <a href="../../../layout/relativeLayout/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2375,7 +2453,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/layout/constraintlayout/ConstraintLayout-intro-and-use1/" class="md-nav__link">
+      <a href="../../../layout/constraintlayout/ConstraintLayout-intro-and-use1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2396,7 +2474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/layout/constraintlayout/chain_use/" class="md-nav__link">
+      <a href="../../../layout/constraintlayout/chain_use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2465,7 +2543,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/layout/drawerlayout/drawer-layout-use1/" class="md-nav__link">
+      <a href="../../../layout/drawerlayout/drawer-layout-use1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2534,7 +2612,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/recyclerView/intro/" class="md-nav__link">
+      <a href="../../recyclerView/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2555,7 +2633,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/recyclerView/demo1/" class="md-nav__link">
+      <a href="../../recyclerView/demo1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2576,7 +2654,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/recyclerView/item_click/" class="md-nav__link">
+      <a href="../../recyclerView/item_click/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2597,7 +2675,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/recyclerView/show_multi_item/" class="md-nav__link">
+      <a href="../../recyclerView/show_multi_item/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2618,7 +2696,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/recyclerView/scroll_distance/" class="md-nav__link">
+      <a href="../../recyclerView/scroll_distance/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2639,7 +2717,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/recyclerView/clipToPadding_use/" class="md-nav__link">
+      <a href="../../recyclerView/clipToPadding_use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2660,7 +2738,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/recyclerView/demo_color_picker/" class="md-nav__link">
+      <a href="../../recyclerView/demo_color_picker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2681,7 +2759,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/recyclerView/slide-delete-drag-swap-item/" class="md-nav__link">
+      <a href="../../recyclerView/slide-delete-drag-swap-item/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2702,7 +2780,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/recyclerView/staggered-grid-use/" class="md-nav__link">
+      <a href="../../recyclerView/staggered-grid-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2723,7 +2801,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/recyclerView/item-animator/" class="md-nav__link">
+      <a href="../../recyclerView/item-animator/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2792,7 +2870,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/permissions/custom-user-permission/" class="md-nav__link">
+      <a href="../../../../permissions/custom-user-permission/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2861,7 +2939,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/thread/android-thread-survey/" class="md-nav__link">
+      <a href="../../../../thread/android-thread-survey/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2919,7 +2997,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/concurrent/thread-pool-use-intro/" class="md-nav__link">
+      <a href="../../../../concurrent/thread-pool-use-intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2985,7 +3063,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/handler/Handler_src_note/" class="md-nav__link">
+      <a href="../../../../handler/Handler_src_note/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3006,7 +3084,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/handler/Handler_HandlerThread/" class="md-nav__link">
+      <a href="../../../../handler/Handler_HandlerThread/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3027,7 +3105,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/handler/handler-may-leak-memory/" class="md-nav__link">
+      <a href="../../../../handler/handler-may-leak-memory/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3093,7 +3171,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/coroutines/intro1/" class="md-nav__link">
+      <a href="../../../../coroutines/intro1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3122,7 +3200,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/thread/async-task-use-intro/" class="md-nav__link">
+      <a href="../../../../thread/async-task-use-intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3228,7 +3306,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/io/file/Read_write_CSV_file/" class="md-nav__link">
+      <a href="../../../../io/file/Read_write_CSV_file/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3249,7 +3327,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/io/file/Read_write_Hex_file/" class="md-nav__link">
+      <a href="../../../../io/file/Read_write_Hex_file/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3270,7 +3348,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/io/file/read-write-json-file/" class="md-nav__link">
+      <a href="../../../../io/file/read-write-json-file/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3299,7 +3377,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/io/mmap/mmap_intro_and_use/" class="md-nav__link">
+      <a href="../../../../io/mmap/mmap_intro_and_use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3320,7 +3398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/io/mmap/mappedByteBuffer-use-demo1/" class="md-nav__link">
+      <a href="../../../../io/mmap/mappedByteBuffer-use-demo1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3389,7 +3467,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/content/sharedpreferences/intro1/" class="md-nav__link">
+      <a href="../../../../content/sharedpreferences/intro1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3495,7 +3573,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/network/URLConnection/HttpURLConnection_get_post/" class="md-nav__link">
+      <a href="../../../../network/URLConnection/HttpURLConnection_get_post/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3516,7 +3594,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/network/URLConnection/post-file/" class="md-nav__link">
+      <a href="../../../../network/URLConnection/post-file/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3537,7 +3615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/network/Media_download_stream_file/" class="md-nav__link">
+      <a href="../../../../network/Media_download_stream_file/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3566,7 +3644,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/network/google_force_https/" class="md-nav__link">
+      <a href="../../../../network/google_force_https/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3624,7 +3702,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/network/okhttp/OkHttp-use1/" class="md-nav__link">
+      <a href="../../../../network/okhttp/OkHttp-use1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3645,7 +3723,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/network/okhttp/OkHttp_Retrofit_use_intro/" class="md-nav__link">
+      <a href="../../../../network/okhttp/OkHttp_Retrofit_use_intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3666,7 +3744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/network/okhttp/resp-normal-string/" class="md-nav__link">
+      <a href="../../../../network/okhttp/resp-normal-string/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3687,7 +3765,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/network/okhttp/OkHttp_Retrofit_download_file/" class="md-nav__link">
+      <a href="../../../../network/okhttp/OkHttp_Retrofit_download_file/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3708,7 +3786,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/network/okhttp/OkHttp_Retrofit_cancel_request/" class="md-nav__link">
+      <a href="../../../../network/okhttp/OkHttp_Retrofit_cancel_request/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3729,7 +3807,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/network/okhttp/OkHttp_Retrofit_download_file_partial/" class="md-nav__link">
+      <a href="../../../../network/okhttp/OkHttp_Retrofit_download_file_partial/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3750,7 +3828,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/network/okhttp/upload_file/" class="md-nav__link">
+      <a href="../../../../network/okhttp/upload_file/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3827,7 +3905,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/progressbar/custom_colorful/" class="md-nav__link">
+      <a href="../../progressbar/custom_colorful/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3896,7 +3974,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/widget/seekbar/seekbar-custom-thumb-animation/" class="md-nav__link">
+      <a href="../../../widget/seekbar/seekbar-custom-thumb-animation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3965,7 +4043,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/view-summary/" class="md-nav__link">
+      <a href="../../view-summary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3986,7 +4064,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/measureSpec_intro/" class="md-nav__link">
+      <a href="../../measureSpec_intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4007,7 +4085,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/rtfsc/post/" class="md-nav__link">
+      <a href="../../rtfsc/post/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4028,7 +4106,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/import/view-in-activity-thinking/" class="md-nav__link">
+      <a href="../../import/view-in-activity-thinking/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4097,7 +4175,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/customView/draw-text/" class="md-nav__link">
+      <a href="../../customView/draw-text/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4118,7 +4196,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/customView/canvas-clip-path/" class="md-nav__link">
+      <a href="../../customView/canvas-clip-path/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4139,7 +4217,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/customView/surfaceView/custom-surface-view/" class="md-nav__link">
+      <a href="../../customView/surfaceView/custom-surface-view/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4160,7 +4238,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/customView/auto-zoom-line-chart/" class="md-nav__link">
+      <a href="../../customView/auto-zoom-line-chart/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4181,7 +4259,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/customView/wave-view/" class="md-nav__link">
+      <a href="../../customView/wave-view/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4202,7 +4280,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/customView/zt-star-moving/" class="md-nav__link">
+      <a href="../../customView/zt-star-moving/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4223,7 +4301,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/widget/toast/custom-toast/" class="md-nav__link">
+      <a href="../../../widget/toast/custom-toast/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4292,7 +4370,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/animation/view-animation-intro/" class="md-nav__link">
+      <a href="../../animation/view-animation-intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4313,7 +4391,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/animation/animation-drawable-use/" class="md-nav__link">
+      <a href="../../animation/animation-drawable-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4334,7 +4412,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/animation/tween-use1/" class="md-nav__link">
+      <a href="../../animation/tween-use1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4355,7 +4433,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/animation/object-animator-intro/" class="md-nav__link">
+      <a href="../../animation/object-animator-intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4424,7 +4502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/webView/wv-use/" class="md-nav__link">
+      <a href="../../webView/wv-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4445,7 +4523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/webView/loadData/" class="md-nav__link">
+      <a href="../../webView/loadData/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4466,7 +4544,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/webView/load-assets-files/" class="md-nav__link">
+      <a href="../../webView/load-assets-files/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4487,7 +4565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/webView/load-local-html/" class="md-nav__link">
+      <a href="../../webView/load-local-html/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4508,7 +4586,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/webView/webView-in-NestedScrollView-empty-bottom/" class="md-nav__link">
+      <a href="../../webView/webView-in-NestedScrollView-empty-bottom/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4529,7 +4607,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/webView/long-click-pop-menu/" class="md-nav__link">
+      <a href="../../webView/long-click-pop-menu/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4550,7 +4628,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/webView/long-click-pop-menu-x5/" class="md-nav__link">
+      <a href="../../webView/long-click-pop-menu-x5/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4571,7 +4649,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/view/webView/call-java-function/" class="md-nav__link">
+      <a href="../../webView/call-java-function/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4640,7 +4718,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/statusbar/get-status-bar-height/" class="md-nav__link">
+      <a href="../../../statusbar/get-status-bar-height/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4661,7 +4739,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ui/statusbar/android-7-adjust-status-bar-color/" class="md-nav__link">
+      <a href="../../../statusbar/android-7-adjust-status-bar-color/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4730,7 +4808,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/media/Camera_record_video_and_output/" class="md-nav__link">
+      <a href="../../../../media/Camera_record_video_and_output/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4751,7 +4829,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/media/Camera_SurfaceView_TextureView_get_nv21/" class="md-nav__link">
+      <a href="../../../../media/Camera_SurfaceView_TextureView_get_nv21/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4772,7 +4850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/media/camera2-get-size-fps/" class="md-nav__link">
+      <a href="../../../../media/camera2-get-size-fps/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4793,7 +4871,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/media/camera2-get-size-fps-en/" class="md-nav__link">
+      <a href="../../../../media/camera2-get-size-fps-en/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4899,7 +4977,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/media/MediaPlayer_intro/" class="md-nav__link">
+      <a href="../../../../media/MediaPlayer_intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4920,7 +4998,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/media/MediaPlayer_use_play_audio/" class="md-nav__link">
+      <a href="../../../../media/MediaPlayer_use_play_audio/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4941,7 +5019,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/media/MediaPlayer_use_play_speed/" class="md-nav__link">
+      <a href="../../../../media/MediaPlayer_use_play_speed/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5007,7 +5085,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/media/AudioRecord_AudioTrack_pcm_wav/" class="md-nav__link">
+      <a href="../../../../media/AudioRecord_AudioTrack_pcm_wav/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5028,7 +5106,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/media/MediaMuxer_MediaExtractor_mp4/" class="md-nav__link">
+      <a href="../../../../media/MediaMuxer_MediaExtractor_mp4/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5094,7 +5172,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/media/MediaCodec_use_demo/" class="md-nav__link">
+      <a href="../../../../media/MediaCodec_use_demo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5160,7 +5238,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/media/intro/yuv-intro/" class="md-nav__link">
+      <a href="../../../../media/intro/yuv-intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5181,7 +5259,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/media/intro/h264-intro/" class="md-nav__link">
+      <a href="../../../../media/intro/h264-intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5258,7 +5336,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/connectivity/bluetooth/Bluetooth2_use_sample/" class="md-nav__link">
+      <a href="../../../../connectivity/bluetooth/Bluetooth2_use_sample/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5279,7 +5357,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/connectivity/bluetooth/bluetooth-spp-connection-note/" class="md-nav__link">
+      <a href="../../../../connectivity/bluetooth/bluetooth-spp-connection-note/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5308,7 +5386,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/connectivity/wifi/WiFi_scan_and_connect/" class="md-nav__link">
+      <a href="../../../../connectivity/wifi/WiFi_scan_and_connect/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5369,7 +5447,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/hardware/get-angle-by-sensor/" class="md-nav__link">
+      <a href="../../../../hardware/get-angle-by-sensor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5390,7 +5468,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/hardware/sensor-and-screen-off/" class="md-nav__link">
+      <a href="../../../../hardware/sensor-and-screen-off/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5459,7 +5537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/activity/simple_launcher/" class="md-nav__link">
+      <a href="../../../../activity/simple_launcher/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5528,7 +5606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/aidl/intro_use/" class="md-nav__link">
+      <a href="../../../../aidl/intro_use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5597,7 +5675,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/zip/zip-string/" class="md-nav__link">
+      <a href="../../../../zip/zip-string/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5618,7 +5696,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/zip/unzip-file-use-ZipFile/" class="md-nav__link">
+      <a href="../../../../zip/unzip-file-use-ZipFile/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5687,7 +5765,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/util/base64/use-base64/" class="md-nav__link">
+      <a href="../../../../util/base64/use-base64/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5756,7 +5834,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/binder/Binder_mechanism_intro/" class="md-nav__link">
+      <a href="../../../../binder/Binder_mechanism_intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5777,7 +5855,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/binder/Intent_extra_size_limit/" class="md-nav__link">
+      <a href="../../../../binder/Intent_extra_size_limit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5846,7 +5924,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/notification/demo1/" class="md-nav__link">
+      <a href="../../../../notification/demo1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5915,7 +5993,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/pm/basic-use/" class="md-nav__link">
+      <a href="../../../../pm/basic-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5936,7 +6014,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/pm/restart-App/" class="md-nav__link">
+      <a href="../../../../pm/restart-App/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6005,7 +6083,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/rtfsc/Android-Context/" class="md-nav__link">
+      <a href="../../../../rtfsc/Android-Context/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6026,7 +6104,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/rtfsc/Android_SparseArray_src_code_note/" class="md-nav__link">
+      <a href="../../../../rtfsc/Android_SparseArray_src_code_note/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6095,7 +6173,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../designPattern/Adapter-Pattern/" class="md-nav__link">
+      <a href="../../../../../designPattern/Adapter-Pattern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6116,7 +6194,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../designPattern/Listener_pattern_practice_in_Java_Android/" class="md-nav__link">
+      <a href="../../../../../designPattern/Listener_pattern_practice_in_Java_Android/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6222,7 +6300,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/lib/rx/rx-android-intro/" class="md-nav__link">
+      <a href="../../../../lib/rx/rx-android-intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6288,7 +6366,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/lib/pinyin/lib-tinypinyin-intro/" class="md-nav__link">
+      <a href="../../../../lib/pinyin/lib-tinypinyin-intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6354,7 +6432,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/lib/eventbus/event-bus-note/" class="md-nav__link">
+      <a href="../../../../lib/eventbus/event-bus-note/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6420,7 +6498,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/lib/android-gpuimage/android-gpuimage-intro/" class="md-nav__link">
+      <a href="../../../../lib/android-gpuimage/android-gpuimage-intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6497,7 +6575,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/as/use-as/" class="md-nav__link">
+      <a href="../../../../as/use-as/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6518,7 +6596,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/as/suppress-warnings-use/" class="md-nav__link">
+      <a href="../../../../as/suppress-warnings-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6539,7 +6617,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/as/update-plugin-from-disk/" class="md-nav__link">
+      <a href="../../../../as/update-plugin-from-disk/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6560,7 +6638,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/gradle/show-all-task-as2022/" class="md-nav__link">
+      <a href="../../../../gradle/show-all-task-as2022/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6581,7 +6659,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/as/build-module-ouput-jar/" class="md-nav__link">
+      <a href="../../../../as/build-module-ouput-jar/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6610,7 +6688,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/architect/android-proj-module-use/" class="md-nav__link">
+      <a href="../../../../architect/android-proj-module-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6671,7 +6749,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/gradle/overview/" class="md-nav__link">
+      <a href="../../../../gradle/overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6692,7 +6770,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/gradle/Gradle_for_android_Start/" class="md-nav__link">
+      <a href="../../../../gradle/Gradle_for_android_Start/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6713,7 +6791,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/gradle/Gradle_for_android_Basic_Build_Customization/" class="md-nav__link">
+      <a href="../../../../gradle/Gradle_for_android_Basic_Build_Customization/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6734,7 +6812,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/gradle/Gradle_for_android_Creating_Build_Variants/" class="md-nav__link">
+      <a href="../../../../gradle/Gradle_for_android_Creating_Build_Variants/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6755,7 +6833,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/gradle/gradle-read-local-prop/" class="md-nav__link">
+      <a href="../../../../gradle/gradle-read-local-prop/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6776,7 +6854,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/gradle/download_too_slow/" class="md-nav__link">
+      <a href="../../../../gradle/download_too_slow/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6882,7 +6960,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ndk/start/env/" class="md-nav__link">
+      <a href="../../../../ndk/start/env/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6903,7 +6981,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ndk/start/new-proj-with-ndk/" class="md-nav__link">
+      <a href="../../../../ndk/start/new-proj-with-ndk/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6924,7 +7002,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ndk/start/add-ndk-to-proj/" class="md-nav__link">
+      <a href="../../../../ndk/start/add-ndk-to-proj/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6945,7 +7023,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ndk/start/add-ndk-to-mod/" class="md-nav__link">
+      <a href="../../../../ndk/start/add-ndk-to-mod/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7011,7 +7089,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ndk/return/return-base-type/" class="md-nav__link">
+      <a href="../../../../ndk/return/return-base-type/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7032,7 +7110,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ndk/return/return-array/" class="md-nav__link">
+      <a href="../../../../ndk/return/return-array/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7053,7 +7131,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ndk/return/return-pojo/" class="md-nav__link">
+      <a href="../../../../ndk/return/return-pojo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7082,7 +7160,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ndk/string-use/" class="md-nav__link">
+      <a href="../../../../ndk/string-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7103,7 +7181,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ndk/logcat-use/" class="md-nav__link">
+      <a href="../../../../ndk/logcat-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7161,7 +7239,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ndk/field-use/obj-field-use/" class="md-nav__link">
+      <a href="../../../../ndk/field-use/obj-field-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7182,7 +7260,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ndk/field-use/static-field-use/" class="md-nav__link">
+      <a href="../../../../ndk/field-use/static-field-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7211,7 +7289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ndk/makefile_example/" class="md-nav__link">
+      <a href="../../../../ndk/makefile_example/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7232,7 +7310,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ndk/compile_import_a_file/" class="md-nav__link">
+      <a href="../../../../ndk/compile_import_a_file/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7290,7 +7368,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ndk/io/read_write_txt_file/" class="md-nav__link">
+      <a href="../../../../ndk/io/read_write_txt_file/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7311,7 +7389,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ndk/read_write_file/" class="md-nav__link">
+      <a href="../../../../ndk/read_write_file/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7340,7 +7418,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ndk/dynamic_reg_function/" class="md-nav__link">
+      <a href="../../../../ndk/dynamic_reg_function/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7361,7 +7439,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/ndk/sprintf-itoa/" class="md-nav__link">
+      <a href="../../../../ndk/sprintf-itoa/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7467,7 +7545,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/adb/intro/" class="md-nav__link">
+      <a href="../../../../adb/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7488,7 +7566,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/adb/adb-s-install/" class="md-nav__link">
+      <a href="../../../../adb/adb-s-install/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7509,7 +7587,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/adb/adb-wm-use/" class="md-nav__link">
+      <a href="../../../../adb/adb-wm-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7530,7 +7608,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/adb/adb-pm-use/" class="md-nav__link">
+      <a href="../../../../adb/adb-pm-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7551,7 +7629,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/adb/adb-screenrecord-use/" class="md-nav__link">
+      <a href="../../../../adb/adb-screenrecord-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7572,7 +7650,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/sys/adb_mock_touch_and_monkeyrunner/" class="md-nav__link">
+      <a href="../../../../sys/adb_mock_touch_and_monkeyrunner/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7593,7 +7671,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/adb/monkey-test-use/" class="md-nav__link">
+      <a href="../../../../adb/monkey-test-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7659,7 +7737,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/phone/phone_settings/" class="md-nav__link">
+      <a href="../../../../phone/phone_settings/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7680,7 +7758,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/sys/device-node/" class="md-nav__link">
+      <a href="../../../../sys/device-node/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7701,7 +7779,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/sys/device-build-version/" class="md-nav__link">
+      <a href="../../../../sys/device-build-version/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7730,7 +7808,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/sys/anr-intro/" class="md-nav__link">
+      <a href="../../../../sys/anr-intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7806,7 +7884,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/entry/" class="md-nav__link">
+      <a href="../../../../jetpack/entry/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7867,7 +7945,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/dataBinding/start/" class="md-nav__link">
+      <a href="../../../../jetpack/dataBinding/start/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7888,7 +7966,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/dataBinding/use_observable/" class="md-nav__link">
+      <a href="../../../../jetpack/dataBinding/use_observable/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7909,7 +7987,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/dataBinding/use_observableField/" class="md-nav__link">
+      <a href="../../../../jetpack/dataBinding/use_observableField/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7930,7 +8008,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/dataBinding/set_on_click/" class="md-nav__link">
+      <a href="../../../../jetpack/dataBinding/set_on_click/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7951,7 +8029,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/dataBinding/layout_op/" class="md-nav__link">
+      <a href="../../../../jetpack/dataBinding/layout_op/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7972,7 +8050,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/dataBinding/layout_data_intro/" class="md-nav__link">
+      <a href="../../../../jetpack/dataBinding/layout_data_intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7993,7 +8071,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/dataBinding/layout-include/" class="md-nav__link">
+      <a href="../../../../jetpack/dataBinding/layout-include/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8014,7 +8092,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/dataBinding/two_way/" class="md-nav__link">
+      <a href="../../../../jetpack/dataBinding/two_way/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8072,7 +8150,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/dataBinding/binding_adapters_custom_adapter/" class="md-nav__link">
+      <a href="../../../../jetpack/dataBinding/binding_adapters_custom_adapter/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8093,7 +8171,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/dataBinding/binding_adapters_cvt_obj/" class="md-nav__link">
+      <a href="../../../../jetpack/dataBinding/binding_adapters_cvt_obj/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8170,7 +8248,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/liveData/use_mutableLiveData/" class="md-nav__link">
+      <a href="../../../../jetpack/liveData/use_mutableLiveData/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8239,7 +8317,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/lifeCycle/lifecycle_intro/" class="md-nav__link">
+      <a href="../../../../jetpack/lifeCycle/lifecycle_intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8308,7 +8386,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/workManager/use1/" class="md-nav__link">
+      <a href="../../../../jetpack/workManager/use1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8329,7 +8407,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/workManager/use2/" class="md-nav__link">
+      <a href="../../../../jetpack/workManager/use2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8350,7 +8428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/workManager/periodic1/" class="md-nav__link">
+      <a href="../../../../jetpack/workManager/periodic1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8419,7 +8497,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/viewModel/viewModel_intro/" class="md-nav__link">
+      <a href="../../../../jetpack/viewModel/viewModel_intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8440,7 +8518,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/viewModel/act-use-vm/" class="md-nav__link">
+      <a href="../../../../jetpack/viewModel/act-use-vm/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8461,7 +8539,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/viewModel/act-frag-use-one-vm/" class="md-nav__link">
+      <a href="../../../../jetpack/viewModel/act-frag-use-one-vm/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8482,7 +8560,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/androidx/viewModel/when-viewmodel-release-juejin/" class="md-nav__link">
+      <a href="../../../../androidx/viewModel/when-viewmodel-release-juejin/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8551,7 +8629,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/room/db-room-start/" class="md-nav__link">
+      <a href="../../../../jetpack/room/db-room-start/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8572,7 +8650,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/room/room-entity-intro/" class="md-nav__link">
+      <a href="../../../../jetpack/room/room-entity-intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8593,7 +8671,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/room/room-add/" class="md-nav__link">
+      <a href="../../../../jetpack/room/room-add/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8614,7 +8692,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/room/room-update/" class="md-nav__link">
+      <a href="../../../../jetpack/room/room-update/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8683,7 +8761,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/compose/compose-sample-proj1/" class="md-nav__link">
+      <a href="../../../../jetpack/compose/compose-sample-proj1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8704,7 +8782,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/compose/use-compose-in-proj/" class="md-nav__link">
+      <a href="../../../../jetpack/compose/use-compose-in-proj/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8773,7 +8851,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/camerax/simple-preview/" class="md-nav__link">
+      <a href="../../../../jetpack/camerax/simple-preview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8794,7 +8872,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/camerax/image-analysis-use/" class="md-nav__link">
+      <a href="../../../../jetpack/camerax/image-analysis-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8815,7 +8893,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/camerax/preview-floating-window/" class="md-nav__link">
+      <a href="../../../../jetpack/camerax/preview-floating-window/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8836,7 +8914,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android/jetpack/camerax/preview-floating-system-alert-window/" class="md-nav__link">
+      <a href="../../../../jetpack/camerax/preview-floating-system-alert-window/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8869,8 +8947,6 @@
       
   
   
-    
-  
   
   
     
@@ -8881,12 +8957,12 @@
       
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
@@ -8900,7 +8976,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Java
@@ -8914,7 +8990,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../intro/" class="md-nav__link">
+      <a href="../../../../../java/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8935,7 +9011,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../java-env-dev/" class="md-nav__link">
+      <a href="../../../../../java/basic/java-env-dev/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8953,8 +9029,6 @@
                 
   
   
-    
-  
   
   
     
@@ -8965,12 +9039,12 @@
       
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
         
           
           <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="">
@@ -8984,7 +9058,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_3">
             <span class="md-nav__icon md-icon"></span>
             基础
@@ -8998,7 +9072,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../java-basic-note/" class="md-nav__link">
+      <a href="../../../../../java/basic/java-basic-note/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9019,7 +9093,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../interface/java-interface-and-abstract-class/" class="md-nav__link">
+      <a href="../../../../../java/interface/java-interface-and-abstract-class/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9037,30 +9111,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    byte与位操作
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../../../java/basic/java-bit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9069,58 +9123,6 @@
   
 
       </a>
-      
-        
-  
-  <nav class="md-nav md-nav--secondary" aria-label="toc.title">
-    
-    
-    
-      
-    
-    
-      <label class="md-nav__title" for="__toc">
-        <span class="md-nav__icon md-icon"></span>
-        toc.title
-      </label>
-      <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-        
-          <li class="md-nav__item">
-  <a href="#byte" class="md-nav__link">
-    <span class="md-ellipsis">
-      byte的一些基础
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      左移一位 &lt;&lt;
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-      <p style="height: 6px;"></p>
-      <div style="display:block;">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7286632197002340"
-        crossorigin="anonymous"></script>
-        <!-- cube1 -->
-        <ins class="adsbygoogle"
-              style="display:inline-block;width:230px;height:230px"
-              data-ad-client="ca-pub-7286632197002340"
-              data-ad-slot="3425975276"></ins>
-        <script>
-              (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
-    
-  </nav>
-  
-      
     </li>
   
 
@@ -9181,7 +9183,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../class/class-basic/" class="md-nav__link">
+      <a href="../../../../../java/class/class-basic/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9202,7 +9204,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../class/class-init-step/" class="md-nav__link">
+      <a href="../../../../../java/class/class-init-step/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9223,7 +9225,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../class/abs-class-vs-interface/" class="md-nav__link">
+      <a href="../../../../../java/class/abs-class-vs-interface/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9244,7 +9246,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../class/equals-and-equal/" class="md-nav__link">
+      <a href="../../../../../java/class/equals-and-equal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9273,7 +9275,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concept/oo/" class="md-nav__link">
+      <a href="../../../../../java/concept/oo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9334,7 +9336,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../container/Java-Container/" class="md-nav__link">
+      <a href="../../../../../java/container/Java-Container/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9392,7 +9394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../container/list/Java-ArrayList-intro/" class="md-nav__link">
+      <a href="../../../../../java/container/list/Java-ArrayList-intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9458,7 +9460,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../container/map/Java-HashMap-source-code/" class="md-nav__link">
+      <a href="../../../../../java/container/map/Java-HashMap-source-code/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9479,7 +9481,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../container/map/Java-LinkedHashMap-code/" class="md-nav__link">
+      <a href="../../../../../java/container/map/Java-LinkedHashMap-code/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9500,7 +9502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../container/map/Java-read-write-properties/" class="md-nav__link">
+      <a href="../../../../../java/container/map/Java-read-write-properties/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9577,7 +9579,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../thread/thread-class-intro/" class="md-nav__link">
+      <a href="../../../../../java/thread/thread-class-intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9598,7 +9600,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../concurrent/Java-read-write-lock-use/" class="md-nav__link">
+      <a href="../../../../../java/concurrent/Java-read-write-lock-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9667,7 +9669,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../io/Java-read-write-file/" class="md-nav__link">
+      <a href="../../../../../java/io/Java-read-write-file/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9688,7 +9690,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../io/Java-read-write-xls/" class="md-nav__link">
+      <a href="../../../../../java/io/Java-read-write-xls/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9757,7 +9759,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reg/reg_use/" class="md-nav__link">
+      <a href="../../../../../java/reg/reg_use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9778,7 +9780,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reg/find-samples/" class="md-nav__link">
+      <a href="../../../../../java/reg/find-samples/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9799,7 +9801,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reg/extract-between/" class="md-nav__link">
+      <a href="../../../../../java/reg/extract-between/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9820,7 +9822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reg/split-samples/" class="md-nav__link">
+      <a href="../../../../../java/reg/split-samples/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9841,7 +9843,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reg/code/extract-en-between-not-en/" class="md-nav__link">
+      <a href="../../../../../java/reg/code/extract-en-between-not-en/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9862,7 +9864,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reg/code/find-en-word-between-not-word/" class="md-nav__link">
+      <a href="../../../../../java/reg/code/find-en-word-between-not-word/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9891,7 +9893,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../calendar/Java-Calendar-use/" class="md-nav__link">
+      <a href="../../../../../java/calendar/Java-Calendar-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9912,7 +9914,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../anotation/Java-annotation-intro/" class="md-nav__link">
+      <a href="../../../../../java/anotation/Java-annotation-intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9933,7 +9935,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../security/Java-encrypt-note/" class="md-nav__link">
+      <a href="../../../../../java/security/Java-encrypt-note/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9994,7 +9996,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../swing/Java-Swing-use1/" class="md-nav__link">
+      <a href="../../../../../java/swing/Java-Swing-use1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10070,7 +10072,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../kotlin/breif/kt-first/" class="md-nav__link">
+      <a href="../../../../../kotlin/breif/kt-first/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10091,7 +10093,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../kotlin/basic/intro/hello-world/" class="md-nav__link">
+      <a href="../../../../../kotlin/basic/intro/hello-world/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10112,7 +10114,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../kotlin/basic/kotlin-common-patterns-in-android/" class="md-nav__link">
+      <a href="../../../../../kotlin/basic/kotlin-common-patterns-in-android/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10173,7 +10175,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../kotlin/basic/basic-syntax/" class="md-nav__link">
+      <a href="../../../../../kotlin/basic/basic-syntax/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10194,7 +10196,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../kotlin/basic/functions/" class="md-nav__link">
+      <a href="../../../../../kotlin/basic/functions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10223,7 +10225,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../kotlin/basic/idioms/" class="md-nav__link">
+      <a href="../../../../../kotlin/basic/idioms/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10284,7 +10286,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../kotlin/coroutines/basic/first/" class="md-nav__link">
+      <a href="../../../../../kotlin/coroutines/basic/first/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10305,7 +10307,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../kotlin/coroutines/basic/b2/" class="md-nav__link">
+      <a href="../../../../../kotlin/coroutines/basic/b2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10326,7 +10328,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../kotlin/coroutines/cancel-timeout/" class="md-nav__link">
+      <a href="../../../../../kotlin/coroutines/cancel-timeout/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10402,7 +10404,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../designPattern/Adapter-Pattern/" class="md-nav__link">
+      <a href="../../../../../designPattern/Adapter-Pattern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10423,7 +10425,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../designPattern/Listener_pattern_practice_in_Java_Android/" class="md-nav__link">
+      <a href="../../../../../designPattern/Listener_pattern_practice_in_Java_Android/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10444,7 +10446,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../designPattern/Bridge-Pattern/" class="md-nav__link">
+      <a href="../../../../../designPattern/Bridge-Pattern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10465,7 +10467,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../designPattern/Builder-Pattern/" class="md-nav__link">
+      <a href="../../../../../designPattern/Builder-Pattern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10486,7 +10488,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../designPattern/Command-pattern/" class="md-nav__link">
+      <a href="../../../../../designPattern/Command-pattern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10507,7 +10509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../designPattern/Decoration_Java/" class="md-nav__link">
+      <a href="../../../../../designPattern/Decoration_Java/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10528,7 +10530,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../designPattern/Strategy-Pattern/" class="md-nav__link">
+      <a href="../../../../../designPattern/Strategy-Pattern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10549,7 +10551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../designPattern/Factory_method_Java/" class="md-nav__link">
+      <a href="../../../../../designPattern/Factory_method_Java/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10570,7 +10572,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../designPattern/Iterator_Java/" class="md-nav__link">
+      <a href="../../../../../designPattern/Iterator_Java/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10591,7 +10593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../designPattern/Mediator-Pattern/" class="md-nav__link">
+      <a href="../../../../../designPattern/Mediator-Pattern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10612,7 +10614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../designPattern/Memento-Pattern/" class="md-nav__link">
+      <a href="../../../../../designPattern/Memento-Pattern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10633,7 +10635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../designPattern/Prototype-Pattern/" class="md-nav__link">
+      <a href="../../../../../designPattern/Prototype-Pattern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10654,7 +10656,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../designPattern/Proxy-Pattern/" class="md-nav__link">
+      <a href="../../../../../designPattern/Proxy-Pattern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10675,7 +10677,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../designPattern/Responsibility-Chain-Pattern/" class="md-nav__link">
+      <a href="../../../../../designPattern/Responsibility-Chain-Pattern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10696,7 +10698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../designPattern/State-Pattern/" class="md-nav__link">
+      <a href="../../../../../designPattern/State-Pattern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10717,7 +10719,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../designPattern/Template-Method-Pattern_Java/" class="md-nav__link">
+      <a href="../../../../../designPattern/Template-Method-Pattern_Java/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10738,7 +10740,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../designPattern/Visitor-Pattern/" class="md-nav__link">
+      <a href="../../../../../designPattern/Visitor-Pattern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10759,7 +10761,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../designPattern/Flyweight-Pattern/" class="md-nav__link">
+      <a href="../../../../../designPattern/Flyweight-Pattern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10780,7 +10782,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../designPattern/Facade-Pattern/" class="md-nav__link">
+      <a href="../../../../../designPattern/Facade-Pattern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10848,7 +10850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tech-note-index/" class="md-nav__link">
+      <a href="../../../../../tech-note-index/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10869,7 +10871,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../recent-post/" class="md-nav__link">
+      <a href="../../../../../recent-post/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10890,7 +10892,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../tags/" class="md-nav__link">
+      <a href="../../../../../tags/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10911,7 +10913,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../git/git-tips/" class="md-nav__link">
+      <a href="../../../../../git/git-tips/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10972,7 +10974,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../nestjs/nestjs-websocket-start/" class="md-nav__link">
+      <a href="../../../../../nestjs/nestjs-websocket-start/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10993,7 +10995,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../nestjs/wss-nginx-cfg/" class="md-nav__link">
+      <a href="../../../../../nestjs/wss-nginx-cfg/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11014,7 +11016,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../nestjs/nestjs-static-file/" class="md-nav__link">
+      <a href="../../../../../nestjs/nestjs-static-file/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11035,7 +11037,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../nestjs/nest-devops/" class="md-nav__link">
+      <a href="../../../../../nestjs/nest-devops/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11056,7 +11058,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../nestjs/mp-wx-http-status-code/" class="md-nav__link">
+      <a href="../../../../../nestjs/mp-wx-http-status-code/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11114,7 +11116,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../nestjs/simple-chat/create-nest-project/" class="md-nav__link">
+      <a href="../../../../../nestjs/simple-chat/create-nest-project/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11135,7 +11137,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../nestjs/simple-chat/web-connect-local/" class="md-nav__link">
+      <a href="../../../../../nestjs/simple-chat/web-connect-local/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11156,7 +11158,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../nestjs/simple-chat/transfer-msg-local/" class="md-nav__link">
+      <a href="../../../../../nestjs/simple-chat/transfer-msg-local/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11177,7 +11179,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../nestjs/simple-chat/deploy-on-server/" class="md-nav__link">
+      <a href="../../../../../nestjs/simple-chat/deploy-on-server/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11198,7 +11200,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../nestjs/simple-chat/room-chat/" class="md-nav__link">
+      <a href="../../../../../nestjs/simple-chat/room-chat/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11275,7 +11277,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../media/info/media-open-source-projects/" class="md-nav__link">
+      <a href="../../../../../media/info/media-open-source-projects/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11296,7 +11298,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../media/color/yuv-intro/" class="md-nav__link">
+      <a href="../../../../../media/color/yuv-intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11317,7 +11319,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../media/video/yuv-save-format/" class="md-nav__link">
+      <a href="../../../../../media/video/yuv-save-format/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11338,7 +11340,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../media/audio/some-audio-video-media-format/" class="md-nav__link">
+      <a href="../../../../../media/audio/some-audio-video-media-format/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11407,7 +11409,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cocos/creator/ccc-touch-event/" class="md-nav__link">
+      <a href="../../../../../cocos/creator/ccc-touch-event/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11428,7 +11430,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cocos/creator/ccc-postion-and-cvt/" class="md-nav__link">
+      <a href="../../../../../cocos/creator/ccc-postion-and-cvt/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11449,7 +11451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cocos/creator/ccc-drag-anywhere/" class="md-nav__link">
+      <a href="../../../../../cocos/creator/ccc-drag-anywhere/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11470,7 +11472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cocos/creator/ccc-drag-to-target/" class="md-nav__link">
+      <a href="../../../../../cocos/creator/ccc-drag-to-target/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11491,7 +11493,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cocos/creator/g/dev-2d-game/" class="md-nav__link">
+      <a href="../../../../../cocos/creator/g/dev-2d-game/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11560,7 +11562,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../linux/usr/ls-use/" class="md-nav__link">
+      <a href="../../../../../linux/usr/ls-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11581,7 +11583,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../linux/usr/awk-use/" class="md-nav__link">
+      <a href="../../../../../linux/usr/awk-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11602,7 +11604,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../linux/usr/grep-use/" class="md-nav__link">
+      <a href="../../../../../linux/usr/grep-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11623,7 +11625,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../linux/usr/find-use/" class="md-nav__link">
+      <a href="../../../../../linux/usr/find-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11644,7 +11646,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../linux/usr/curl-use/" class="md-nav__link">
+      <a href="../../../../../linux/usr/curl-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11665,7 +11667,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../linux/shell/for-use/" class="md-nav__link">
+      <a href="../../../../../linux/shell/for-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11686,7 +11688,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../linux/usr/netstat-use/" class="md-nav__link">
+      <a href="../../../../../linux/usr/netstat-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11707,7 +11709,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../redis/redis-docker-master-slave-sentinel-123/" class="md-nav__link">
+      <a href="../../../../../redis/redis-docker-master-slave-sentinel-123/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11728,7 +11730,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../apollo/apollo-docker-run-dev-fat/" class="md-nav__link">
+      <a href="../../../../../apollo/apollo-docker-run-dev-fat/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11749,7 +11751,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../nginx/nginx-conf-note/" class="md-nav__link">
+      <a href="../../../../../nginx/nginx-conf-note/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11770,7 +11772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/mysql/docker-mysql-modify-pwd/" class="md-nav__link">
+      <a href="../../../../../db/mysql/docker-mysql-modify-pwd/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11791,7 +11793,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../server/component/xxl-job/docker-run-xxl-job/" class="md-nav__link">
+      <a href="../../../../../server/component/xxl-job/docker-run-xxl-job/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11860,7 +11862,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../embedded/base/what-is-float-NaN-Inf/" class="md-nav__link">
+      <a href="../../../../../embedded/base/what-is-float-NaN-Inf/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11918,7 +11920,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../embedded/wifi/ESP8266-struc-start/" class="md-nav__link">
+      <a href="../../../../../embedded/wifi/ESP8266-struc-start/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11939,7 +11941,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../embedded/wifi/ESP8266-Bootloader-rtfsc-rboot-1/" class="md-nav__link">
+      <a href="../../../../../embedded/wifi/ESP8266-Bootloader-rtfsc-rboot-1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11960,7 +11962,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../embedded/wifi/ESP8266-Bootloader-rtfsc-rboot-2/" class="md-nav__link">
+      <a href="../../../../../embedded/wifi/ESP8266-Bootloader-rtfsc-rboot-2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12026,7 +12028,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../embedded/dev/utils-enum-tostring/" class="md-nav__link">
+      <a href="../../../../../embedded/dev/utils-enum-tostring/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12047,7 +12049,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../embedded/dev/utils-binary-cvt/" class="md-nav__link">
+      <a href="../../../../../embedded/dev/utils-binary-cvt/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12068,7 +12070,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../embedded/dev/utils-for-chips-base-time-space-cal/" class="md-nav__link">
+      <a href="../../../../../embedded/dev/utils-for-chips-base-time-space-cal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12145,7 +12147,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ios/uikit/tableview/case/table-view-and-other/" class="md-nav__link">
+      <a href="../../../../../ios/uikit/tableview/case/table-view-and-other/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12166,7 +12168,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ios/uikit/tableview/case/table-view-and-other-cell/" class="md-nav__link">
+      <a href="../../../../../ios/uikit/tableview/case/table-view-and-other-cell/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12224,7 +12226,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ios/uikit/tableview/table-view-storyboard-sample1/" class="md-nav__link">
+      <a href="../../../../../ios/uikit/tableview/table-view-storyboard-sample1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12245,7 +12247,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ios/uikit/tableview/table-view-storyboard-sample2/" class="md-nav__link">
+      <a href="../../../../../ios/uikit/tableview/table-view-storyboard-sample2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12266,7 +12268,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ios/uikit/tableview/table-view-storyboard-sample3/" class="md-nav__link">
+      <a href="../../../../../ios/uikit/tableview/table-view-storyboard-sample3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12287,7 +12289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ios/uikit/tableview/table-view-storyboard-sample4-ds/" class="md-nav__link">
+      <a href="../../../../../ios/uikit/tableview/table-view-storyboard-sample4-ds/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12308,7 +12310,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ios/uikit/tableview/table-view-storyboard-sample5-edit/" class="md-nav__link">
+      <a href="../../../../../ios/uikit/tableview/table-view-storyboard-sample5-edit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12337,7 +12339,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ios/lib/a-lib-missing-arch/" class="md-nav__link">
+      <a href="../../../../../ios/lib/a-lib-missing-arch/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12395,7 +12397,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ios/xcode/basic-use/" class="md-nav__link">
+      <a href="../../../../../ios/xcode/basic-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12424,7 +12426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ios/duns-apple-2022/" class="md-nav__link">
+      <a href="../../../../../ios/duns-apple-2022/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12493,7 +12495,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../lua/start/lua-simple-start-mac/" class="md-nav__link">
+      <a href="../../../../../lua/start/lua-simple-start-mac/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12514,7 +12516,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../lua/start/lua-base/" class="md-nav__link">
+      <a href="../../../../../lua/start/lua-base/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12583,7 +12585,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../db/note-mongodb-mysql/" class="md-nav__link">
+      <a href="../../../../../db/note-mongodb-mysql/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12612,7 +12614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../sip/sip-err-code/" class="md-nav__link">
+      <a href="../../../../../sip/sip-err-code/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12633,7 +12635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../sip/sip-and-sdp/" class="md-nav__link">
+      <a href="../../../../../sip/sip-and-sdp/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12731,7 +12733,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../fun/joke-5/" class="md-nav__link">
+      <a href="../../../../../fun/joke-5/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12752,7 +12754,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../fun/joke-4/" class="md-nav__link">
+      <a href="../../../../../fun/joke-4/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12773,7 +12775,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../fun/joke-3/" class="md-nav__link">
+      <a href="../../../../../fun/joke-3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12794,7 +12796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../fun/joke-2/" class="md-nav__link">
+      <a href="../../../../../fun/joke-2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12815,7 +12817,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../fun/joke-1/" class="md-nav__link">
+      <a href="../../../../../fun/joke-1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12844,7 +12846,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../fun/http-code/" class="md-nav__link">
+      <a href="../../../../../fun/http-code/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12984,7 +12986,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../about/" class="md-nav__link">
+      <a href="../../../../../about/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13005,7 +13007,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../about/fr/" class="md-nav__link">
+      <a href="../../../../../about/fr/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13026,7 +13028,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../about/sponsor-author/" class="md-nav__link">
+      <a href="../../../../../about/sponsor-author/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13047,7 +13049,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../about/site-dev-note/" class="md-nav__link">
+      <a href="../../../../../about/site-dev-note/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13115,7 +13117,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../python/basic/get-path/" class="md-nav__link">
+      <a href="../../../../../python/basic/get-path/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13176,7 +13178,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../python/basic/dictionary-JSON-file/" class="md-nav__link">
+      <a href="../../../../../python/basic/dictionary-JSON-file/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13197,7 +13199,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../python/io/scan-file-like-tree/" class="md-nav__link">
+      <a href="../../../../../python/io/scan-file-like-tree/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13218,7 +13220,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../python/io/read-write-csv/" class="md-nav__link">
+      <a href="../../../../../python/io/read-write-csv/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13287,7 +13289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../python/openpyxl/openpyxl-tutorial/" class="md-nav__link">
+      <a href="../../../../../python/openpyxl/openpyxl-tutorial/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13308,7 +13310,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../python/openpyxl/openpyxl-charts-bar-column/" class="md-nav__link">
+      <a href="../../../../../python/openpyxl/openpyxl-charts-bar-column/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13329,7 +13331,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../python/openpyxl/op-excel-openpyxl-use/" class="md-nav__link">
+      <a href="../../../../../python/openpyxl/op-excel-openpyxl-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13350,7 +13352,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../python/openpyxl/op-excel-openpyxl-bar-column-chart/" class="md-nav__link">
+      <a href="../../../../../python/openpyxl/op-excel-openpyxl-bar-column-chart/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13371,7 +13373,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../python/openpyxl/op-draw-funnel-1/" class="md-nav__link">
+      <a href="../../../../../python/openpyxl/op-draw-funnel-1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13440,7 +13442,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../python/matplotlib/matplotlib-intro1/" class="md-nav__link">
+      <a href="../../../../../python/matplotlib/matplotlib-intro1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13461,7 +13463,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../python/matplotlib/matplotlib-intro-parts/" class="md-nav__link">
+      <a href="../../../../../python/matplotlib/matplotlib-intro-parts/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13530,7 +13532,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../python/scrapy/scrapy-hw-blog-record/" class="md-nav__link">
+      <a href="../../../../../python/scrapy/scrapy-hw-blog-record/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13599,7 +13601,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../python/mysql/use1/" class="md-nav__link">
+      <a href="../../../../../python/mysql/use1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13628,7 +13630,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../python/basic/pip-solution/" class="md-nav__link">
+      <a href="../../../../../python/basic/pip-solution/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13689,7 +13691,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../python/record/ffmpeg-extraction-mp4-use/" class="md-nav__link">
+      <a href="../../../../../python/record/ffmpeg-extraction-mp4-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13710,7 +13712,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../python/record/python3-send-email/" class="md-nav__link">
+      <a href="../../../../../python/record/python3-send-email/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13731,7 +13733,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../python/record/adb-use/" class="md-nav__link">
+      <a href="../../../../../python/record/adb-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13800,7 +13802,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pyqt/pycharm-install-and-config/" class="md-nav__link">
+      <a href="../../../../../pyqt/pycharm-install-and-config/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13821,7 +13823,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pyqt/install-pyqt5/" class="md-nav__link">
+      <a href="../../../../../pyqt/install-pyqt5/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13842,7 +13844,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pyqt/pyqt-QMainWindow-use1/" class="md-nav__link">
+      <a href="../../../../../pyqt/pyqt-QMainWindow-use1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13863,7 +13865,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pyqt/pyqt-adjust-screen-resolution/" class="md-nav__link">
+      <a href="../../../../../pyqt/pyqt-adjust-screen-resolution/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13884,7 +13886,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pyqt/pyqt-drag-and-drop/" class="md-nav__link">
+      <a href="../../../../../pyqt/pyqt-drag-and-drop/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13905,7 +13907,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pyqt/pyqt-QFileDialog-use/" class="md-nav__link">
+      <a href="../../../../../pyqt/pyqt-QFileDialog-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13926,7 +13928,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pyqt/pyqt-locale/" class="md-nav__link">
+      <a href="../../../../../pyqt/pyqt-locale/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13947,7 +13949,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pyqt/pyqt5-custom-QWidget-use/" class="md-nav__link">
+      <a href="../../../../../pyqt/pyqt5-custom-QWidget-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13968,7 +13970,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pyqt/pyqt-QThread/" class="md-nav__link">
+      <a href="../../../../../pyqt/pyqt-QThread/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13989,7 +13991,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pyqt/pyqt-pack-exe/" class="md-nav__link">
+      <a href="../../../../../pyqt/pyqt-pack-exe/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14010,7 +14012,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pyqt/pyqt5-install-license/" class="md-nav__link">
+      <a href="../../../../../pyqt/pyqt5-install-license/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14086,7 +14088,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../webrtc/intro/concept-intro/" class="md-nav__link">
+      <a href="../../../../../webrtc/intro/concept-intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14107,7 +14109,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../webrtc/media/media-consultation-sdp-intro/" class="md-nav__link">
+      <a href="../../../../../webrtc/media/media-consultation-sdp-intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14168,7 +14170,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../webrtc/web-samples/getUserMedia-open-camera/" class="md-nav__link">
+      <a href="../../../../../webrtc/web-samples/getUserMedia-open-camera/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14189,7 +14191,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../webrtc/web-samples/resolution/" class="md-nav__link">
+      <a href="../../../../../webrtc/web-samples/resolution/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14210,7 +14212,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../webrtc/web-samples/canvas1/" class="md-nav__link">
+      <a href="../../../../../webrtc/web-samples/canvas1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14231,7 +14233,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../webrtc/web-samples/css-filters/" class="md-nav__link">
+      <a href="../../../../../webrtc/web-samples/css-filters/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14252,7 +14254,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../webrtc/web-samples/getusermedia-record/" class="md-nav__link">
+      <a href="../../../../../webrtc/web-samples/getusermedia-record/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14273,7 +14275,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../webrtc/web-samples/getdisplaymedia/" class="md-nav__link">
+      <a href="../../../../../webrtc/web-samples/getdisplaymedia/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14294,7 +14296,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../webrtc/web-samples/audio-collection/" class="md-nav__link">
+      <a href="../../../../../webrtc/web-samples/audio-collection/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14315,7 +14317,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../webrtc/capture/video-local-peer/" class="md-nav__link">
+      <a href="../../../../../webrtc/capture/video-local-peer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14336,7 +14338,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../webrtc/peerconnection/upgrade-to-video/" class="md-nav__link">
+      <a href="../../../../../webrtc/peerconnection/upgrade-to-video/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14357,7 +14359,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../webrtc/peerconnection/multi-relay/" class="md-nav__link">
+      <a href="../../../../../webrtc/peerconnection/multi-relay/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14378,7 +14380,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../webrtc/peerconnection/change-codec/" class="md-nav__link">
+      <a href="../../../../../webrtc/peerconnection/change-codec/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14407,7 +14409,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../webrtc/turn/ubuntu-run-coturn/" class="md-nav__link">
+      <a href="../../../../../webrtc/turn/ubuntu-run-coturn/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14468,7 +14470,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../webrtc/intro/sync-build/" class="md-nav__link">
+      <a href="../../../../../webrtc/intro/sync-build/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14489,7 +14491,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../webrtc/android/agc-ns-compile/" class="md-nav__link">
+      <a href="../../../../../webrtc/android/agc-ns-compile/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14518,7 +14520,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../webrtc/some-reference/" class="md-nav__link">
+      <a href="../../../../../webrtc/some-reference/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14566,18 +14568,18 @@
       <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
         
           <li class="md-nav__item">
-  <a href="#byte" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      byte的一些基础
+      完整代码
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#xml" class="md-nav__link">
     <span class="md-ellipsis">
-      左移一位 &lt;&lt;
+      在xml中使用
     </span>
   </a>
   
@@ -14613,67 +14615,202 @@
                   
 
 
-<h1 id="javabyte">Java中字节byte与位操作<a class="headerlink" href="#javabyte" title="Permanent link">&para;</a></h1>
-<h2 id="byte">byte的一些基础<a class="headerlink" href="#byte" title="Permanent link">&para;</a></h2>
-<p>用 <strong>0b</strong> 开头，后面接上每一位</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">byte</span><span class="w"> </span><span class="n">b1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">0b1</span><span class="p">;</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kt">byte</span><span class="w"> </span><span class="n">b2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">0b10</span><span class="p">;</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kt">byte</span><span class="w"> </span><span class="n">b3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">0b11</span><span class="p">;</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kt">byte</span><span class="w"> </span><span class="n">b4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">0b100</span><span class="p">;</span>
+<h1 id="androidmarqueetextview">Android自定义跑马灯MarqueeTextView<a class="headerlink" href="#androidmarqueetextview" title="Permanent link">&para;</a></h1>
+<p>除了使用TextView的跑马灯效果，也可以自定义一个跑马灯 MarqueeTextView</p>
+<h2 id="_1">完整代码<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// package com.rustfisher.ui;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">android.annotation.SuppressLint</span><span class="p">;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">android.content.Context</span><span class="p">;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">android.graphics.Rect</span><span class="p">;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="kn">import</span><span class="w"> </span><span class="nn">android.os.Handler</span><span class="p">;</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="kn">import</span><span class="w"> </span><span class="nn">android.os.Looper</span><span class="p">;</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="kn">import</span><span class="w"> </span><span class="nn">android.text.TextPaint</span><span class="p">;</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="kn">import</span><span class="w"> </span><span class="nn">android.util.AttributeSet</span><span class="p">;</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="kn">import</span><span class="w"> </span><span class="nn">android.view.animation.LinearInterpolator</span><span class="p">;</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="kn">import</span><span class="w"> </span><span class="nn">android.widget.Scroller</span><span class="p">;</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="kn">import</span><span class="w"> </span><span class="nn">android.widget.TextView</span><span class="p">;</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="nd">@SuppressLint</span><span class="p">(</span><span class="s">&quot;AppCompatCustomView&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MarqueeTextView</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">TextView</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="cm">/** 默认滚动时间 */</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ROLLING_INTERVAL_DEFAULT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6000</span><span class="p">;</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">    </span><span class="cm">/** 第一次滚动默认延迟 */</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">FIRST_SCROLL_DELAY_DEFAULT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">300</span><span class="p">;</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">    </span><span class="cm">/** 滚动模式-一直滚动 */</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">SCROLL_FOREVER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">    </span><span class="cm">/** 滚动模式-只滚动一次 */</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">SCROLL_ONCE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">101</span><span class="p">;</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">    </span><span class="cm">/** 滚动器 */</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Scroller</span><span class="w"> </span><span class="n">mScroller</span><span class="p">;</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">    </span><span class="cm">/** 滚动一次的时间 */</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">mRollingInterval</span><span class="p">;</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="w">    </span><span class="cm">/** 滚动的初始 X 位置 */</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">mXPaused</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="w">    </span><span class="cm">/** 是否暂停 */</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">mPaused</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="w">    </span><span class="cm">/** 是否第一次 */</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">mFirst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="w">    </span><span class="cm">/** 滚动模式 */</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">mScrollMode</span><span class="p">;</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="w">    </span><span class="cm">/** 初次滚动时间间隔 */</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">mFirstScrollDelay</span><span class="p">;</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>
+<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">MarqueeTextView</span><span class="p">(</span><span class="n">Context</span><span class="w"> </span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="w">        </span><span class="k">this</span><span class="p">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>
+<a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">MarqueeTextView</span><span class="p">(</span><span class="n">Context</span><span class="w"> </span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">AttributeSet</span><span class="w"> </span><span class="n">attrs</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a><span class="w">        </span><span class="k">this</span><span class="p">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">attrs</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a>
+<a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">MarqueeTextView</span><span class="p">(</span><span class="n">Context</span><span class="w"> </span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">AttributeSet</span><span class="w"> </span><span class="n">attrs</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">defStyle</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a><span class="w">        </span><span class="kd">super</span><span class="p">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">attrs</span><span class="p">,</span><span class="w"> </span><span class="n">defStyle</span><span class="p">);</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a><span class="w">        </span><span class="n">initView</span><span class="p">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">attrs</span><span class="p">,</span><span class="w"> </span><span class="n">defStyle</span><span class="p">);</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a>
+<a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">initView</span><span class="p">(</span><span class="n">Context</span><span class="w"> </span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">AttributeSet</span><span class="w"> </span><span class="n">attrs</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">defStyle</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a><span class="w">        </span><span class="n">mRollingInterval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ROLLING_INTERVAL_DEFAULT</span><span class="p">;</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a><span class="w">        </span><span class="n">mScrollMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SCROLL_FOREVER</span><span class="p">;</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57" href="#__codelineno-0-57"></a><span class="w">        </span><span class="n">mFirstScrollDelay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FIRST_SCROLL_DELAY_DEFAULT</span><span class="p">;</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58" href="#__codelineno-0-58"></a><span class="w">        </span><span class="n">setSingleLine</span><span class="p">();</span>
+<a id="__codelineno-0-59" name="__codelineno-0-59" href="#__codelineno-0-59"></a><span class="w">        </span><span class="n">setEllipsize</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60" href="#__codelineno-0-60"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61" href="#__codelineno-0-61"></a>
+<a id="__codelineno-0-62" name="__codelineno-0-62" href="#__codelineno-0-62"></a><span class="w">    </span><span class="cm">/**</span>
+<a id="__codelineno-0-63" name="__codelineno-0-63" href="#__codelineno-0-63"></a><span class="cm">     * 开始滚动</span>
+<a id="__codelineno-0-64" name="__codelineno-0-64" href="#__codelineno-0-64"></a><span class="cm">     */</span>
+<a id="__codelineno-0-65" name="__codelineno-0-65" href="#__codelineno-0-65"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">startScroll</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66" href="#__codelineno-0-66"></a><span class="w">        </span><span class="n">mXPaused</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-0-67" name="__codelineno-0-67" href="#__codelineno-0-67"></a><span class="w">        </span><span class="n">mPaused</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<a id="__codelineno-0-68" name="__codelineno-0-68" href="#__codelineno-0-68"></a><span class="w">        </span><span class="n">mFirst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69" href="#__codelineno-0-69"></a><span class="w">        </span><span class="n">resumeScroll</span><span class="p">();</span>
+<a id="__codelineno-0-70" name="__codelineno-0-70" href="#__codelineno-0-70"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-71" name="__codelineno-0-71" href="#__codelineno-0-71"></a>
+<a id="__codelineno-0-72" name="__codelineno-0-72" href="#__codelineno-0-72"></a><span class="w">    </span><span class="cm">/**</span>
+<a id="__codelineno-0-73" name="__codelineno-0-73" href="#__codelineno-0-73"></a><span class="cm">     * 继续滚动</span>
+<a id="__codelineno-0-74" name="__codelineno-0-74" href="#__codelineno-0-74"></a><span class="cm">     */</span>
+<a id="__codelineno-0-75" name="__codelineno-0-75" href="#__codelineno-0-75"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">resumeScroll</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-76" name="__codelineno-0-76" href="#__codelineno-0-76"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">mPaused</span><span class="p">)</span>
+<a id="__codelineno-0-77" name="__codelineno-0-77" href="#__codelineno-0-77"></a><span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-0-78" name="__codelineno-0-78" href="#__codelineno-0-78"></a><span class="w">        </span><span class="c1">// 设置水平滚动</span>
+<a id="__codelineno-0-79" name="__codelineno-0-79" href="#__codelineno-0-79"></a><span class="w">        </span><span class="n">setHorizontallyScrolling</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<a id="__codelineno-0-80" name="__codelineno-0-80" href="#__codelineno-0-80"></a>
+<a id="__codelineno-0-81" name="__codelineno-0-81" href="#__codelineno-0-81"></a><span class="w">        </span><span class="c1">// 使用 LinearInterpolator 进行滚动</span>
+<a id="__codelineno-0-82" name="__codelineno-0-82" href="#__codelineno-0-82"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mScroller</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-83" name="__codelineno-0-83" href="#__codelineno-0-83"></a><span class="w">            </span><span class="n">mScroller</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scroller</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">getContext</span><span class="p">(),</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LinearInterpolator</span><span class="p">());</span>
+<a id="__codelineno-0-84" name="__codelineno-0-84" href="#__codelineno-0-84"></a><span class="w">            </span><span class="n">setScroller</span><span class="p">(</span><span class="n">mScroller</span><span class="p">);</span>
+<a id="__codelineno-0-85" name="__codelineno-0-85" href="#__codelineno-0-85"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-0-86" name="__codelineno-0-86" href="#__codelineno-0-86"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">scrollingLen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">calculateScrollingLen</span><span class="p">();</span>
+<a id="__codelineno-0-87" name="__codelineno-0-87" href="#__codelineno-0-87"></a><span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">distance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scrollingLen</span><span class="w"> </span><span class="o">-</span><span class="w">  </span><span class="n">mXPaused</span><span class="p">;</span>
+<a id="__codelineno-0-88" name="__codelineno-0-88" href="#__codelineno-0-88"></a><span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">duration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Double</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="n">mRollingInterval</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">distance</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1.00000</span>
+<a id="__codelineno-0-89" name="__codelineno-0-89" href="#__codelineno-0-89"></a><span class="w">                </span><span class="o">/</span><span class="w"> </span><span class="n">scrollingLen</span><span class="p">)).</span><span class="na">intValue</span><span class="p">();</span>
+<a id="__codelineno-0-90" name="__codelineno-0-90" href="#__codelineno-0-90"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mFirst</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-91" name="__codelineno-0-91" href="#__codelineno-0-91"></a><span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="n">Handler</span><span class="p">(</span><span class="n">Looper</span><span class="p">.</span><span class="na">getMainLooper</span><span class="p">()).</span><span class="na">postDelayed</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Runnable</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-92" name="__codelineno-0-92" href="#__codelineno-0-92"></a><span class="w">                </span><span class="nd">@Override</span>
+<a id="__codelineno-0-93" name="__codelineno-0-93" href="#__codelineno-0-93"></a><span class="w">                </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-94" name="__codelineno-0-94" href="#__codelineno-0-94"></a><span class="w">                    </span><span class="n">mScroller</span><span class="p">.</span><span class="na">startScroll</span><span class="p">(</span><span class="n">mXPaused</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">distance</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">duration</span><span class="p">);</span>
+<a id="__codelineno-0-95" name="__codelineno-0-95" href="#__codelineno-0-95"></a><span class="w">                    </span><span class="n">invalidate</span><span class="p">();</span>
+<a id="__codelineno-0-96" name="__codelineno-0-96" href="#__codelineno-0-96"></a><span class="w">                    </span><span class="n">mPaused</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<a id="__codelineno-0-97" name="__codelineno-0-97" href="#__codelineno-0-97"></a><span class="w">                </span><span class="p">}</span>
+<a id="__codelineno-0-98" name="__codelineno-0-98" href="#__codelineno-0-98"></a><span class="w">            </span><span class="p">},</span><span class="w"> </span><span class="n">mFirstScrollDelay</span><span class="p">);</span>
+<a id="__codelineno-0-99" name="__codelineno-0-99" href="#__codelineno-0-99"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-100" name="__codelineno-0-100" href="#__codelineno-0-100"></a><span class="w">            </span><span class="n">mScroller</span><span class="p">.</span><span class="na">startScroll</span><span class="p">(</span><span class="n">mXPaused</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">distance</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">duration</span><span class="p">);</span>
+<a id="__codelineno-0-101" name="__codelineno-0-101" href="#__codelineno-0-101"></a><span class="w">            </span><span class="n">invalidate</span><span class="p">();</span>
+<a id="__codelineno-0-102" name="__codelineno-0-102" href="#__codelineno-0-102"></a><span class="w">            </span><span class="n">mPaused</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<a id="__codelineno-0-103" name="__codelineno-0-103" href="#__codelineno-0-103"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-0-104" name="__codelineno-0-104" href="#__codelineno-0-104"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-105" name="__codelineno-0-105" href="#__codelineno-0-105"></a>
+<a id="__codelineno-0-106" name="__codelineno-0-106" href="#__codelineno-0-106"></a><span class="w">    </span><span class="cm">/**</span>
+<a id="__codelineno-0-107" name="__codelineno-0-107" href="#__codelineno-0-107"></a><span class="cm">     * 暂停滚动</span>
+<a id="__codelineno-0-108" name="__codelineno-0-108" href="#__codelineno-0-108"></a><span class="cm">     */</span>
+<a id="__codelineno-0-109" name="__codelineno-0-109" href="#__codelineno-0-109"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">pauseScroll</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-110" name="__codelineno-0-110" href="#__codelineno-0-110"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="kc">null</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">mScroller</span><span class="p">)</span>
+<a id="__codelineno-0-111" name="__codelineno-0-111" href="#__codelineno-0-111"></a><span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-0-112" name="__codelineno-0-112" href="#__codelineno-0-112"></a>
+<a id="__codelineno-0-113" name="__codelineno-0-113" href="#__codelineno-0-113"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mPaused</span><span class="p">)</span>
+<a id="__codelineno-0-114" name="__codelineno-0-114" href="#__codelineno-0-114"></a><span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-0-115" name="__codelineno-0-115" href="#__codelineno-0-115"></a>
+<a id="__codelineno-0-116" name="__codelineno-0-116" href="#__codelineno-0-116"></a><span class="w">        </span><span class="n">mPaused</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<a id="__codelineno-0-117" name="__codelineno-0-117" href="#__codelineno-0-117"></a>
+<a id="__codelineno-0-118" name="__codelineno-0-118" href="#__codelineno-0-118"></a><span class="w">        </span><span class="n">mXPaused</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mScroller</span><span class="p">.</span><span class="na">getCurrX</span><span class="p">();</span>
+<a id="__codelineno-0-119" name="__codelineno-0-119" href="#__codelineno-0-119"></a>
+<a id="__codelineno-0-120" name="__codelineno-0-120" href="#__codelineno-0-120"></a><span class="w">        </span><span class="n">mScroller</span><span class="p">.</span><span class="na">abortAnimation</span><span class="p">();</span>
+<a id="__codelineno-0-121" name="__codelineno-0-121" href="#__codelineno-0-121"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-122" name="__codelineno-0-122" href="#__codelineno-0-122"></a>
+<a id="__codelineno-0-123" name="__codelineno-0-123" href="#__codelineno-0-123"></a><span class="w">    </span><span class="cm">/**</span>
+<a id="__codelineno-0-124" name="__codelineno-0-124" href="#__codelineno-0-124"></a><span class="cm">     * 停止滚动，并回到初始位置</span>
+<a id="__codelineno-0-125" name="__codelineno-0-125" href="#__codelineno-0-125"></a><span class="cm">     */</span>
+<a id="__codelineno-0-126" name="__codelineno-0-126" href="#__codelineno-0-126"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">stopScroll</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-127" name="__codelineno-0-127" href="#__codelineno-0-127"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="kc">null</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">mScroller</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-128" name="__codelineno-0-128" href="#__codelineno-0-128"></a><span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-0-129" name="__codelineno-0-129" href="#__codelineno-0-129"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-0-130" name="__codelineno-0-130" href="#__codelineno-0-130"></a><span class="w">        </span><span class="n">mPaused</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<a id="__codelineno-0-131" name="__codelineno-0-131" href="#__codelineno-0-131"></a><span class="w">        </span><span class="n">mScroller</span><span class="p">.</span><span class="na">startScroll</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<a id="__codelineno-0-132" name="__codelineno-0-132" href="#__codelineno-0-132"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-133" name="__codelineno-0-133" href="#__codelineno-0-133"></a>
+<a id="__codelineno-0-134" name="__codelineno-0-134" href="#__codelineno-0-134"></a><span class="w">    </span><span class="cm">/**</span>
+<a id="__codelineno-0-135" name="__codelineno-0-135" href="#__codelineno-0-135"></a><span class="cm">     * 计算滚动的距离</span>
+<a id="__codelineno-0-136" name="__codelineno-0-136" href="#__codelineno-0-136"></a><span class="cm">     *</span>
+<a id="__codelineno-0-137" name="__codelineno-0-137" href="#__codelineno-0-137"></a><span class="cm">     * @return 滚动的距离</span>
+<a id="__codelineno-0-138" name="__codelineno-0-138" href="#__codelineno-0-138"></a><span class="cm">     */</span>
+<a id="__codelineno-0-139" name="__codelineno-0-139" href="#__codelineno-0-139"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">calculateScrollingLen</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-140" name="__codelineno-0-140" href="#__codelineno-0-140"></a><span class="w">        </span><span class="n">TextPaint</span><span class="w"> </span><span class="n">tp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getPaint</span><span class="p">();</span>
+<a id="__codelineno-0-141" name="__codelineno-0-141" href="#__codelineno-0-141"></a><span class="w">        </span><span class="n">Rect</span><span class="w"> </span><span class="n">rect</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rect</span><span class="p">();</span>
+<a id="__codelineno-0-142" name="__codelineno-0-142" href="#__codelineno-0-142"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">strTxt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getText</span><span class="p">().</span><span class="na">toString</span><span class="p">();</span>
+<a id="__codelineno-0-143" name="__codelineno-0-143" href="#__codelineno-0-143"></a><span class="w">        </span><span class="n">tp</span><span class="p">.</span><span class="na">getTextBounds</span><span class="p">(</span><span class="n">strTxt</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">strTxt</span><span class="p">.</span><span class="na">length</span><span class="p">(),</span><span class="w"> </span><span class="n">rect</span><span class="p">);</span>
+<a id="__codelineno-0-144" name="__codelineno-0-144" href="#__codelineno-0-144"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">rect</span><span class="p">.</span><span class="na">width</span><span class="p">();</span>
+<a id="__codelineno-0-145" name="__codelineno-0-145" href="#__codelineno-0-145"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-146" name="__codelineno-0-146" href="#__codelineno-0-146"></a>
+<a id="__codelineno-0-147" name="__codelineno-0-147" href="#__codelineno-0-147"></a><span class="w">    </span><span class="nd">@Override</span>
+<a id="__codelineno-0-148" name="__codelineno-0-148" href="#__codelineno-0-148"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">computeScroll</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-149" name="__codelineno-0-149" href="#__codelineno-0-149"></a><span class="w">        </span><span class="kd">super</span><span class="p">.</span><span class="na">computeScroll</span><span class="p">();</span>
+<a id="__codelineno-0-150" name="__codelineno-0-150" href="#__codelineno-0-150"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="kc">null</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">mScroller</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-0-151" name="__codelineno-0-151" href="#__codelineno-0-151"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mScroller</span><span class="p">.</span><span class="na">isFinished</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">mPaused</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-152" name="__codelineno-0-152" href="#__codelineno-0-152"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mScrollMode</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">SCROLL_ONCE</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-153" name="__codelineno-0-153" href="#__codelineno-0-153"></a><span class="w">                </span><span class="n">stopScroll</span><span class="p">();</span>
+<a id="__codelineno-0-154" name="__codelineno-0-154" href="#__codelineno-0-154"></a><span class="w">                </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-0-155" name="__codelineno-0-155" href="#__codelineno-0-155"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-0-156" name="__codelineno-0-156" href="#__codelineno-0-156"></a><span class="w">            </span><span class="n">mPaused</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<a id="__codelineno-0-157" name="__codelineno-0-157" href="#__codelineno-0-157"></a><span class="w">            </span><span class="n">mXPaused</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">getWidth</span><span class="p">();</span>
+<a id="__codelineno-0-158" name="__codelineno-0-158" href="#__codelineno-0-158"></a><span class="w">            </span><span class="n">mFirst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<a id="__codelineno-0-159" name="__codelineno-0-159" href="#__codelineno-0-159"></a><span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="na">resumeScroll</span><span class="p">();</span>
+<a id="__codelineno-0-160" name="__codelineno-0-160" href="#__codelineno-0-160"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-0-161" name="__codelineno-0-161" href="#__codelineno-0-161"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-162" name="__codelineno-0-162" href="#__codelineno-0-162"></a>
+<a id="__codelineno-0-163" name="__codelineno-0-163" href="#__codelineno-0-163"></a><span class="w">    </span><span class="cm">/** 获取滚动一次的时间 */</span>
+<a id="__codelineno-0-164" name="__codelineno-0-164" href="#__codelineno-0-164"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getRndDuration</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="k">return</span><span class="w"> </span><span class="n">mRollingInterval</span><span class="p">;}</span>
+<a id="__codelineno-0-165" name="__codelineno-0-165" href="#__codelineno-0-165"></a><span class="w">    </span><span class="cm">/** 设置滚动一次的时间 */</span>
+<a id="__codelineno-0-166" name="__codelineno-0-166" href="#__codelineno-0-166"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setRndDuration</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">duration</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="na">mRollingInterval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">duration</span><span class="p">;}</span>
+<a id="__codelineno-0-167" name="__codelineno-0-167" href="#__codelineno-0-167"></a><span class="w">    </span><span class="cm">/** 设置滚动模式 */</span>
+<a id="__codelineno-0-168" name="__codelineno-0-168" href="#__codelineno-0-168"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setScrollMode</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">mode</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="na">mScrollMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mode</span><span class="p">;}</span>
+<a id="__codelineno-0-169" name="__codelineno-0-169" href="#__codelineno-0-169"></a><span class="w">    </span><span class="cm">/** 获取滚动模式 */</span>
+<a id="__codelineno-0-170" name="__codelineno-0-170" href="#__codelineno-0-170"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getScrollMode</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">mScrollMode</span><span class="p">;}</span>
+<a id="__codelineno-0-171" name="__codelineno-0-171" href="#__codelineno-0-171"></a><span class="w">    </span><span class="cm">/** 设置第一次滚动延迟 */</span>
+<a id="__codelineno-0-172" name="__codelineno-0-172" href="#__codelineno-0-172"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setScrollFirstDelay</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">delay</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="na">mFirstScrollDelay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">delay</span><span class="p">;}</span>
+<a id="__codelineno-0-173" name="__codelineno-0-173" href="#__codelineno-0-173"></a><span class="w">    </span><span class="cm">/** 获取第一次滚动延迟 */</span>
+<a id="__codelineno-0-174" name="__codelineno-0-174" href="#__codelineno-0-174"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getScrollFirstDelay</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="k">return</span><span class="w"> </span><span class="n">mFirstScrollDelay</span><span class="p">;}</span>
+<a id="__codelineno-0-175" name="__codelineno-0-175" href="#__codelineno-0-175"></a>
+<a id="__codelineno-0-176" name="__codelineno-0-176" href="#__codelineno-0-176"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isPaused</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-177" name="__codelineno-0-177" href="#__codelineno-0-177"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">mPaused</span><span class="p">;</span>
+<a id="__codelineno-0-178" name="__codelineno-0-178" href="#__codelineno-0-178"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-179" name="__codelineno-0-179" href="#__codelineno-0-179"></a><span class="p">}</span>
 </code></pre></div>
-<p>用<strong>Integer.toBinaryString</strong>获得字符串形式
-<div class="highlight"><span class="filename">测试输入</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kt">byte</span><span class="w"> </span><span class="n">b1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">0b1</span><span class="p">;</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kt">byte</span><span class="w"> </span><span class="n">b2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">0b10</span><span class="p">;</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kt">byte</span><span class="w"> </span><span class="n">b3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">0b11</span><span class="p">;</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kt">byte</span><span class="w"> </span><span class="n">b4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">0b100</span><span class="p">;</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Integer</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">b1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, &quot;</span><span class="w"> </span><span class="o">+</span><span class="n">Integer</span><span class="p">.</span><span class="na">toBinaryString</span><span class="p">(</span><span class="n">b1</span><span class="p">));</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Integer</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">b2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, &quot;</span><span class="w"> </span><span class="o">+</span><span class="n">Integer</span><span class="p">.</span><span class="na">toBinaryString</span><span class="p">(</span><span class="n">b2</span><span class="p">));</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Integer</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">b3</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, &quot;</span><span class="w"> </span><span class="o">+</span><span class="n">Integer</span><span class="p">.</span><span class="na">toBinaryString</span><span class="p">(</span><span class="n">b3</span><span class="p">));</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Integer</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">b4</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, &quot;</span><span class="w"> </span><span class="o">+</span><span class="n">Integer</span><span class="p">.</span><span class="na">toBinaryString</span><span class="p">(</span><span class="n">b4</span><span class="p">));</span>
-</code></pre></div></p>
-<div class="highlight"><span class="filename">输出</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>1, 1
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>2, 10
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>3, 11
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>4, 100
-</code></pre></div>
-<p>更多的位，如64，127
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kt">byte</span><span class="w"> </span><span class="n">b1000000</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">0b1000000</span><span class="p">;</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Integer</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">b1000000</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, &quot;</span><span class="w"> </span><span class="o">+</span><span class="n">Integer</span><span class="p">.</span><span class="na">toBinaryString</span><span class="p">(</span><span class="n">b1000000</span><span class="p">));</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kt">byte</span><span class="w"> </span><span class="n">b127</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">0b1111111</span><span class="p">;</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Integer</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">b127</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, &quot;</span><span class="w"> </span><span class="o">+</span><span class="n">Integer</span><span class="p">.</span><span class="na">toBinaryString</span><span class="p">(</span><span class="n">b127</span><span class="p">));</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="kt">int</span><span class="w"> </span><span class="n">b128</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mb">0b10000000</span><span class="p">;</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Integer</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">b128</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, &quot;</span><span class="w"> </span><span class="o">+</span><span class="n">Integer</span><span class="p">.</span><span class="na">toBinaryString</span><span class="p">(</span><span class="n">b128</span><span class="p">));</span>
-</code></pre></div></p>
-<div class="highlight"><span class="filename">输出</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>64, 1000000
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>127, 1111111
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>128, 10000000
-</code></pre></div>
-<p>Java中，byte最大是127（Byte.MAX_VALUE），最小是-128（Byte.MIN_VALUE）
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Integer</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">Byte</span><span class="p">.</span><span class="na">MIN_VALUE</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, &quot;</span><span class="w"> </span><span class="o">+</span><span class="n">Integer</span><span class="p">.</span><span class="na">toBinaryString</span><span class="p">(</span><span class="n">Byte</span><span class="p">.</span><span class="na">MIN_VALUE</span><span class="p">));</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="c1">// -128, 11111111111111111111111110000000</span>
-</code></pre></div></p>
-<h2 id="_1">左移一位 <code>&lt;&lt;</code><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
-<span class="normal"><a href="#__codelineno-6-2">2</a></span>
-<span class="normal"><a href="#__codelineno-6-3">3</a></span>
-<span class="normal"><a href="#__codelineno-6-4">4</a></span>
-<span class="normal"><a href="#__codelineno-6-5">5</a></span>
-<span class="normal"><a href="#__codelineno-6-6">6</a></span>
-<span class="normal"><a href="#__codelineno-6-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;0x&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">toBinaryString</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;0x&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">toBinaryString</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;0x&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">toBinaryString</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;0x&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">toBinaryString</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1</span><span class="p">));</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;0x&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">toBinaryString</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">));</span>
-<a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;0x&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">toBinaryString</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">3</span><span class="p">));</span>
-<a id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;0x&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">toBinaryString</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">4</span><span class="p">));</span>
-</code></pre></div></td></tr></table></div>
-<div class="highlight"><span class="filename">输出</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="mh">0x1</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="mh">0x10</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="mh">0x11</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="mh">0x10</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="mh">0x100</span>
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="mh">0x1000</span>
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="mh">0x10000</span>
+<h2 id="xml">在xml中使用<a class="headerlink" href="#xml" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">&lt;com.rustfisher.ui.MarqueeTextView</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="na">android:id=</span><span class="s">&quot;@+id/tv&quot;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="na">android:layout_width=</span><span class="s">&quot;match_parent&quot;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="na">android:ellipsize=</span><span class="s">&quot;marquee&quot;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="na">android:focusable=</span><span class="s">&quot;true&quot;</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="na">android:focusableInTouchMode=</span><span class="s">&quot;true&quot;</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="na">android:marqueeRepeatLimit=</span><span class="s">&quot;marquee_forever&quot;</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="na">android:scrollHorizontally=</span><span class="s">&quot;true&quot;</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="na">android:text=</span><span class="s">&quot;显示信息&quot;</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="na">android:textColor=</span><span class="s">&quot;#D9000000&quot;</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="na">android:textSize=</span><span class="s">&quot;36sp&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 </code></pre></div>
 
 
@@ -14731,7 +14868,7 @@
 
   <details class="info" open><summary class="">本站说明</summary>
     <!-- <p><b>本站作者</b>: <a href="https://rustfisher.com">rustfisher.com</a> | rf.cs@foxmail.com</p>
-    <p><b>本文链接</b>: <a href="https://www.an.rustfisher.com/java/basic/java-bit/">https://www.an.rustfisher.com/java/basic/java-bit/</a></p> -->
+    <p><b>本文链接</b>: <a href="https://www.an.rustfisher.com/android/ui/view/textView/custom-MarqueeTextView/">https://www.an.rustfisher.com/android/ui/view/textView/custom-MarqueeTextView/</a></p> -->
     <p>一起在知识的海洋里呛水吧。广告内容与本站无关。如果喜欢本站内容，欢迎投喂作者，谢谢支持服务器。如有疑问和建议，欢迎在下方评论~</p>
     <p>
       <a class="md-button" href="https://gitee.com/rustfisher/AndroidTutorial">📖AndroidTutorial</a>
@@ -14848,7 +14985,7 @@ setTimeout(() => {
     <nav class="md-footer__inner md-grid" aria-label="footer.title">
       
         
-        <a href="../../interface/java-interface-and-abstract-class/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 接口与抽象类" rel="prev">
+        <a href="../special_char/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 特殊字符" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -14857,20 +14994,20 @@ setTimeout(() => {
               <span class="md-footer__direction">
                 上一页
               </span>
-              接口与抽象类
+              特殊字符
             </div>
           </div>
         </a>
       
       
         
-        <a href="../../class/class-basic/" class="md-footer__link md-footer__link--next" aria-label="下一页: 基础" rel="next">
+        <a href="../SpannableString_intro/" class="md-footer__link md-footer__link--next" aria-label="下一页: 简介" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 下一页
               </span>
-              基础
+              简介
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -14936,14 +15073,14 @@ setTimeout(() => {
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["tabs", "navigation.tabs", "navigation.sections", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["tabs", "navigation.tabs", "navigation.sections", "content.code.annotate"], "search": "../../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.e1c3ead8.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.e1c3ead8.min.js"></script>
       
-        <script src="../../../about/baidu.js"></script>
+        <script src="../../../../../about/baidu.js"></script>
       
-        <script src="../../../about/so_360.js"></script>
+        <script src="../../../../../about/so_360.js"></script>
       
     
   </body>
