@@ -21,6 +21,7 @@ https://www.an.rustfisher.com/android/ui/view/textView/text_style/index.html
 https://www.an.rustfisher.com/android/ui/view/textView/typeface/index.html
 https://www.an.rustfisher.com/android/ui/view/textView/show_html/index.html
 https://www.an.rustfisher.com/android/ui/view/textView/special_char/index.html
+https://www.an.rustfisher.com/android/ui/view/textView/custom-MarqueeTextView/index.html
 https://www.an.rustfisher.com/android/ui/view/textView/SpannableString_intro/index.html
 https://www.an.rustfisher.com/android/ui/view/textView/foregroundColorSpan_not_work/index.html
 https://www.an.rustfisher.com/android/ui/view/textView/textView_clickableSpan_crash_in_recyclerview/index.html
