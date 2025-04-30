@@ -1,0 +1,47 @@
+{
+  "../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli-vite/\u0000plugin-vue:export-helper": [
+    "/assets/pages-index-index.Drue7XZL.js",
+    "/assets/index-Hf8n3R5-.css"
+  ],
+  "../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli-vite/\u0000vite/modulepreload-polyfill.js": [],
+  "../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli-vite/\u0000vite/preload-helper.js": [],
+  "../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli-vite/node_modules/@dcloudio/uni-h5-vue/dist/vue.runtime.esm.js": [],
+  "../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli-vite/node_modules/@dcloudio/uni-h5/dist/uni-h5.es.js": [],
+  "../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli-vite/node_modules/@dcloudio/uni-h5/style/framework/async.css": [],
+  "../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli-vite/node_modules/@dcloudio/uni-h5/style/framework/base.css": [],
+  "../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli-vite/node_modules/@dcloudio/uni-h5/style/framework/shadow.css": [],
+  "../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli-vite/node_modules/@dcloudio/uni-i18n/dist/uni-i18n.es.js": [],
+  "../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli-vite/node_modules/@dcloudio/uni-shared/dist/uni-shared.es.js": [],
+  "../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli-vite/node_modules/@vue/shared/dist/shared.esm-bundler.js": [],
+  "../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli-vite/node_modules/vue-router/dist/vue-router.mjs": [],
+  "App.vue": [],
+  "App.vue?vue&type=style&index=0&lang.css": [],
+  "components/ClockView1.vue": [
+    "/assets/pages-index-index.Drue7XZL.js",
+    "/assets/index-Hf8n3R5-.css"
+  ],
+  "components/ClockView1.vue?vue&type=style&index=0&scoped=69f72238&lang.css": [
+    "/assets/pages-index-index.Drue7XZL.js",
+    "/assets/index-Hf8n3R5-.css"
+  ],
+  "components/ClockView2.vue": [
+    "/assets/pages-index-index.Drue7XZL.js",
+    "/assets/index-Hf8n3R5-.css"
+  ],
+  "components/ClockView2.vue?vue&type=style&index=0&scoped=258ba4c5&lang.css": [
+    "/assets/pages-index-index.Drue7XZL.js",
+    "/assets/index-Hf8n3R5-.css"
+  ],
+  "index.html": [],
+  "main.js": [],
+  "manifest-json-js": [],
+  "pages-json-js": [],
+  "pages/index/index.vue": [
+    "/assets/pages-index-index.Drue7XZL.js",
+    "/assets/index-Hf8n3R5-.css"
+  ],
+  "pages/index/index.vue?vue&type=style&index=0&scoped=8387e610&lang.css": [
+    "/assets/pages-index-index.Drue7XZL.js",
+    "/assets/index-Hf8n3R5-.css"
+  ]
+}
