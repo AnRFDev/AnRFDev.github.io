@@ -288,6 +288,7 @@ https://www.an.rustfisher.com/tech-note-index/
 https://www.an.rustfisher.com/recent-post/
 https://www.an.rustfisher.com/tags/
 https://www.an.rustfisher.com/git/git-tips/
+https://www.an.rustfisher.com/uniapp/uniapp-android-local-build/
 https://www.an.rustfisher.com/uniapp/uniapp-android-start-too-slow/
 https://www.an.rustfisher.com/nestjs/nestjs-websocket-start/
 https://www.an.rustfisher.com/nestjs/wss-nginx-cfg/
