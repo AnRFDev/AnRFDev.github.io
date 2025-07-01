@@ -157,6 +157,7 @@ https://www.an.rustfisher.com/android/lib/rx/rx-android-intro/index.html
 https://www.an.rustfisher.com/android/lib/pinyin/lib-tinypinyin-intro/index.html
 https://www.an.rustfisher.com/android/lib/eventbus/event-bus-note/index.html
 https://www.an.rustfisher.com/android/lib/android-gpuimage/android-gpuimage-intro/index.html
+https://www.an.rustfisher.com/android/util/lombok-android-NoSuchFieldError-JCTree/index.html
 https://www.an.rustfisher.com/android/as/use-as/index.html
 https://www.an.rustfisher.com/android/as/suppress-warnings-use/index.html
 https://www.an.rustfisher.com/android/as/update-plugin-from-disk/index.html
