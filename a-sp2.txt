@@ -291,6 +291,7 @@ https://www.an.rustfisher.com/tags/index.html
 https://www.an.rustfisher.com/git/git-tips/index.html
 https://www.an.rustfisher.com/uniapp/uniapp-android-local-build/index.html
 https://www.an.rustfisher.com/uniapp/uniapp-android-start-too-slow/index.html
+https://www.an.rustfisher.com/uniapp/uniapp-android-horizontal-screen/index.html
 https://www.an.rustfisher.com/nestjs/nestjs-websocket-start/index.html
 https://www.an.rustfisher.com/nestjs/wss-nginx-cfg/index.html
 https://www.an.rustfisher.com/nestjs/nestjs-static-file/index.html
