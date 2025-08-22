@@ -289,6 +289,7 @@ https://www.an.rustfisher.com/tech-note-index/index.html
 https://www.an.rustfisher.com/recent-post/index.html
 https://www.an.rustfisher.com/tags/index.html
 https://www.an.rustfisher.com/git/git-tips/index.html
+https://www.an.rustfisher.com/harmony/window/change-app-screen-orientation/index.html
 https://www.an.rustfisher.com/uniapp/uniapp-android-local-build/index.html
 https://www.an.rustfisher.com/uniapp/uniapp-android-start-too-slow/index.html
 https://www.an.rustfisher.com/uniapp/uniapp-android-horizontal-screen/index.html
