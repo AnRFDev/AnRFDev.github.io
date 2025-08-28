@@ -115,8 +115,8 @@
     <!-- 暂时让时间一致 -->
       
       
-      <meta name="bytedance:updated_time" content="2025-07-10 00:22:22+08:00"/>
-      <meta name="bytedance:lrDate_time" content="2025-07-10 00:22:22+08:00"/>
+      <meta name="bytedance:updated_time" content="2025-08-28 00:22:22+08:00"/>
+      <meta name="bytedance:lrDate_time" content="2025-08-28 00:22:22+08:00"/>
     
 
     
@@ -162,8 +162,8 @@
           "@type": "Person",
           "name": "RustFisher"
         },
-        "datePublished": "2025-07-10 00:22:22+08:00",
-        "dateModified": "2025-07-10 00:22:22+08:00",
+        "datePublished": "2025-08-28 00:22:22+08:00",
+        "dateModified": "2025-08-28 00:22:22+08:00",
         "description": "Android Studio 模块打包成jar，合并第三方jar成1个jar包。不同版本gradle打包遇到的兼容性问题。",
         "publisher": {
           "@type": "Person",
@@ -6710,6 +6710,15 @@
   <a href="#jar" class="md-nav__link">
     <span class="md-ellipsis">
       合并jar包
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kts-makejar" class="md-nav__link">
+    <span class="md-ellipsis">
+      kts makeJar 例子
     </span>
   </a>
   
@@ -14905,6 +14914,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#kts-makejar" class="md-nav__link">
+    <span class="md-ellipsis">
+      kts makeJar 例子
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       参考
@@ -14950,14 +14968,21 @@
       <a href="../../../tags/#android-studio" class="md-tag">Android Studio</a>
     
   
+    
+    
+    
+      <a href="../../../tags/#gradle" class="md-tag">gradle</a>
+    
+  
 </nav>
 
 
 
 <h1 id="android-studio-jar">Android Studio 模块编译打包出jar<a class="headerlink" href="#android-studio-jar" title="Permanent link">&para;</a></h1>
 <details class="note">
-<summary>更新日期： 2025-07-10</summary>
+<summary>更新日期： 2025-08-28</summary>
 <ul>
+<li>2025-08-28 增加kts打包的例子</li>
 <li>2025-07-10 高版本agp打包后，低版本使用jar包会报错</li>
 <li>2025-05-22 更新</li>
 <li>2023-11-23 合并jar的方法</li>
@@ -15217,6 +15242,43 @@
 <div class="admonition warning">
 <p>上面用了过时的属性 <strong>destinationDir</strong> <strong>archiveName</strong></p>
 </div>
+<h2 id="kts-makejar">kts makeJar 例子<a class="headerlink" href="#kts-makejar" title="Permanent link">&para;</a></h2>
+<p>在模块的 <strong>build.gradle.kts</strong> 文件中，添加打包jar的方法。和上文类似，任务类型是<code>Copy</code>，并且依赖于<code>build</code></p>
+<p>工程配置为：</p>
+<ul>
+<li>gradle-8.6-bin</li>
+<li>agp = "8.4.0"</li>
+</ul>
+<p>方法代码如下：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// 打包成jar 但是不带其他依赖</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">tasks</span><span class="p">.</span><span class="na">register</span><span class="o">&lt;</span><span class="n">Copy</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;makeJar&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="n">dependsOn</span><span class="p">(</span><span class="s">&quot;build&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="c1">// 1. 删除已存在的 JAR 文件</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="c1">// 使用 delete() 函数可以安全地删除文件或目录</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="n">delete</span><span class="p">(</span><span class="s">&quot;build/libs/rustfisher-SDK.jar&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="c1">// 2. 设置要拷贝的文件</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="c1">// from() 函数用于指定源文件或目录</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">    </span><span class="n">from</span><span class="p">(</span><span class="n">file</span><span class="p">(</span><span class="s">&quot;build/intermediates/aar_main_jar/release/syncReleaseLibJars&quot;</span><span class="p">))</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">    </span><span class="c1">// 3. 设置 JAR 包的输出目录</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">    </span><span class="c1">// into() 函数用于指定目标目录</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">    </span><span class="n">into</span><span class="p">(</span><span class="n">file</span><span class="p">(</span><span class="s">&quot;build/libs/&quot;</span><span class="p">))</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">    </span><span class="c1">// 4. 设置过滤和重命名</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="w">    </span><span class="c1">// include() 和 rename() 方法用于过滤和重命名文件</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="w">    </span><span class="n">include</span><span class="p">(</span><span class="s">&quot;classes.jar&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="w">    </span><span class="n">rename</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">fileName</span><span class="w"> </span><span class="o">-&gt;</span>
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="w">        </span><span class="c1">// 使用 lambda 表达式来处理重命名逻辑</span>
+<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fileName</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;classes.jar&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a><span class="w">            </span><span class="s">&quot;rustfisher-SDK.jar&quot;</span>
+<a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a><span class="w">            </span><span class="n">fileName</span><span class="w"> </span><span class="c1">// 如果文件名不匹配，则保持不变</span>
+<a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a><span class="p">}</span>
+</code></pre></div></p>
 <h2 id="_1">参考<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://juejin.cn/post/6986191903888769032">Gradle 系列 （二）、Gradle 技术探索 - 掘金</a></li>

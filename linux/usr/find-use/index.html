@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="linux find 寻找指定文件。查找特定结尾的文件。找到文件后执行操作。批量安装文件。">
+        <meta name="description" content="linux find 寻找指定文件。查找特定结尾的文件。找到文件后执行操作。批量安装文件，批量移动文件到指定目录。">
       
       
       
@@ -27,7 +27,7 @@
     
     
       
-        <title>find的使用，寻找特定文件 - RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt</title>
+        <title>Linux find命令的使用，寻找特定文件，找到特定文件后执行操作 - RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt</title>
       
     
     
@@ -92,11 +92,11 @@
 
   
     
-      <meta name="title" content="find的使用，寻找特定文件"/>
-      <meta property="og:title" content="find的使用，寻找特定文件"/>
+      <meta name="title" content="Linux find命令的使用，寻找特定文件，找到特定文件后执行操作"/>
+      <meta property="og:title" content="Linux find命令的使用，寻找特定文件，找到特定文件后执行操作"/>
     
     
-      <meta name="keywords" content="linux find"/>
+      <meta name="keywords" content="linux, find"/>
     
     
       
@@ -115,8 +115,8 @@
     <!-- 暂时让时间一致 -->
       
       
-      <meta name="bytedance:updated_time" content="2022-03-17 14:28:57+08:00"/>
-      <meta name="bytedance:lrDate_time" content="2022-03-17 14:28:57+08:00"/>
+      <meta name="bytedance:updated_time" content="2025-08-28 14:28:57+08:00"/>
+      <meta name="bytedance:lrDate_time" content="2025-08-28 14:28:57+08:00"/>
     
 
     
@@ -125,7 +125,7 @@
   
 
   <meta property="og:image" content="https://www.an.rustfisher.com/about/_media/cover/linux-blue-circle.jpeg" />
-  <meta property="og:description" content="linux find 寻找指定文件。查找特定结尾的文件。找到文件后执行操作。批量安装文件。">
+  <meta property="og:description" content="linux find 寻找指定文件。查找特定结尾的文件。找到文件后执行操作。批量安装文件，批量移动文件到指定目录。">
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGC5WSNW8Y"></script>
@@ -162,9 +162,9 @@
           "@type": "Person",
           "name": "RustFisher"
         },
-        "datePublished": "2022-03-17 14:28:57+08:00",
-        "dateModified": "2022-03-17 14:28:57+08:00",
-        "description": "linux find 寻找指定文件。查找特定结尾的文件。找到文件后执行操作。批量安装文件。",
+        "datePublished": "2025-08-28 14:28:57+08:00",
+        "dateModified": "2025-08-28 14:28:57+08:00",
+        "description": "linux find 寻找指定文件。查找特定结尾的文件。找到文件后执行操作。批量安装文件，批量移动文件到指定目录。",
         "publisher": {
           "@type": "Person",
           "name": "RustFisher",
@@ -240,7 +240,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              find的使用，寻找特定文件
+              Linux find命令的使用，寻找特定文件，找到特定文件后执行操作
             
           </span>
         </div>
@@ -14781,15 +14781,22 @@
       <a href="../../../tags/#linux" class="md-tag">Linux</a>
     
   
+    
+    
+    
+      <a href="../../../tags/#find" class="md-tag">find</a>
+    
+  
 </nav>
 
 
 
-<h1 id="linux-find">linux find<a class="headerlink" href="#linux-find" title="Permanent link">&para;</a></h1>
+<h1 id="linux-find">Linux find命令的使用，寻找特定文件，找到特定文件后执行操作<a class="headerlink" href="#linux-find" title="Permanent link">&para;</a></h1>
 <details class="note">
-<summary>更新日期 2022-3-17</summary>
+<summary>更新日期 2025-08-28</summary>
 <p><img alt="linux" src="/about/res/linux-gray.png" /></p>
 <ul>
+<li>2025-08-28 更新文档，增加命令案例</li>
 <li>2022-3-17 创建文档</li>
 </ul>
 </details>
@@ -14824,6 +14831,9 @@
 <code>-type d</code>意思是指定类型为目录（文件夹）</p>
 <p>找到当前目录下所有的apk并安装
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="w"> </span><span class="s2">&quot;*.apk&quot;</span><span class="w"> </span>-exec<span class="w"> </span>adb<span class="w"> </span>install<span class="w"> </span><span class="o">{}</span><span class="w"> </span><span class="se">\;</span>
+</code></pre></div></p>
+<p><strong><em>查找和移动</em></strong> 把文件名包含特定字符的文件移动到目录中，比如用来整理log文件
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>find . -type f -name &quot;*-202507*&quot; -exec mv {} 202507/ \;
 </code></pre></div></p>
 
 
