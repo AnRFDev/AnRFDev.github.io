@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="柱状波形图是一种常见的图形。一个个柱子按顺序排列，构成一个波形图。柱子的高度由输入数据决定。如果输入的是音频的音量，则可得到一个声波图。Android 柱状波形图 wave view。">
+        <meta name="description" content="柱状波形图是一种常见的图形。一个个柱子按顺序排列，构成一个波形图。柱子的高度由输入数据决定。如果输入的是音频的音量，则可得到一个声波图。本文介绍在Android应用中使用自定义view绘制柱状波形图 wave view。">
       
       
       
@@ -115,8 +115,8 @@
     <!-- 暂时让时间一致 -->
       
       
-      <meta name="bytedance:updated_time" content="2022-08-15 00:43:57+08:00"/>
-      <meta name="bytedance:lrDate_time" content="2022-08-15 00:43:57+08:00"/>
+      <meta name="bytedance:updated_time" content="2025-12-19 00:43:57+08:00"/>
+      <meta name="bytedance:lrDate_time" content="2025-12-19 00:43:57+08:00"/>
     
 
     
@@ -125,7 +125,7 @@
   
 
   <meta property="og:image" content="https://www.an.rustfisher.com/about/_media/cover/as-logo-700.png" />
-  <meta property="og:description" content="柱状波形图是一种常见的图形。一个个柱子按顺序排列，构成一个波形图。柱子的高度由输入数据决定。如果输入的是音频的音量，则可得到一个声波图。Android 柱状波形图 wave view。">
+  <meta property="og:description" content="柱状波形图是一种常见的图形。一个个柱子按顺序排列，构成一个波形图。柱子的高度由输入数据决定。如果输入的是音频的音量，则可得到一个声波图。本文介绍在Android应用中使用自定义view绘制柱状波形图 wave view。">
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGC5WSNW8Y"></script>
@@ -162,9 +162,9 @@
           "@type": "Person",
           "name": "RustFisher"
         },
-        "datePublished": "2022-08-15 00:43:57+08:00",
-        "dateModified": "2022-08-15 00:43:57+08:00",
-        "description": "柱状波形图是一种常见的图形。一个个柱子按顺序排列，构成一个波形图。柱子的高度由输入数据决定。如果输入的是音频的音量，则可得到一个声波图。Android 柱状波形图 wave view。",
+        "datePublished": "2025-12-19 00:43:57+08:00",
+        "dateModified": "2025-12-19 00:43:57+08:00",
+        "description": "柱状波形图是一种常见的图形。一个个柱子按顺序排列，构成一个波形图。柱子的高度由输入数据决定。如果输入的是音频的音量，则可得到一个声波图。本文介绍在Android应用中使用自定义view绘制柱状波形图 wave view。",
         "publisher": {
           "@type": "Person",
           "name": "RustFisher",
@@ -14999,8 +14999,9 @@
 
 <h1 id="android-wave-view">Android 柱状波形图 wave view<a class="headerlink" href="#android-wave-view" title="Permanent link">&para;</a></h1>
 <details class="note">
-<summary>更新日期 2022-8-15</summary>
+<summary>更新日期 2025-12-19</summary>
 <ul>
+<li>2025-12-19 更新文档</li>
 <li>2022-8-15 创建文档</li>
 </ul>
 </details>
@@ -15054,7 +15055,7 @@
 <a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">middleLineColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">parseColor</span><span class="p">(</span><span class="s">&quot;#55000000&quot;</span><span class="p">);</span>
 </code></pre></div>
 <h3 id="_4">设计监听器<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<p>拖动完毕后，可以将当前进度通知出去。也可以直接把触摸事件传出去。</p>
+<p>拖动完毕后，可以将当前进度通知出去。也可以直接把触摸事件 <em>MotionEvent</em> 传出去。</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">监听器相关</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
