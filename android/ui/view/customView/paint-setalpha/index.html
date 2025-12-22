@@ -6,35 +6,35 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="安卓开发，安卓教程，Android入门，安卓新手教程，软件开发基础。突出一个简单明了，上手快。从实用性出发，快速掌握Android开发基本技能。插件式学习，学以致用。">
+        <meta name="description" content="在自定义View中会使用到**Paint**，设置画笔颜色时经常使用 setColor 方法，设置不透明度可用 setAlpha 方法。在开发中要注意先 setColor ，后 setAlpha">
       
       
       
-        <link rel="canonical" href="https://www.an.rustfisher.com/android/io/mmap/mappedByteBuffer-use-demo1/">
+        <link rel="canonical" href="https://www.an.rustfisher.com/android/ui/view/customView/paint-setalpha/">
       
       
-        <link rel="prev" href="../mmap_intro_and_use/">
+        <link rel="prev" href="../../../widget/toast/custom-toast/">
       
       
-        <link rel="next" href="../../../content/sharedpreferences/intro1/">
+        <link rel="next" href="../../animation/view-animation-intro/">
       
       
-        <link rel="alternate" type="application/rss+xml" title="RSS 订阅" href="../../../../feed_rss_created.xml">
-        <link rel="alternate" type="application/rss+xml" title="已更新内容的 RSS 订阅" href="../../../../feed_rss_updated.xml">
+        <link rel="alternate" type="application/rss+xml" title="RSS 订阅" href="../../../../../feed_rss_created.xml">
+        <link rel="alternate" type="application/rss+xml" title="已更新内容的 RSS 订阅" href="../../../../../feed_rss_updated.xml">
       
-      <link rel="icon" href="../../../../about/about/favicon.ico">
+      <link rel="icon" href="../../../../../about/about/favicon.ico">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.6">
     
     
       
-        <title>Android MappedByteBuffer文件映射内存使用示例 - RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt</title>
+        <title>Android Paint setAlpha(int a) 方法 - RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.50c56a3b.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.50c56a3b.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -53,13 +53,13 @@
       
     
     
-      <link rel="stylesheet" href="../../../../stylesheets/extras.css">
+      <link rel="stylesheet" href="../../../../../stylesheets/extras.css">
     
-      <link rel="stylesheet" href="../../../../stylesheets/recent.css">
+      <link rel="stylesheet" href="../../../../../stylesheets/recent.css">
     
-      <link rel="stylesheet" href="../../../../stylesheets/main.8464ae1a.min.css">
+      <link rel="stylesheet" href="../../../../../stylesheets/main.8464ae1a.min.css">
     
-    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -82,7 +82,7 @@
   <meta property="og:type" content="website">
 
   
-    <meta property="og:url" content="https://www.an.rustfisher.com/android/io/mmap/mappedByteBuffer-use-demo1/"/>
+    <meta property="og:url" content="https://www.an.rustfisher.com/android/ui/view/customView/paint-setalpha/"/>
   
 
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
@@ -92,29 +92,31 @@
 
   
     
-      <meta name="title" content="Android MappedByteBuffer文件映射内存使用示例"/>
-      <meta property="og:title" content="Android MappedByteBuffer文件映射内存使用示例"/>
+      <meta name="title" content="Android Paint setAlpha(int a) 方法"/>
+      <meta property="og:title" content="Android Paint setAlpha(int a) 方法"/>
     
     
-      <meta name="keywords" content="安卓教程,Android教程,Mapped,MappedByteBuffer,文件映射内存"/>
+      <meta name="keywords" content="安卓教程,Android教程,Paint,安卓自定义view"/>
     
+    
+      
     
 
     
       
       <!-- 设置字节跳动搜索 -->
-      <meta name="bytedance:published_time" content="2022-01-16 00:22:22+08:00"/>
+      <meta name="bytedance:published_time" content="2025-12-22 00:22:22+08:00"/>
 
       <!-- 360 -->
-      <meta property="og:release_date" content="2022-01-16 00:22:22+08:00"/>
+      <meta property="og:release_date" content="2025-12-22 00:22:22+08:00"/>
     
 
     
     <!-- 暂时让时间一致 -->
       
       
-      <meta name="bytedance:updated_time" content="2022-08-03 00:43:57+08:00"/>
-      <meta name="bytedance:lrDate_time" content="2022-08-03 00:43:57+08:00"/>
+      <meta name="bytedance:updated_time" content="2025-12-22 00:43:57+08:00"/>
+      <meta name="bytedance:lrDate_time" content="2025-12-22 00:43:57+08:00"/>
     
 
     
@@ -123,7 +125,7 @@
   
 
   <meta property="og:image" content="https://www.an.rustfisher.com/about/_media/cover/as-logo-700.png" />
-  <meta property="og:description" content="安卓开发，安卓教程，Android入门，安卓新手教程，软件开发基础。突出一个简单明了，上手快。从实用性出发，快速掌握Android开发基本技能。插件式学习，学以致用。">
+  <meta property="og:description" content="在自定义View中会使用到**Paint**，设置画笔颜色时经常使用 setColor 方法，设置不透明度可用 setAlpha 方法。在开发中要注意先 setColor ，后 setAlpha">
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGC5WSNW8Y"></script>
@@ -152,7 +154,7 @@
         "@context": "https://schema.org/",
         "@type": "Article",
         "name": "安卓开发 | 软件开发 | 编程 | RustFisher",
-        "headline": "RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt - MappedByteBuffer文件映射内存使用",
+        "headline": "RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt - Paint.setAlpha使用",
         "image": [
           "https://an.rustfisher.com/about/res/fish_dev.png"
         ],  
@@ -160,9 +162,9 @@
           "@type": "Person",
           "name": "RustFisher"
         },
-        "datePublished": "2022-08-03 00:43:57+08:00",
-        "dateModified": "2022-08-03 00:43:57+08:00",
-        "description": "安卓开发，安卓教程，Android入门，安卓新手教程，软件开发基础。突出一个简单明了，上手快。从实用性出发，快速掌握Android开发基本技能。插件式学习，学以致用。",
+        "datePublished": "2025-12-22 00:43:57+08:00",
+        "dateModified": "2025-12-22 00:43:57+08:00",
+        "description": "在自定义View中会使用到**Paint**，设置画笔颜色时经常使用 setColor 方法，设置不透明度可用 setAlpha 方法。在开发中要注意先 setColor ，后 setAlpha",
         "publisher": {
           "@type": "Person",
           "name": "RustFisher",
@@ -205,7 +207,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#android-mappedbytebuffer" class="md-skip">
+        <a href="#android-paint-setalphaint-a" class="md-skip">
           跳转至
         </a>
       
@@ -219,9 +221,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../../.." title="RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt" class="md-header__button md-logo" aria-label="RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt" data-md-component="logo">
+    <a href="../../../../.." title="RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt" class="md-header__button md-logo" aria-label="RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt" data-md-component="logo">
       
-  <img src="../../../../about/about/favicon.ico" alt="logo">
+  <img src="../../../../../about/about/favicon.ico" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -238,7 +240,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Android MappedByteBuffer文件映射内存使用示例
+              Android Paint setAlpha(int a) 方法
             
           </span>
         </div>
@@ -333,7 +335,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../.." class="md-tabs__link">
+      <a href="../../../../.." class="md-tabs__link">
         
   
     
@@ -362,7 +364,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../../android-part-index/" class="md-tabs__link">
+        <a href="../../../../android-part-index/" class="md-tabs__link">
           
   
   Android
@@ -383,7 +385,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../jetpack/entry/" class="md-tabs__link">
+        <a href="../../../../jetpack/entry/" class="md-tabs__link">
           
   
   AndroidX
@@ -401,7 +403,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../java/intro/" class="md-tabs__link">
+        <a href="../../../../../java/intro/" class="md-tabs__link">
           
   
   Java
@@ -419,7 +421,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../kotlin/breif/kt-first/" class="md-tabs__link">
+        <a href="../../../../../kotlin/breif/kt-first/" class="md-tabs__link">
           
   
   Kotlin
@@ -437,7 +439,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../designPattern/Adapter-Pattern/" class="md-tabs__link">
+        <a href="../../../../../designPattern/Adapter-Pattern/" class="md-tabs__link">
           
   
   设计模式
@@ -455,7 +457,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../tech-note-index/" class="md-tabs__link">
+        <a href="../../../../../tech-note-index/" class="md-tabs__link">
           
   
   技术记录
@@ -473,7 +475,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../python/basic/get-path/" class="md-tabs__link">
+        <a href="../../../../../python/basic/get-path/" class="md-tabs__link">
           
   
   Python
@@ -491,7 +493,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../webrtc/intro/concept-intro/" class="md-tabs__link">
+        <a href="../../../../../webrtc/intro/concept-intro/" class="md-tabs__link">
           
   
   WebRTC
@@ -541,9 +543,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt" class="md-nav__button md-logo" aria-label="RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt" data-md-component="logo">
+    <a href="../../../../.." title="RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt" class="md-nav__button md-logo" aria-label="RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt" data-md-component="logo">
       
-  <img src="../../../../about/about/favicon.ico" alt="logo">
+  <img src="../../../../../about/about/favicon.ico" alt="logo">
 
     </a>
     RustFisher 安卓|Java|设计模式|WebRTC|Python|NestJS|PyQt
@@ -558,7 +560,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../.." class="md-nav__link">
+      <a href="../../../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -660,7 +662,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../android-part-index/" class="md-nav__link">
+      <a href="../../../../android-part-index/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -681,7 +683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../startProject/start_new_project/" class="md-nav__link">
+      <a href="../../../../startProject/start_new_project/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -702,7 +704,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../startProject/as-use-kotlin/" class="md-nav__link">
+      <a href="../../../../startProject/as-use-kotlin/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -771,7 +773,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../activity/overview/" class="md-nav__link">
+      <a href="../../../../activity/overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -792,7 +794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../activity/act_lifecycle/" class="md-nav__link">
+      <a href="../../../../activity/act_lifecycle/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -813,7 +815,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../activity/start-activity-and-send-params/" class="md-nav__link">
+      <a href="../../../../activity/start-activity-and-send-params/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -834,7 +836,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../activity/launch-send-parcelable/" class="md-nav__link">
+      <a href="../../../../activity/launch-send-parcelable/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -855,7 +857,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../activity/activity-result-launcher/" class="md-nav__link">
+      <a href="../../../../activity/activity-result-launcher/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -876,7 +878,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../activity/start-activity-for-result/" class="md-nav__link">
+      <a href="../../../../activity/start-activity-for-result/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -897,7 +899,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../activity/launch-mode-task-stack/" class="md-nav__link">
+      <a href="../../../../activity/launch-mode-task-stack/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -918,7 +920,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../activity/activity-tran-animation/" class="md-nav__link">
+      <a href="../../../../activity/activity-tran-animation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -939,7 +941,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/view_get_size/" class="md-nav__link">
+      <a href="../../view_get_size/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -960,7 +962,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../activity/view-global-layout-listen/" class="md-nav__link">
+      <a href="../../../../activity/view-global-layout-listen/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -981,7 +983,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../activity/floating-scale-act/" class="md-nav__link">
+      <a href="../../../../activity/floating-scale-act/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1002,7 +1004,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../activity/uninstall-app/" class="md-nav__link">
+      <a href="../../../../activity/uninstall-app/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1023,7 +1025,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../app/application-reg-lifecycle/" class="md-nav__link">
+      <a href="../../../../app/application-reg-lifecycle/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1044,7 +1046,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../activity/intent-like-launcher/" class="md-nav__link">
+      <a href="../../../../activity/intent-like-launcher/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1113,7 +1115,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/textView/intro/" class="md-nav__link">
+      <a href="../../textView/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1134,7 +1136,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/textView/text_style/" class="md-nav__link">
+      <a href="../../textView/text_style/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1155,7 +1157,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/textView/typeface/" class="md-nav__link">
+      <a href="../../textView/typeface/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1176,7 +1178,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/textView/show_html/" class="md-nav__link">
+      <a href="../../textView/show_html/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1197,7 +1199,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/textView/special_char/" class="md-nav__link">
+      <a href="../../textView/special_char/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1218,7 +1220,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/textView/custom-MarqueeTextView/" class="md-nav__link">
+      <a href="../../textView/custom-MarqueeTextView/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1276,7 +1278,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/textView/SpannableString_intro/" class="md-nav__link">
+      <a href="../../textView/SpannableString_intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1297,7 +1299,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/textView/foregroundColorSpan_not_work/" class="md-nav__link">
+      <a href="../../textView/foregroundColorSpan_not_work/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1318,7 +1320,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/textView/textView_clickableSpan_crash_in_recyclerview/" class="md-nav__link">
+      <a href="../../textView/textView_clickableSpan_crash_in_recyclerview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1339,7 +1341,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../text/style/use-replacementspan/" class="md-nav__link">
+      <a href="../../../../text/style/use-replacementspan/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1416,7 +1418,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../service/service-intro/" class="md-nav__link">
+      <a href="../../../../service/service-intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1437,7 +1439,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../service/start/background-service/" class="md-nav__link">
+      <a href="../../../../service/start/background-service/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1458,7 +1460,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../service/start/foreground-service/" class="md-nav__link">
+      <a href="../../../../service/start/foreground-service/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1479,7 +1481,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../service/IntentService-intro1/" class="md-nav__link">
+      <a href="../../../../service/IntentService-intro1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1500,7 +1502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../service/system-alert-window-service/" class="md-nav__link">
+      <a href="../../../../service/system-alert-window-service/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1569,7 +1571,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../broadcast/intro_use/" class="md-nav__link">
+      <a href="../../../../broadcast/intro_use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1590,7 +1592,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../broadcast/screen-on-broadcast/" class="md-nav__link">
+      <a href="../../../../broadcast/screen-on-broadcast/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1659,7 +1661,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../fragment/fragment-intro/" class="md-nav__link">
+      <a href="../../../../fragment/fragment-intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1680,7 +1682,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../fragment/load-fragment/" class="md-nav__link">
+      <a href="../../../../fragment/load-fragment/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1701,7 +1703,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../fragment/fragments-contact/" class="md-nav__link">
+      <a href="../../../../fragment/fragments-contact/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1759,7 +1761,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../fragment/dialogFragment/dialog-fragment-demo1/" class="md-nav__link">
+      <a href="../../../../fragment/dialogFragment/dialog-fragment-demo1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1780,7 +1782,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../fragment/dialogFragment/dialogFragment-layout-params/" class="md-nav__link">
+      <a href="../../../../fragment/dialogFragment/dialogFragment-layout-params/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1801,7 +1803,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../fragment/dialogFragment/custom_width_height/" class="md-nav__link">
+      <a href="../../../../fragment/dialogFragment/custom_width_height/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1822,7 +1824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../fragment/dialogFragment/df-dialog-height-changed/" class="md-nav__link">
+      <a href="../../../../fragment/dialogFragment/df-dialog-height-changed/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1899,7 +1901,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../resource/resources_overview/" class="md-nav__link">
+      <a href="../../../../resource/resources_overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1920,7 +1922,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../drawable/shape/" class="md-nav__link">
+      <a href="../../../../drawable/shape/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1941,7 +1943,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../drawable/selector/" class="md-nav__link">
+      <a href="../../../../drawable/selector/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1962,7 +1964,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../resource/font/app-use-other-font/" class="md-nav__link">
+      <a href="../../../../resource/font/app-use-other-font/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1983,7 +1985,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../resource/drawable/shape-dotted-line/" class="md-nav__link">
+      <a href="../../../../resource/drawable/shape-dotted-line/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2041,7 +2043,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../resource/adjust/app-res-adapt-multi-language/" class="md-nav__link">
+      <a href="../../../../resource/adjust/app-res-adapt-multi-language/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2062,7 +2064,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../app/app-lang-setting/" class="md-nav__link">
+      <a href="../../../../app/app-lang-setting/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2083,7 +2085,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../resource/adjust/app-res-adapt-screen-size/" class="md-nav__link">
+      <a href="../../../../resource/adjust/app-res-adapt-screen-size/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2160,7 +2162,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/editText/listen-editor-action/" class="md-nav__link">
+      <a href="../../editText/listen-editor-action/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2181,7 +2183,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/editText/edit-text-set-selection-use/" class="md-nav__link">
+      <a href="../../editText/edit-text-set-selection-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2202,7 +2204,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/editText/text-watcher-use/" class="md-nav__link">
+      <a href="../../editText/text-watcher-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2223,7 +2225,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/widget/popupwindow/edit-text-cannot-eidt/" class="md-nav__link">
+      <a href="../../../widget/popupwindow/edit-text-cannot-eidt/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2244,7 +2246,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/editText/soft-keyboard-cover-et/" class="md-nav__link">
+      <a href="../../editText/soft-keyboard-cover-et/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2273,7 +2275,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/button/overview/" class="md-nav__link">
+      <a href="../../button/overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2294,7 +2296,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/imageView/overview/" class="md-nav__link">
+      <a href="../../imageView/overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2355,7 +2357,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/layout/linearLayout/intro/" class="md-nav__link">
+      <a href="../../../layout/linearLayout/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2376,7 +2378,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/layout/relativeLayout/intro/" class="md-nav__link">
+      <a href="../../../layout/relativeLayout/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2397,7 +2399,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/layout/constraintlayout/ConstraintLayout-intro-and-use1/" class="md-nav__link">
+      <a href="../../../layout/constraintlayout/ConstraintLayout-intro-and-use1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2418,7 +2420,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/layout/constraintlayout/chain_use/" class="md-nav__link">
+      <a href="../../../layout/constraintlayout/chain_use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2487,7 +2489,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/layout/drawerlayout/drawer-layout-use1/" class="md-nav__link">
+      <a href="../../../layout/drawerlayout/drawer-layout-use1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2556,7 +2558,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/recyclerView/intro/" class="md-nav__link">
+      <a href="../../recyclerView/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2577,7 +2579,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/recyclerView/demo1/" class="md-nav__link">
+      <a href="../../recyclerView/demo1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2598,7 +2600,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/recyclerView/item_click/" class="md-nav__link">
+      <a href="../../recyclerView/item_click/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2619,7 +2621,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/recyclerView/show_multi_item/" class="md-nav__link">
+      <a href="../../recyclerView/show_multi_item/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2640,7 +2642,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/recyclerView/scroll_distance/" class="md-nav__link">
+      <a href="../../recyclerView/scroll_distance/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2661,7 +2663,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/recyclerView/clipToPadding_use/" class="md-nav__link">
+      <a href="../../recyclerView/clipToPadding_use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2682,7 +2684,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/recyclerView/demo_color_picker/" class="md-nav__link">
+      <a href="../../recyclerView/demo_color_picker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2703,7 +2705,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/recyclerView/slide-delete-drag-swap-item/" class="md-nav__link">
+      <a href="../../recyclerView/slide-delete-drag-swap-item/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2724,7 +2726,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/recyclerView/staggered-grid-use/" class="md-nav__link">
+      <a href="../../recyclerView/staggered-grid-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2745,7 +2747,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/recyclerView/item-animator/" class="md-nav__link">
+      <a href="../../recyclerView/item-animator/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2814,7 +2816,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../permissions/custom-user-permission/" class="md-nav__link">
+      <a href="../../../../permissions/custom-user-permission/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2883,7 +2885,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../thread/android-thread-survey/" class="md-nav__link">
+      <a href="../../../../thread/android-thread-survey/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2941,7 +2943,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../concurrent/thread-pool-use-intro/" class="md-nav__link">
+      <a href="../../../../concurrent/thread-pool-use-intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3007,7 +3009,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../handler/Handler_src_note/" class="md-nav__link">
+      <a href="../../../../handler/Handler_src_note/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3028,7 +3030,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../handler/Handler_HandlerThread/" class="md-nav__link">
+      <a href="../../../../handler/Handler_HandlerThread/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3049,7 +3051,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../handler/handler-may-leak-memory/" class="md-nav__link">
+      <a href="../../../../handler/handler-may-leak-memory/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3115,7 +3117,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../coroutines/intro1/" class="md-nav__link">
+      <a href="../../../../coroutines/intro1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3144,7 +3146,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../thread/async-task-use-intro/" class="md-nav__link">
+      <a href="../../../../thread/async-task-use-intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3170,8 +3172,6 @@
                 
   
   
-    
-  
   
   
     
@@ -3182,12 +3182,12 @@
       
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_16" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_16" >
         
           
           <label class="md-nav__link" for="__nav_2_16" id="__nav_2_16_label" tabindex="">
@@ -3201,7 +3201,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_16_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_16_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_16">
             <span class="md-nav__icon md-icon"></span>
             🗄 io 操作
@@ -3252,7 +3252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../file/Read_write_CSV_file/" class="md-nav__link">
+      <a href="../../../../io/file/Read_write_CSV_file/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3273,7 +3273,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../file/Read_write_Hex_file/" class="md-nav__link">
+      <a href="../../../../io/file/Read_write_Hex_file/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3294,7 +3294,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../file/read-write-json-file/" class="md-nav__link">
+      <a href="../../../../io/file/read-write-json-file/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3323,7 +3323,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mmap_intro_and_use/" class="md-nav__link">
+      <a href="../../../../io/mmap/mmap_intro_and_use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3341,19 +3341,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../../io/mmap/mappedByteBuffer-use-demo1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3362,7 +3353,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -3423,7 +3413,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../content/sharedpreferences/intro1/" class="md-nav__link">
+      <a href="../../../../content/sharedpreferences/intro1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3529,7 +3519,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../network/URLConnection/HttpURLConnection_get_post/" class="md-nav__link">
+      <a href="../../../../network/URLConnection/HttpURLConnection_get_post/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3550,7 +3540,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../network/URLConnection/post-file/" class="md-nav__link">
+      <a href="../../../../network/URLConnection/post-file/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3571,7 +3561,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../network/Media_download_stream_file/" class="md-nav__link">
+      <a href="../../../../network/Media_download_stream_file/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3600,7 +3590,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../network/google_force_https/" class="md-nav__link">
+      <a href="../../../../network/google_force_https/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3658,7 +3648,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../network/okhttp/OkHttp-use1/" class="md-nav__link">
+      <a href="../../../../network/okhttp/OkHttp-use1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3679,7 +3669,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../network/okhttp/OkHttp_Retrofit_use_intro/" class="md-nav__link">
+      <a href="../../../../network/okhttp/OkHttp_Retrofit_use_intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3700,7 +3690,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../network/okhttp/resp-normal-string/" class="md-nav__link">
+      <a href="../../../../network/okhttp/resp-normal-string/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3721,7 +3711,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../network/okhttp/OkHttp_Retrofit_download_file/" class="md-nav__link">
+      <a href="../../../../network/okhttp/OkHttp_Retrofit_download_file/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3742,7 +3732,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../network/okhttp/OkHttp_Retrofit_cancel_request/" class="md-nav__link">
+      <a href="../../../../network/okhttp/OkHttp_Retrofit_cancel_request/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3763,7 +3753,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../network/okhttp/OkHttp_Retrofit_download_file_partial/" class="md-nav__link">
+      <a href="../../../../network/okhttp/OkHttp_Retrofit_download_file_partial/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3784,7 +3774,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../network/okhttp/upload_file/" class="md-nav__link">
+      <a href="../../../../network/okhttp/upload_file/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3861,7 +3851,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/progressbar/custom_colorful/" class="md-nav__link">
+      <a href="../../progressbar/custom_colorful/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3930,7 +3920,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/widget/seekbar/seekbar-custom-thumb-animation/" class="md-nav__link">
+      <a href="../../../widget/seekbar/seekbar-custom-thumb-animation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3999,7 +3989,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/view-summary/" class="md-nav__link">
+      <a href="../../view-summary/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4020,7 +4010,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/measureSpec_intro/" class="md-nav__link">
+      <a href="../../measureSpec_intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4041,7 +4031,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/rtfsc/post/" class="md-nav__link">
+      <a href="../../rtfsc/post/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4062,7 +4052,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/import/view-in-activity-thinking/" class="md-nav__link">
+      <a href="../../import/view-in-activity-thinking/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4088,8 +4078,10 @@
                 
   
   
+    
   
   
+  
     
     
     
@@ -4098,12 +4090,12 @@
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_22" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_22" checked>
         
           
           <label class="md-nav__link" for="__nav_2_22" id="__nav_2_22_label" tabindex="">
@@ -4117,7 +4109,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_22_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_22_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_22">
             <span class="md-nav__icon md-icon"></span>
             自定义View
@@ -4131,7 +4123,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/customView/draw-text/" class="md-nav__link">
+      <a href="../draw-text/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4152,7 +4144,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/customView/canvas-clip-path/" class="md-nav__link">
+      <a href="../canvas-clip-path/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4173,7 +4165,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/customView/surfaceView/custom-surface-view/" class="md-nav__link">
+      <a href="../surfaceView/custom-surface-view/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4194,7 +4186,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/customView/auto-zoom-line-chart/" class="md-nav__link">
+      <a href="../auto-zoom-line-chart/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4215,7 +4207,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/customView/wave-view/" class="md-nav__link">
+      <a href="../wave-view/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4236,7 +4228,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/customView/zt-star-moving/" class="md-nav__link">
+      <a href="../zt-star-moving/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4257,7 +4249,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/widget/toast/custom-toast/" class="md-nav__link">
+      <a href="../../../widget/toast/custom-toast/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4275,10 +4267,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../ui/view/customView/paint-setalpha/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -4287,6 +4288,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -4347,7 +4349,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/animation/view-animation-intro/" class="md-nav__link">
+      <a href="../../animation/view-animation-intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4368,7 +4370,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/animation/animation-drawable-use/" class="md-nav__link">
+      <a href="../../animation/animation-drawable-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4389,7 +4391,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/animation/tween-use1/" class="md-nav__link">
+      <a href="../../animation/tween-use1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4410,7 +4412,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/animation/object-animator-intro/" class="md-nav__link">
+      <a href="../../animation/object-animator-intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4479,7 +4481,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/webView/wv-use/" class="md-nav__link">
+      <a href="../../webView/wv-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4500,7 +4502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/webView/loadData/" class="md-nav__link">
+      <a href="../../webView/loadData/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4521,7 +4523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/webView/load-assets-files/" class="md-nav__link">
+      <a href="../../webView/load-assets-files/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4542,7 +4544,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/webView/load-local-html/" class="md-nav__link">
+      <a href="../../webView/load-local-html/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4563,7 +4565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/webView/webView-in-NestedScrollView-empty-bottom/" class="md-nav__link">
+      <a href="../../webView/webView-in-NestedScrollView-empty-bottom/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4584,7 +4586,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/webView/long-click-pop-menu/" class="md-nav__link">
+      <a href="../../webView/long-click-pop-menu/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4605,7 +4607,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/webView/long-click-pop-menu-x5/" class="md-nav__link">
+      <a href="../../webView/long-click-pop-menu-x5/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4626,7 +4628,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/view/webView/call-java-function/" class="md-nav__link">
+      <a href="../../webView/call-java-function/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4695,7 +4697,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/statusbar/get-status-bar-height/" class="md-nav__link">
+      <a href="../../../statusbar/get-status-bar-height/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4716,7 +4718,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ui/statusbar/android-7-adjust-status-bar-color/" class="md-nav__link">
+      <a href="../../../statusbar/android-7-adjust-status-bar-color/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4785,7 +4787,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../media/Camera_record_video_and_output/" class="md-nav__link">
+      <a href="../../../../media/Camera_record_video_and_output/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4806,7 +4808,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../media/Camera_SurfaceView_TextureView_get_nv21/" class="md-nav__link">
+      <a href="../../../../media/Camera_SurfaceView_TextureView_get_nv21/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4827,7 +4829,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../media/camera2-get-size-fps/" class="md-nav__link">
+      <a href="../../../../media/camera2-get-size-fps/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4848,7 +4850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../media/camera2-get-size-fps-en/" class="md-nav__link">
+      <a href="../../../../media/camera2-get-size-fps-en/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4954,7 +4956,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../media/MediaPlayer_intro/" class="md-nav__link">
+      <a href="../../../../media/MediaPlayer_intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4975,7 +4977,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../media/MediaPlayer_use_play_audio/" class="md-nav__link">
+      <a href="../../../../media/MediaPlayer_use_play_audio/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4996,7 +4998,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../media/MediaPlayer_use_play_speed/" class="md-nav__link">
+      <a href="../../../../media/MediaPlayer_use_play_speed/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5062,7 +5064,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../media/AudioRecord_AudioTrack_pcm_wav/" class="md-nav__link">
+      <a href="../../../../media/AudioRecord_AudioTrack_pcm_wav/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5083,7 +5085,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../media/MediaMuxer_MediaExtractor_mp4/" class="md-nav__link">
+      <a href="../../../../media/MediaMuxer_MediaExtractor_mp4/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5149,7 +5151,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../media/MediaCodec_use_demo/" class="md-nav__link">
+      <a href="../../../../media/MediaCodec_use_demo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5215,7 +5217,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../media/intro/yuv-intro/" class="md-nav__link">
+      <a href="../../../../media/intro/yuv-intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5236,7 +5238,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../media/intro/h264-intro/" class="md-nav__link">
+      <a href="../../../../media/intro/h264-intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5313,7 +5315,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../connectivity/bluetooth/Bluetooth2_use_sample/" class="md-nav__link">
+      <a href="../../../../connectivity/bluetooth/Bluetooth2_use_sample/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5334,7 +5336,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../connectivity/bluetooth/bluetooth-spp-connection-note/" class="md-nav__link">
+      <a href="../../../../connectivity/bluetooth/bluetooth-spp-connection-note/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5363,7 +5365,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../connectivity/wifi/WiFi_scan_and_connect/" class="md-nav__link">
+      <a href="../../../../connectivity/wifi/WiFi_scan_and_connect/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5424,7 +5426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../hardware/get-angle-by-sensor/" class="md-nav__link">
+      <a href="../../../../hardware/get-angle-by-sensor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5445,7 +5447,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../hardware/sensor-and-screen-off/" class="md-nav__link">
+      <a href="../../../../hardware/sensor-and-screen-off/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5514,7 +5516,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../activity/simple_launcher/" class="md-nav__link">
+      <a href="../../../../activity/simple_launcher/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5583,7 +5585,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aidl/intro_use/" class="md-nav__link">
+      <a href="../../../../aidl/intro_use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5652,7 +5654,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../zip/zip-string/" class="md-nav__link">
+      <a href="../../../../zip/zip-string/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5673,7 +5675,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../zip/unzip-file-use-ZipFile/" class="md-nav__link">
+      <a href="../../../../zip/unzip-file-use-ZipFile/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5742,7 +5744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../util/base64/use-base64/" class="md-nav__link">
+      <a href="../../../../util/base64/use-base64/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5811,7 +5813,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../binder/Binder_mechanism_intro/" class="md-nav__link">
+      <a href="../../../../binder/Binder_mechanism_intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5832,7 +5834,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../binder/Intent_extra_size_limit/" class="md-nav__link">
+      <a href="../../../../binder/Intent_extra_size_limit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5901,7 +5903,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../notification/demo1/" class="md-nav__link">
+      <a href="../../../../notification/demo1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5970,7 +5972,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pm/basic-use/" class="md-nav__link">
+      <a href="../../../../pm/basic-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -5991,7 +5993,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pm/restart-App/" class="md-nav__link">
+      <a href="../../../../pm/restart-App/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6060,7 +6062,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../rtfsc/Android-Context/" class="md-nav__link">
+      <a href="../../../../rtfsc/Android-Context/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6081,7 +6083,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../rtfsc/Android_SparseArray_src_code_note/" class="md-nav__link">
+      <a href="../../../../rtfsc/Android_SparseArray_src_code_note/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6150,7 +6152,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../designPattern/Adapter-Pattern/" class="md-nav__link">
+      <a href="../../../../../designPattern/Adapter-Pattern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6171,7 +6173,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../designPattern/Listener_pattern_practice_in_Java_Android/" class="md-nav__link">
+      <a href="../../../../../designPattern/Listener_pattern_practice_in_Java_Android/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6277,7 +6279,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../lib/rx/rx-android-intro/" class="md-nav__link">
+      <a href="../../../../lib/rx/rx-android-intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6343,7 +6345,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../lib/pinyin/lib-tinypinyin-intro/" class="md-nav__link">
+      <a href="../../../../lib/pinyin/lib-tinypinyin-intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6409,7 +6411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../lib/eventbus/event-bus-note/" class="md-nav__link">
+      <a href="../../../../lib/eventbus/event-bus-note/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6475,7 +6477,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../lib/android-gpuimage/android-gpuimage-intro/" class="md-nav__link">
+      <a href="../../../../lib/android-gpuimage/android-gpuimage-intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6504,7 +6506,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../util/lombok-android-NoSuchFieldError-JCTree/" class="md-nav__link">
+      <a href="../../../../util/lombok-android-NoSuchFieldError-JCTree/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6573,7 +6575,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../as/use-as/" class="md-nav__link">
+      <a href="../../../../as/use-as/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6594,7 +6596,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../as/suppress-warnings-use/" class="md-nav__link">
+      <a href="../../../../as/suppress-warnings-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6615,7 +6617,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../as/update-plugin-from-disk/" class="md-nav__link">
+      <a href="../../../../as/update-plugin-from-disk/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6636,7 +6638,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../gradle/show-all-task-as2022/" class="md-nav__link">
+      <a href="../../../../gradle/show-all-task-as2022/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6657,7 +6659,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../as/build-module-ouput-jar/" class="md-nav__link">
+      <a href="../../../../as/build-module-ouput-jar/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6686,7 +6688,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../architect/android-proj-module-use/" class="md-nav__link">
+      <a href="../../../../architect/android-proj-module-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6747,7 +6749,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../gradle/overview/" class="md-nav__link">
+      <a href="../../../../gradle/overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6768,7 +6770,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../gradle/Gradle_for_android_Start/" class="md-nav__link">
+      <a href="../../../../gradle/Gradle_for_android_Start/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6789,7 +6791,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../gradle/Gradle_for_android_Basic_Build_Customization/" class="md-nav__link">
+      <a href="../../../../gradle/Gradle_for_android_Basic_Build_Customization/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6810,7 +6812,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../gradle/Gradle_for_android_Creating_Build_Variants/" class="md-nav__link">
+      <a href="../../../../gradle/Gradle_for_android_Creating_Build_Variants/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6831,7 +6833,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../gradle/gradle-read-local-prop/" class="md-nav__link">
+      <a href="../../../../gradle/gradle-read-local-prop/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6852,7 +6854,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../gradle/download_too_slow/" class="md-nav__link">
+      <a href="../../../../gradle/download_too_slow/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6958,7 +6960,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ndk/start/env/" class="md-nav__link">
+      <a href="../../../../ndk/start/env/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -6979,7 +6981,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ndk/start/new-proj-with-ndk/" class="md-nav__link">
+      <a href="../../../../ndk/start/new-proj-with-ndk/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7000,7 +7002,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ndk/start/add-ndk-to-proj/" class="md-nav__link">
+      <a href="../../../../ndk/start/add-ndk-to-proj/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7021,7 +7023,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ndk/start/add-ndk-to-mod/" class="md-nav__link">
+      <a href="../../../../ndk/start/add-ndk-to-mod/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7087,7 +7089,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ndk/return/return-base-type/" class="md-nav__link">
+      <a href="../../../../ndk/return/return-base-type/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7108,7 +7110,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ndk/return/return-array/" class="md-nav__link">
+      <a href="../../../../ndk/return/return-array/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7129,7 +7131,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ndk/return/return-pojo/" class="md-nav__link">
+      <a href="../../../../ndk/return/return-pojo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7158,7 +7160,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ndk/string-use/" class="md-nav__link">
+      <a href="../../../../ndk/string-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7179,7 +7181,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ndk/logcat-use/" class="md-nav__link">
+      <a href="../../../../ndk/logcat-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7237,7 +7239,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ndk/field-use/obj-field-use/" class="md-nav__link">
+      <a href="../../../../ndk/field-use/obj-field-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7258,7 +7260,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ndk/field-use/static-field-use/" class="md-nav__link">
+      <a href="../../../../ndk/field-use/static-field-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7287,7 +7289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ndk/makefile_example/" class="md-nav__link">
+      <a href="../../../../ndk/makefile_example/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7308,7 +7310,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ndk/compile_import_a_file/" class="md-nav__link">
+      <a href="../../../../ndk/compile_import_a_file/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7366,7 +7368,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ndk/io/read_write_txt_file/" class="md-nav__link">
+      <a href="../../../../ndk/io/read_write_txt_file/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7387,7 +7389,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ndk/read_write_file/" class="md-nav__link">
+      <a href="../../../../ndk/read_write_file/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7416,7 +7418,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ndk/dynamic_reg_function/" class="md-nav__link">
+      <a href="../../../../ndk/dynamic_reg_function/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7437,7 +7439,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ndk/sprintf-itoa/" class="md-nav__link">
+      <a href="../../../../ndk/sprintf-itoa/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7543,7 +7545,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../adb/intro/" class="md-nav__link">
+      <a href="../../../../adb/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7564,7 +7566,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../adb/adb-s-install/" class="md-nav__link">
+      <a href="../../../../adb/adb-s-install/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7585,7 +7587,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../adb/adb-wm-use/" class="md-nav__link">
+      <a href="../../../../adb/adb-wm-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7606,7 +7608,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../adb/adb-pm-use/" class="md-nav__link">
+      <a href="../../../../adb/adb-pm-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7627,7 +7629,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../adb/adb-screenrecord-use/" class="md-nav__link">
+      <a href="../../../../adb/adb-screenrecord-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7648,7 +7650,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../sys/adb_mock_touch_and_monkeyrunner/" class="md-nav__link">
+      <a href="../../../../sys/adb_mock_touch_and_monkeyrunner/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7669,7 +7671,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../adb/monkey-test-use/" class="md-nav__link">
+      <a href="../../../../adb/monkey-test-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7735,7 +7737,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../phone/phone_settings/" class="md-nav__link">
+      <a href="../../../../phone/phone_settings/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7756,7 +7758,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../sys/device-node/" class="md-nav__link">
+      <a href="../../../../sys/device-node/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7777,7 +7779,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../sys/device-build-version/" class="md-nav__link">
+      <a href="../../../../sys/device-build-version/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7806,7 +7808,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../sys/anr-intro/" class="md-nav__link">
+      <a href="../../../../sys/anr-intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7882,7 +7884,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../jetpack/entry/" class="md-nav__link">
+      <a href="../../../../jetpack/entry/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7943,7 +7945,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../jetpack/dataBinding/start/" class="md-nav__link">
+      <a href="../../../../jetpack/dataBinding/start/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7964,7 +7966,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../jetpack/dataBinding/use_observable/" class="md-nav__link">
+      <a href="../../../../jetpack/dataBinding/use_observable/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -7985,7 +7987,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../jetpack/dataBinding/use_observableField/" class="md-nav__link">
+      <a href="../../../../jetpack/dataBinding/use_observableField/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8006,7 +8008,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../jetpack/dataBinding/set_on_click/" class="md-nav__link">
+      <a href="../../../../jetpack/dataBinding/set_on_click/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8027,7 +8029,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../jetpack/dataBinding/layout_op/" class="md-nav__link">
+      <a href="../../../../jetpack/dataBinding/layout_op/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8048,7 +8050,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../jetpack/dataBinding/layout_data_intro/" class="md-nav__link">
+      <a href="../../../../jetpack/dataBinding/layout_data_intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8069,7 +8071,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../jetpack/dataBinding/layout-include/" class="md-nav__link">
+      <a href="../../../../jetpack/dataBinding/layout-include/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8090,7 +8092,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../jetpack/dataBinding/two_way/" class="md-nav__link">
+      <a href="../../../../jetpack/dataBinding/two_way/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8148,7 +8150,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../jetpack/dataBinding/binding_adapters_custom_adapter/" class="md-nav__link">
+      <a href="../../../../jetpack/dataBinding/binding_adapters_custom_adapter/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8169,7 +8171,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../jetpack/dataBinding/binding_adapters_cvt_obj/" class="md-nav__link">
+      <a href="../../../../jetpack/dataBinding/binding_adapters_cvt_obj/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8246,7 +8248,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../jetpack/liveData/use_mutableLiveData/" class="md-nav__link">
+      <a href="../../../../jetpack/liveData/use_mutableLiveData/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8315,7 +8317,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../jetpack/lifeCycle/lifecycle_intro/" class="md-nav__link">
+      <a href="../../../../jetpack/lifeCycle/lifecycle_intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8384,7 +8386,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../jetpack/workManager/use1/" class="md-nav__link">
+      <a href="../../../../jetpack/workManager/use1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8405,7 +8407,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../jetpack/workManager/use2/" class="md-nav__link">
+      <a href="../../../../jetpack/workManager/use2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8426,7 +8428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../jetpack/workManager/periodic1/" class="md-nav__link">
+      <a href="../../../../jetpack/workManager/periodic1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8495,7 +8497,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../jetpack/viewModel/viewModel_intro/" class="md-nav__link">
+      <a href="../../../../jetpack/viewModel/viewModel_intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8516,7 +8518,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../jetpack/viewModel/act-use-vm/" class="md-nav__link">
+      <a href="../../../../jetpack/viewModel/act-use-vm/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8537,7 +8539,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../jetpack/viewModel/act-frag-use-one-vm/" class="md-nav__link">
+      <a href="../../../../jetpack/viewModel/act-frag-use-one-vm/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8558,7 +8560,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../androidx/viewModel/when-viewmodel-release-juejin/" class="md-nav__link">
+      <a href="../../../../androidx/viewModel/when-viewmodel-release-juejin/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8627,7 +8629,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../jetpack/room/db-room-start/" class="md-nav__link">
+      <a href="../../../../jetpack/room/db-room-start/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8648,7 +8650,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../jetpack/room/room-entity-intro/" class="md-nav__link">
+      <a href="../../../../jetpack/room/room-entity-intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8669,7 +8671,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../jetpack/room/room-add/" class="md-nav__link">
+      <a href="../../../../jetpack/room/room-add/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8690,7 +8692,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../jetpack/room/room-update/" class="md-nav__link">
+      <a href="../../../../jetpack/room/room-update/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8759,7 +8761,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../jetpack/compose/compose-sample-proj1/" class="md-nav__link">
+      <a href="../../../../jetpack/compose/compose-sample-proj1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8780,7 +8782,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../jetpack/compose/use-compose-in-proj/" class="md-nav__link">
+      <a href="../../../../jetpack/compose/use-compose-in-proj/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8849,7 +8851,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../jetpack/camerax/simple-preview/" class="md-nav__link">
+      <a href="../../../../jetpack/camerax/simple-preview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8870,7 +8872,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../jetpack/camerax/image-analysis-use/" class="md-nav__link">
+      <a href="../../../../jetpack/camerax/image-analysis-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8891,7 +8893,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../jetpack/camerax/preview-floating-window/" class="md-nav__link">
+      <a href="../../../../jetpack/camerax/preview-floating-window/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8912,7 +8914,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../jetpack/camerax/preview-floating-system-alert-window/" class="md-nav__link">
+      <a href="../../../../jetpack/camerax/preview-floating-system-alert-window/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -8988,7 +8990,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../java/intro/" class="md-nav__link">
+      <a href="../../../../../java/intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9009,7 +9011,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../java/basic/java-env-dev/" class="md-nav__link">
+      <a href="../../../../../java/basic/java-env-dev/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9070,7 +9072,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../java/basic/java-basic-note/" class="md-nav__link">
+      <a href="../../../../../java/basic/java-basic-note/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9091,7 +9093,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../java/interface/java-interface-and-abstract-class/" class="md-nav__link">
+      <a href="../../../../../java/interface/java-interface-and-abstract-class/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9112,7 +9114,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../java/basic/java-bit/" class="md-nav__link">
+      <a href="../../../../../java/basic/java-bit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9181,7 +9183,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../java/class/class-basic/" class="md-nav__link">
+      <a href="../../../../../java/class/class-basic/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9202,7 +9204,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../java/class/class-init-step/" class="md-nav__link">
+      <a href="../../../../../java/class/class-init-step/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9223,7 +9225,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../java/class/abs-class-vs-interface/" class="md-nav__link">
+      <a href="../../../../../java/class/abs-class-vs-interface/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9244,7 +9246,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../java/class/equals-and-equal/" class="md-nav__link">
+      <a href="../../../../../java/class/equals-and-equal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9273,7 +9275,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../java/concept/oo/" class="md-nav__link">
+      <a href="../../../../../java/concept/oo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9334,7 +9336,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../java/container/Java-Container/" class="md-nav__link">
+      <a href="../../../../../java/container/Java-Container/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9392,7 +9394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../java/container/list/Java-ArrayList-intro/" class="md-nav__link">
+      <a href="../../../../../java/container/list/Java-ArrayList-intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9458,7 +9460,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../java/container/map/Java-HashMap-source-code/" class="md-nav__link">
+      <a href="../../../../../java/container/map/Java-HashMap-source-code/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9479,7 +9481,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../java/container/map/Java-LinkedHashMap-code/" class="md-nav__link">
+      <a href="../../../../../java/container/map/Java-LinkedHashMap-code/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9500,7 +9502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../java/container/map/Java-read-write-properties/" class="md-nav__link">
+      <a href="../../../../../java/container/map/Java-read-write-properties/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9577,7 +9579,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../java/thread/thread-class-intro/" class="md-nav__link">
+      <a href="../../../../../java/thread/thread-class-intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9598,7 +9600,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../java/concurrent/Java-read-write-lock-use/" class="md-nav__link">
+      <a href="../../../../../java/concurrent/Java-read-write-lock-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9667,7 +9669,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../java/io/Java-read-write-file/" class="md-nav__link">
+      <a href="../../../../../java/io/Java-read-write-file/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9688,7 +9690,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../java/io/Java-read-write-xls/" class="md-nav__link">
+      <a href="../../../../../java/io/Java-read-write-xls/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9757,7 +9759,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../java/reg/reg_use/" class="md-nav__link">
+      <a href="../../../../../java/reg/reg_use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9778,7 +9780,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../java/reg/find-samples/" class="md-nav__link">
+      <a href="../../../../../java/reg/find-samples/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9799,7 +9801,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../java/reg/extract-between/" class="md-nav__link">
+      <a href="../../../../../java/reg/extract-between/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9820,7 +9822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../java/reg/split-samples/" class="md-nav__link">
+      <a href="../../../../../java/reg/split-samples/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9841,7 +9843,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../java/reg/code/extract-en-between-not-en/" class="md-nav__link">
+      <a href="../../../../../java/reg/code/extract-en-between-not-en/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9862,7 +9864,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../java/reg/code/find-en-word-between-not-word/" class="md-nav__link">
+      <a href="../../../../../java/reg/code/find-en-word-between-not-word/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9891,7 +9893,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../java/calendar/Java-Calendar-use/" class="md-nav__link">
+      <a href="../../../../../java/calendar/Java-Calendar-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9912,7 +9914,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../java/anotation/Java-annotation-intro/" class="md-nav__link">
+      <a href="../../../../../java/anotation/Java-annotation-intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9933,7 +9935,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../java/security/Java-encrypt-note/" class="md-nav__link">
+      <a href="../../../../../java/security/Java-encrypt-note/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -9994,7 +9996,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../java/swing/Java-Swing-use1/" class="md-nav__link">
+      <a href="../../../../../java/swing/Java-Swing-use1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10070,7 +10072,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../kotlin/breif/kt-first/" class="md-nav__link">
+      <a href="../../../../../kotlin/breif/kt-first/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10091,7 +10093,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../kotlin/basic/intro/hello-world/" class="md-nav__link">
+      <a href="../../../../../kotlin/basic/intro/hello-world/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10112,7 +10114,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../kotlin/basic/kotlin-common-patterns-in-android/" class="md-nav__link">
+      <a href="../../../../../kotlin/basic/kotlin-common-patterns-in-android/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10173,7 +10175,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../kotlin/basic/basic-syntax/" class="md-nav__link">
+      <a href="../../../../../kotlin/basic/basic-syntax/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10194,7 +10196,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../kotlin/basic/functions/" class="md-nav__link">
+      <a href="../../../../../kotlin/basic/functions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10223,7 +10225,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../kotlin/basic/idioms/" class="md-nav__link">
+      <a href="../../../../../kotlin/basic/idioms/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10284,7 +10286,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../kotlin/coroutines/basic/first/" class="md-nav__link">
+      <a href="../../../../../kotlin/coroutines/basic/first/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10305,7 +10307,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../kotlin/coroutines/basic/b2/" class="md-nav__link">
+      <a href="../../../../../kotlin/coroutines/basic/b2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10326,7 +10328,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../kotlin/coroutines/cancel-timeout/" class="md-nav__link">
+      <a href="../../../../../kotlin/coroutines/cancel-timeout/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10402,7 +10404,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../designPattern/Adapter-Pattern/" class="md-nav__link">
+      <a href="../../../../../designPattern/Adapter-Pattern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10423,7 +10425,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../designPattern/Listener_pattern_practice_in_Java_Android/" class="md-nav__link">
+      <a href="../../../../../designPattern/Listener_pattern_practice_in_Java_Android/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10444,7 +10446,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../designPattern/Bridge-Pattern/" class="md-nav__link">
+      <a href="../../../../../designPattern/Bridge-Pattern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10465,7 +10467,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../designPattern/Builder-Pattern/" class="md-nav__link">
+      <a href="../../../../../designPattern/Builder-Pattern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10486,7 +10488,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../designPattern/Command-pattern/" class="md-nav__link">
+      <a href="../../../../../designPattern/Command-pattern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10507,7 +10509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../designPattern/Decoration_Java/" class="md-nav__link">
+      <a href="../../../../../designPattern/Decoration_Java/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10528,7 +10530,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../designPattern/Strategy-Pattern/" class="md-nav__link">
+      <a href="../../../../../designPattern/Strategy-Pattern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10549,7 +10551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../designPattern/Factory_method_Java/" class="md-nav__link">
+      <a href="../../../../../designPattern/Factory_method_Java/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10570,7 +10572,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../designPattern/Iterator_Java/" class="md-nav__link">
+      <a href="../../../../../designPattern/Iterator_Java/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10591,7 +10593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../designPattern/Mediator-Pattern/" class="md-nav__link">
+      <a href="../../../../../designPattern/Mediator-Pattern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10612,7 +10614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../designPattern/Memento-Pattern/" class="md-nav__link">
+      <a href="../../../../../designPattern/Memento-Pattern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10633,7 +10635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../designPattern/Prototype-Pattern/" class="md-nav__link">
+      <a href="../../../../../designPattern/Prototype-Pattern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10654,7 +10656,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../designPattern/Proxy-Pattern/" class="md-nav__link">
+      <a href="../../../../../designPattern/Proxy-Pattern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10675,7 +10677,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../designPattern/Responsibility-Chain-Pattern/" class="md-nav__link">
+      <a href="../../../../../designPattern/Responsibility-Chain-Pattern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10696,7 +10698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../designPattern/State-Pattern/" class="md-nav__link">
+      <a href="../../../../../designPattern/State-Pattern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10717,7 +10719,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../designPattern/Template-Method-Pattern_Java/" class="md-nav__link">
+      <a href="../../../../../designPattern/Template-Method-Pattern_Java/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10738,7 +10740,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../designPattern/Visitor-Pattern/" class="md-nav__link">
+      <a href="../../../../../designPattern/Visitor-Pattern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10759,7 +10761,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../designPattern/Flyweight-Pattern/" class="md-nav__link">
+      <a href="../../../../../designPattern/Flyweight-Pattern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10780,7 +10782,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../designPattern/Facade-Pattern/" class="md-nav__link">
+      <a href="../../../../../designPattern/Facade-Pattern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10848,7 +10850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tech-note-index/" class="md-nav__link">
+      <a href="../../../../../tech-note-index/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10869,7 +10871,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../recent-post/" class="md-nav__link">
+      <a href="../../../../../recent-post/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10890,7 +10892,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../tags/" class="md-nav__link">
+      <a href="../../../../../tags/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10911,7 +10913,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../git/git-tips/" class="md-nav__link">
+      <a href="../../../../../git/git-tips/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -10972,7 +10974,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../harmony/window/change-app-screen-orientation/" class="md-nav__link">
+      <a href="../../../../../harmony/window/change-app-screen-orientation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11041,7 +11043,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../uniapp/uniapp-android-local-build/" class="md-nav__link">
+      <a href="../../../../../uniapp/uniapp-android-local-build/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11062,7 +11064,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../uniapp/uniapp-android-start-too-slow/" class="md-nav__link">
+      <a href="../../../../../uniapp/uniapp-android-start-too-slow/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11083,7 +11085,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../uniapp/uniapp-android-horizontal-screen/" class="md-nav__link">
+      <a href="../../../../../uniapp/uniapp-android-horizontal-screen/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11104,7 +11106,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../uniapp/uniapp-android-click/" class="md-nav__link">
+      <a href="../../../../../uniapp/uniapp-android-click/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11173,7 +11175,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../nestjs/nestjs-websocket-start/" class="md-nav__link">
+      <a href="../../../../../nestjs/nestjs-websocket-start/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11194,7 +11196,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../nestjs/wss-nginx-cfg/" class="md-nav__link">
+      <a href="../../../../../nestjs/wss-nginx-cfg/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11215,7 +11217,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../nestjs/nestjs-static-file/" class="md-nav__link">
+      <a href="../../../../../nestjs/nestjs-static-file/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11236,7 +11238,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../nestjs/nest-devops/" class="md-nav__link">
+      <a href="../../../../../nestjs/nest-devops/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11257,7 +11259,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../nestjs/mp-wx-http-status-code/" class="md-nav__link">
+      <a href="../../../../../nestjs/mp-wx-http-status-code/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11315,7 +11317,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../nestjs/simple-chat/create-nest-project/" class="md-nav__link">
+      <a href="../../../../../nestjs/simple-chat/create-nest-project/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11336,7 +11338,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../nestjs/simple-chat/web-connect-local/" class="md-nav__link">
+      <a href="../../../../../nestjs/simple-chat/web-connect-local/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11357,7 +11359,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../nestjs/simple-chat/transfer-msg-local/" class="md-nav__link">
+      <a href="../../../../../nestjs/simple-chat/transfer-msg-local/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11378,7 +11380,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../nestjs/simple-chat/deploy-on-server/" class="md-nav__link">
+      <a href="../../../../../nestjs/simple-chat/deploy-on-server/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11399,7 +11401,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../nestjs/simple-chat/room-chat/" class="md-nav__link">
+      <a href="../../../../../nestjs/simple-chat/room-chat/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11476,7 +11478,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../media/info/media-open-source-projects/" class="md-nav__link">
+      <a href="../../../../../media/info/media-open-source-projects/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11497,7 +11499,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../media/color/yuv-intro/" class="md-nav__link">
+      <a href="../../../../../media/color/yuv-intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11518,7 +11520,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../media/video/yuv-save-format/" class="md-nav__link">
+      <a href="../../../../../media/video/yuv-save-format/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11539,7 +11541,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../media/audio/some-audio-video-media-format/" class="md-nav__link">
+      <a href="../../../../../media/audio/some-audio-video-media-format/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11608,7 +11610,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../cocos/creator/ccc-touch-event/" class="md-nav__link">
+      <a href="../../../../../cocos/creator/ccc-touch-event/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11629,7 +11631,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../cocos/creator/ccc-postion-and-cvt/" class="md-nav__link">
+      <a href="../../../../../cocos/creator/ccc-postion-and-cvt/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11650,7 +11652,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../cocos/creator/ccc-drag-anywhere/" class="md-nav__link">
+      <a href="../../../../../cocos/creator/ccc-drag-anywhere/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11671,7 +11673,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../cocos/creator/ccc-drag-to-target/" class="md-nav__link">
+      <a href="../../../../../cocos/creator/ccc-drag-to-target/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11692,7 +11694,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../cocos/creator/g/dev-2d-game/" class="md-nav__link">
+      <a href="../../../../../cocos/creator/g/dev-2d-game/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11761,7 +11763,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../linux/usr/ls-use/" class="md-nav__link">
+      <a href="../../../../../linux/usr/ls-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11782,7 +11784,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../linux/usr/awk-use/" class="md-nav__link">
+      <a href="../../../../../linux/usr/awk-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11803,7 +11805,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../linux/usr/grep-use/" class="md-nav__link">
+      <a href="../../../../../linux/usr/grep-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11824,7 +11826,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../linux/usr/find-use/" class="md-nav__link">
+      <a href="../../../../../linux/usr/find-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11845,7 +11847,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../linux/usr/curl-use/" class="md-nav__link">
+      <a href="../../../../../linux/usr/curl-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11866,7 +11868,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../linux/shell/for-use/" class="md-nav__link">
+      <a href="../../../../../linux/shell/for-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11887,7 +11889,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../linux/usr/netstat-use/" class="md-nav__link">
+      <a href="../../../../../linux/usr/netstat-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11908,7 +11910,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../redis/redis-docker-master-slave-sentinel-123/" class="md-nav__link">
+      <a href="../../../../../redis/redis-docker-master-slave-sentinel-123/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11929,7 +11931,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../apollo/apollo-docker-run-dev-fat/" class="md-nav__link">
+      <a href="../../../../../apollo/apollo-docker-run-dev-fat/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11950,7 +11952,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../nginx/nginx-conf-note/" class="md-nav__link">
+      <a href="../../../../../nginx/nginx-conf-note/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11971,7 +11973,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../db/mysql/docker-mysql-modify-pwd/" class="md-nav__link">
+      <a href="../../../../../db/mysql/docker-mysql-modify-pwd/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -11992,7 +11994,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../server/component/xxl-job/docker-run-xxl-job/" class="md-nav__link">
+      <a href="../../../../../server/component/xxl-job/docker-run-xxl-job/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12061,7 +12063,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../embedded/base/what-is-float-NaN-Inf/" class="md-nav__link">
+      <a href="../../../../../embedded/base/what-is-float-NaN-Inf/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12119,7 +12121,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../embedded/wifi/ESP8266-struc-start/" class="md-nav__link">
+      <a href="../../../../../embedded/wifi/ESP8266-struc-start/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12140,7 +12142,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../embedded/wifi/ESP8266-Bootloader-rtfsc-rboot-1/" class="md-nav__link">
+      <a href="../../../../../embedded/wifi/ESP8266-Bootloader-rtfsc-rboot-1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12161,7 +12163,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../embedded/wifi/ESP8266-Bootloader-rtfsc-rboot-2/" class="md-nav__link">
+      <a href="../../../../../embedded/wifi/ESP8266-Bootloader-rtfsc-rboot-2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12227,7 +12229,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../embedded/dev/utils-enum-tostring/" class="md-nav__link">
+      <a href="../../../../../embedded/dev/utils-enum-tostring/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12248,7 +12250,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../embedded/dev/utils-binary-cvt/" class="md-nav__link">
+      <a href="../../../../../embedded/dev/utils-binary-cvt/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12269,7 +12271,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../embedded/dev/utils-for-chips-base-time-space-cal/" class="md-nav__link">
+      <a href="../../../../../embedded/dev/utils-for-chips-base-time-space-cal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12346,7 +12348,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../ios/uikit/tableview/case/table-view-and-other/" class="md-nav__link">
+      <a href="../../../../../ios/uikit/tableview/case/table-view-and-other/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12367,7 +12369,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../ios/uikit/tableview/case/table-view-and-other-cell/" class="md-nav__link">
+      <a href="../../../../../ios/uikit/tableview/case/table-view-and-other-cell/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12425,7 +12427,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../ios/uikit/tableview/table-view-storyboard-sample1/" class="md-nav__link">
+      <a href="../../../../../ios/uikit/tableview/table-view-storyboard-sample1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12446,7 +12448,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../ios/uikit/tableview/table-view-storyboard-sample2/" class="md-nav__link">
+      <a href="../../../../../ios/uikit/tableview/table-view-storyboard-sample2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12467,7 +12469,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../ios/uikit/tableview/table-view-storyboard-sample3/" class="md-nav__link">
+      <a href="../../../../../ios/uikit/tableview/table-view-storyboard-sample3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12488,7 +12490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../ios/uikit/tableview/table-view-storyboard-sample4-ds/" class="md-nav__link">
+      <a href="../../../../../ios/uikit/tableview/table-view-storyboard-sample4-ds/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12509,7 +12511,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../ios/uikit/tableview/table-view-storyboard-sample5-edit/" class="md-nav__link">
+      <a href="../../../../../ios/uikit/tableview/table-view-storyboard-sample5-edit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12538,7 +12540,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../ios/lib/a-lib-missing-arch/" class="md-nav__link">
+      <a href="../../../../../ios/lib/a-lib-missing-arch/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12596,7 +12598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../ios/xcode/basic-use/" class="md-nav__link">
+      <a href="../../../../../ios/xcode/basic-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12625,7 +12627,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../ios/duns-apple-2022/" class="md-nav__link">
+      <a href="../../../../../ios/duns-apple-2022/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12694,7 +12696,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../lua/start/lua-simple-start-mac/" class="md-nav__link">
+      <a href="../../../../../lua/start/lua-simple-start-mac/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12715,7 +12717,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../lua/start/lua-base/" class="md-nav__link">
+      <a href="../../../../../lua/start/lua-base/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12784,7 +12786,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../db/note-mongodb-mysql/" class="md-nav__link">
+      <a href="../../../../../db/note-mongodb-mysql/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12813,7 +12815,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../sip/sip-err-code/" class="md-nav__link">
+      <a href="../../../../../sip/sip-err-code/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12834,7 +12836,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../sip/sip-and-sdp/" class="md-nav__link">
+      <a href="../../../../../sip/sip-and-sdp/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12932,7 +12934,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../fun/joke-5/" class="md-nav__link">
+      <a href="../../../../../fun/joke-5/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12953,7 +12955,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../fun/joke-4/" class="md-nav__link">
+      <a href="../../../../../fun/joke-4/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12974,7 +12976,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../fun/joke-3/" class="md-nav__link">
+      <a href="../../../../../fun/joke-3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -12995,7 +12997,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../fun/joke-2/" class="md-nav__link">
+      <a href="../../../../../fun/joke-2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13016,7 +13018,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../fun/joke-1/" class="md-nav__link">
+      <a href="../../../../../fun/joke-1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13045,7 +13047,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../fun/http-code/" class="md-nav__link">
+      <a href="../../../../../fun/http-code/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13185,7 +13187,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../about/" class="md-nav__link">
+      <a href="../../../../../about/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13206,7 +13208,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../about/fr/" class="md-nav__link">
+      <a href="../../../../../about/fr/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13227,7 +13229,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../about/sponsor-author/" class="md-nav__link">
+      <a href="../../../../../about/sponsor-author/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13248,7 +13250,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../about/site-dev-note/" class="md-nav__link">
+      <a href="../../../../../about/site-dev-note/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13316,7 +13318,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/basic/get-path/" class="md-nav__link">
+      <a href="../../../../../python/basic/get-path/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13377,7 +13379,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/basic/dictionary-JSON-file/" class="md-nav__link">
+      <a href="../../../../../python/basic/dictionary-JSON-file/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13398,7 +13400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/io/scan-file-like-tree/" class="md-nav__link">
+      <a href="../../../../../python/io/scan-file-like-tree/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13419,7 +13421,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/io/read-write-csv/" class="md-nav__link">
+      <a href="../../../../../python/io/read-write-csv/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13488,7 +13490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/openpyxl/openpyxl-tutorial/" class="md-nav__link">
+      <a href="../../../../../python/openpyxl/openpyxl-tutorial/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13509,7 +13511,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/openpyxl/openpyxl-charts-bar-column/" class="md-nav__link">
+      <a href="../../../../../python/openpyxl/openpyxl-charts-bar-column/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13530,7 +13532,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/openpyxl/op-excel-openpyxl-use/" class="md-nav__link">
+      <a href="../../../../../python/openpyxl/op-excel-openpyxl-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13551,7 +13553,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/openpyxl/op-excel-openpyxl-bar-column-chart/" class="md-nav__link">
+      <a href="../../../../../python/openpyxl/op-excel-openpyxl-bar-column-chart/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13572,7 +13574,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/openpyxl/op-draw-funnel-1/" class="md-nav__link">
+      <a href="../../../../../python/openpyxl/op-draw-funnel-1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13641,7 +13643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/matplotlib/matplotlib-intro1/" class="md-nav__link">
+      <a href="../../../../../python/matplotlib/matplotlib-intro1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13662,7 +13664,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/matplotlib/matplotlib-intro-parts/" class="md-nav__link">
+      <a href="../../../../../python/matplotlib/matplotlib-intro-parts/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13731,7 +13733,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/scrapy/scrapy-hw-blog-record/" class="md-nav__link">
+      <a href="../../../../../python/scrapy/scrapy-hw-blog-record/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13800,7 +13802,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/mysql/use1/" class="md-nav__link">
+      <a href="../../../../../python/mysql/use1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13829,7 +13831,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/basic/pip-solution/" class="md-nav__link">
+      <a href="../../../../../python/basic/pip-solution/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13890,7 +13892,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/record/ffmpeg-extraction-mp4-use/" class="md-nav__link">
+      <a href="../../../../../python/record/ffmpeg-extraction-mp4-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13911,7 +13913,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/record/python3-send-email/" class="md-nav__link">
+      <a href="../../../../../python/record/python3-send-email/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -13932,7 +13934,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../python/record/adb-use/" class="md-nav__link">
+      <a href="../../../../../python/record/adb-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14001,7 +14003,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../pyqt/pycharm-install-and-config/" class="md-nav__link">
+      <a href="../../../../../pyqt/pycharm-install-and-config/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14022,7 +14024,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../pyqt/install-pyqt5/" class="md-nav__link">
+      <a href="../../../../../pyqt/install-pyqt5/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14043,7 +14045,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../pyqt/pyqt-QMainWindow-use1/" class="md-nav__link">
+      <a href="../../../../../pyqt/pyqt-QMainWindow-use1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14064,7 +14066,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../pyqt/pyqt-adjust-screen-resolution/" class="md-nav__link">
+      <a href="../../../../../pyqt/pyqt-adjust-screen-resolution/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14085,7 +14087,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../pyqt/pyqt-drag-and-drop/" class="md-nav__link">
+      <a href="../../../../../pyqt/pyqt-drag-and-drop/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14106,7 +14108,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../pyqt/pyqt-QFileDialog-use/" class="md-nav__link">
+      <a href="../../../../../pyqt/pyqt-QFileDialog-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14127,7 +14129,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../pyqt/pyqt-locale/" class="md-nav__link">
+      <a href="../../../../../pyqt/pyqt-locale/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14148,7 +14150,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../pyqt/pyqt5-custom-QWidget-use/" class="md-nav__link">
+      <a href="../../../../../pyqt/pyqt5-custom-QWidget-use/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14169,7 +14171,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../pyqt/pyqt-QThread/" class="md-nav__link">
+      <a href="../../../../../pyqt/pyqt-QThread/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14190,7 +14192,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../pyqt/pyqt-pack-exe/" class="md-nav__link">
+      <a href="../../../../../pyqt/pyqt-pack-exe/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14211,7 +14213,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../pyqt/pyqt5-install-license/" class="md-nav__link">
+      <a href="../../../../../pyqt/pyqt5-install-license/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14287,7 +14289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../webrtc/intro/concept-intro/" class="md-nav__link">
+      <a href="../../../../../webrtc/intro/concept-intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14308,7 +14310,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../webrtc/media/media-consultation-sdp-intro/" class="md-nav__link">
+      <a href="../../../../../webrtc/media/media-consultation-sdp-intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14369,7 +14371,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../webrtc/web-samples/getUserMedia-open-camera/" class="md-nav__link">
+      <a href="../../../../../webrtc/web-samples/getUserMedia-open-camera/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14390,7 +14392,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../webrtc/web-samples/resolution/" class="md-nav__link">
+      <a href="../../../../../webrtc/web-samples/resolution/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14411,7 +14413,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../webrtc/web-samples/canvas1/" class="md-nav__link">
+      <a href="../../../../../webrtc/web-samples/canvas1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14432,7 +14434,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../webrtc/web-samples/css-filters/" class="md-nav__link">
+      <a href="../../../../../webrtc/web-samples/css-filters/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14453,7 +14455,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../webrtc/web-samples/getusermedia-record/" class="md-nav__link">
+      <a href="../../../../../webrtc/web-samples/getusermedia-record/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14474,7 +14476,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../webrtc/web-samples/getdisplaymedia/" class="md-nav__link">
+      <a href="../../../../../webrtc/web-samples/getdisplaymedia/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14495,7 +14497,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../webrtc/web-samples/audio-collection/" class="md-nav__link">
+      <a href="../../../../../webrtc/web-samples/audio-collection/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14516,7 +14518,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../webrtc/capture/video-local-peer/" class="md-nav__link">
+      <a href="../../../../../webrtc/capture/video-local-peer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14537,7 +14539,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../webrtc/peerconnection/upgrade-to-video/" class="md-nav__link">
+      <a href="../../../../../webrtc/peerconnection/upgrade-to-video/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14558,7 +14560,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../webrtc/peerconnection/multi-relay/" class="md-nav__link">
+      <a href="../../../../../webrtc/peerconnection/multi-relay/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14579,7 +14581,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../webrtc/peerconnection/change-codec/" class="md-nav__link">
+      <a href="../../../../../webrtc/peerconnection/change-codec/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14608,7 +14610,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../webrtc/turn/ubuntu-run-coturn/" class="md-nav__link">
+      <a href="../../../../../webrtc/turn/ubuntu-run-coturn/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14669,7 +14671,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../webrtc/intro/sync-build/" class="md-nav__link">
+      <a href="../../../../../webrtc/intro/sync-build/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14690,7 +14692,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../webrtc/android/agc-ns-compile/" class="md-nav__link">
+      <a href="../../../../../webrtc/android/agc-ns-compile/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14719,7 +14721,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../webrtc/some-reference/" class="md-nav__link">
+      <a href="../../../../../webrtc/some-reference/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -14795,77 +14797,39 @@
                   
 
 
-<h1 id="android-mappedbytebuffer">Android MappedByteBuffer文件映射内存使用示例<a class="headerlink" href="#android-mappedbytebuffer" title="Permanent link">&para;</a></h1>
-<p>频繁读写io会造成性能问题。有没有另外一种读写文件的方式呢？</p>
-<p>使用RandomAccessFile来获取MappedByteBuffer。</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">writeDemo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;[writeDemo] start&quot;</span><span class="p">);</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">inputStr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;This write demo. 维多利亚女王纪念碑是位于英国伦敦的一座大型纪念碑和雕塑组合，建于1911年。&quot;</span><span class="p">;</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">        </span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="n">inputBytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inputStr</span><span class="p">.</span><span class="na">getBytes</span><span class="p">();</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inputBytes</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">            </span><span class="n">RandomAccessFile</span><span class="w"> </span><span class="n">randomAccessFile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RandomAccessFile</span><span class="p">(</span><span class="s">&quot;out/writeDemo.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;rw&quot;</span><span class="p">);</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">            </span><span class="n">MappedByteBuffer</span><span class="w"> </span><span class="n">mappedByteBuffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">randomAccessFile</span><span class="p">.</span><span class="na">getChannel</span><span class="p">().</span><span class="na">map</span><span class="p">(</span><span class="n">FileChannel</span><span class="p">.</span><span class="na">MapMode</span><span class="p">.</span><span class="na">READ_WRITE</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">length</span><span class="p">);</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">            </span><span class="n">mappedByteBuffer</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">inputBytes</span><span class="p">);</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">            </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;[writeDemo] end&quot;</span><span class="p">);</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="p">}</span>
+<h1 id="android-paint-setalphaint-a">Android Paint setAlpha(int a) 方法<a class="headerlink" href="#android-paint-setalphaint-a" title="Permanent link">&para;</a></h1>
+<details class="note">
+<summary>更新日期 2025-12-19</summary>
+<ul>
+<li>2025-12-22 创建文档</li>
+</ul>
+</details>
+<p>在自定义View中会使用到<strong>Paint</strong>，设置画笔颜色时经常使用<code>setColor</code>方法，设置不透明度可用<code>setAlpha</code>方法。</p>
+<p><code>setAlpha</code>方法源码（Android API34）
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setAlpha</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">        </span><span class="n">ColorSpace</span><span class="w"> </span><span class="n">cs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">colorSpace</span><span class="p">(</span><span class="n">mColor</span><span class="p">);</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">        </span><span class="kt">float</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">red</span><span class="p">(</span><span class="n">mColor</span><span class="p">);</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">        </span><span class="kt">float</span><span class="w"> </span><span class="n">g</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">green</span><span class="p">(</span><span class="n">mColor</span><span class="p">);</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">        </span><span class="kt">float</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">blue</span><span class="p">(</span><span class="n">mColor</span><span class="p">);</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">        </span><span class="n">mColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">pack</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="mf">1.0f</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">255</span><span class="p">),</span><span class="w"> </span><span class="n">cs</span><span class="p">);</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">        </span><span class="n">nSetAlpha</span><span class="p">(</span><span class="n">mNativePaint</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">);</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="p">}</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">writeAppendDemo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;[writeAppendDemo] start&quot;</span><span class="p">);</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">appendText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;\nThis is append text. 纪念碑的基座由2300吨汉白玉构成。&quot;</span><span class="p">;</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">        </span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">appendText</span><span class="p">.</span><span class="na">getBytes</span><span class="p">();</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bytes</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">            </span><span class="n">RandomAccessFile</span><span class="w"> </span><span class="n">randomAccessFile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RandomAccessFile</span><span class="p">(</span><span class="s">&quot;out/writeDemo.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;rw&quot;</span><span class="p">);</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">            </span><span class="n">MappedByteBuffer</span><span class="w"> </span><span class="n">mappedByteBuffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">randomAccessFile</span><span class="p">.</span><span class="na">getChannel</span><span class="p">().</span><span class="na">map</span><span class="p">(</span><span class="n">FileChannel</span><span class="p">.</span><span class="na">MapMode</span><span class="p">.</span><span class="na">READ_WRITE</span><span class="p">,</span><span class="w"> </span><span class="n">randomAccessFile</span><span class="p">.</span><span class="na">length</span><span class="p">(),</span><span class="w"> </span><span class="n">length</span><span class="p">);</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">            </span><span class="n">mappedByteBuffer</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">bytes</span><span class="p">);</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">            </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;[writeAppendDemo] end&quot;</span><span class="p">);</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="p">}</span>
-</code></pre></div>
-<p>Android中使用MappedByteBuffer写入文件。记住当前写文件的位置gCurrentLogPos，处理文件增长的问题。</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">File</span><span class="w"> </span><span class="n">dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="n">logFileDir</span><span class="p">);</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">dir</span><span class="p">.</span><span class="na">exists</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="n">mk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dir</span><span class="p">.</span><span class="na">mkdirs</span><span class="p">();</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="n">Log</span><span class="p">.</span><span class="na">d</span><span class="p">(</span><span class="n">defTag</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;make dir &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">mk</span><span class="p">);</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">}</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="n">File</span><span class="w"> </span><span class="n">eFile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="n">logFileDir</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">File</span><span class="p">.</span><span class="na">separator</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">fileName</span><span class="p">);</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="n">strBytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">logContent</span><span class="p">.</span><span class="na">getBytes</span><span class="p">();</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="k">try</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="n">RandomAccessFile</span><span class="w"> </span><span class="n">randomAccessFile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RandomAccessFile</span><span class="p">(</span><span class="n">eFile</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;rw&quot;</span><span class="p">);</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="n">MappedByteBuffer</span><span class="w"> </span><span class="n">mappedByteBuffer</span><span class="p">;</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">inputLen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strBytes</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">eFile</span><span class="p">.</span><span class="na">exists</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">        </span><span class="kt">boolean</span><span class="w"> </span><span class="n">nf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">eFile</span><span class="p">.</span><span class="na">createNewFile</span><span class="p">();</span>
-<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">        </span><span class="n">Log</span><span class="p">.</span><span class="na">d</span><span class="p">(</span><span class="n">defTag</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;new log file &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nf</span><span class="p">);</span>
-<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">        </span><span class="n">mappedByteBuffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">randomAccessFile</span><span class="p">.</span><span class="na">getChannel</span><span class="p">().</span><span class="na">map</span><span class="p">(</span><span class="n">FileChannel</span><span class="p">.</span><span class="na">MapMode</span><span class="p">.</span><span class="na">READ_WRITE</span><span class="p">,</span><span class="w"> </span><span class="n">gCurrentLogPos</span><span class="p">,</span><span class="w"> </span><span class="n">LOG_FILE_GROW_SIZE</span><span class="p">);</span>
-<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">        </span><span class="n">mappedByteBuffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">randomAccessFile</span><span class="p">.</span><span class="na">getChannel</span><span class="p">().</span><span class="na">map</span><span class="p">(</span><span class="n">FileChannel</span><span class="p">.</span><span class="na">MapMode</span><span class="p">.</span><span class="na">READ_WRITE</span><span class="p">,</span><span class="w"> </span><span class="n">gCurrentLogPos</span><span class="p">,</span><span class="w"> </span><span class="n">inputLen</span><span class="p">);</span>
-<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mappedByteBuffer</span><span class="p">.</span><span class="na">remaining</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">inputLen</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">        </span><span class="n">mappedByteBuffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">randomAccessFile</span><span class="p">.</span><span class="na">getChannel</span><span class="p">().</span><span class="na">map</span><span class="p">(</span><span class="n">FileChannel</span><span class="p">.</span><span class="na">MapMode</span><span class="p">.</span><span class="na">READ_WRITE</span><span class="p">,</span><span class="w"> </span><span class="n">gCurrentLogPos</span><span class="p">,</span><span class="w"> </span><span class="n">LOG_FILE_GROW_SIZE</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">inputLen</span><span class="p">);</span>
-<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">    </span><span class="n">mappedByteBuffer</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">strBytes</span><span class="p">);</span>
-<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">    </span><span class="n">gCurrentLogPos</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">inputLen</span><span class="p">;</span>
-<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">    </span><span class="n">Log</span><span class="p">.</span><span class="na">e</span><span class="p">(</span><span class="n">defTag</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;WriteRunnable run: &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">);</span>
-<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">eFile</span><span class="p">.</span><span class="na">exists</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="w">        </span><span class="kt">boolean</span><span class="w"> </span><span class="n">nf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">eFile</span><span class="p">.</span><span class="na">createNewFile</span><span class="p">();</span>
-<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="w">        </span><span class="n">Log</span><span class="p">.</span><span class="na">d</span><span class="p">(</span><span class="n">defTag</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;new log file &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nf</span><span class="p">);</span>
-<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a><span class="w">    </span><span class="n">FileOutputStream</span><span class="w"> </span><span class="n">os</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FileOutputStream</span><span class="p">(</span><span class="n">eFile</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
-<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a><span class="w">    </span><span class="n">os</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">logContent</span><span class="p">.</span><span class="na">getBytes</span><span class="p">());</span>
-<a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a><span class="w">    </span><span class="n">os</span><span class="p">.</span><span class="na">flush</span><span class="p">();</span>
-<a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a><span class="w">    </span><span class="n">os</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
-<a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a><span class="p">}</span>
-</code></pre></div>
+传入的透明度取值范围是0 ~ 255。</p>
+<ul>
+<li>0：完全透明（Invisible）。</li>
+<li>255：完全不透明（Opaque）。</li>
+<li>127：大约 50% 的透明度。</li>
+</ul>
+<p>方法中先把当前颜色的rgb值解析出来，把传入的alpha值映射计算为小数。最后打包会mColor</p>
+<p><code>setColor</code>方法源码（Android API34）
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setColor</span><span class="p">(</span><span class="nd">@ColorInt</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">color</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">        </span><span class="n">nSetColor</span><span class="p">(</span><span class="n">mNativePaint</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="p">);</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">        </span><span class="n">mColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">pack</span><span class="p">(</span><span class="n">color</span><span class="p">);</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="p">}</span>
+</code></pre></div></p>
+<p>因此如果先调用<code>setAlpha</code>方法，再调用<code>setColor</code>。之前设置的alpha值就无效了，被后面的<code>setColor</code>覆盖。</p>
+<p>所以在开发中要注意先 <code>setColor</code>，后 <code>setAlpha</code></p>
 
 
 
@@ -14922,7 +14886,7 @@
 
   <details class="info" open><summary class="">本站说明</summary>
     <!-- <p><b>本站作者</b>: <a href="https://rustfisher.com">rustfisher.com</a> | rf.cs@foxmail.com</p>
-    <p><b>本文链接</b>: <a href="https://www.an.rustfisher.com/android/io/mmap/mappedByteBuffer-use-demo1/">https://www.an.rustfisher.com/android/io/mmap/mappedByteBuffer-use-demo1/</a></p> -->
+    <p><b>本文链接</b>: <a href="https://www.an.rustfisher.com/android/ui/view/customView/paint-setalpha/">https://www.an.rustfisher.com/android/ui/view/customView/paint-setalpha/</a></p> -->
     <p>一起在知识的海洋里呛水吧。广告内容与本站无关。如果喜欢本站内容，欢迎投喂作者，谢谢支持服务器。如有疑问和建议，欢迎在下方评论~</p>
     <p>
       <a class="md-button" href="https://gitee.com/rustfisher/AndroidTutorial">📖AndroidTutorial</a>
@@ -15031,7 +14995,7 @@ setTimeout(() => {
     <nav class="md-footer__inner md-grid" aria-label="footer.title">
       
         
-        <a href="../mmap_intro_and_use/" class="md-footer__link md-footer__link--prev" aria-label="上一页: mmap 文件映射到内存介绍" rel="prev">
+        <a href="../../../widget/toast/custom-toast/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 自定义Toast" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -15040,20 +15004,20 @@ setTimeout(() => {
               <span class="md-footer__direction">
                 上一页
               </span>
-              mmap 文件映射到内存介绍
+              自定义Toast
             </div>
           </div>
         </a>
       
       
         
-        <a href="../../../content/sharedpreferences/intro1/" class="md-footer__link md-footer__link--next" aria-label="下一页: SharedPerences 存取配置" rel="next">
+        <a href="../../animation/view-animation-intro/" class="md-footer__link md-footer__link--next" aria-label="下一页: 简介" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 下一页
               </span>
-              SharedPerences 存取配置
+              简介
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -15119,14 +15083,14 @@ setTimeout(() => {
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["tabs", "navigation.tabs", "navigation.sections", "content.code.annotate"], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["tabs", "navigation.tabs", "navigation.sections", "content.code.annotate"], "search": "../../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.e1c3ead8.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.e1c3ead8.min.js"></script>
       
-        <script src="../../../../about/baidu.js"></script>
+        <script src="../../../../../about/baidu.js"></script>
       
-        <script src="../../../../about/so_360.js"></script>
+        <script src="../../../../../about/so_360.js"></script>
       
     
   </body>

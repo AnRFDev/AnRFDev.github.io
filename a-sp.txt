@@ -108,6 +108,7 @@ https://www.an.rustfisher.com/android/ui/view/customView/auto-zoom-line-chart/
 https://www.an.rustfisher.com/android/ui/view/customView/wave-view/
 https://www.an.rustfisher.com/android/ui/view/customView/zt-star-moving/
 https://www.an.rustfisher.com/android/ui/widget/toast/custom-toast/
+https://www.an.rustfisher.com/android/ui/view/customView/paint-setalpha/
 https://www.an.rustfisher.com/android/ui/view/animation/view-animation-intro/
 https://www.an.rustfisher.com/android/ui/view/animation/animation-drawable-use/
 https://www.an.rustfisher.com/android/ui/view/animation/tween-use1/
