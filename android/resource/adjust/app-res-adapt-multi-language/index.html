@@ -113,8 +113,8 @@
     <!-- 暂时让时间一致 -->
       
       
-      <meta name="bytedance:updated_time" content="2022-08-03 00:43:57+08:00"/>
-      <meta name="bytedance:lrDate_time" content="2022-08-03 00:43:57+08:00"/>
+      <meta name="bytedance:updated_time" content="2026-01-06 00:43:57+08:00"/>
+      <meta name="bytedance:lrDate_time" content="2026-01-06 00:43:57+08:00"/>
     
 
     
@@ -160,8 +160,8 @@
           "@type": "Person",
           "name": "RustFisher"
         },
-        "datePublished": "2022-08-03 00:43:57+08:00",
-        "dateModified": "2022-08-03 00:43:57+08:00",
+        "datePublished": "2026-01-06 00:43:57+08:00",
+        "dateModified": "2026-01-06 00:43:57+08:00",
         "description": "安卓开发，安卓教程，Android入门，安卓新手教程，软件开发基础。突出一个简单明了，上手快。从实用性出发，快速掌握Android开发基本技能。插件式学习，学以致用。",
         "publisher": {
           "@type": "Person",
@@ -2054,6 +2054,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    多语言
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -2063,6 +2074,48 @@
   
 
       </a>
+      
+        
+  
+  <nav class="md-nav md-nav--secondary" aria-label="toc.title">
+    
+    
+    
+      
+    
+    
+      <label class="md-nav__title" for="__toc">
+        <span class="md-nav__icon md-icon"></span>
+        toc.title
+      </label>
+      <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      注意转义问题
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+      <p style="height: 6px;"></p>
+      <div style="display:block;">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7286632197002340"
+        crossorigin="anonymous"></script>
+        <!-- cube1 -->
+        <ins class="adsbygoogle"
+              style="display:inline-block;width:230px;height:230px"
+              data-ad-client="ca-pub-7286632197002340"
+              data-ad-slot="3425975276"></ins>
+        <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+    
+  </nav>
+  
       
     </li>
   
@@ -14782,6 +14835,36 @@
       
     
     
+      <label class="md-nav__title" for="__toc">
+        <span class="md-nav__icon md-icon"></span>
+        toc.title
+      </label>
+      <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      注意转义问题
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+      <p style="height: 6px;"></p>
+      <div style="display:block;">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7286632197002340"
+        crossorigin="anonymous"></script>
+        <!-- cube1 -->
+        <ins class="adsbygoogle"
+              style="display:inline-block;width:230px;height:230px"
+              data-ad-client="ca-pub-7286632197002340"
+              data-ad-slot="3425975276"></ins>
+        <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+    
   </nav>
   
                   </div>
@@ -14795,9 +14878,27 @@
                 
   
                   
+  
+<nav class="md-tags" >
+  
+    
+    
+    
+      <a href="../../../../tags/#" class="md-tag">多语言</a>
+    
+  
+</nav>
+
 
 
 <h1 id="android">Android 多语言自动适配<a class="headerlink" href="#android" title="Permanent link">&para;</a></h1>
+<details class="note">
+<summary>更新日期: 2026-01-06</summary>
+<ul>
+<li>2026-01-06 更新例子</li>
+<li>2022-01-16 创建文档</li>
+</ul>
+</details>
 <p>Android为多语言适配提供了很大的方便。开发者不需要在代码中进行修改。只需要配置xml文件。</p>
 <p>res --&gt; values 其中存放有xml文件。一般这些都是英文的字符串。我们可以存放其他语言的字符串。</p>
 <p>另一语种的字符串文件放在另外的文件夹下。文件夹命名规则为： <code>values-##-r**</code></p>
@@ -14808,6 +14909,22 @@
 <li>1.在res文件夹下新建一个文件夹，命名为<code>values-zh-rCN</code></li>
 <li>2.在<code>values-zh-rCN</code>文件夹中新建一个<code>string.xml</code>文件，里面存放的是程序中用到的字符串。</li>
 </ul>
+<h2 id="_1">注意转义问题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>比如要显示英文： <code>rustfisher's website</code></p>
+<p>在xml中应该加上斜杠转义符 <code>\</code>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">&lt;string</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;settings&quot;</span><span class="nt">&gt;</span>rustfisher\&#39;s<span class="w"> </span>website<span class="nt">&lt;/string&gt;</span>
+</code></pre></div></p>
+<p>如果不加会编译报错 <code>app:mergeDebugResources</code>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>does not contain a valid string resource.
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Failed to flatten XML for resource &#39;cue2_yungan_guide_11_content_left&#39; with error: Invalid unicode escape sequence in string
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>&quot;{str}&quot;
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>.....
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>Execution failed for task &#39;:app:mergeDebugResources&#39;.
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>&gt; A failure occurred while executing com.android.build.gradle.internal.res.ResourceCompilerRunnable
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>   &gt; Resource compilation failed (Failed to compile values resource file /Users/rustfisher/Desktop/ws/CueActionProject/new-cue-action-android/app/build/intermediates/incremental/debug/mergeDebugResources/merged.dir/values-en/values-en.xml. 
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>   Cause: java.lang.IllegalStateException: Can not extract resource from com.android.aaptcompiler.ParsedResource@14c0ae15.,Can not extract resource from com.android.aaptcompiler.
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>   ParsedResource@2ef165e4.,Can not extract resource from com.android.aaptcompiler.ParsedResource@36387e8f.,Can not extract resource from com.android.aaptcompiler.ParsedResource@1e65102a.,Can not extract resource from com.android.aaptcompiler.ParsedResource@fc4a5f5.,Can not extract resource from com.android.aaptcompiler.ParsedResource@2abf3fac.,Can not extract resource from com.android.aaptcompiler.ParsedResource@5f06e072.,Can not extract resource from com.android.aaptcompiler.ParsedResource@69d45ff8.). Check logs for more details.
+</code></pre></div></p>
 
 
 
