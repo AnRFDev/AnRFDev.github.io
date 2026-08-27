@@ -40,6 +40,7 @@ https://www.an.rustfisher.com/android/fragment/dialogFragment/dialog-fragment-de
 https://www.an.rustfisher.com/android/fragment/dialogFragment/dialogFragment-layout-params/index.html
 https://www.an.rustfisher.com/android/fragment/dialogFragment/custom_width_height/index.html
 https://www.an.rustfisher.com/android/fragment/dialogFragment/df-dialog-height-changed/index.html
+https://www.an.rustfisher.com/android/fragment/dialogFragment/dialogFragment-adjust-fontscale/index.html
 https://www.an.rustfisher.com/android/resource/resources_overview/index.html
 https://www.an.rustfisher.com/android/drawable/shape/index.html
 https://www.an.rustfisher.com/android/drawable/selector/index.html
